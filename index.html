@@ -16,22 +16,34 @@
     --cloud:#FAF7F2;
     --slate:#3A3F52;
     --line: rgba(18,23,43,0.14);
+    --page-bg:#FAF7F2;
+    --heading:#12172B;
+    --body-text:#3A3F52;
+    --card-bg:#FAF7F2;
+  }
+  html[data-theme="dark"]{
+    --page-bg:#15192B;
+    --heading:#FAF7F2;
+    --body-text:#C7CBDA;
+    --card-bg:#1D2238;
+    --line: rgba(250,247,242,0.14);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--cloud);
-    color:var(--slate);
+    background:var(--page-bg);
+    color:var(--body-text);
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
+    transition:background .3s, color .3s;
   }
   h1,h2,h3{
     font-family:'Archivo Black',sans-serif;
     font-weight:400;
     line-height:1.02;
     margin:0;
-    color:var(--ink);
+    color:var(--heading);
   }
   .mono{font-family:'JetBrains Mono',monospace;}
   a{color:inherit;}
@@ -46,7 +58,7 @@
   }
   #route-fill{
     width:100%; height:0%;
-    background:linear-gradient(180deg,var(--coral),var(--gold));
+    background:linear-gradient(180deg,var(--coral),var(--dsa));
     transition:height .05s linear;
   }
   #runner{
@@ -191,7 +203,7 @@
     font-size:.85rem;
     text-transform:uppercase;
     letter-spacing:.14em;
-    color:var(--slate);
+    color:var(--body-text);
     opacity:.6;
   }
   .mile h2{
@@ -221,8 +233,8 @@
     font-weight:700;
     padding-top:3px;
   }
-  .job h3{font-size:1.15rem; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:800; color:var(--ink);}
-  .job p{margin:0; font-size:.98rem; line-height:1.6; color:var(--slate);}
+  .job h3{font-size:1.15rem; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:800; color:var(--heading);}
+  .job p{margin:0; font-size:.98rem; line-height:1.6; color:var(--body-text);}
   .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:30px;}
   .badge{
     font-family:'JetBrains Mono',monospace;
@@ -251,7 +263,7 @@
   .video-caption{
     font-family:'JetBrains Mono',monospace;
     font-size:.78rem;
-    color:var(--slate);
+    color:var(--body-text);
     opacity:.65;
     margin-top:10px;
   }
@@ -292,8 +304,8 @@
   @media (max-width:760px){ .wall-grid{grid-template-columns:1fr;} }
   .split-table{width:100%; border-collapse:collapse;}
   .split-table td{padding:10px 0; border-bottom:1px solid var(--line); font-size:.95rem;}
-  .split-table td.k{color:var(--slate); opacity:.65;}
-  .split-table td.v{font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--ink); text-align:right;}
+  .split-table td.k{color:var(--body-text); opacity:.65;}
+  .split-table td.v{font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--heading); text-align:right;}
   .teams{display:flex; flex-wrap:wrap; gap:10px;}
   .team{
     padding:9px 15px;
@@ -358,12 +370,40 @@
   .quote-rotator .qr-dot.active{background:var(--coral);}
   .culture-list{list-style:none; padding:0; margin:18px 0 0;}
   .culture-list li{
-    padding:14px 0;
+    padding:14px 0 14px 26px;
     border-bottom:1px solid var(--line);
     font-size:1rem;
     line-height:1.55;
+    position:relative;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 84'%3E%3Cpath d='M 50.0,12.0 C 63.8,6.2 74.2,12.2 76.0,27.0 C 87.9,36.0 87.9,48.0 76.0,57.0 C 74.2,71.8 63.8,77.8 50.0,72.0 C 36.2,77.8 25.8,71.8 24.0,57.0 C 12.1,48.0 12.1,36.0 24.0,27.0 C 25.8,12.2 36.2,6.2 50.0,12.0 Z' fill='%23EC1F27'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:0 18px;
+    background-size:14px 14px;
   }
-  .culture-list li b{color:var(--ink);}
+  .culture-list li b{color:var(--heading);}
+
+  .rose-divider{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 8vw;
+  }
+  .rose-divider::before, .rose-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  .rose-divider .rd-glyph{
+    width:20px; height:20px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 84'%3E%3Cpath d='M 50.0,12.0 C 63.8,6.2 74.2,12.2 76.0,27.0 C 87.9,36.0 87.9,48.0 76.0,57.0 C 74.2,71.8 63.8,77.8 50.0,72.0 C 36.2,77.8 25.8,71.8 24.0,57.0 C 12.1,48.0 12.1,36.0 24.0,27.0 C 25.8,12.2 36.2,6.2 50.0,12.0 Z' fill='%23EC1F27' opacity='0.55'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+    flex:none;
+  }
 
   /* Finish */
   .finish{
@@ -476,9 +516,25 @@
     color:var(--cloud);
   }
   #lang-toggle button:hover:not(.active){color:var(--cloud);}
+  #theme-toggle{
+    position:fixed;
+    top:20px; right:290px;
+    z-index:60;
+    background:var(--ink);
+    color:var(--cloud);
+    border:1px solid rgba(250,247,242,0.25);
+    border-radius:999px;
+    width:38px; height:38px;
+    font-size:1rem;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s;
+  }
+  #theme-toggle:hover{background:var(--coral);}
   @media (max-width:760px){
     #lang-toggle{ top:auto; bottom:20px; right:20px; }
     #music-toggle{ top:auto; bottom:70px; right:20px; }
+    #theme-toggle{ top:auto; bottom:120px; right:20px; }
   }
 
   .halfway .rose{
@@ -492,7 +548,7 @@
 
   /* Weather / race conditions card */
   .weather-bar{
-    background:var(--cloud);
+    background:var(--page-bg);
     border-bottom:1px solid var(--line);
     padding:16px 8vw;
     display:flex;
@@ -511,17 +567,25 @@
   .weather-bar .wtemp{
     font-size:1.3rem;
     font-weight:700;
-    color:var(--ink);
+    color:var(--heading);
   }
   .weather-bar .wcond{
     font-size:.85rem;
-    color:var(--slate);
+    color:var(--body-text);
     opacity:.75;
   }
   .weather-bar .whilo{
     font-size:.8rem;
-    color:var(--slate);
+    color:var(--body-text);
     opacity:.6;
+  }
+  .weather-bar .waqi{
+    font-size:.72rem;
+    padding:2px 8px;
+    border-radius:999px;
+    background:rgba(27,122,91,0.15);
+    color:var(--field);
+    font-weight:700;
   }
   .weather-bar .wnote{
     margin-left:auto;
@@ -551,6 +615,8 @@
   <button data-lang="pa">ਪੰਜਾਬੀ</button>
 </div>
 
+<button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
 
 <div id="route"><div id="route-fill"></div></div>
 <svg id="runner" viewBox="0 0 24 24" fill="none">
@@ -578,6 +644,7 @@
   <span class="wtemp" id="w-temp">—</span>
   <span class="wcond" id="w-cond" data-i18n="loading">Loading…</span>
   <span class="whilo" id="w-hilo"></span>
+  <span class="waqi" id="w-aqi"></span>
   <span class="wnote" id="w-note"></span>
 </div>
 
@@ -586,6 +653,9 @@
   <h2 data-i18n="mile0Heading">Systems built from the ground up.</h2>
   <p class="lede" data-i18n="mile0Lede">I lead regional operations across Sacramento, Solano, and Yolo counties for Bay Area Community Services. It's growth I started building in 2021 with a single crisis navigation program and 13 staff. That foundation has since grown into a full portfolio of programs, including our current Full Service Partnership (FSP) build, with 200+ staff across the region today and expansion planned past 250. Off the clock, I coach leaders through Cadence Leadership+Communication, and I currently serve as VP of the Association of Behavioral Health Contractors.</p>
 </section>
+
+
+<div class="rose-divider"><span class="rd-glyph"></span></div>
 
 <section class="mile" id="m1">
   <div class="marker"><span class="num">MILE 6.2</span><span class="label" data-i18n="mile1Label">The Career</span></div>
@@ -620,6 +690,9 @@
   <div class="video-caption">2026 Steinberg Institute Champion Award</div>
 </section>
 
+
+<div class="rose-divider"><span class="rd-glyph"></span></div>
+
 <section class="mile" id="m2">
   <div class="halfway">
     <svg class="rose" viewBox="0 0 100 105" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -653,6 +726,9 @@
     </div>
   </div>
 </section>
+
+
+<div class="rose-divider"><span class="rd-glyph"></span></div>
 
 <section class="mile" id="m3">
   <div class="marker"><span class="num">MILE 20</span><span class="label" data-i18n="mile3Label">The Wall — Passions</span></div>
@@ -886,6 +962,19 @@
       document.getElementById('w-cond').textContent = 'Unavailable right now';
     });
 
+  // Small AQI chip, same provider (Open-Meteo Air Quality API, keyless)
+  fetch('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=38.5816&longitude=-121.4944&current=us_aqi')
+    .then(r => r.json())
+    .then(data => {
+      const aqi = Math.round(data.current.us_aqi);
+      const aqiEl = document.getElementById('w-aqi');
+      aqiEl.textContent = 'AQI ' + aqi;
+      if (aqi <= 50) aqiEl.style.background = 'rgba(27,122,91,0.15)', aqiEl.style.color = '#1B7A5B';
+      else if (aqi <= 100) aqiEl.style.background = 'rgba(242,183,5,0.18)', aqiEl.style.color = '#8a6d04';
+      else aqiEl.style.background = 'rgba(236,31,39,0.15)', aqiEl.style.color = '#EC1F27';
+    })
+    .catch(() => {});
+
   // ---- Language toggle: EN / ES / PA ----
   const translations = {
     en: {
@@ -1049,6 +1138,19 @@
 
   document.querySelectorAll('#lang-toggle button').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+  });
+
+  // ---- Dark / light mode toggle ----
+  const themeToggle = document.getElementById('theme-toggle');
+  let isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function applyTheme(){
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+  }
+  applyTheme();
+  themeToggle.addEventListener('click', () => {
+    isDark = !isDark;
+    applyTheme();
   });
 
   // ---- Auto-rotating "Who I Look To" quote card ----
