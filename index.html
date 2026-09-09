@@ -143,6 +143,7 @@
     line-height:1.6;
     color:rgba(250,247,242,0.78);
   }
+  .status-sep{opacity:.4;}
   .stat-row{
     display:flex;
     flex-wrap:wrap;
@@ -546,57 +547,71 @@
     .halfway .rose{ width:46px; height:46px; top:14px; right:14px; }
   }
 
-  /* Weather / race conditions card */
-  .weather-bar{
-    background:var(--page-bg);
-    border-bottom:1px solid var(--line);
-    padding:16px 8vw;
+  /* Status section: weather / now / listening, as a proper card section */
+  .status-section{
+    background:var(--ink);
+    padding:36px 8vw;
     display:flex;
-    align-items:center;
-    gap:22px;
     flex-wrap:wrap;
+    gap:32px;
     font-family:'JetBrains Mono',monospace;
   }
-  .weather-bar .wlabel{
-    font-size:.72rem;
+  .status-col{
+    border-left:2px solid var(--coral);
+    padding-left:16px;
+    flex:1 1 220px;
+    min-width:200px;
+  }
+  .status-label{
+    display:block;
+    font-size:.68rem;
     text-transform:uppercase;
     letter-spacing:.12em;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .status-value{
+    color:var(--cloud);
+    font-size:1rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .status-value.status-text{
+    display:block;
+    font-size:.85rem;
+    line-height:1.6;
+    color:rgba(250,247,242,0.8);
+    font-family:'Inter',sans-serif;
+    font-weight:500;
+  }
+  .status-value.status-text a{color:inherit; text-decoration:underline;}
+  .status-sub{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-top:6px;
+  }
+  .status-col .wtemp{font-size:1.15rem; font-weight:700; color:var(--cloud);}
+  .status-col .wcond{font-size:.85rem; color:rgba(250,247,242,0.65);}
+  .status-col .whilo{font-size:.75rem; color:rgba(250,247,242,0.5);}
+  .status-col .waqi{
+    font-size:.68rem;
+    padding:2px 7px;
+    border-radius:999px;
+    background:rgba(127,214,176,0.18);
+    color:#7fd6b0;
+    font-weight:700;
+  }
+  .status-col .wnote{
+    display:block;
+    margin-top:6px;
+    font-size:.72rem;
     color:var(--coral);
     font-weight:700;
   }
-  .weather-bar .wtemp{
-    font-size:1.3rem;
-    font-weight:700;
-    color:var(--heading);
-  }
-  .weather-bar .wcond{
-    font-size:.85rem;
-    color:var(--body-text);
-    opacity:.75;
-  }
-  .weather-bar .whilo{
-    font-size:.8rem;
-    color:var(--body-text);
-    opacity:.6;
-  }
-  .weather-bar .waqi{
-    font-size:.72rem;
-    padding:2px 8px;
-    border-radius:999px;
-    background:rgba(27,122,91,0.15);
-    color:var(--field);
-    font-weight:700;
-  }
-  .weather-bar .wnote{
-    margin-left:auto;
-    font-size:.75rem;
-    color:var(--field);
-    font-weight:700;
-  }
-  @media (max-width:640px){
-    .weather-bar .wnote{margin-left:0;}
-  }
-
   @media (prefers-reduced-motion: reduce){
     .mile, #route-fill, #runner{transition:none;}
   }
@@ -641,14 +656,28 @@
   <div class="scroll-cue" data-i18n="scrollCue">SCROLL — RACE STARTS AT MILE 0 ↓</div>
 </section>
 
-<div class="weather-bar" id="weather-bar">
-  <span class="wlabel" data-i18n="weatherLabel">Race Day Conditions · Sacramento</span>
-  <span class="wtemp" id="w-temp">—</span>
-  <span class="wcond" id="w-cond" data-i18n="loading">Loading…</span>
-  <span class="whilo" id="w-hilo"></span>
-  <span class="waqi" id="w-aqi"></span>
-  <span class="wnote" id="w-note"></span>
-</div>
+<section class="status-section" id="weather-bar">
+  <div class="status-col">
+    <span class="status-label" data-i18n="weatherLabel">Race Day Conditions</span>
+    <div class="status-value">
+      <span class="wtemp" id="w-temp">—</span>
+      <span class="wcond" id="w-cond" data-i18n="loading">Loading…</span>
+    </div>
+    <div class="status-sub">
+      <span class="whilo" id="w-hilo"></span>
+      <span class="waqi" id="w-aqi"></span>
+    </div>
+    <span class="wnote" id="w-note"></span>
+  </div>
+  <div class="status-col">
+    <span class="status-label">Now</span>
+    <div class="status-value status-text" data-i18n="nowLine">Finishing up at BACS, taking some time off, then heading to WellSpace.</div>
+  </div>
+  <div class="status-col">
+    <span class="status-label">Listening</span>
+    <div class="status-value status-text" data-i18n="listeningLine"><a href="https://therestisclassified.com/" target="_blank" rel="noopener" style="color:inherit;">The Rest Is Classified</a>'s series on Kim Philby.</div>
+  </div>
+</section>
 
 <section class="mile" id="m0">
   <div class="marker"><span class="num">MILE 0</span><span class="label" data-i18n="mile0Label">The Start</span></div>
@@ -986,6 +1015,8 @@
     en: {
       role: "Vice President of Co-occurring Continuum Services, WellSpace Health",
       tag: "MA, LCSW #60858, MBA candidate. Builder of behavioral health systems by day, six-time marathon finisher, die-hard Liverpool supporter, and full-time dad of two by every other hour.",
+      nowLine: "Finishing up at BACS, taking some time off, then heading to WellSpace.",
+      listeningLine: "<a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a>'s series on Kim Philby.",
       statStaff: "Staff Led",
       statMarathon: "Marathon Finisher",
       statKids: "Kids, Ages 10 &amp; 8",
@@ -1036,6 +1067,8 @@
     es: {
       role: "Vicepresidente de Servicios de Continuidad Concurrente, WellSpace Health",
       tag: "MA, LCSW #60858, candidato a MBA. Constructor de sistemas de salud conductual de día, corredor de seis maratones, aficionado incondicional del Liverpool y padre de tiempo completo de dos niños el resto del tiempo.",
+      nowLine: "Terminando en BACS, tomando un tiempo libre y luego incorporándome a WellSpace.",
+      listeningLine: "La serie de <a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a> sobre Kim Philby.",
       statStaff: "Personal a Cargo",
       statMarathon: "Maratones Completados",
       statKids: "Hijos, de 10 y 8 años",
@@ -1086,6 +1119,8 @@
     pa: {
       role: "ਵਾਈਸ ਪ੍ਰੈਜ਼ੀਡੈਂਟ, ਕੋ-ਆਕਰਿੰਗ ਕੰਟੀਨਿਊਮ ਸਰਵਿਸਿਜ਼, ਵੈੱਲਸਪੇਸ ਹੈਲਥ",
       tag: "MA, LCSW #60858, MBA ਉਮੀਦਵਾਰ। ਦਿਨੇ ਵਿਹਾਰਕ ਸਿਹਤ ਪ੍ਰਣਾਲੀਆਂ ਬਣਾਉਣ ਵਾਲਾ, ਛੇ ਵਾਰ ਮੈਰਾਥਨ ਪੂਰੀ ਕਰਨ ਵਾਲਾ, ਲਿਵਰਪੂਲ ਦਾ ਪੱਕਾ ਸਮਰਥਕ, ਅਤੇ ਬਾਕੀ ਸਮੇਂ ਦੋ ਬੱਚਿਆਂ ਦਾ ਪੂਰਾ-ਸਮਾਂ ਪਿਤਾ।",
+      nowLine: "BACS 'ਤੇ ਕੰਮ ਖਤਮ ਕਰ ਰਿਹਾ ਹਾਂ, ਕੁਝ ਸਮਾਂ ਛੁੱਟੀ ਲੈ ਕੇ, ਫਿਰ ਵੈੱਲਸਪੇਸ ਵੱਲ।",
+      listeningLine: "<a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a> ਦੀ ਕਿਮ ਫਿਲਬੀ ਬਾਰੇ ਸੀਰੀਜ਼।",
       statStaff: "ਸਟਾਫ਼ ਦੀ ਅਗਵਾਈ",
       statMarathon: "ਮੈਰਾਥਨ ਪੂਰੀਆਂ",
       statKids: "ਬੱਚੇ, ਉਮਰ 10 ਅਤੇ 8",
