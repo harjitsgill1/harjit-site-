@@ -551,8 +551,8 @@
   .status-section{
     background:var(--ink);
     padding:36px 8vw;
-    display:flex;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:32px;
     font-family:'JetBrains Mono',monospace;
   }
@@ -671,11 +671,15 @@
   </div>
   <div class="status-col">
     <span class="status-label">Now</span>
-    <div class="status-value status-text" data-i18n="nowLine">Settling in at WellSpace Health and training for the next race.</div>
+    <div class="status-value status-text" data-i18n="nowLine">Settling in at WellSpace Health, training for the next race, and adjusting to fall: sweaters, gloves, coats.</div>
+  </div>
+  <div class="status-col">
+    <span class="status-label">Watching</span>
+    <div class="status-value status-text" data-i18n="watchingLine">Slow Horses, Season 6.</div>
   </div>
   <div class="status-col">
     <span class="status-label">Listening</span>
-    <div class="status-value status-text" data-i18n="listeningLine"><a href="https://therestisclassified.com/" target="_blank" rel="noopener" style="color:inherit;">The Rest Is Classified</a>'s series on Kim Philby.</div>
+    <div class="status-value status-text" data-i18n="listeningLine">A lot of MJ Lenderman, Broken Social Scene, and Feist.</div>
   </div>
 </section>
 
@@ -1015,8 +1019,9 @@
     en: {
       role: "Vice President of Co-occurring Continuum Services, WellSpace Health",
       tag: "MA, LCSW #60858, MBA candidate. Builder of behavioral health systems by day, six-time marathon finisher, die-hard Liverpool supporter, and full-time dad of two by every other hour.",
-      nowLine: "Settling in at WellSpace Health and training for the next race.",
-      listeningLine: "<a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a>'s series on Kim Philby.",
+      nowLine: "Settling in at WellSpace Health, training for the next race, and adjusting to fall: sweaters, gloves, coats.",
+      listeningLine: "A lot of MJ Lenderman, Broken Social Scene, and Feist.",
+      watchingLine: "Slow Horses, Season 6.",
       statStaff: "Staff Led",
       statMarathon: "Marathon Finisher",
       statKids: "Kids, Ages 10 &amp; 8",
@@ -1067,8 +1072,9 @@
     es: {
       role: "Vicepresidente de Servicios de Continuidad Concurrente, WellSpace Health",
       tag: "MA, LCSW #60858, candidato a MBA. Constructor de sistemas de salud conductual de día, corredor de seis maratones, aficionado incondicional del Liverpool y padre de tiempo completo de dos niños el resto del tiempo.",
-      nowLine: "Adaptándome a WellSpace Health y entrenando para la próxima carrera.",
-      listeningLine: "La serie de <a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a> sobre Kim Philby.",
+      nowLine: "Instalándome en WellSpace Health, entrenando para la próxima carrera y recibiendo el otoño con suéteres, guantes y abrigos.",
+      listeningLine: "Mucho MJ Lenderman, Broken Social Scene y Feist.",
+      watchingLine: "Slow Horses, temporada 6.",
       statStaff: "Personal a Cargo",
       statMarathon: "Maratones Completados",
       statKids: "Hijos, de 10 y 8 años",
@@ -1119,8 +1125,9 @@
     pa: {
       role: "ਵਾਈਸ ਪ੍ਰੈਜ਼ੀਡੈਂਟ, ਕੋ-ਆਕਰਿੰਗ ਕੰਟੀਨਿਊਮ ਸਰਵਿਸਿਜ਼, ਵੈੱਲਸਪੇਸ ਹੈਲਥ",
       tag: "MA, LCSW #60858, MBA ਉਮੀਦਵਾਰ। ਦਿਨੇ ਵਿਹਾਰਕ ਸਿਹਤ ਪ੍ਰਣਾਲੀਆਂ ਬਣਾਉਣ ਵਾਲਾ, ਛੇ ਵਾਰ ਮੈਰਾਥਨ ਪੂਰੀ ਕਰਨ ਵਾਲਾ, ਲਿਵਰਪੂਲ ਦਾ ਪੱਕਾ ਸਮਰਥਕ, ਅਤੇ ਬਾਕੀ ਸਮੇਂ ਦੋ ਬੱਚਿਆਂ ਦਾ ਪੂਰਾ-ਸਮਾਂ ਪਿਤਾ।",
-      nowLine: "ਵੈੱਲਸਪੇਸ ਹੈਲਥ ਵਿੱਚ ਰਚ ਰਿਹਾ ਹਾਂ ਅਤੇ ਅਗਲੀ ਦੌੜ ਦੀ ਤਿਆਰੀ ਕਰ ਰਿਹਾ ਹਾਂ।",
-      listeningLine: "<a href='https://therestisclassified.com/' target='_blank' rel='noopener' style='color:inherit;'>The Rest Is Classified</a> ਦੀ ਕਿਮ ਫਿਲਬੀ ਬਾਰੇ ਸੀਰੀਜ਼।",
+      nowLine: "ਵੈੱਲਸਪੇਸ ਹੈਲਥ ਵਿੱਚ ਰਚ ਰਿਹਾ ਹਾਂ, ਅਗਲੀ ਦੌੜ ਦੀ ਤਿਆਰੀ ਕਰ ਰਿਹਾ ਹਾਂ, ਅਤੇ ਪਤਝੜ ਮੁਤਾਬਕ ਢਲ ਰਿਹਾ ਹਾਂ: ਸਵੈਟਰ, ਦਸਤਾਨੇ, ਕੋਟ।",
+      listeningLine: "ਬਹੁਤ ਸਾਰਾ MJ Lenderman, Broken Social Scene ਅਤੇ Feist।",
+      watchingLine: "Slow Horses, ਸੀਜ਼ਨ 6।",
       statStaff: "ਸਟਾਫ਼ ਦੀ ਅਗਵਾਈ",
       statMarathon: "ਮੈਰਾਥਨ ਪੂਰੀਆਂ",
       statKids: "ਬੱਚੇ, ਉਮਰ 10 ਅਤੇ 8",
