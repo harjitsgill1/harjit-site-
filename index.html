@@ -9,21 +9,21 @@
 <style>
   :root{
     --ink:#2B1D17;
-    --coral:#E0661F;
-    --gold:#F2A93B;
-    --field:#7A8B2E;
+    --coral:#D9541E;
+    --gold:#EFA02B;
+    --field:#8A7B26;
     --dsa:#EC1F27;
-    --cloud:#FBF3E6;
+    --cloud:#F9EBD6;
     --slate:#5A4034;
     --line: rgba(18,23,43,0.14);
-    --page-bg:#FBF3E6;
+    --page-bg:#F9EBD6;
     --heading:#2B1D17;
     --body-text:#5A4034;
-    --card-bg:#FBF3E6;
+    --card-bg:#F9EBD6;
   }
   html[data-theme="dark"]{
     --page-bg:#1E1512;
-    --heading:#FBF3E6;
+    --heading:#F9EBD6;
     --body-text:#E3D3C4;
     --card-bg:#2A1E19;
     --line: rgba(251,243,230,0.14);
@@ -615,6 +615,14 @@
   @media (prefers-reduced-motion: reduce){
     .mile, #route-fill, #runner{transition:none;}
   }
+
+  /* Falling leaves (autumn only) */
+  #leaves{position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:40;}
+  #leaves .leaf{position:absolute; top:-60px; will-change:transform; animation:leafFall linear infinite;}
+  #leaves .leaf svg{display:block; animation:leafSway ease-in-out infinite alternate;}
+  @keyframes leafFall{ from{transform:translateY(-6vh);} to{transform:translateY(112vh);} }
+  @keyframes leafSway{ from{transform:translateX(-28px) rotate(-35deg);} to{transform:translateX(28px) rotate(40deg);} }
+  @media (prefers-reduced-motion: reduce){ #leaves{display:none;} }
 </style>
 </head>
 <body>
@@ -637,8 +645,8 @@
 
 <div id="route"><div id="route-fill"></div></div>
 <svg id="runner" viewBox="0 0 24 24" fill="none">
-  <circle cx="12" cy="12" r="11" fill="#E0661F"/>
-  <path d="M9 7l2 2-1 2 3 1v3M13 10l2-1 2 2M8 17l2-2 3 1" stroke="#FBF3E6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="12" cy="12" r="11" fill="#D9541E"/>
+  <path d="M9 7l2 2-1 2 3 1v3M13 10l2-1 2 2M8 17l2-2 3 1" stroke="#F9EBD6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 <section class="hero">
@@ -740,7 +748,7 @@
                C24 82, 16 90, 16 100 C26 94, 34 88, 38 78
                C42 88, 50 94, 60 100 C60 90, 52 82, 44 80
                C52 74, 62 72, 74 74 C68 64, 56 62, 44 68 Z"
-            fill="#7A8B2E" stroke="#2B1D17" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="#8A7B26" stroke="#2B1D17" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M 50.0,12.0 C 63.8,6.2 74.2,12.2 76.0,27.0 C 87.9,36.0 87.9,48.0 76.0,57.0
                C 74.2,71.8 63.8,77.8 50.0,72.0 C 36.2,77.8 25.8,71.8 24.0,57.0
                C 12.1,48.0 12.1,36.0 24.0,27.0 C 25.8,12.2 36.2,6.2 50.0,12.0 Z"
@@ -1008,7 +1016,7 @@
       const aqi = Math.round(data.current.us_aqi);
       const aqiEl = document.getElementById('w-aqi');
       aqiEl.textContent = 'AQI ' + aqi;
-      if (aqi <= 50) aqiEl.style.background = 'rgba(27,122,91,0.15)', aqiEl.style.color = '#7A8B2E';
+      if (aqi <= 50) aqiEl.style.background = 'rgba(27,122,91,0.15)', aqiEl.style.color = '#8A7B26';
       else if (aqi <= 100) aqiEl.style.background = 'rgba(242,183,5,0.18)', aqiEl.style.color = '#8a6d04';
       else aqiEl.style.background = 'rgba(236,31,39,0.15)', aqiEl.style.color = '#EC1F27';
     })
@@ -1246,6 +1254,28 @@
   }, 5000);
 
 
+
+  /* Falling leaves */
+  try{
+    var leafBox=document.createElement('div'); leafBox.id='leaves'; leafBox.setAttribute('aria-hidden','true');
+    var shapes=[
+      'M12 2 L14 8 L20 6 L17 12 L22 14 L15 15 L16 21 L12 18 L8 21 L9 15 L2 14 L7 12 L4 6 L10 8 Z',
+      'M12 2 C18 8 20 14 12 22 C4 14 6 8 12 2 Z M12 5 L12 20'
+    ];
+    var cols=['#D9541E','#EFA02B','#B23A1B','#C8791E','#8A7B26','#A8421E'];
+    var n=window.innerWidth<700?9:16;
+    for(var i=0;i<n;i++){
+      var size=14+Math.random()*16, d=document.createElement('div'); d.className='leaf';
+      d.style.left=(Math.random()*100)+'vw';
+      d.style.opacity=(0.35+Math.random()*0.4).toFixed(2);
+      d.style.animationDuration=(14+Math.random()*16)+'s';
+      d.style.animationDelay=(-Math.random()*30)+'s';
+      var shape=shapes[i%2];
+      d.innerHTML='<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" style="animation-duration:'+(3+Math.random()*3).toFixed(1)+'s"><path d="'+shape+'" fill="'+cols[i%cols.length]+'" stroke="'+(i%2?'rgba(0,0,0,.25)':'none')+'" stroke-width="0.8"/></svg>';
+      leafBox.appendChild(d);
+    }
+    document.body.appendChild(leafBox);
+  }catch(e){}
 </script>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ddbce1af92124f3db84cf1748e3a4c77"}'></script><!-- End Cloudflare Web Analytics -->
