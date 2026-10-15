@@ -8,25 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F1D36;
-    --coral:#EE5A3C;
-    --gold:#F4BC1C;
-    --field:#17806A;
+    --ink:#2B1D17;
+    --coral:#E0661F;
+    --gold:#F2A93B;
+    --field:#7A8B2E;
     --dsa:#EC1F27;
-    --cloud:#F7F5EF;
-    --slate:#38455E;
+    --cloud:#FBF3E6;
+    --slate:#5A4034;
     --line: rgba(18,23,43,0.14);
-    --page-bg:#F7F5EF;
-    --heading:#0F1D36;
-    --body-text:#38455E;
-    --card-bg:#F7F5EF;
+    --page-bg:#FBF3E6;
+    --heading:#2B1D17;
+    --body-text:#5A4034;
+    --card-bg:#FBF3E6;
   }
   html[data-theme="dark"]{
-    --page-bg:#121D33;
-    --heading:#F7F5EF;
-    --body-text:#C5CEE0;
-    --card-bg:#1A2742;
-    --line: rgba(250,247,242,0.14);
+    --page-bg:#1E1512;
+    --heading:#FBF3E6;
+    --body-text:#E3D3C4;
+    --card-bg:#2A1E19;
+    --line: rgba(251,243,230,0.14);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -141,7 +141,7 @@
     margin-top:22px;
     font-size:1.05rem;
     line-height:1.6;
-    color:rgba(250,247,242,0.78);
+    color:rgba(251,243,230,0.78);
   }
   .status-sep{opacity:.4;}
   .stat-row{
@@ -164,13 +164,13 @@
     font-size:.8rem;
     text-transform:uppercase;
     letter-spacing:.08em;
-    color:rgba(250,247,242,0.55);
+    color:rgba(251,243,230,0.55);
   }
   .scroll-cue{
     margin-top:56px;
     font-family:'JetBrains Mono',monospace;
     font-size:.8rem;
-    color:rgba(250,247,242,0.5);
+    color:rgba(251,243,230,0.5);
     letter-spacing:.1em;
   }
 
@@ -278,7 +278,7 @@
     overflow:hidden;
   }
   .halfway h2{color:var(--cloud);}
-  .halfway .lede{color:rgba(250,247,242,0.88);}
+  .halfway .lede{color:rgba(251,243,230,0.88);}
   .family-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -292,7 +292,7 @@
     padding:20px;
   }
   .fcard .n{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.4rem; color:var(--gold);}
-  .fcard .d{font-size:.9rem; margin-top:6px; color:rgba(250,247,242,0.8);}
+  .fcard .d{font-size:.9rem; margin-top:6px; color:rgba(251,243,230,0.8);}
 
   /* Passions / wall section */
   .wall-grid{
@@ -351,7 +351,7 @@
     margin-top:16px;
     font-family:'JetBrains Mono',monospace;
     font-size:.85rem;
-    color:rgba(250,247,242,0.6);
+    color:rgba(251,243,230,0.6);
     opacity:1;
     transition:opacity .5s ease;
   }
@@ -364,7 +364,7 @@
   .quote-rotator .qr-dot{
     width:6px; height:6px;
     border-radius:50%;
-    background:rgba(250,247,242,0.25);
+    background:rgba(251,243,230,0.25);
     transition:background .3s;
   }
   .quote-rotator .qr-dot.active{background:var(--coral);}
@@ -427,7 +427,7 @@
   .finish p{
     max-width:520px;
     margin:20px auto 0;
-    color:rgba(250,247,242,0.75);
+    color:rgba(251,243,230,0.75);
     line-height:1.6;
   }
   .contact-row{
@@ -440,7 +440,7 @@
   .contact-row a{
     font-family:'JetBrains Mono',monospace;
     font-size:.9rem;
-    border:1px solid rgba(250,247,242,0.35);
+    border:1px solid rgba(251,243,230,0.35);
     padding:12px 22px;
     border-radius:999px;
     text-decoration:none;
@@ -451,7 +451,7 @@
     text-align:center;
     padding:26px;
     font-size:.75rem;
-    color:rgba(250,247,242,0.4);
+    color:rgba(251,243,230,0.4);
     background:var(--ink);
     font-family:'JetBrains Mono',monospace;
   }
@@ -462,7 +462,7 @@
     gap:8px;
     background:var(--ink);
     color:var(--cloud);
-    border:1px solid rgba(250,247,242,0.25);
+    border:1px solid rgba(251,243,230,0.25);
     padding:10px 16px;
     border-radius:999px;
     font-family:'JetBrains Mono',monospace;
@@ -490,7 +490,7 @@
     display:flex;
     gap:0;
     background:var(--ink);
-    border:1px solid rgba(250,247,242,0.25);
+    border:1px solid rgba(251,243,230,0.25);
     border-radius:999px;
     overflow:hidden;
     font-family:'JetBrains Mono',monospace;
@@ -498,7 +498,7 @@
   }
   #lang-toggle button{
     background:transparent;
-    color:rgba(250,247,242,0.55);
+    color:rgba(251,243,230,0.55);
     border:none;
     padding:10px 14px;
     cursor:pointer;
@@ -513,7 +513,7 @@
   #theme-toggle{
     background:var(--ink);
     color:var(--cloud);
-    border:1px solid rgba(250,247,242,0.25);
+    border:1px solid rgba(251,243,230,0.25);
     border-radius:999px;
     width:38px; height:38px;
     flex:none;
@@ -583,7 +583,7 @@
     display:block;
     font-size:.85rem;
     line-height:1.6;
-    color:rgba(250,247,242,0.8);
+    color:rgba(251,243,230,0.8);
     font-family:'Inter',sans-serif;
     font-weight:500;
   }
@@ -595,14 +595,14 @@
     margin-top:6px;
   }
   .status-col .wtemp{font-size:1.15rem; font-weight:700; color:var(--cloud);}
-  .status-col .wcond{font-size:.85rem; color:rgba(250,247,242,0.65);}
-  .status-col .whilo{font-size:.75rem; color:rgba(250,247,242,0.5);}
+  .status-col .wcond{font-size:.85rem; color:rgba(251,243,230,0.65);}
+  .status-col .whilo{font-size:.75rem; color:rgba(251,243,230,0.5);}
   .status-col .waqi{
     font-size:.68rem;
     padding:2px 7px;
     border-radius:999px;
     background:rgba(127,214,176,0.18);
-    color:#7CD9BC;
+    color:#C9D98A;
     font-weight:700;
   }
   .status-col .wnote{
@@ -637,8 +637,8 @@
 
 <div id="route"><div id="route-fill"></div></div>
 <svg id="runner" viewBox="0 0 24 24" fill="none">
-  <circle cx="12" cy="12" r="11" fill="#EE5A3C"/>
-  <path d="M9 7l2 2-1 2 3 1v3M13 10l2-1 2 2M8 17l2-2 3 1" stroke="#F7F5EF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="12" cy="12" r="11" fill="#E0661F"/>
+  <path d="M9 7l2 2-1 2 3 1v3M13 10l2-1 2 2M8 17l2-2 3 1" stroke="#FBF3E6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 <section class="hero">
@@ -740,23 +740,23 @@
                C24 82, 16 90, 16 100 C26 94, 34 88, 38 78
                C42 88, 50 94, 60 100 C60 90, 52 82, 44 80
                C52 74, 62 72, 74 74 C68 64, 56 62, 44 68 Z"
-            fill="#17806A" stroke="#0F1D36" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="#7A8B2E" stroke="#2B1D17" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M 50.0,12.0 C 63.8,6.2 74.2,12.2 76.0,27.0 C 87.9,36.0 87.9,48.0 76.0,57.0
                C 74.2,71.8 63.8,77.8 50.0,72.0 C 36.2,77.8 25.8,71.8 24.0,57.0
                C 12.1,48.0 12.1,36.0 24.0,27.0 C 25.8,12.2 36.2,6.2 50.0,12.0 Z"
-            fill="#EC1F27" stroke="#0F1D36" stroke-width="3"/>
+            fill="#EC1F27" stroke="#2B1D17" stroke-width="3"/>
       <path d="M 50.0,21.0 C 54.9,21.9 59.5,23.9 63.3,26.9 C 66.3,30.7 68.3,35.0 69.1,39.6
                C 68.9,44.2 67.5,48.5 65.2,52.4 C 62.1,55.5 58.4,57.7 54.4,59.0
                C 50.2,59.3 46.1,58.5 42.4,56.9 C 39.3,54.4 36.9,51.3 35.3,47.8
                C 34.6,44.1 34.8,40.4 35.9,36.9 C 37.8,33.9 40.3,31.4 43.2,29.6
                C 46.4,28.6 49.7,28.5 52.9,29.1"
-            stroke="#0F1D36" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+            stroke="#2B1D17" stroke-width="2.6" stroke-linecap="round" fill="none"/>
       <path d="M55.8 30.4 C58.2 32.3 60.0 34.7 61.2 37.4 C61.7 40.3 61.5 43.1 60.6 45.7
                C59.2 48.0 57.3 49.8 55.1 51.0 C52.7 51.7 50.3 51.8 48.0 51.3"
-            stroke="#0F1D36" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-      <circle cx="49.5" cy="41" r="4" fill="#0F1D36"/>
+            stroke="#2B1D17" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <circle cx="49.5" cy="41" r="4" fill="#2B1D17"/>
     </svg>
-    <div class="marker" style="opacity:.85"><span class="num" style="border-color:var(--gold); color:var(--gold)">MILE 13.1</span><span class="label" style="color:rgba(250,247,242,.7)" data-i18n="mile2Label">Halfway — Home</span></div>
+    <div class="marker" style="opacity:.85"><span class="num" style="border-color:var(--gold); color:var(--gold)">MILE 13.1</span><span class="label" style="color:rgba(251,243,230,.7)" data-i18n="mile2Label">Halfway — Home</span></div>
     <h2 data-i18n="mile2Heading">The part that actually matters most.</h2>
     <p class="lede" data-i18n="mile2Lede">Married, with two kids keeping me humble: a 10-year-old and an 8-year-old. Everything above is only possible with my wife as a partner in it; she makes the whole thing work.</p>
     <div class="family-grid">
@@ -1008,7 +1008,7 @@
       const aqi = Math.round(data.current.us_aqi);
       const aqiEl = document.getElementById('w-aqi');
       aqiEl.textContent = 'AQI ' + aqi;
-      if (aqi <= 50) aqiEl.style.background = 'rgba(27,122,91,0.15)', aqiEl.style.color = '#17806A';
+      if (aqi <= 50) aqiEl.style.background = 'rgba(27,122,91,0.15)', aqiEl.style.color = '#7A8B2E';
       else if (aqi <= 100) aqiEl.style.background = 'rgba(242,183,5,0.18)', aqiEl.style.color = '#8a6d04';
       else aqiEl.style.background = 'rgba(236,31,39,0.15)', aqiEl.style.color = '#EC1F27';
     })
