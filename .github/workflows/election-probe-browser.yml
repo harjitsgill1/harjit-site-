@@ -34,8 +34,19 @@ jobs:
           const browser = await chromium.launch();
           const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36', locale: 'en-US' });
           let i = 0;
+          let last = null;
           for (const u of urls) {
             const f = String(++i).padStart(2, '0');
+            if (u.startsWith('fetch:') && last) {
+              // fetch a data URL from inside the last page (same origin, cleared cookies)
+              const target = u.slice(6);
+              const out = await last.evaluate(async (t) => {
+                try { const r = await fetch(t); return r.status + '\n' + await r.text(); } catch (e) { return 'ERR ' + e.message; }
+              }, target).catch((e) => 'ERR ' + e.message);
+              writeFileSync(`${f}.txt`, out.slice(0, 5000000));
+              appendFileSync('index.txt', `${f} ${u} -> ${out.split('\n')[0]} (${out.length} chars)\n`);
+              continue;
+            }
             const page = await ctx.newPage();
             const net = [];
             page.on('response', async (r) => {
@@ -53,7 +64,8 @@ jobs:
             writeFileSync(`${f}.txt`, text.slice(0, 2000000));
             writeFileSync(`${f}.net`, net.join('\n'));
             appendFileSync('index.txt', `${f} ${u} -> ${status} | ${title} | final ${page.url()}\n`);
-            await page.close();
+            if (last) await last.close();
+            last = page;
           }
           await browser.close();
           EOF
