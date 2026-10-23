@@ -68,6 +68,7 @@
   .mast h1 span{color:var(--coral);}
   .kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
   .status{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:12px;opacity:.9;align-items:center;}
+  .switch{display:inline-block;margin-top:14px;font:700 12px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--cloud);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px;text-decoration:none;}
   .rehearsal,.stale{margin-top:14px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.04em;}
   .rehearsal{background:var(--gold);color:#1a1208;}
   .stale{background:#B3261E;color:#fff;}
@@ -162,6 +163,7 @@
       <span id="checked"></span>
       <span>Refreshes every minute</span>
     </div>
+    <a class="switch" href="/electionpolls/">Latest polls →</a>
     <div class="rehearsal mono" id="rehearsal" hidden>REHEARSAL · TEST DATA FROM ELECTION OFFICES · NOT REAL RESULTS</div>
     <div class="stale mono" id="stale" hidden></div>
   </div>

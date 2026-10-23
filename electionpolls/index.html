@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Election Polls 2026 · Harjit Singh Gill</title>
+<meta name="description" content="Latest public polls for endorsed candidates on November 3, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var q = (location.search.match(/[?&]season=(spring|autumn|winter)/)||[])[1];
+    var d = new Date(), m = d.getMonth()+1, day = d.getDate(), auto;
+    if ((m===9 && day>=22) || m===10 || m===11 || (m===12 && day<=20)) auto='autumn';
+    else if ((m===12 && day>=21) || m<=2 || (m===3 && day<=19)) auto='winter';
+    else auto='spring';
+    var root = document.documentElement;
+    root.setAttribute('data-season', q || auto);
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    var apply = function(){ root.setAttribute('data-theme', mq && mq.matches ? 'dark' : 'light'); };
+    apply(); if (mq && mq.addEventListener) mq.addEventListener('change', apply);
+  })();
+</script>
+<style>
+  :root{
+    --ink:#2B1D17; --coral:#D9541E; --gold:#EFA02B; --cloud:#F9EBD6; --slate:#5A4034;
+    --line:rgba(43,29,23,0.14); --page-bg:#F9EBD6; --heading:#2B1D17; --body-text:#5A4034;
+    --card-bg:#FFF7EC; --muted:rgba(43,29,23,0.55); --track:rgba(43,29,23,0.08);
+    --dsa:#D7141C; --wfp:#6B2FA3; --mine:var(--coral);
+    --win:#17806A;
+  }
+  html[data-theme="dark"]{
+    --page-bg:#1E1512; --heading:#F9EBD6; --body-text:#E3D3C4; --card-bg:#2A1E19;
+    --line:rgba(249,235,214,0.14); --muted:rgba(249,235,214,0.55); --track:rgba(249,235,214,0.08);
+    --dsa:#FF5A5F; --wfp:#B794E8; --win:#5FD3B0;
+  }
+  html[data-season="spring"]{
+    --ink:#0F1D36; --coral:#EE5A3C; --cloud:#F7F5EF; --slate:#38455E;
+    --line:rgba(15,29,54,0.14); --page-bg:#F7F5EF; --heading:#0F1D36; --body-text:#38455E;
+    --card-bg:#FFFFFF; --muted:rgba(15,29,54,0.55); --track:rgba(15,29,54,0.07);
+  }
+  html[data-season="spring"][data-theme="dark"]{
+    --page-bg:#121D33; --heading:#F7F5EF; --body-text:#C5CEE0; --card-bg:#1A2742;
+    --line:rgba(247,245,239,0.14); --muted:rgba(247,245,239,0.55); --track:rgba(247,245,239,0.08);
+  }
+  html[data-season="winter"]{
+    --ink:#0B1B2E; --coral:#2F7FB8; --cloud:#F2F6FA; --slate:#3C4F66;
+    --line:rgba(11,27,46,0.14); --page-bg:#F2F6FA; --heading:#0B1B2E; --body-text:#3C4F66;
+    --card-bg:#FFFFFF; --muted:rgba(11,27,46,0.55); --track:rgba(11,27,46,0.07);
+  }
+  html[data-season="winter"][data-theme="dark"]{
+    --page-bg:#0A1626; --heading:#F2F6FA; --body-text:#C8D6E6; --card-bg:#122339;
+    --line:rgba(242,246,250,0.14); --muted:rgba(242,246,250,0.55); --track:rgba(242,246,250,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--page-bg);color:var(--body-text);font-family:'Inter',sans-serif;-webkit-text-size-adjust:100%;}
+  h1,h2,h3{font-family:'Archivo Black',sans-serif;font-weight:400;margin:0;color:var(--heading);line-height:1.05;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+
+  /* ---------- Masthead ---------- */
+  .mast{background:var(--ink);color:var(--cloud);padding:28px 16px 22px;}
+  .mast-inner{max-width:1100px;margin:0 auto;}
+  .back{font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;opacity:.7;}
+  .back:hover{opacity:1;}
+  .mast h1{color:var(--cloud);font-size:clamp(34px,8vw,64px);margin:14px 0 8px;}
+  .mast h1 span{color:var(--coral);}
+  .kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
+  .status{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:12px;opacity:.9;align-items:center;}
+  .rehearsal,.stale{margin-top:14px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.04em;}
+  .rehearsal{background:var(--gold);color:#1a1208;}
+  .stale{background:#B3261E;color:#fff;}
+  .rehearsal[hidden],.stale[hidden]{display:none;}
+  .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:6px;vertical-align:1px;}
+  .live-dot.on{background:#3DDC84;animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.6)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+
+  /* ---------- Tabs + filters ---------- */
+  .bar{position:sticky;top:0;z-index:10;background:var(--page-bg);border-bottom:1px solid var(--line);}
+  .bar-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;}
+  .tab{--c:var(--mine);font:600 14px 'Inter',sans-serif;border:2px solid var(--c);background:transparent;color:var(--heading);
+       padding:8px 14px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center;}
+  .tab .n{font:700 11px 'JetBrains Mono',monospace;opacity:.7;}
+  .tab[aria-selected="true"]{background:var(--c);color:#fff;}
+  .tab[aria-selected="true"] .n{opacity:.9;}
+  .tab.dsa{--c:var(--dsa);} .tab.wfp{--c:var(--wfp);}
+  .filters{display:flex;gap:8px;margin-left:auto;flex:1 1 260px;justify-content:flex-end;min-width:0;}
+  .filters select{flex:0 1 auto;max-width:45%;}
+  .filters input,.filters select{font:500 14px 'Inter',sans-serif;color:var(--heading);background:var(--card-bg);
+       border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:0;}
+  .filters input{flex:1 1 160px;max-width:260px;}
+
+  /* ---------- Groups + cards ---------- */
+  main{max-width:1100px;margin:0 auto;padding:8px 16px 60px;}
+  .group{margin-top:26px;}
+  .score{--c:var(--mine);margin-top:18px;background:var(--card-bg);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;}
+  .score.t-dsa{--c:var(--dsa);} .score.t-wfp{--c:var(--wfp);}
+  .score .big{display:flex;flex-direction:column;min-width:120px;}
+  .score .big b{font:400 40px/1 'Archivo Black',sans-serif;color:var(--heading);}
+  .score .lbl{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+  .score .stats{display:flex;flex-wrap:wrap;gap:10px 20px;}
+  .score .st{display:flex;flex-direction:column;gap:2px;}
+  .score .st b{font:700 22px 'Inter',sans-serif;color:var(--heading);}
+  .score .st.won b{color:var(--win);}
+  .score .meter{flex:1 1 100%;height:8px;border-radius:4px;background:var(--track);overflow:hidden;display:flex;}
+  .score .meter i{display:block;height:100%;}
+  .score .sub{flex:1 1 100%;font-size:12px;color:var(--muted);margin-top:-6px;}
+  .group h2{font-size:20px;display:flex;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--heading);}
+  .group h2 small{font:600 12px 'JetBrains Mono',monospace;color:var(--muted);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin-top:14px;}
+  .card{--c:var(--mine);background:var(--card-bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:10px;}
+  .card.t-dsa{--c:var(--dsa);} .card.t-wfp{--c:var(--wfp);}
+  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .office{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
+  .cand{font:800 19px 'Inter',sans-serif;color:var(--heading);margin-top:3px;}
+  .badges{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;}
+  .badge{font:700 10px 'JetBrains Mono',monospace;padding:2px 6px;border-radius:4px;color:#fff;}
+  .badge.dsa{background:var(--dsa);} .badge.wfp{background:var(--wfp);} .badge.mine{background:var(--mine);}
+  html[data-theme="dark"] .badge{color:#1a1a1a;}
+  .pill{font:700 11px 'JetBrains Mono',monospace;text-transform:uppercase;padding:4px 8px;border-radius:999px;white-space:nowrap;
+        border:1px solid var(--line);color:var(--muted);}
+  .pill.won{background:var(--win);border-color:var(--win);color:#fff;}
+  .pill.lost{color:var(--muted);text-decoration:none;}
+  .pill.leading{border-color:var(--win);color:var(--win);}
+  .pill.trailing{border-color:var(--c);color:var(--c);}
+  html[data-theme="dark"] .pill.won{color:#0b1b14;}
+  .vs{font-size:14px;color:var(--body-text);}
+  .rows{display:flex;flex-direction:column;gap:7px;}
+  .row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:14px;}
+  .row .nm{color:var(--heading);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .row.ours .nm{font-weight:800;}
+  .row .pc{font:700 13px 'JetBrains Mono',monospace;color:var(--heading);text-align:right;}
+  .row .track{grid-column:1/-1;height:7px;background:var(--track);border-radius:4px;overflow:hidden;}
+  .row .fill{height:100%;background:var(--muted);opacity:.45;border-radius:4px;transition:width .6s ease;}
+  .row.ours .fill{background:var(--c);opacity:1;}
+  .row .vt{grid-column:1/-1;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);margin-top:-1px;}
+  .meta{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto;}
+  .meta .warn{color:var(--c);}
+  .note{font-size:12px;color:var(--muted);font-style:italic;}
+  .empty{padding:40px 0;text-align:center;color:var(--muted);}
+  footer{max-width:1100px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:var(--muted);}
+
+  @media (max-width:560px){
+    .filters{margin-left:0;justify-content:stretch;flex-basis:100%;}
+    .filters input{max-width:none;}
+    .grid{grid-template-columns:1fr;}
+  }
+
+  .pcard{--c:var(--mine);background:var(--card-bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+  .pcard.t-dsa{--c:var(--dsa);} .pcard.t-wfp{--c:var(--wfp);}
+  .avg{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .avg b{font:400 28px/1 'Archivo Black',sans-serif;color:var(--heading);}
+  .avg b.down{color:var(--muted);}
+  .avg span{font:600 11px 'JetBrains Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .h2h{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--track);}
+  .h2h i{display:block;height:100%;}
+  .h2h-l{display:flex;justify-content:space-between;font:600 12px 'Inter',sans-serif;color:var(--heading);margin-top:-4px;}
+  table.polls{width:100%;border-collapse:collapse;font-size:13px;}
+  table.polls th{font:700 10px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:right;padding:4px 0;border-bottom:1px solid var(--line);}
+  table.polls th:first-child,table.polls td:first-child{text-align:left;padding-left:0;}
+  table.polls th,table.polls td{padding-left:10px;white-space:nowrap;}
+  table.polls td:first-child{white-space:normal;}
+  table.polls td{padding:6px 0;border-bottom:1px dashed var(--line);text-align:right;color:var(--heading);font-variant-numeric:tabular-nums;}
+  table.polls td small{display:block;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);}
+  table.polls td.m{font:700 12px 'JetBrains Mono',monospace;}
+  table.polls td.m.up{color:var(--win);} table.polls td.m.dn{color:var(--c);}
+  .src{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);}
+  .src a{color:var(--muted);}
+  .none{margin-top:26px;}
+  .none summary{cursor:pointer;font:600 14px 'Inter',sans-serif;color:var(--heading);}
+  .none ul{columns:2 260px;font-size:13px;padding-left:18px;}
+  .switch{display:inline-block;margin-top:14px;font:700 12px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--cloud);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px;text-decoration:none;}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="back mono" href="/">← harjitsgill.com</a>
+    <h1>Election <span>Polls</span></h1>
+    <div class="kicker mono">Latest public polls · November 3, 2026</div>
+    <div class="status mono"><span id="updated"></span><span>Not results. Polls can miss by several points.</span></div>
+    <a class="switch" href="/election/">Live results →</a>
+  </div>
+</header>
+<div class="bar">
+  <div class="bar-inner">
+    <div class="tabs" role="tablist">
+      <button class="tab mine" role="tab" data-tab="mine" aria-selected="true">Mai’s Picks</button>
+      <button class="tab dsa" role="tab" data-tab="dsa" aria-selected="false">DSA</button>
+      <button class="tab wfp" role="tab" data-tab="wfp" aria-selected="false">WFP</button>
+    </div>
+  </div>
+</div>
+<main id="main"><div class="empty">Loading polls…</div></main>
+<footer>Poll numbers are as published by each pollster and aggregator; follow the source links for full details and methodology. Most local races are never publicly polled.</footer>
+<script>
+(function(){
+  var tab = 'mine';
+  try { tab = localStorage.getItem('ep-tab') || tab; } catch(e){}
+  var h = (location.hash||'').replace('#',''); if (['mine','dsa','wfp'].indexOf(h) > -1) tab = h;
+  var races = [], polls = {}, updatedAt = null;
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+  var fmt = function(n){ return (Math.round(n*10)/10).toString(); };
+  var margin = function(v){ var d = v[0]-v[1]; return {d:d, txt: d===0 ? 'Tie' : (d>0?'+':'\u2212') + fmt(Math.abs(d))}; };
+
+  function pcard(r, p){
+    var names = p.names, out = '';
+    if (p.average){
+      var m = margin(p.average.values);
+      out += '<div class="avg"><b class="'+(m.d<0?'down':'')+'">'+esc(names[0].replace(/ \(.*\)/,''))+' '+m.txt+'</b><span>'+esc(p.average.source)+' average · '+esc(p.average.dates)+'</span></div>';
+      var a = p.average.values[0], b = p.average.values[1], t = Math.max(a+b, 1);
+      out += '<div class="h2h"><i style="width:'+(a/t*100)+'%;background:var(--c)"></i><i style="width:'+(b/t*100)+'%;background:var(--muted);opacity:.45"></i></div>'+
+             '<div class="h2h-l"><span>'+esc(names[0])+' '+fmt(a)+'%</span><span>'+esc(names[1])+' '+fmt(b)+'%</span></div>';
+    } else if (p.polls.length){
+      var m2 = margin(p.polls[0].values);
+      out += '<div class="avg"><b class="'+(m2.d<0?'down':'')+'">'+esc(names[0].replace(/ \(.*\)/,''))+' '+m2.txt+'</b><span>Latest poll · no average available</span></div>';
+    }
+    out += '<table class="polls"><thead><tr><th>Pollster</th><th>'+esc(names[0])+'</th><th>'+esc(names[1])+'</th><th>Margin</th></tr></thead><tbody>' +
+      p.polls.map(function(q){
+        var m = margin(q.values);
+        return '<tr><td>'+esc(q.pollster)+'<small>'+esc(q.dates)+(q.sample?' · '+esc(q.sample):'')+(q.other?' · '+esc(q.other):'')+'</small></td><td>'+q.values[0]+'%</td><td>'+q.values[1]+'%</td><td class="m '+(m.d>0?'up':m.d<0?'dn':'')+'">'+m.txt+'</td></tr>';
+      }).join('') + '</tbody></table>';
+    if (p.note) out += '<div class="note">'+esc(p.note)+'</div>';
+    out += '<div class="src">Source: '+(p.sources||[]).map(function(s){ return '<a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a>'; }).join(', ')+'</div>';
+    return '<article class="pcard t-'+tab+'"><div><div class="office">'+esc(r.office)+'</div><div class="cand">'+esc(r.candidate)+'</div></div>'+out+'</article>';
+  }
+
+  function render(){
+    document.querySelectorAll('.tab').forEach(function(b){ b.setAttribute('aria-selected', String(b.getAttribute('data-tab')===tab)); });
+    var list = races.filter(function(r){ return r.lists.indexOf(tab) > -1; });
+    var withPolls = list.filter(function(r){ return polls[r.id]; });
+    var without = list.filter(function(r){ return !polls[r.id] && r.status !== 'won' && r.status !== 'lost'; });
+    var html = withPolls.length ? '<section class="group"><h2>Polled races <small>'+withPolls.length+'</small></h2><div class="grid">'+withPolls.map(function(r){ return pcard(r, polls[r.id]); }).join('')+'</div></section>'
+                                : '<div class="empty">No public polls found yet for these races.</div>';
+    if (without.length) html += '<details class="none"><summary>No public polls found ('+without.length+')</summary><ul>'+without.map(function(r){ return '<li>'+esc(r.candidate)+' · '+esc(r.office)+'</li>'; }).join('')+'</ul></details>';
+    $('main').innerHTML = html;
+    $('updated').textContent = updatedAt ? 'Polls last gathered ' + new Date(updatedAt).toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'}) : '';
+  }
+
+  var get = function(u){ return fetch(u + '?t=' + Date.now(), {cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }); };
+  Promise.all([get('/election/data/races.json'), get('data/polls.json')]).then(function(x){
+    races = x[0].races || []; updatedAt = x[1].updatedAt;
+    (x[1].races || []).forEach(function(p){ polls[p.id] = p; });
+    render();
+  }).catch(function(){ $('main').innerHTML = '<div class="empty">Couldn\u2019t load polls. Refresh to try again.</div>'; });
+
+  document.querySelector('.tabs').addEventListener('click', function(e){
+    var b = e.target.closest('.tab'); if (!b) return;
+    tab = b.getAttribute('data-tab');
+    try { localStorage.setItem('ep-tab', tab); } catch(err){}
+    history.replaceState(null, '', '#' + tab); render();
+  });
+})();
+</script>
+</body>
+</html>
