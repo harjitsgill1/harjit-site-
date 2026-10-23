@@ -125,6 +125,7 @@ if (process.env.REPORT === '1') {
   }
   rows.sort();
   console.log(rows.join('\n'));
+  await writeFile(new URL('../../feeds-report.txt', import.meta.url), rows.join('\n') + '\n');
   if (process.env.GITHUB_ACTIONS) console.log(`::notice title=Per-race report::${rows.join('%0A')}`);
 }
 await withTimeout(closeBrowser(), 15000, 'closing browser').catch(() => {});

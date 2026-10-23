@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -29,3 +29,11 @@ jobs:
         env:
           FORCE: '1'
           REPORT: '1'
+      - name: Save report to election-report branch
+        run: |
+          mkdir out && mv feeds-report.txt out/ && cd out
+          git init -q -b election-report
+          git config user.name "election-bot"
+          git config user.email "election-bot@users.noreply.github.com"
+          git add -A && git commit -qm "feeds report $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" election-report
