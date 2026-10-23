@@ -26,4 +26,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - uses: actions/deploy-pages@v4
+      - name: Publish
+        id: first
+        # The 5-minute results job also publishes; if it's mid-publish, wait and retry
+        # instead of failing (and emailing) on the collision.
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait for the other publish to finish
+        if: ${{ steps.first.outcome == 'failure' }}
+        run: sleep 75
+      - name: Publish (retry)
+        if: ${{ steps.first.outcome == 'failure' }}
+        uses: actions/deploy-pages@v4
