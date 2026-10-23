@@ -1,0 +1,31 @@
+name: Election feeds test
+
+# Manual: runs every connector against whatever the sources show right now
+# (test data before polls close) and reports per-feed results as annotations.
+# Never commits, publishes, or touches the live results chain.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install browser driver and PDF tools
+        run: |
+          cd scripts/election
+          npm i --no-save --no-package-lock --silent playwright@1
+          which google-chrome || npx playwright install --with-deps chromium > /dev/null
+          which pdftotext || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils > /dev/null)
+      - name: Run every connector
+        run: node scripts/election/update.mjs
+        env:
+          FORCE: '1'
+          REPORT: '1'

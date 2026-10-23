@@ -109,6 +109,24 @@ async function build(outName, useFeeds, useManual) {
 let changed = await build('results.json', pollsClosed || FORCE, true);
 if (!pollsClosed) changed = (await build('rehearsal.json', true, false)) || changed;
 
+if (process.env.REPORT === '1') {
+  // One-line-per-race report of every automatic source, as a single annotation.
+  const rows = [];
+  for (const race of races) {
+    const src = race.source || {};
+    if (!adapters[src.type]) continue;
+    let line;
+    try {
+      const r = await fetchOnce(src, race);
+      line = r ? `OK    ${src.type.padEnd(8)} ${race.candidate} :: ${r.contest || ''} :: ${(r.candidates || []).slice(0, 3).map((c) => `${c.name} ${c.votes ?? ''}`).join(' | ')}`
+               : `EMPTY ${src.type.padEnd(8)} ${race.candidate} (source has no data for this race yet)`;
+    } catch (e) { line = `FAIL  ${src.type.padEnd(8)} ${race.candidate} :: ${e.message}`; }
+    rows.push(line);
+  }
+  rows.sort();
+  console.log(rows.join('\n'));
+  if (process.env.GITHUB_ACTIONS) console.log(`::notice title=Per-race report::${rows.join('%0A')}`);
+}
 await withTimeout(closeBrowser(), 15000, 'closing browser').catch(() => {});
 const slow = Object.entries(timing).map(([k, v]) => `${k} ${Math.round(v / 1000)}s`).join(', ');
 console.log('slowest call per source type: ' + slow);
