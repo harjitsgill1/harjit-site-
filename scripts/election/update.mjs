@@ -82,7 +82,9 @@ async function build(outName, useFeeds, useManual) {
       log.skipped++;
     }
     // Hand-entered numbers always win; delete the entry to hand back to the feed.
-    if (useManual && manual[race.id]) entry = { ...manual[race.id], origin: 'manual' };
+    // Hand-entered numbers win, except "fallback" entries (written because a feed
+    // was silent): those give way as soon as the feed has numbers of its own.
+    if (useManual && manual[race.id] && !(manual[race.id].fallback && entry?.origin === 'feed')) entry = { ...manual[race.id], origin: 'manual' };
     if (useManual && entry && calls[race.id]?.winner && !entry.called) entry = { ...entry, called: calls[race.id].winner, calledBy: calls[race.id].by || null };
     if (entry) next[race.id] = entry;
   }));
