@@ -1,17 +1,23 @@
 name: Election results
 
+# Every 5 minutes: pull results, commit real changes, and republish the site.
+# Publishing from this workflow (Settings > Pages > Source: GitHub Actions)
+# avoids the 10-builds-per-hour limit on branch-based Pages builds.
+
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       force:
-        description: 'Accept feed data before polls close (testing only)'
+        description: 'Accept feed data before polls close (testing only, no commit or publish)'
         type: boolean
         default: false
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: election-results
@@ -20,26 +26,44 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 9
+    environment:
+      name: github-pages
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Pull latest results
+        id: pull
         run: node scripts/election/update.mjs
         env:
           FORCE: ${{ inputs.force && '1' || '' }}
-      - name: Commit if anything changed
-        if: ${{ !inputs.force }}
+      - name: Commit real changes
+        if: ${{ !inputs.force && steps.pull.outputs.changed == 'true' }}
         run: |
           git config user.name "election-bot"
           git config user.email "election-bot@users.noreply.github.com"
-          git add election/data/results.json
-          if git diff --cached --quiet; then
-            echo "No result changes."
-          else
-            git commit -m "Update election results"
-            git pull --rebase origin main
-            git push
+          git add election/data/results.json election/data/rehearsal.json
+          git commit -m "Update election results" || exit 0
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            echo "::warning::Could not rebase; this run's numbers are still published."
+            exit 0
           fi
+          git push || echo "::warning::Push failed; this run's numbers are still published."
+      - name: Package site
+        if: ${{ !inputs.force }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Publish site
+        id: publish
+        if: ${{ !inputs.force }}
+        # Fails until Settings > Pages > Source is "GitHub Actions"; meanwhile the
+        # committed results still go out through the branch build.
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Flag publish failure
+        if: ${{ !inputs.force && steps.publish.outcome == 'failure' }}
+        run: echo "::warning title=Publish failed::Site not republished this run. Set Settings > Pages > Source to GitHub Actions."

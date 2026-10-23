@@ -1,0 +1,42 @@
+name: Election feed probe
+
+# Manual helper: downloads the given URLs on GitHub's servers and saves them to
+# the election-probe branch, so feed formats can be inspected. Never touches main.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'URLs to fetch, separated by spaces'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fetch URLs
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p out && cd out
+          i=0
+          for u in $URLS; do
+            i=$((i+1))
+            f=$(printf "%02d" $i)
+            code=$(curl -sS -L -A "Mozilla/5.0 (election tracker probe)" --max-time 40 -o "$f.body" -w "%{http_code} %{content_type} %{size_download} %{url_effective}" "$u" 2>"$f.err" || true)
+            echo "$f $u -> $code" | tee -a index.txt
+          done
+          # keep large files from bloating the branch
+          for b in *.body; do [ -f "$b" ] && [ $(stat -c%s "$b") -gt 15000000 ] && truncate -s 15000000 "$b"; done
+          true
+      - name: Save to election-probe branch
+        run: |
+          cd out
+          git init -q -b election-probe
+          git config user.name "election-bot"
+          git config user.email "election-bot@users.noreply.github.com"
+          git add -A && git commit -qm "probe $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" election-probe
