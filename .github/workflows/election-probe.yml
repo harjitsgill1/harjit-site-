@@ -26,7 +26,7 @@ jobs:
           for u in $URLS; do
             i=$((i+1))
             f=$(printf "%02d" $i)
-            code=$(curl -sS -L -A "Mozilla/5.0 (election tracker probe)" --max-time 40 -o "$f.body" -w "%{http_code} %{content_type} %{size_download} %{url_effective}" "$u" 2>"$f.err" || true)
+            code=$(curl -sS -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept: text/html,application/json,*/*" -H "Accept-Language: en-US,en;q=0.9" --compressed --max-time 40 -o "$f.body" -w "%{http_code} %{content_type} %{size_download} %{url_effective}" "$u" 2>"$f.err" || true)
             echo "$f $u -> $code" | tee -a index.txt
           done
           # keep large files from bloating the branch
