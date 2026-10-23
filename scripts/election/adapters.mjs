@@ -59,6 +59,9 @@ const miName = (s) => {
   return first ? `${t(first)} ${t(last)}` : t(s);
 };
 
+// "JEFFREY PRANG" -> "Jeffrey Prang" (leaves mixed-case names alone)
+const titleCase = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
+
 // Memoize per run, keyed by string.
 const memo = new Map();
 const once = (key, fn) => { if (!memo.has(key)) memo.set(key, fn()); return memo.get(key); };
@@ -213,6 +216,61 @@ export const adapters = {
       reportedAt: null,
       sourceUrl: 'https://floridaelectionwatch.gov/',
     };
+  },
+
+  // "Enhanced Voting" county results platform (Sacramento and others).
+  // src: { base: "https://results.saccounty.gov/results/public/api/elections/sacramento-county-ca",
+  //        ids: [69, 70], date: "2026-11-03", match?: phrase in the contest name }
+  async enhanced(src, race) {
+    let data = null;
+    for (const id of src.ids || [src.id]) {
+      const j = await once(`ev:${src.base}/${id}`, () => getJson(`${src.base}/${id}/data`).catch(() => null));
+      if (j && String(j.election?.electionDate || j.election?.date || '').startsWith(src.date || '2026-11-03')) { data = j; break; }
+      if (j && !src.date) { data = j; break; }
+    }
+    if (!data) return null;
+    const t = (arr) => (arr || []).map((x) => x.text).find(Boolean) || '';
+    const want = String(src.match || '').toUpperCase();
+    for (const item of data.ballotItems || []) {
+      const name = t(item.name);
+      if (want && !name.toUpperCase().includes(want)) continue;
+      const opts = item.summaryResults?.ballotOptions || [];
+      if (!opts.some((o) => sameName(race.candidate, t(o.name)))) continue;
+      const total = opts.reduce((a, o) => a + (o.voteCount || 0), 0);
+      const rs = item.reportingStatus || {};
+      return {
+        contest: name,
+        candidates: opts.filter((o) => !o.isWriteIn || o.voteCount).map((o) => ({ name: titleCase(t(o.name)), party: o.party?.abbreviation || null, votes: o.voteCount, pct: total ? o.voteCount / total * 100 : 0 })),
+        reporting: rs.totalUnits ? `${rs.reportingUnits} of ${rs.totalUnits} precincts reporting` : null,
+        reportedAt: rs.asOf ? new Date(rs.asOf).toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT' : null,
+        sourceUrl: src.base.replace('/api/elections/', '/'),
+      };
+    }
+    return null;
+  },
+
+  // Los Angeles County Registrar results JSON. src: { ids: [4339, ...], date, match? }
+  async lavote(src, race) {
+    let e = null;
+    for (const id of src.ids) {
+      const j = await once(`la:${id}`, () => getJson(`https://results.lavote.gov/electionresults/json?electionid=${id}`).catch(() => null));
+      if (j?.Election && String(j.Election.Date).startsWith(src.date || '2026-11-03')) { e = j.Election; break; }
+    }
+    if (!e) return null;
+    const want = String(src.match || '').toUpperCase();
+    for (const g of e.ContestGroups || []) for (const c of g.Contests || []) {
+      if (want && !(`${g.Name} ${c.Title}`).toUpperCase().includes(want)) continue;
+      const cands = c.Candidates || [];
+      if (!cands.some((x) => sameName(race.candidate, x.Name))) continue;
+      const total = cands.reduce((a, x) => a + (x.Votes || 0), 0);
+      return {
+        contest: c.Title,
+        candidates: cands.map((x) => ({ name: titleCase(x.Name), party: x.Party && x.Party !== 'Non Partisan' ? x.Party : null, votes: x.Votes, pct: total ? x.Votes / total * 100 : 0 })),
+        reporting: null, reportedAt: null,
+        sourceUrl: 'https://results.lavote.gov/',
+      };
+    }
+    return null;
   },
 
   // California Secretary of State results API. Paths look like "us-rep/district/7".
