@@ -43,6 +43,7 @@ jobs:
           cd scripts/election
           npm i --no-save --no-package-lock --silent playwright@1
           which google-chrome || npx playwright install --with-deps chromium > /dev/null
+          which pdftotext || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils > /dev/null)
       - name: Pull latest results
         id: pull
         run: node scripts/election/update.mjs

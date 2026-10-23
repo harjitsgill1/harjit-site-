@@ -2,7 +2,8 @@
 // { candidates: [{name, party, votes, pct}], reporting, reportedAt, sourceUrl }
 // or null when the source has no data for that race yet.
 
-import { browserFetch, pageText } from './browser.mjs';
+import { execFileSync } from 'node:child_process';
+import { browserFetch, browserFetchBinary, pageText, pageHtml } from './browser.mjs';
 
 export const num = (v) => {
   if (v === null || v === undefined || v === '') return null;
@@ -61,6 +62,11 @@ const miName = (s) => {
 
 // "JEFFREY PRANG" -> "Jeffrey Prang" (leaves mixed-case names alone)
 const titleCase = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
+
+// Visible text lines from raw HTML (keeps collapsed sections).
+const htmlLines = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '')
+  .replace(/<[^>]+>/g, '\n').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"')
+  .split('\n').map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
 
 // Memoize per run, keyed by string.
 const memo = new Map();
@@ -271,6 +277,104 @@ export const adapters = {
         reporting: null, reportedAt: null,
         sourceUrl: 'https://results.lavote.gov/',
       };
+    }
+    return null;
+  },
+
+  // Alameda County results pages (alamedacountyca.gov/rovresults/<id>/), server-
+  // rendered. src: { ids: [..], title: "November 3, 2026", match?: phrase in contest }
+  async alameda(src, race) {
+    let lines = null, url = null;
+    for (const id of src.ids) {
+      const u = `https://alamedacountyca.gov/rovresults/${id}/`;
+      const ls = await once('ala:' + u, async () => htmlLines(await pageHtml(u, 6000).catch(() => '')));
+      if (ls.some((l) => l.includes(src.title || 'November 3, 2026'))) { lines = ls; url = u; break; }
+    }
+    if (!lines) return null;
+    const want = String(src.match || '').toUpperCase();
+    for (let i = 0; i < lines.length; i++) {
+      const rep = lines[i + 1] || '';
+      if (!/Precincts Reported/i.test(rep)) continue;
+      const contest = lines[i];
+      if (want && !contest.toUpperCase().includes(want)) continue;
+      const seats = num((lines[i + 2] || '').match(/\((\d+)\)/)?.[1]) || 1;
+      const cands = [];
+      for (let k = i + 2; k + 2 < lines.length && !/Precincts Reported/i.test(lines[k + 1] || ''); k++) {
+        if (/^[\d,]+$/.test(lines[k + 1]) && /^[\d.]+\s*%$/.test(lines[k + 2])) {
+          cands.push({ name: lines[k], party: null, votes: num(lines[k + 1]), pct: num(lines[k + 2]) }); k += 2;
+        }
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest, seats, candidates: cands, reporting: rep.replace(/\s+/g, ' '), reportedAt: null, sourceUrl: url,
+          note: /RCV/.test(contest) ? 'First-choice votes; ranked-choice rounds are published separately' : undefined };
+      }
+    }
+    return null;
+  },
+
+  // Orange County (Hart "livevoterturnout" ENR). The current election's page is
+  // linked from ocvote.gov. src: { match?: phrase in contest }
+  async oc_hart(src, race) {
+    const page = await once('oc:url', async () => {
+      const html = await getText('https://ocvote.gov/results/current-election-results');
+      return html.match(/https:\/\/www\.livevoterturnout\.com\/ENR\/orangecaenr\/\d+\/en\/[^"']*Index_\d+\.html/)?.[0] || null;
+    });
+    if (!page) return null;
+    const text = await once('ocp:' + page, () => pageText(page, 10000));
+    if (!/November 3, 2026|2026 (Statewide )?General/i.test(text)) return null; // still showing an older election
+    const lines = text.split(/\n/).map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
+    const want = String(src.match || '').toUpperCase();
+    for (let i = 0; i < lines.length; i++) {
+      const m = lines[i].match(/^Contest:\s*(.*?)(?:,\s*VOTE FOR (\d+))?$/i);
+      if (!m) continue;
+      if (want && !m[1].toUpperCase().includes(want)) continue;
+      const cands = [];
+      for (let k = i + 1; k < lines.length && !/^Contest:/i.test(lines[k]); k++) {
+        const v = lines[k].match(/^([\d,]+) ([\d.]+)%$/);
+        if (v) {
+          const raw = lines[k - 1];
+          const pm = raw.match(/^(.*?)\s*\(([A-Z]+)\)$/);
+          cands.push({ name: titleCase(pm ? pm[1] : raw), party: pm ? pm[2] : null, votes: num(v[1]), pct: num(v[2]) });
+        }
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest: m[1], seats: num(m[2]) || 1, candidates: cands, reporting: null, reportedAt: null, sourceUrl: page };
+      }
+    }
+    return null;
+  },
+
+  // Fresno County posts election-night "Election Summary Report" PDFs on its
+  // results page (behind bot protection). src: { month: 11, year: 26, match? }
+  async fresno(src, race) {
+    const PAGE = 'https://www.fresnocountyca.gov/Departments/County-ClerkRegistrar-of-Voters/Elections/Election-Results';
+    const lines = await once('fresno', async () => {
+      const html = await pageHtml(PAGE, 8000);
+      const links = [...html.matchAll(/href="([^"]*electionsummaryreportrpt[^"]*\.pdf)"/gi)].map((m) => m[1])
+        .filter((h) => { const d = h.match(/(\d{1,2})[.\-_](\d{1,2})[.\-_](\d{2,4})/); return d && Number(d[1]) === (src.month || 11) && String(d[3]).endsWith(String(src.year || 26)); });
+      if (!links.length) return null; // November report not posted yet
+      const path = links[0].replace(/^https?:\/\/[^/]+/, '');
+      const pdf = await browserFetchBinary(PAGE, path);
+      const text = execFileSync('pdftotext', ['-layout', '-', '-'], { input: pdf, maxBuffer: 64 << 20 }).toString();
+      return text.split(/\n/).map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
+    });
+    if (!lines) return null;
+    const want = String(src.match || '').toUpperCase();
+    for (let i = 0; i < lines.length; i++) {
+      const h = lines[i].match(/^(.*)\(Vote for (\d+)\)$/i);
+      if (!h || !/^Precincts Reported/i.test(lines[i + 1] || '')) continue;
+      if (want && !h[1].toUpperCase().includes(want)) continue;
+      const cands = [];
+      for (let k = i + 2; k < lines.length && !/\(Vote for \d+\)$/i.test(lines[k]); k++) {
+        if (/^(Times Cast|Undervotes|Overvotes|Candidate|Total)\b/i.test(lines[k])) continue;
+        let m = lines[k].match(/^(.*?)\s+([\d,]+)\s+([\d.]+)%$/);
+        if (m && m[1]) cands.push({ name: titleCase(m[1].replace(/\s+(DEM|REP|NPP|LIB|GRN|PF|AI)$/, '')), party: null, votes: num(m[2]), pct: num(m[3]) });
+        else if ((m = lines[k].match(/^([\d,]+)\s+([\d.]+)%$/)) && lines[k - 1]) cands.push({ name: titleCase(lines[k - 1]), party: null, votes: num(m[1]), pct: num(m[2]) });
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest: h[1].trim(), seats: num(h[2]) || 1, candidates: cands.filter((c) => !/write-in/i.test(c.name)),
+          reporting: lines[i + 1].replace(/^Precincts Reported:\s*/i, '') + ' precincts reporting', reportedAt: null, sourceUrl: PAGE };
+      }
     }
     return null;
   },

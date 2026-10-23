@@ -62,6 +62,28 @@ export async function pageText(url, waitMs = 10000) {
   return page.evaluate(() => document.body ? document.body.innerText : '');
 }
 
+// Full HTML of a page (includes collapsed/hidden sections that innerText skips).
+export async function pageHtml(url, waitMs = 10000) {
+  if (globalThis.__browserMock) return globalThis.__browserMock.html(url); // tests
+  const page = await sitePage(url, waitMs);
+  return page.content();
+}
+
+// Download a same-origin binary file through the site's cleared page; returns a Buffer.
+export async function browserFetchBinary(entryUrl, path) {
+  if (globalThis.__browserMock) return globalThis.__browserMock.binary(entryUrl, path); // tests
+  const page = await sitePage(entryUrl);
+  const b64 = await page.evaluate(async (p) => {
+    const r = await fetch(p, { cache: 'no-store' });
+    if (!r.ok) return 'ERR' + r.status;
+    const b = new Uint8Array(await r.arrayBuffer());
+    let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+    return btoa(s);
+  }, path);
+  if (b64.startsWith('ERR')) throw new Error('HTTP ' + b64.slice(3) + ' ' + path);
+  return Buffer.from(b64, 'base64');
+}
+
 export async function closeBrowser() {
   if (browser) await browser.close().catch(() => {});
   browser = null; ctx = null; pages.clear();
