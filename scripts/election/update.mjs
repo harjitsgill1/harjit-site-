@@ -38,6 +38,9 @@ async function runAll(tasks, limit = 6) {
 
 const races = (await readJson(file('races.json'), { races: [] })).races;
 const manual = await readJson(file('manual.json'), {});
+// Race calls (AP or official), kept separate so live feed numbers keep flowing:
+// { "<race id>": { "winner": "<full name>", "by": "AP", "at": "<ISO time>" } }
+const calls = await readJson(file('calls.json'), {});
 
 // Fetch each distinct source once per run, shared by both outputs.
 const cache = new Map();
@@ -80,6 +83,7 @@ async function build(outName, useFeeds, useManual) {
     }
     // Hand-entered numbers always win; delete the entry to hand back to the feed.
     if (useManual && manual[race.id]) entry = { ...manual[race.id], origin: 'manual' };
+    if (useManual && entry && calls[race.id]?.winner && !entry.called) entry = { ...entry, called: calls[race.id].winner, calledBy: calls[race.id].by || null };
     if (entry) next[race.id] = entry;
   }));
 

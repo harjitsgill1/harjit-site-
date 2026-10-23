@@ -262,6 +262,7 @@
     var meta = [];
     if (res && res.reporting) meta.push(esc(res.reporting));
     if (res && (res.reportedAt || res.changedAt)) meta.push('Updated ' + esc(res.reportedAt || fmtTime(res.changedAt)));
+    if (res && res.called) meta.push('Called' + (res.calledBy ? ' by ' + esc(res.calledBy) : ''));
     if (res && res.origin === 'manual') meta.push('Entered by hand');
     if (res && res.stale) meta.push('<span class="warn">Source not responding</span>');
     if (!res && race.status !== 'won' && race.status !== 'lost') meta.push(isLive() ? 'Awaiting first results' : 'Results after polls close');
