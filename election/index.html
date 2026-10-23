@@ -151,7 +151,7 @@
 <div class="bar">
   <div class="bar-inner">
     <div class="tabs" role="tablist">
-      <button class="tab mine" role="tab" data-tab="mine" aria-selected="true">Our Picks <span class="n" id="n-mine"></span></button>
+      <button class="tab mine" role="tab" data-tab="mine" aria-selected="true">Mai’s Picks <span class="n" id="n-mine"></span></button>
       <button class="tab dsa" role="tab" data-tab="dsa" aria-selected="false">DSA <span class="n" id="n-dsa"></span></button>
       <button class="tab wfp" role="tab" data-tab="wfp" aria-selected="false">WFP <span class="n" id="n-wfp"></span></button>
     </div>
@@ -217,7 +217,7 @@
     var res = state.results[race.id];
     var st = statusOf(race, res);
     // Show which other lists also back this candidate (the current tab is implied).
-    var badges = race.lists.filter(function(l){ return l !== state.tab; }).map(function(l){ return '<span class="badge '+l+'">'+(l==='mine'?'OUR PICK':l.toUpperCase())+'</span>'; }).join('');
+    var badges = race.lists.filter(function(l){ return l !== state.tab; }).map(function(l){ return '<span class="badge '+l+'">'+(l==='mine'?'MAI’S PICK':l.toUpperCase())+'</span>'; }).join('');
     var body = '';
     if (res && res.candidates && res.candidates.length){
       var cands = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
