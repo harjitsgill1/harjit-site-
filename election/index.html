@@ -95,6 +95,18 @@
   /* ---------- Groups + cards ---------- */
   main{max-width:1100px;margin:0 auto;padding:8px 16px 60px;}
   .group{margin-top:26px;}
+  .score{--c:var(--mine);margin-top:18px;background:var(--card-bg);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;}
+  .score.t-dsa{--c:var(--dsa);} .score.t-wfp{--c:var(--wfp);}
+  .score .big{display:flex;flex-direction:column;min-width:120px;}
+  .score .big b{font:400 40px/1 'Archivo Black',sans-serif;color:var(--heading);}
+  .score .lbl{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+  .score .stats{display:flex;flex-wrap:wrap;gap:10px 20px;}
+  .score .st{display:flex;flex-direction:column;gap:2px;}
+  .score .st b{font:700 22px 'Inter',sans-serif;color:var(--heading);}
+  .score .st.won b{color:var(--win);}
+  .score .meter{flex:1 1 100%;height:8px;border-radius:4px;background:var(--track);overflow:hidden;display:flex;}
+  .score .meter i{display:block;height:100%;}
+  .score .sub{flex:1 1 100%;font-size:12px;color:var(--muted);margin-top:-6px;}
   .group h2{font-size:20px;display:flex;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--heading);}
   .group h2 small{font:600 12px 'JetBrains Mono',monospace;color:var(--muted);}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin-top:14px;}
@@ -281,9 +293,37 @@
     });
     if (state.tab === 'mine') order.sort(function(a,b){ return MINE_ORDER.indexOf(a) - MINE_ORDER.indexOf(b); });
     else order.sort();
-    $('main').innerHTML = order.length ? order.map(function(g){
+    $('main').innerHTML = scoreboard(list) + (order.length ? order.map(function(g){
       return '<section class="group"><h2>'+esc(g)+' <small>'+groups[g].length+'</small></h2><div class="grid">'+groups[g].map(card).join('')+'</div></section>';
-    }).join('') : '<div class="empty">No races match.</div>';
+    }).join('') : '<div class="empty">No races match.</div>');
+  }
+
+  // Win/loss tally for the races on screen. Win rate counts decided races only;
+  // "if current leads hold" adds races still being counted.
+  function scoreboard(list){
+    var n = {won:0, lost:0, leading:0, trailing:0, waiting:0};
+    list.forEach(function(r){
+      var k = statusOf(r, state.results[r.id]).k;
+      if (n[k] != null) n[k]++; else n.waiting++;
+    });
+    var decided = n.won + n.lost, counting = n.leading + n.trailing;
+    var pct = function(a,b){ return b ? Math.round(a/b*100) + '%' : '\u2014'; };
+    var total = list.length || 1;
+    var seg = function(v, color){ return v ? '<i style="width:'+(v/total*100)+'%;background:'+color+'"></i>' : ''; };
+    var sub = decided ? '' : (counting ? 'If current leads hold: ' + pct(n.won+n.leading, decided+counting) + ' win rate' : (isLive() ? 'Waiting for first results' : 'Results start after polls close on Nov 3'));
+    if (decided && counting) sub = 'If current leads hold: ' + pct(n.won+n.leading, decided+counting);
+    return '<section class="score t-'+state.tab+'">' +
+      '<div class="big"><span class="lbl">Win rate</span><b>'+pct(n.won, decided)+'</b></div>' +
+      '<div class="stats">' +
+        '<div class="st won"><span class="lbl">Won</span><b>'+n.won+'</b></div>' +
+        '<div class="st"><span class="lbl">Lost</span><b>'+n.lost+'</b></div>' +
+        '<div class="st"><span class="lbl">Leading</span><b>'+n.leading+'</b></div>' +
+        '<div class="st"><span class="lbl">Trailing</span><b>'+n.trailing+'</b></div>' +
+        '<div class="st"><span class="lbl">Not called</span><b>'+n.waiting+'</b></div>' +
+      '</div>' +
+      '<div class="meter">'+seg(n.won,'var(--win)')+seg(n.leading,'color-mix(in srgb, var(--win) 45%, transparent)')+seg(n.trailing,'color-mix(in srgb, var(--c) 45%, transparent)')+seg(n.lost,'var(--c)')+'</div>' +
+      (sub ? '<div class="sub">'+sub+'</div>' : '') +
+      '</section>';
   }
 
   function fillStates(){
