@@ -28,7 +28,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Tracker season ends one week after Election Day (midnight PT, Nov 10-11);
+  # after that every run (including the backup schedule) stops here quietly.
+  season:
+    runs-on: ubuntu-latest
+    outputs:
+      open: ${{ steps.check.outputs.open }}
+    steps:
+      - id: check
+        run: |
+          if [ "$(date -u +%s)" -lt "$(date -u -d '2026-11-11T08:00:00Z' +%s)" ]; then echo "open=true" >> "$GITHUB_OUTPUT"; else echo "Tracker season is over."; fi
   update:
+    needs: season
+    if: ${{ needs.season.outputs.open == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:
@@ -90,7 +102,7 @@ jobs:
           now=$(date -u +%s)
           night_start=$(date -u -d '2026-11-03T20:00:00Z' +%s)
           night_end=$(date -u -d '2026-11-07T08:00:00Z' +%s)
-          stop=$(date -u -d '2026-12-15T00:00:00Z' +%s)
+          stop=$(date -u -d '2026-11-11T08:00:00Z' +%s)
           if [ "$now" -ge "$stop" ]; then echo "Tracker season over; not chaining."; exit 0; fi
           if [ "$now" -ge "$night_start" ] && [ "$now" -lt "$night_end" ]; then wait=20
           elif [ "$now" -lt "$night_start" ]; then wait=240
