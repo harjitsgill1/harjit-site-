@@ -1,11 +1,32 @@
 {
- "updatedAt": "2026-10-23T21:24:37.106Z",
- "checkedAt": "2026-10-23T21:24:37.106Z",
+ "updatedAt": "2026-10-23T21:31:50.643Z",
+ "checkedAt": "2026-10-23T21:31:50.643Z",
  "feeds": {
-  "ok": 20,
+  "ok": 18,
   "failed": 0
  },
  "results": {
+  "ca-u-s-house-ca-7-mai-vang": {
+   "candidates": [
+    {
+     "name": "Doris Matsui",
+     "party": "Dem",
+     "votes": 26811,
+     "pct": 33.3
+    },
+    {
+     "name": "Mai Vang",
+     "party": "Dem",
+     "votes": 53624,
+     "pct": 66.7
+    }
+   ],
+   "reporting": "24% (277 of 1,154) precincts reporting",
+   "reportedAt": "September 24, 2026, 5:37 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-10-23T21:24:37.106Z"
+  },
   "ca-state-assembly-district-25-ash-kalra": {
    "candidates": [
     {
@@ -27,22 +48,22 @@
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
   },
-  "ca-u-s-house-ca-11-connie-chan": {
+  "ca-state-assembly-district-24-alex-lee": {
    "candidates": [
     {
-     "name": "Connie Chan",
+     "name": "Alex Lee",
      "party": "Dem",
-     "votes": 57251,
-     "pct": 66.7
+     "votes": 15496,
+     "pct": 33.3
     },
     {
-     "name": "Scott Wiener",
-     "party": "Dem",
-     "votes": 28625,
-     "pct": 33.3
+     "name": "Max Hsia",
+     "party": "Rep",
+     "votes": 30994,
+     "pct": 66.7
     }
    ],
-   "reporting": "24.9% (113 of 453) precincts reporting",
+   "reporting": "24.3% (36 of 148) precincts reporting",
    "reportedAt": "September 24, 2026, 5:37 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -90,43 +111,22 @@
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
   },
-  "ca-u-s-house-ca-7-mai-vang": {
+  "ca-u-s-house-ca-11-connie-chan": {
    "candidates": [
     {
-     "name": "Doris Matsui",
+     "name": "Connie Chan",
      "party": "Dem",
-     "votes": 26811,
-     "pct": 33.3
+     "votes": 57251,
+     "pct": 66.7
     },
     {
-     "name": "Mai Vang",
+     "name": "Scott Wiener",
      "party": "Dem",
-     "votes": 53624,
-     "pct": 66.7
-    }
-   ],
-   "reporting": "24% (277 of 1,154) precincts reporting",
-   "reportedAt": "September 24, 2026, 5:37 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-10-23T21:24:37.106Z"
-  },
-  "ca-state-assembly-district-24-alex-lee": {
-   "candidates": [
-    {
-     "name": "Alex Lee",
-     "party": "Dem",
-     "votes": 15496,
+     "votes": 28625,
      "pct": 33.3
-    },
-    {
-     "name": "Max Hsia",
-     "party": "Rep",
-     "votes": 30994,
-     "pct": 66.7
     }
    ],
-   "reporting": "24.3% (36 of 148) precincts reporting",
+   "reporting": "24.9% (113 of 453) precincts reporting",
    "reportedAt": "September 24, 2026, 5:37 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -180,41 +180,25 @@
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
   },
-  "oh-u-s-senate-ohio-sherrod-brown": {
-   "contest": "U.S. Senator",
+  "nc-alamance-county-sheriff-shannon-long": {
+   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
    "candidates": [
     {
-     "name": "Sherrod Brown",
-     "party": "D",
-     "votes": 708005,
-     "pct": 89.47
+     "name": "Shannon Long",
+     "party": "UNA",
+     "votes": 0,
+     "pct": 0
     },
     {
-     "name": "Ron Kincaid",
-     "party": "D",
-     "votes": 83350,
-     "pct": 10.53
+     "name": "Terry S. Johnson",
+     "party": "REP",
+     "votes": 0,
+     "pct": 0
     }
    ],
-   "reporting": null,
+   "reporting": "0 of 39 precincts reporting",
    "reportedAt": null,
-   "sourceUrl": "https://liveresults.ohiosos.gov/",
-   "origin": "feed",
-   "changedAt": "2026-10-23T21:24:37.106Z"
-  },
-  "oh-governor-ohio-amy-acton": {
-   "contest": "Governor and Lieutenant Governor",
-   "candidates": [
-    {
-     "name": "Amy Acton and David Pepper",
-     "party": "D",
-     "votes": 762457,
-     "pct": 100
-    }
-   ],
-   "reporting": null,
-   "reportedAt": null,
-   "sourceUrl": "https://liveresults.ohiosos.gov/",
+   "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
   },
@@ -338,44 +322,6 @@
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
   },
-  "oh-auditor-annette-blackwell": {
-   "contest": "Auditor of State",
-   "candidates": [
-    {
-     "name": "Annette Blackwell",
-     "party": "D",
-     "votes": 682912,
-     "pct": 100
-    }
-   ],
-   "reporting": null,
-   "reportedAt": null,
-   "sourceUrl": "https://liveresults.ohiosos.gov/",
-   "origin": "feed",
-   "changedAt": "2026-10-23T21:24:37.106Z"
-  },
-  "nc-alamance-county-sheriff-shannon-long": {
-   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
-   "candidates": [
-    {
-     "name": "Shannon Long",
-     "party": "UNA",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Terry S. Johnson",
-     "party": "REP",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 39 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://er.ncsbe.gov/",
-   "origin": "feed",
-   "changedAt": "2026-10-23T21:24:37.106Z"
-  },
   "nc-durham-county-district-attorney-satana-deberry": {
    "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
    "candidates": [
@@ -407,6 +353,27 @@
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
    "changedAt": "2026-10-23T21:24:37.106Z"
+  },
+  "ca-u-s-house-ca-34-angela-gonzales-torres": {
+   "candidates": [
+    {
+     "name": "Jimmy Gomez",
+     "party": "Dem",
+     "votes": 45547,
+     "pct": 66.7
+    },
+    {
+     "name": "Angela Gonzales-Torres",
+     "party": "Dem",
+     "votes": 22773,
+     "pct": 33.3
+    }
+   ],
+   "reporting": "25% (29 of 116) precincts reporting",
+   "reportedAt": "September 24, 2026, 5:37 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-10-23T21:31:50.643Z"
   }
  }
 }
