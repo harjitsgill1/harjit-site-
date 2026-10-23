@@ -133,6 +133,17 @@ if (Object.keys(prev.results).some((id) => !(id in next))) changed = true;
 
 console.log(`feeds ok: ${log.ok}, skipped (pre-election or manual): ${log.skipped}, failed: ${log.failed.length}`);
 log.failed.forEach((f) => console.log('  ' + f));
+if (process.env.GITHUB_ACTIONS) {
+  // Surface the outcome as run annotations so it is visible without opening logs.
+  console.log(`::notice title=Feeds::ok ${log.ok}, skipped ${log.skipped}, failed ${log.failed.length}`);
+  log.failed.slice(0, 40).forEach((f) => console.log(`::warning title=Feed failed::${f}`));
+  if (FORCE) {
+    for (const [id, e] of Object.entries(next).slice(0, 10)) {
+      const top = (e.candidates || []).slice(0, 3).map((c) => `${c.name} ${c.votes ?? ''}`).join(' | ');
+      console.log(`::notice title=${id}::${e.reporting || ''} :: ${top}`);
+    }
+  }
+}
 
 if (changed) {
   await writeFile(RESULTS, JSON.stringify({ updatedAt: now, results: next }, null, 1) + '\n');
