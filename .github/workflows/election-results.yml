@@ -81,7 +81,9 @@ jobs:
         if: ${{ !inputs.force && steps.publish.outcome == 'failure' }}
         run: echo "::warning title=Publish failed::Site not republished this run. Set Settings > Pages > Source to GitHub Actions."
       - name: Start the next run
-        if: ${{ always() && !inputs.force }}
+        # Every run (test runs too) starts the next, so the chain can't be broken by
+        # GitHub dropping a queued run; duplicates collapse to one queued run.
+        if: ${{ always() }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
