@@ -515,6 +515,27 @@ export const adapters = {
     return null;
   },
 
+  // DC Board of Elections (Cloudflare). Election list gives a UrlText per election;
+  // getCityWide returns every contest with candidates, votes and winners.
+  async dc_boe(src, race) {
+    const ENTRY = 'https://electionresults.dcboe.org/';
+    const list = JSON.parse(await once('dc:list', () => browserFetch(ENTRY, '/electionResults/getElectionResultsId')));
+    const el = list.find((e) => String(e.ElectionDate).startsWith(src.date || '2026-11-03'));
+    if (!el) return null; // November election not posted yet
+    const contests = JSON.parse(await once('dc:cw:' + el.UrlText, () => browserFetch(ENTRY, `/cityWide/getCityWide/${el.UrlText}`)));
+    const want = String(src.match || '').toUpperCase();
+    for (const c of contests) {
+      if (want && !String(c.OfficeName).toUpperCase().includes(want)) continue;
+      const rows = (c.ElectionData || []).filter((x) => !/^write-?in$/i.test(x.Contestant));
+      if (!rows.some((x) => sameName(race.candidate, x.Contestant))) continue;
+      const winner = rows.find((x) => x.IsWinner);
+      return { contest: titleCase(c.OfficeName), candidates: rows.map((x) => ({ name: x.Contestant, party: x.PartyCode || null, votes: num(x.Votes), pct: num(x.VotesPercentage) })),
+        reporting: null, reportedAt: null, called: winner ? winner.Contestant : undefined, calledBy: winner ? 'DCBOE' : undefined,
+        sourceUrl: `${ENTRY}election_results/${el.UrlText}` };
+    }
+    return null;
+  },
+
   // California Secretary of State results API. Paths look like "us-rep/district/7".
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
