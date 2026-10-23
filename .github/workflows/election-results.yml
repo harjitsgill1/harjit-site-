@@ -26,7 +26,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 9
+    timeout-minutes: 12
     environment:
       name: github-pages
     steps:
@@ -34,6 +34,16 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+      - name: Cache browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-v1
+      - name: Install headless browser (for MI, OH, SC sites)
+        run: |
+          cd scripts/election
+          npm i --no-save --no-package-lock --silent playwright@1
+          npx playwright install --with-deps chromium > /dev/null
       - name: Pull latest results
         id: pull
         run: node scripts/election/update.mjs
@@ -52,6 +62,9 @@ jobs:
             exit 0
           fi
           git push || echo "::warning::Push failed; this run's numbers are still published."
+      - name: Remove build-only files
+        if: ${{ !inputs.force }}
+        run: rm -rf scripts/election/node_modules
       - name: Package site
         if: ${{ !inputs.force }}
         uses: actions/upload-pages-artifact@v3

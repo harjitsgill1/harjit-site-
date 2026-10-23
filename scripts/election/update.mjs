@@ -15,6 +15,7 @@
 
 import { readFile, writeFile, appendFile } from 'node:fs/promises';
 import { adapters } from './adapters.mjs';
+import { closeBrowser } from './browser.mjs';
 
 const DATA = new URL('../../election/data/', import.meta.url);
 const file = (name) => new URL(name, DATA);
@@ -98,4 +99,5 @@ async function build(outName, useFeeds, useManual) {
 let changed = await build('results.json', pollsClosed || FORCE, true);
 if (!pollsClosed) changed = (await build('rehearsal.json', true, false)) || changed;
 
+await closeBrowser();
 if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${changed}\n`);
