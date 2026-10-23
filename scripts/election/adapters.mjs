@@ -143,6 +143,12 @@ export const adapters = {
       if (!m) return null; // election not posted yet
       eid = m[1];
     }
+    if (!eid && src.byDate) {
+      // Clarity's elections.json lists {EID, ElectionName, Date:"11/3/2026 12:00:00 AM"}.
+      const list = JSON.parse(await once('cl:list:' + src.path, () => browserFetch(`${src.site}/${src.path}/`, `/${src.path}/elections.json`)));
+      eid = list.find((e) => String(e.Date).startsWith(src.byDate) && !/recount/i.test(e.ElectionName))?.EID;
+      if (!eid) return null; // November election not posted yet
+    }
     const entry = `${src.site}/${src.path}/${eid}/`;
     const ver = (await once('cv:' + entry, () => browserFetch(entry, `/${src.path}/${eid}/current_ver.txt`))).trim();
     const sum = JSON.parse(await once(`sum:${entry}${ver}`, () => browserFetch(entry, `/${src.path}/${eid}/${ver}/json/sum.json`)));
