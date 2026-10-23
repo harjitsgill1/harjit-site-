@@ -146,6 +146,7 @@ export const adapters = {
       if (!(c.CH || []).some((n) => sameName(race.candidate, n))) continue;
       return {
         contest: c.C,
+        seats: num(c.VF) || 1,
         candidates: c.CH.map((n, k) => ({ name: n, party: c.P?.[k] || null, votes: num(c.V?.[k]), pct: num(c.PCT?.[k]) })),
         reporting: `${num(c.PR)} of ${num(c.TP)} precincts reporting`,
         reportedAt: null,
@@ -240,6 +241,7 @@ export const adapters = {
       const rs = item.reportingStatus || {};
       return {
         contest: name,
+        seats: num(String(t(item.voteFor)).replace(/\D+/g, '')) || 1,
         candidates: opts.filter((o) => !o.isWriteIn || o.voteCount).map((o) => ({ name: titleCase(t(o.name)), party: o.party?.abbreviation || null, votes: o.voteCount, pct: total ? o.voteCount / total * 100 : 0 })),
         reporting: rs.totalUnits ? `${rs.reportingUnits} of ${rs.totalUnits} precincts reporting` : null,
         reportedAt: rs.asOf ? new Date(rs.asOf).toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT' : null,

@@ -230,7 +230,7 @@
       var total = res.candidates.reduce(function(s,c){return s+(c.votes||0);},0);
       if (!total) return {k:'', t:'No votes yet'};
       var sorted = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
-      var seats = race.seats || 1;
+      var seats = (res && res.seats) || race.seats || 1;
       var idx = sorted.findIndex(function(c){return isOurs(race, c.name);});
       if (idx === -1) return {k:'', t:'Counting'};
       return idx < seats ? {k:'leading', t:'Leading'} : {k:'trailing', t:'Trailing'};
