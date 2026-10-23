@@ -413,6 +413,37 @@ export const adapters = {
     return null;
   },
 
+  // Minnesota Secretary of State results files (semicolon-delimited):
+  // state;county;precinct;officeId;office;district;candId;name;suffix;incumbent;party;
+  // precinctsReporting;precinctsTotal;votes;pct;totalVotes.
+  // src: { files: ["stsenate", "cntyRaceQuestions", ...], match?: phrase in office }
+  async mn_sos(src, race) {
+    const want = String(src.match || '').toUpperCase();
+    for (const f of src.files) {
+      const url = `https://electionresultsfiles.sos.mn.gov/${src.date || ELECTION.ymd}/${f}.txt`;
+      const rows = (await once('mn:' + url, () => getText(url).catch(() => ''))).split(/\r?\n/).filter(Boolean).map((l) => l.split(';'));
+      const groups = new Map();
+      for (const r of rows) {
+        if (r.length < 16) continue;
+        if (want && !r[4].toUpperCase().includes(want)) continue;
+        const key = [r[1], r[3], r[4], r[5]].join('|');
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(r);
+      }
+      for (const rs of groups.values()) {
+        if (!rs.some((r) => sameName(race.candidate, r[7]))) continue;
+        const seats = num((rs[0][4].match(/Elect (\d+)/i) || [])[1]) || 1;
+        return {
+          contest: rs[0][4], seats,
+          candidates: rs.filter((r) => !/write-in/i.test(r[7])).map((r) => ({ name: r[7], party: r[10] || null, votes: num(r[13]), pct: num(r[14]) })),
+          reporting: `${num(rs[0][11])} of ${num(rs[0][12])} precincts reporting`, reportedAt: null,
+          sourceUrl: 'https://electionresults.sos.mn.gov/',
+        };
+      }
+    }
+    return null;
+  },
+
   // California Secretary of State results API. Paths look like "us-rep/district/7".
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
