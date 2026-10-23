@@ -63,6 +63,7 @@ jobs:
             const text = await page.evaluate(() => document.body ? document.body.innerText : '').catch(() => '');
             writeFileSync(`${f}.txt`, text.slice(0, 2000000));
             writeFileSync(`${f}.net`, net.join('\n'));
+            writeFileSync(`${f}.html`, (await page.content().catch(() => '')).slice(0, 8000000));
             appendFileSync('index.txt', `${f} ${u} -> ${status} | ${title} | final ${page.url()}\n`);
             if (last) await last.close();
             last = page;
