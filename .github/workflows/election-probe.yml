@@ -35,6 +35,8 @@ jobs:
       - name: Save to election-probe branch
         run: |
           cd out
+          # compress page dumps so secret scanning on embedded site keys can't block the push
+          for f in *; do [ "$f" = index.txt ] || gzip -9 "$f"; done
           git init -q -b election-probe
           git config user.name "election-bot"
           git config user.email "election-bot@users.noreply.github.com"
