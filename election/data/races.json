@@ -22,7 +22,8 @@
   {
    "id": "ca-u-s-house-ca-7-mai-vang",
    "lists": [
-    "mine"
+    "mine",
+    "dsa"
    ],
    "state": "CA",
    "region": "Central Valley",
@@ -52,12 +53,7 @@
    "source": {
     "type": "enhanced",
     "base": "https://results.saccounty.gov/results/public/api/elections/sacramento-county-ca",
-    "ids": [
-     69,
-     70,
-     71,
-     72
-    ],
+    "jurisdiction": "sacramento-county-ca",
     "date": "2026-11-03",
     "match": "SUPERVISOR"
    }
@@ -1363,7 +1359,8 @@
   {
    "id": "dc-mayor-janeese-lewis-george",
    "lists": [
-    "wfp"
+    "wfp",
+    "dsa"
    ],
    "state": "DC",
    "region": "District of Columbia",
@@ -1389,7 +1386,8 @@
   {
    "id": "dc-council-ward-1-aparna-raj",
    "lists": [
-    "wfp"
+    "wfp",
+    "dsa"
    ],
    "state": "DC",
    "region": "District of Columbia",
@@ -1714,7 +1712,8 @@
   {
    "id": "md-prince-george-s-county-council-district-5-shayla-adams-stafford",
    "lists": [
-    "wfp"
+    "wfp",
+    "dsa"
    ],
    "state": "MD",
    "region": "Maryland",
@@ -3330,7 +3329,10 @@
    "office": "Salt Lake County Council, District 3",
    "candidate": "Luke Maynes",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3343,7 +3345,10 @@
    "office": "Salt Lake County Sheriff",
    "candidate": "Rosie Rivera",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3356,7 +3361,10 @@
    "office": "State House, District 21",
    "candidate": "Stephen Otterstrom",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3369,7 +3377,10 @@
    "office": "State House, District 32",
    "candidate": "Sahara Hayes",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3382,7 +3393,10 @@
    "office": "State House, District 35",
    "candidate": "Rosalba Dominguez",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3395,7 +3409,10 @@
    "office": "State House, District 62",
    "candidate": "David Chappell",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://electionresults.utah.gov/results/public/api/elections/Utah",
+    "jurisdiction": "Utah",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3408,7 +3425,10 @@
    "office": "U.S. House, WA-7",
    "candidate": "Pramila Jayapal",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3421,7 +3441,10 @@
    "office": "King County Council, District 4",
    "candidate": "Jorge Baron",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3434,7 +3457,10 @@
    "office": "King County Council, District 8",
    "candidate": "Teresa Mosqueda",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3447,7 +3473,10 @@
    "office": "Seattle City Council, District 5",
    "candidate": "Nilu Jenks",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3460,7 +3489,10 @@
    "office": "Spokane County Prosecutor",
    "candidate": "Danny Tarkenton",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3473,7 +3505,10 @@
    "office": "State House, LD 37 Pos. 1",
    "candidate": "Kelabe Tewolde",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3486,7 +3521,10 @@
    "office": "State House, LD 3 Pos. 1",
    "candidate": "Natasha Hill",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3499,7 +3537,10 @@
    "office": "State House, LD 3 Pos. 2",
    "candidate": "Luc Jasmin III",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3512,7 +3553,10 @@
    "office": "State House, LD 14 Pos. 1",
    "candidate": "Chelsea Dimas",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -3525,7 +3569,10 @@
    "office": "State House, LD 33 Pos. 1",
    "candidate": "Edwin Obras",
    "source": {
-    "type": "manual"
+    "type": "enhanced",
+    "base": "https://results.votewa.gov/results/public/api/elections/washington",
+    "jurisdiction": "washington",
+    "date": "2026-11-03"
    }
   },
   {
@@ -4351,6 +4398,104 @@
    "office": "State Assembly, District 56",
    "candidate": "Eon Huntley",
    "note": "NYC-DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "md-house-of-delegates-district-39-gabriel-acevero",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MD",
+   "region": "Maryland",
+   "office": "House of Delegates, District 39",
+   "candidate": "Gabriel Acevero",
+   "note": "Metro DC DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-state-senate-district-62-omar-fateh",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "State Senate, District 62",
+   "candidate": "Omar Fateh",
+   "note": "Twin Cities DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-state-house-district-63a-samantha-sencer-mura",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "State House, District 63A",
+   "candidate": "Samantha Sencer-Mura",
+   "note": "Twin Cities DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-state-house-district-66b-athena-hollins",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "State House, District 66B",
+   "candidate": "Athena Hollins",
+   "note": "Twin Cities DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-ramsey-county-commissioner-district-6-mai-chong-xiong",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "Ramsey County Commissioner, District 6",
+   "candidate": "Mai Chong Xiong",
+   "note": "Twin Cities DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-minneapolis-school-board-at-large-christin-crabtree",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "Minneapolis School Board, At-Large",
+   "candidate": "Christin Crabtree",
+   "note": "Twin Cities DSA endorsement",
+   "source": {
+    "type": "manual"
+   }
+  },
+  {
+   "id": "mn-hastings-city-council-at-large-mitchel-kulage",
+   "lists": [
+    "dsa"
+   ],
+   "state": "MN",
+   "region": "Minnesota",
+   "office": "Hastings City Council, At-Large",
+   "candidate": "Mitchel Kulage",
+   "note": "Twin Cities DSA endorsement",
    "source": {
     "type": "manual"
    }

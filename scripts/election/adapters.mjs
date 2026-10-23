@@ -230,7 +230,16 @@ export const adapters = {
   //        ids: [69, 70], date: "2026-11-03", match?: phrase in the contest name }
   async enhanced(src, race) {
     let data = null;
-    for (const id of src.ids || [src.id]) {
+    // Prefer discovery: the jurisdiction listing names each election with its date.
+    if (src.jurisdiction) {
+      const root = src.base.replace(/\/elections\/[^/]+\/?$/, '');
+      const j = await once('evj:' + src.base, () => getJson(`${root}/jurisdictions/${src.jurisdiction}`).catch(() => null));
+      const el = (j?.elections || []).find((e) => String(e.electionDate).startsWith(src.date || '2026-11-03'));
+      if (!el) return null; // November election not listed yet
+      data = await once(`ev:${src.base}/${el.publicElectionId}`, () => getJson(`${src.base}/${el.publicElectionId}/data`).catch(() => null));
+      if (!data) return null;
+    }
+    for (const id of data ? [] : (src.ids || [src.id])) {
       const j = await once(`ev:${src.base}/${id}`, () => getJson(`${src.base}/${id}/data`).catch(() => null));
       if (j && String(j.election?.electionDate || j.election?.date || '').startsWith(src.date || '2026-11-03')) { data = j; break; }
       if (j && !src.date) { data = j; break; }
