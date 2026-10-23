@@ -60,9 +60,15 @@ jobs:
             }
             const page = await ctx.newPage();
             const net = [];
+            let jn = 0;
             page.on('response', async (r) => {
               const ct = r.headers()['content-type'] || '';
-              if (/json|text\/plain|xml|csv/.test(ct)) net.push(`${r.status()} ${ct} ${r.url()}`);
+              if (/json|text\/plain|xml|csv/.test(ct)) {
+                net.push(`${r.status()} ${ct} ${r.url()}`);
+                if (/json/.test(ct) && !/google|analytics|cdn-cgi|mapbox|twitter/.test(r.url())) {
+                  try { const b = await r.text(); writeFileSync(`${f}.json${++jn}`, r.url() + '\n' + b.slice(0, 400000)); } catch {}
+                }
+              }
             });
             let status = 'err';
             try {
