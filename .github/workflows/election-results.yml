@@ -38,16 +38,11 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - name: Cache browser
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-chromium-v1
-      - name: Install headless browser (for MI, OH, SC sites)
+      - name: Install browser driver (uses the runner's preinstalled Chrome)
         run: |
           cd scripts/election
           npm i --no-save --no-package-lock --silent playwright@1
-          npx playwright install --with-deps chromium > /dev/null
+          which google-chrome || npx playwright install --with-deps chromium > /dev/null
       - name: Pull latest results
         id: pull
         run: node scripts/election/update.mjs

@@ -12,7 +12,9 @@ async function launch() {
   let chromium;
   try { ({ chromium } = await import('playwright')); }
   catch { throw new Error('browser not available (playwright not installed)'); }
-  browser = await chromium.launch();
+  // GitHub's runners ship with Google Chrome; using it skips a 3-minute install.
+  try { browser = await chromium.launch({ channel: 'chrome' }); }
+  catch { browser = await chromium.launch(); }
   ctx = await browser.newContext({
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
     locale: 'en-US',
