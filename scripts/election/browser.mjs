@@ -56,9 +56,18 @@ export async function browserFetch(entryUrl, path) {
 }
 
 // Visible text of a page (for results published as HTML tables).
-export async function pageText(url, waitMs = 10000) {
+export async function pageText(url, waitMs = 10000, opts = {}) {
   if (globalThis.__browserMock) return globalThis.__browserMock.text(url); // tests
   const page = await sitePage(url, waitMs);
+  if (opts.scroll) {
+    // Pages that load more contests as you scroll: scroll until the height stops growing.
+    let last = 0;
+    for (let i = 0; i < 40; i++) {
+      const h = await page.evaluate(() => { window.scrollTo(0, document.body.scrollHeight); return document.body.scrollHeight; });
+      if (h === last) break;
+      last = h; await page.waitForTimeout(700);
+    }
+  }
   return page.evaluate(() => document.body ? document.body.innerText : '');
 }
 

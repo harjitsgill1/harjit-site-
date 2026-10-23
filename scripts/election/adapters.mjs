@@ -460,6 +460,55 @@ export const adapters = {
     return null;
   },
 
+  // Texas Secretary of State (Civix ENR). One file per election with base64-encoded
+  // sections for federal, statewide and district (legislative/judicial) races.
+  // src: { id: 53815, match?: phrase in race name }
+  async tx_civix(src, race) {
+    const j = await once('tx:' + src.id, () => getJson(`https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/${src.id}`));
+    const dec = (k) => { try { return JSON.parse(Buffer.from(j[k] || '', 'base64').toString('utf8')); } catch { return null; } };
+    const home = dec('Home') || {};
+    const want = String(src.match || '').toUpperCase();
+    for (const sec of ['Federal', 'StateWide', 'Districted']) {
+      for (const r of dec(sec)?.Races || []) {
+        if (want && !String(r.N).toUpperCase().includes(want)) continue;
+        const cands = (r.Candidates || []).map((c) => ({ name: titleCase(String(c.N).replace(/\s*\(I\)\s*$/, '')), party: c.P || null, votes: num(c.V), pct: num(c.PE) }));
+        if (!cands.some((c) => sameName(race.candidate, c.name))) continue;
+        const pr = home.PrecinctsReporting || {};
+        return { contest: titleCase(r.N), candidates: cands,
+          reporting: home.CountiesReporting ? `${home.CountiesReporting.CR} of ${home.CountiesReporting.CT} counties reporting` : null,
+          reportedAt: home.LastUpdatedTime || null, sourceUrl: 'https://goelect.txelections.civixapps.com/ivis-enr-ui/races' };
+      }
+    }
+    return null;
+  },
+
+  // New Mexico Secretary of State results pages (server-rendered). type: FED | SW | LGX.
+  // Each contest: heading, "FOLLOW THIS CONTEST", "PRECINCTS FULLY: a / b", then
+  // name / party / pct% / votes groups, then "TOTAL VOTES". src: { type, match: exact heading }
+  async nm_sos(src, race) {
+    const url = `https://electionresults.sos.nm.gov/resultsSW.aspx?type=${src.page}&map=CTY`;
+    const text = await once("nm:" + src.page, () => pageText(url, 6000, { scroll: true }));
+    if (!/GENERAL 2026/.test(text)) return null; // still showing another election
+    const lines = text.split(/\n/).map((l) => l.trim()).filter(Boolean);
+    const want = String(src.match || '').toUpperCase();
+    for (let i = 1; i < lines.length; i++) {
+      if (lines[i] !== 'FOLLOW THIS CONTEST') continue;
+      const contest = lines[i - 1];
+      if (want && contest.toUpperCase() !== want) continue;
+      const pf = (lines[i + 1] || '').match(/FULLY:\s*([\d,]+)\s*\/\s*([\d,]+)/);
+      const cands = [];
+      for (let k = i + 2; k + 3 < lines.length && lines[k] !== 'TOTAL VOTES'; k++) {
+        if (/^[\d.]+%$/.test(lines[k + 2]) && /^[\d,]+$/.test(lines[k + 3])) {
+          cands.push({ name: titleCase(lines[k]), party: lines[k + 1], votes: num(lines[k + 3]), pct: num(lines[k + 2]) }); k += 3;
+        }
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name.split(/ and /i)[0]) || sameName(race.candidate, c.name))) {
+        return { contest: titleCase(contest), candidates: cands, reporting: pf ? `${pf[1]} of ${pf[2]} precincts fully reported` : null, reportedAt: null, sourceUrl: url };
+      }
+    }
+    return null;
+  },
+
   // California Secretary of State results API. Paths look like "us-rep/district/7".
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
