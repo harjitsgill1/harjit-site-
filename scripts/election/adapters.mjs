@@ -153,7 +153,7 @@ export const adapters = {
       return {
         contest: c.C,
         seats: num(c.VF) || 1,
-        candidates: c.CH.map((n, k) => ({ name: n, party: c.P?.[k] || null, votes: num(c.V?.[k]), pct: num(c.PCT?.[k]) })),
+        candidates: c.CH.map((n, k) => ({ name: titleCase(n), party: c.P?.[k] || null, votes: num(c.V?.[k]), pct: num(c.PCT?.[k]) })),
         reporting: `${num(c.PR)} of ${num(c.TP)} precincts reporting`,
         reportedAt: null,
         sourceUrl: entry,
@@ -294,12 +294,12 @@ export const adapters = {
     const want = String(src.match || '').toUpperCase();
     for (let i = 0; i < lines.length; i++) {
       const rep = lines[i + 1] || '';
-      if (!/Precincts Reported/i.test(rep)) continue;
+      if (!/Precincts (?:Partially |Fully )?Reported/i.test(rep)) continue;
       const contest = lines[i];
       if (want && !contest.toUpperCase().includes(want)) continue;
       const seats = num((lines[i + 2] || '').match(/\((\d+)\)/)?.[1]) || 1;
       const cands = [];
-      for (let k = i + 2; k + 2 < lines.length && !/Precincts Reported/i.test(lines[k + 1] || ''); k++) {
+      for (let k = i + 2; k + 2 < lines.length && !/Precincts (?:Partially |Fully )?Reported/i.test(lines[k + 1] || ''); k++) {
         if (/^[\d,]+$/.test(lines[k + 1]) && /^[\d.]+\s*%$/.test(lines[k + 2])) {
           cands.push({ name: lines[k], party: null, votes: num(lines[k + 1]), pct: num(lines[k + 2]) }); k += 2;
         }
