@@ -229,6 +229,22 @@ export const adapters = {
   // src: { base: "https://results.saccounty.gov/results/public/api/elections/sacramento-county-ca",
   //        ids: [69, 70], date: "2026-11-03", match?: phrase in the contest name }
   async enhanced(src, race) {
+    // County-level races live in county sub-elections under the same election id
+    // (e.g. .../elections/king-county-wa/20261103). `counties` lists slugs to try.
+    if (src.counties && !src._county) {
+      const top = await adapters.enhanced({ ...src, counties: null }, race);
+      if (top) return top;
+      const root = src.base.replace(/\/elections\/[^/]+\/?$/, '');
+      const j = await once('evj:' + src.base, () => getJson(`${root}/jurisdictions/${src.jurisdiction}`).catch(() => null));
+      const el = (j?.elections || []).find((e) => String(e.electionDate).startsWith(src.date || '2026-11-03'));
+      if (!el) return null;
+      for (const c of src.counties) {
+        const r = await adapters.enhanced({ ...src, _county: true, jurisdiction: null, counties: null,
+          base: `${root}/elections/${c}`, ids: [el.publicElectionId] }, race);
+        if (r) return r;
+      }
+      return null;
+    }
     let data = null;
     // Prefer discovery: the jurisdiction listing names each election with its date.
     if (src.jurisdiction) {
@@ -257,7 +273,7 @@ export const adapters = {
       return {
         contest: name,
         seats: num(String(t(item.voteFor)).replace(/\D+/g, '')) || 1,
-        candidates: opts.filter((o) => !o.isWriteIn || o.voteCount).map((o) => ({ name: titleCase(t(o.name)), party: o.party?.abbreviation || null, votes: o.voteCount, pct: total ? o.voteCount / total * 100 : 0 })),
+        candidates: opts.filter((o) => !o.isWriteIn || o.voteCount).map((o) => ({ name: titleCase(t(o.name).replace(/\s*\((I|Dem|Rep|Lib|Grn|Ind|NP|NPP)\)/gi, '').trim()), party: o.party?.abbreviation || (t(o.name).match(/\((Dem|Rep|Lib|Grn|Ind)\)/i) || [])[1] || null, votes: o.voteCount, pct: total ? o.voteCount / total * 100 : 0 })),
         reporting: rs.totalUnits ? `${rs.reportingUnits} of ${rs.totalUnits} precincts reporting` : null,
         reportedAt: rs.asOf ? new Date(rs.asOf).toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT' : null,
         sourceUrl: src.base.replace('/api/elections/', '/'),
