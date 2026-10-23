@@ -536,6 +536,33 @@ export const adapters = {
     return null;
   },
 
+  // Delaware Department of Elections results page (one HTML page per election).
+  // Each contest: heading, [party], "Candidate Name" + 5 column headers, then rows of
+  // name, machine, absentee, early, total, pct. src: { file: "GE2026", match: heading }
+  async de_doe(src, race) {
+    const url = `https://elections.delaware.gov/reports/${src.file || 'GE2026'}.html`;
+    const html = await once('de:' + url, () => getText(url).catch(() => null));
+    if (!html) return null; // November page not posted yet
+    const lines = htmlLines(html);
+    const want = String(src.match || '').toUpperCase();
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i] !== 'Candidate Name') continue;
+      let h = i - 1;
+      while (h > 0 && !/(District|Senator|Congress|General|Treasurer|Council|Executive|Sheriff|Recorder|Mayor|Auditor|Comptroller|Commissioner|Register|Clerk|President|Levy)/i.test(lines[h]) || (lines[h] || '').length > 90) h--;
+      const contest = lines[h];
+      if (want && contest.toUpperCase() !== want) continue;
+      const cands = [];
+      for (let k = i + 6; k + 5 < lines.length && !/^-->|^Candidate Name$/.test(lines[k]); k += 6) {
+        if (!/^[\d,]+$/.test(lines[k + 4]) || !/^[\d.]+$/.test(lines[k + 5])) break;
+        cands.push({ name: titleCase(lines[k]), party: null, votes: num(lines[k + 4]), pct: num(lines[k + 5]) });
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest, candidates: cands, reporting: null, reportedAt: null, sourceUrl: url };
+      }
+    }
+    return null;
+  },
+
   // California Secretary of State results API. Paths look like "us-rep/district/7".
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
