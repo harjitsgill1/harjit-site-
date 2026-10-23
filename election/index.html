@@ -208,18 +208,20 @@
   var $ = function(id){ return document.getElementById(id); };
   var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
   var norm = function(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim(); };
-  var parts = function(s){ return norm(s).split(' ').filter(function(w){return w && !/^(jr|sr|ii|iii|iv|dr|rev)$/.test(w);}); };
+  var parts = function(s){ return norm(String(s).replace(/-/g,' ')).split(' ').filter(function(w){return w && !/^(jr|sr|ii|iii|iv|dr|rev)$/.test(w);}); };
   var fmtTime = function(iso){ if(!iso) return ''; var d = new Date(iso); if (isNaN(d)) return iso;
     return d.toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'}); };
   var fmtNum = function(n){ return n==null ? '' : Number(n).toLocaleString(); };
 
   function isOurs(race, name){
-    // Match on last name plus the first three letters of the first name,
-    // so "Flo Cofer" matches "Flojaune Cofer" and "Rev. Rodney Sadler" matches "Rodney Sadler".
-    var a = parts(race.candidate), b = parts(name);
+    // Same rule as the updater: our candidate's last name appears in the result
+    // name, along with a word sharing the first name's first three letters
+    // (handles "Flojaune Cofer", "EL-SAYED, ABDUL", "Kathy Hochul / Adrienne Adams").
+    var a = parts(race.candidate), b = parts(String(name).replace(/\(.*?\)/g,' '));
     if (!a.length || !b.length) return false;
-    if (a[a.length-1] !== b[b.length-1]) return false;
-    return a[0].slice(0,3) === b[0].slice(0,3);
+    var last = a[a.length-1];
+    if (b.indexOf(last) === -1) return false;
+    return b.some(function(w){ return w !== last && w.slice(0,3) === a[0].slice(0,3); });
   }
 
   function statusOf(race, res){

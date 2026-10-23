@@ -388,6 +388,31 @@ export const adapters = {
     return null;
   },
 
+  // New York State Board of Elections, no-JavaScript results page (all contests
+  // on one page). src: { match: "7th Congressional District" | "Governor" | ... }
+  async ny_enr(src, race) {
+    const text = await once('ny', () => pageText('https://nyenr.elections.ny.gov/HomeNoJS.aspx', 6000));
+    const lines = text.split(/\n/);
+    const want = String(src.match || '').toLowerCase();
+    for (let i = 0; i < lines.length; i++) {
+      const h = lines[i].match(/^\s*(.*?) > All Counties\s+Election Districts Reporting:\s*([\d,]+) of ([\d,]+)/);
+      if (!h) continue;
+      if (want && !h[1].toLowerCase().startsWith(want)) continue;
+      const cands = [];
+      for (let k = i + 1; k < lines.length && !/> All Counties/.test(lines[k]); k++) {
+        const cells = lines[k].split('\t').map((c) => c.trim());
+        if (cells.length < 8 || !cells[0] || /^(Candidate|Blank|Void|Write-in|Total Votes)$/i.test(cells[0])) continue;
+        const votes = num(cells[cells.length - 1]);
+        if (votes == null || !cells[1]) continue; // party-line rows (WOR, CON) have no candidate total
+        cands.push({ name: cells[0], party: cells[1], votes, pct: num(cells[cells.length - 2]) });
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest: h[1], candidates: cands, reporting: `${h[2]} of ${h[3]} election districts reporting`, reportedAt: null, sourceUrl: 'https://nyenr.elections.ny.gov/' };
+      }
+    }
+    return null;
+  },
+
   // California Secretary of State results API. Paths look like "us-rep/district/7".
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
