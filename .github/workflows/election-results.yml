@@ -1,6 +1,9 @@
 name: Election results
 
-# Every 5 minutes: pull results, commit real changes, and republish the site.
+# Pull results, commit real changes, and republish the site.
+# Each run starts the next one itself (GitHub's cron is often late or skipped),
+# so updates keep flowing; the cron below only restarts the chain if it breaks.
+# Cadence: ~2.5 min on election night (Nov 3-6), ~7 min before, ~15 min after.
 # Publishing from this workflow (Settings > Pages > Source: GitHub Actions)
 # avoids the 10-builds-per-hour limit on branch-based Pages builds.
 
@@ -18,6 +21,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: election-results
@@ -26,7 +30,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 20
     environment:
       name: github-pages
     steps:
@@ -80,3 +84,20 @@ jobs:
       - name: Flag publish failure
         if: ${{ !inputs.force && steps.publish.outcome == 'failure' }}
         run: echo "::warning title=Publish failed::Site not republished this run. Set Settings > Pages > Source to GitHub Actions."
+      - name: Start the next run
+        if: ${{ always() && !inputs.force }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          now=$(date -u +%s)
+          night_start=$(date -u -d '2026-11-03T20:00:00Z' +%s)
+          night_end=$(date -u -d '2026-11-07T08:00:00Z' +%s)
+          stop=$(date -u -d '2026-12-15T00:00:00Z' +%s)
+          if [ "$now" -ge "$stop" ]; then echo "Tracker season over; not chaining."; exit 0; fi
+          if [ "$now" -ge "$night_start" ] && [ "$now" -lt "$night_end" ]; then wait=20
+          elif [ "$now" -lt "$night_start" ]; then wait=240
+          else wait=720; fi
+          sleep $wait
+          curl -sS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/election-results.yml/dispatches" \
+            -d '{"ref":"main"}' -w "dispatch HTTP %{http_code}\n"
