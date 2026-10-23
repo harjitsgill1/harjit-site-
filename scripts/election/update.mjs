@@ -41,9 +41,19 @@ const manual = await readJson(file('manual.json'), {});
 
 // Fetch each distinct source once per run, shared by both outputs.
 const cache = new Map();
+// Hard limit per source so one slow or stuck site can never freeze the run.
+const SOURCE_TIMEOUT_MS = 75000;
+const withTimeout = (p, ms, label) => Promise.race([
+  p, new Promise((_, rej) => setTimeout(() => rej(new Error(`timed out after ${ms / 1000}s (${label})`)), ms).unref()),
+]);
+const timing = {};
 const fetchOnce = (src, race) => {
   const key = JSON.stringify(src) + '|' + race.candidate;
-  if (!cache.has(key)) cache.set(key, adapters[src.type](src, race));
+  if (!cache.has(key)) {
+    const t0 = Date.now();
+    cache.set(key, withTimeout(adapters[src.type](src, race), SOURCE_TIMEOUT_MS, src.type)
+      .finally(() => { timing[src.type] = Math.max(timing[src.type] || 0, Date.now() - t0); }));
+  }
   return cache.get(key);
 };
 
@@ -99,5 +109,9 @@ async function build(outName, useFeeds, useManual) {
 let changed = await build('results.json', pollsClosed || FORCE, true);
 if (!pollsClosed) changed = (await build('rehearsal.json', true, false)) || changed;
 
-await closeBrowser();
+await withTimeout(closeBrowser(), 15000, 'closing browser').catch(() => {});
+const slow = Object.entries(timing).map(([k, v]) => `${k} ${Math.round(v / 1000)}s`).join(', ');
+console.log('slowest call per source type: ' + slow);
+if (process.env.GITHUB_ACTIONS) console.log(`::notice title=Timing::${slow}`);
 if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${changed}\n`);
+process.exit(0); // don't let a hung browser keep the job alive

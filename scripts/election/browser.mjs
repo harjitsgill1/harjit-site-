@@ -27,6 +27,7 @@ export function sitePage(entryUrl, waitMs = 8000) {
     pages.set(key, (async () => {
       const c = await launch();
       const page = await c.newPage();
+      page.setDefaultTimeout(45000);
       await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await page.waitForTimeout(waitMs);
       return page;
@@ -40,8 +41,13 @@ export async function browserFetch(entryUrl, path) {
   if (globalThis.__browserMock) return globalThis.__browserMock.fetch(entryUrl, path); // tests
   const page = await sitePage(entryUrl);
   const out = await page.evaluate(async (p) => {
-    const r = await fetch(p, { cache: 'no-store' });
-    return { status: r.status, body: await r.text() };
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 30000);
+    try {
+      const r = await fetch(p, { cache: 'no-store', signal: ctrl.signal });
+      return { status: r.status, body: await r.text() };
+    } catch (e) { return { status: 'error: ' + e.message, body: '' }; }
+    finally { clearTimeout(t); }
   }, path);
   if (out.status !== 200) throw new Error(`HTTP ${out.status} ${path}`);
   return out.body;
