@@ -1,0 +1,45 @@
+name: Election results
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Accept feed data before polls close (testing only)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: election-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Pull latest results
+        run: node scripts/election/update.mjs
+        env:
+          FORCE: ${{ inputs.force && '1' || '' }}
+      - name: Commit if anything changed
+        if: ${{ !inputs.force }}
+        run: |
+          git config user.name "election-bot"
+          git config user.email "election-bot@users.noreply.github.com"
+          git add election/data/results.json
+          if git diff --cached --quiet; then
+            echo "No result changes."
+          else
+            git commit -m "Update election results"
+            git pull --rebase origin main
+            git push
+          fi

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Election Night 2026 · Harjit Singh Gill</title>
+<meta name="description" content="Live results for endorsed candidates on November 3, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var q = (location.search.match(/[?&]season=(spring|autumn|winter)/)||[])[1];
+    var d = new Date(), m = d.getMonth()+1, day = d.getDate(), auto;
+    if ((m===9 && day>=22) || m===10 || m===11 || (m===12 && day<=20)) auto='autumn';
+    else if ((m===12 && day>=21) || m<=2 || (m===3 && day<=19)) auto='winter';
+    else auto='spring';
+    var root = document.documentElement;
+    root.setAttribute('data-season', q || auto);
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    var apply = function(){ root.setAttribute('data-theme', mq && mq.matches ? 'dark' : 'light'); };
+    apply(); if (mq && mq.addEventListener) mq.addEventListener('change', apply);
+  })();
+</script>
+<style>
+  :root{
+    --ink:#2B1D17; --coral:#D9541E; --gold:#EFA02B; --cloud:#F9EBD6; --slate:#5A4034;
+    --line:rgba(43,29,23,0.14); --page-bg:#F9EBD6; --heading:#2B1D17; --body-text:#5A4034;
+    --card-bg:#FFF7EC; --muted:rgba(43,29,23,0.55); --track:rgba(43,29,23,0.08);
+    --dsa:#D7141C; --wfp:#6B2FA3; --mine:var(--coral);
+    --win:#17806A;
+  }
+  html[data-theme="dark"]{
+    --page-bg:#1E1512; --heading:#F9EBD6; --body-text:#E3D3C4; --card-bg:#2A1E19;
+    --line:rgba(249,235,214,0.14); --muted:rgba(249,235,214,0.55); --track:rgba(249,235,214,0.08);
+    --dsa:#FF5A5F; --wfp:#B794E8; --win:#5FD3B0;
+  }
+  html[data-season="spring"]{
+    --ink:#0F1D36; --coral:#EE5A3C; --cloud:#F7F5EF; --slate:#38455E;
+    --line:rgba(15,29,54,0.14); --page-bg:#F7F5EF; --heading:#0F1D36; --body-text:#38455E;
+    --card-bg:#FFFFFF; --muted:rgba(15,29,54,0.55); --track:rgba(15,29,54,0.07);
+  }
+  html[data-season="spring"][data-theme="dark"]{
+    --page-bg:#121D33; --heading:#F7F5EF; --body-text:#C5CEE0; --card-bg:#1A2742;
+    --line:rgba(247,245,239,0.14); --muted:rgba(247,245,239,0.55); --track:rgba(247,245,239,0.08);
+  }
+  html[data-season="winter"]{
+    --ink:#0B1B2E; --coral:#2F7FB8; --cloud:#F2F6FA; --slate:#3C4F66;
+    --line:rgba(11,27,46,0.14); --page-bg:#F2F6FA; --heading:#0B1B2E; --body-text:#3C4F66;
+    --card-bg:#FFFFFF; --muted:rgba(11,27,46,0.55); --track:rgba(11,27,46,0.07);
+  }
+  html[data-season="winter"][data-theme="dark"]{
+    --page-bg:#0A1626; --heading:#F2F6FA; --body-text:#C8D6E6; --card-bg:#122339;
+    --line:rgba(242,246,250,0.14); --muted:rgba(242,246,250,0.55); --track:rgba(242,246,250,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--page-bg);color:var(--body-text);font-family:'Inter',sans-serif;-webkit-text-size-adjust:100%;}
+  h1,h2,h3{font-family:'Archivo Black',sans-serif;font-weight:400;margin:0;color:var(--heading);line-height:1.05;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+
+  /* ---------- Masthead ---------- */
+  .mast{background:var(--ink);color:var(--cloud);padding:28px 16px 22px;}
+  .mast-inner{max-width:1100px;margin:0 auto;}
+  .back{font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;opacity:.7;}
+  .back:hover{opacity:1;}
+  .mast h1{color:var(--cloud);font-size:clamp(34px,8vw,64px);margin:14px 0 8px;}
+  .mast h1 span{color:var(--coral);}
+  .kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
+  .status{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:12px;opacity:.9;align-items:center;}
+  .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:6px;vertical-align:1px;}
+  .live-dot.on{background:#3DDC84;animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.6)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+
+  /* ---------- Tabs + filters ---------- */
+  .bar{position:sticky;top:0;z-index:10;background:var(--page-bg);border-bottom:1px solid var(--line);}
+  .bar-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;}
+  .tab{--c:var(--mine);font:600 14px 'Inter',sans-serif;border:2px solid var(--c);background:transparent;color:var(--heading);
+       padding:8px 14px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center;}
+  .tab .n{font:700 11px 'JetBrains Mono',monospace;opacity:.7;}
+  .tab[aria-selected="true"]{background:var(--c);color:#fff;}
+  .tab[aria-selected="true"] .n{opacity:.9;}
+  .tab.dsa{--c:var(--dsa);} .tab.wfp{--c:var(--wfp);}
+  .filters{display:flex;gap:8px;margin-left:auto;flex:1 1 260px;justify-content:flex-end;min-width:0;}
+  .filters select{flex:0 1 auto;max-width:45%;}
+  .filters input,.filters select{font:500 14px 'Inter',sans-serif;color:var(--heading);background:var(--card-bg);
+       border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:0;}
+  .filters input{flex:1 1 160px;max-width:260px;}
+
+  /* ---------- Groups + cards ---------- */
+  main{max-width:1100px;margin:0 auto;padding:8px 16px 60px;}
+  .group{margin-top:26px;}
+  .group h2{font-size:20px;display:flex;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--heading);}
+  .group h2 small{font:600 12px 'JetBrains Mono',monospace;color:var(--muted);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin-top:14px;}
+  .card{--c:var(--mine);background:var(--card-bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:10px;}
+  .card.t-dsa{--c:var(--dsa);} .card.t-wfp{--c:var(--wfp);}
+  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .office{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
+  .cand{font:800 19px 'Inter',sans-serif;color:var(--heading);margin-top:3px;}
+  .badges{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;}
+  .badge{font:700 10px 'JetBrains Mono',monospace;padding:2px 6px;border-radius:4px;color:#fff;}
+  .badge.dsa{background:var(--dsa);} .badge.wfp{background:var(--wfp);} .badge.mine{background:var(--mine);}
+  html[data-theme="dark"] .badge{color:#1a1a1a;}
+  .pill{font:700 11px 'JetBrains Mono',monospace;text-transform:uppercase;padding:4px 8px;border-radius:999px;white-space:nowrap;
+        border:1px solid var(--line);color:var(--muted);}
+  .pill.won{background:var(--win);border-color:var(--win);color:#fff;}
+  .pill.lost{color:var(--muted);text-decoration:none;}
+  .pill.leading{border-color:var(--win);color:var(--win);}
+  .pill.trailing{border-color:var(--c);color:var(--c);}
+  html[data-theme="dark"] .pill.won{color:#0b1b14;}
+  .vs{font-size:14px;color:var(--body-text);}
+  .rows{display:flex;flex-direction:column;gap:7px;}
+  .row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:14px;}
+  .row .nm{color:var(--heading);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .row.ours .nm{font-weight:800;}
+  .row .pc{font:700 13px 'JetBrains Mono',monospace;color:var(--heading);text-align:right;}
+  .row .track{grid-column:1/-1;height:7px;background:var(--track);border-radius:4px;overflow:hidden;}
+  .row .fill{height:100%;background:var(--muted);opacity:.45;border-radius:4px;transition:width .6s ease;}
+  .row.ours .fill{background:var(--c);opacity:1;}
+  .row .vt{grid-column:1/-1;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);margin-top:-1px;}
+  .meta{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto;}
+  .meta .warn{color:var(--c);}
+  .note{font-size:12px;color:var(--muted);font-style:italic;}
+  .empty{padding:40px 0;text-align:center;color:var(--muted);}
+  footer{max-width:1100px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:var(--muted);}
+
+  @media (max-width:560px){
+    .filters{margin-left:0;justify-content:stretch;flex-basis:100%;}
+    .filters input{max-width:none;}
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-inner">
+    <a class="back mono" href="/">← harjitsgill.com</a>
+    <h1>Election Night <span>2026</span></h1>
+    <div class="kicker mono">Tuesday, November 3 · Live results</div>
+    <div class="status mono">
+      <span id="live"><span class="live-dot" id="dot"></span><span id="liveText">Loading…</span></span>
+      <span id="updated"></span>
+      <span>Refreshes every minute</span>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="tabs" role="tablist">
+      <button class="tab mine" role="tab" data-tab="mine" aria-selected="true">Our Picks <span class="n" id="n-mine"></span></button>
+      <button class="tab dsa" role="tab" data-tab="dsa" aria-selected="false">DSA <span class="n" id="n-dsa"></span></button>
+      <button class="tab wfp" role="tab" data-tab="wfp" aria-selected="false">WFP <span class="n" id="n-wfp"></span></button>
+    </div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search candidate or office" aria-label="Search">
+      <select id="state" aria-label="Filter by state"><option value="">All states</option></select>
+    </div>
+  </div>
+</div>
+
+<main id="main"><div class="empty">Loading races…</div></main>
+
+<footer>
+  Results come from official state and county election offices and update automatically. Counts are unofficial until certified;
+  California counties keep counting for weeks after election night.
+</footer>
+
+<script>
+(function(){
+  var DATA = 'data/';
+  var POLLS_CLOSE = Date.parse('2026-11-03T22:00:00Z');
+  var STATE_NAMES = {AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',IL:'Illinois',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',NE:'Nebraska',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',WA:'Washington',WI:'Wisconsin',WY:'Wyoming'};
+  var MINE_ORDER = ['California · Statewide','Central Valley','Bay Area','Southern California','National'];
+
+  var state = { tab:'mine', q:'', st:'', races:[], results:{}, updatedAt:null };
+  try { var saved = localStorage.getItem('et-tab'); if (saved) state.tab = saved; } catch(e){}
+  var h = (location.hash||'').replace('#',''); if (['mine','dsa','wfp'].indexOf(h) > -1) state.tab = h;
+
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+  var norm = function(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim(); };
+  var parts = function(s){ return norm(s).split(' ').filter(function(w){return w && !/^(jr|sr|ii|iii|iv|dr|rev)$/.test(w);}); };
+  var fmtTime = function(iso){ if(!iso) return ''; var d = new Date(iso); if (isNaN(d)) return iso;
+    return d.toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'}); };
+  var fmtNum = function(n){ return n==null ? '' : Number(n).toLocaleString(); };
+
+  function isOurs(race, name){
+    // Match on last name plus the first three letters of the first name,
+    // so "Flo Cofer" matches "Flojaune Cofer" and "Rev. Rodney Sadler" matches "Rodney Sadler".
+    var a = parts(race.candidate), b = parts(name);
+    if (!a.length || !b.length) return false;
+    if (a[a.length-1] !== b[b.length-1]) return false;
+    return a[0].slice(0,3) === b[0].slice(0,3);
+  }
+
+  function statusOf(race, res){
+    if (race.status === 'won') return {k:'won', t:'Won'};
+    if (race.status === 'lost') return {k:'lost', t:'Lost'};
+    if (res && res.called){ return isOurs(race, res.called) ? {k:'won', t:'Won'} : {k:'lost', t:'Lost'}; }
+    if (res && res.candidates && res.candidates.length){
+      var total = res.candidates.reduce(function(s,c){return s+(c.votes||0);},0);
+      if (!total) return {k:'', t:'No votes yet'};
+      var sorted = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
+      var seats = race.seats || 1;
+      var idx = sorted.findIndex(function(c){return isOurs(race, c.name);});
+      if (idx === -1) return {k:'', t:'Counting'};
+      return idx < seats ? {k:'leading', t:'Leading'} : {k:'trailing', t:'Trailing'};
+    }
+    return {k:'', t: Date.now() < POLLS_CLOSE ? 'Nov 3' : 'Awaiting'};
+  }
+
+  function card(race){
+    var res = state.results[race.id];
+    var st = statusOf(race, res);
+    // Show which other lists also back this candidate (the current tab is implied).
+    var badges = race.lists.filter(function(l){ return l !== state.tab; }).map(function(l){ return '<span class="badge '+l+'">'+(l==='mine'?'OUR PICK':l.toUpperCase())+'</span>'; }).join('');
+    var body = '';
+    if (res && res.candidates && res.candidates.length){
+      var cands = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
+      var total = cands.reduce(function(s,c){return s+(c.votes||0);},0);
+      body = '<div class="rows">' + cands.map(function(c){
+        var pct = c.pct!=null ? c.pct : (total ? (c.votes||0)/total*100 : 0);
+        var ours = isOurs(race, c.name);
+        return '<div class="row'+(ours?' ours':'')+'"><span class="nm">'+esc(c.name)+(c.party?' <span class="vt">('+esc(c.party)+')</span>':'')+'</span>'+
+               '<span class="pc">'+pct.toFixed(1)+'%</span><div class="track"><div class="fill" style="width:'+Math.max(0,Math.min(100,pct))+'%"></div></div>'+
+               (c.votes!=null?'<span class="vt">'+fmtNum(c.votes)+' votes</span>':'')+'</div>';
+      }).join('') + '</div>';
+    } else if (race.opponents && race.opponents.length){
+      body = '<div class="vs">vs. '+race.opponents.map(esc).join(', ')+'</div>';
+    }
+    var meta = [];
+    if (res && res.reporting) meta.push(esc(res.reporting));
+    if (res && (res.reportedAt || res.changedAt)) meta.push('Updated ' + esc(res.reportedAt || fmtTime(res.changedAt)));
+    if (res && res.origin === 'manual') meta.push('Entered by hand');
+    if (res && res.stale) meta.push('<span class="warn">Source not responding</span>');
+    if (!res && race.status !== 'won' && race.status !== 'lost') meta.push(Date.now() < POLLS_CLOSE ? 'Results after polls close' : 'Awaiting first results');
+    var tabCls = state.tab === 'mine' ? 'mine' : state.tab;
+    return '<article class="card t-'+tabCls+'">' +
+      '<div class="card-top"><div><div class="office">'+esc(race.office)+'</div>'+
+      '<div class="cand">'+esc(race.candidate)+(race.party?' <span class="office">('+esc(race.party)+')</span>':'')+'</div>'+
+      (badges ? '<div class="badges">'+badges+'</div>' : '')+'</div>'+
+      '<span class="pill '+st.k+'">'+esc(st.t)+'</span></div>' +
+      body +
+      (race.note ? '<div class="note">'+esc(race.note)+'</div>' : '') +
+      (meta.length ? '<div class="meta">'+meta.join('<span>·</span>')+'</div>' : '') +
+      '</article>';
+  }
+
+  function render(){
+    ['mine','dsa','wfp'].forEach(function(t){
+      $('n-'+t).textContent = state.races.filter(function(r){return r.lists.indexOf(t)>-1;}).length;
+      document.querySelector('.tab[data-tab="'+t+'"]').setAttribute('aria-selected', String(t===state.tab));
+    });
+    var q = norm(state.q);
+    var list = state.races.filter(function(r){
+      if (r.lists.indexOf(state.tab) === -1) return false;
+      if (state.st && r.state !== state.st) return false;
+      if (q && norm(r.candidate+' '+r.office+' '+(STATE_NAMES[r.state]||r.state)).indexOf(q) === -1) return false;
+      return true;
+    });
+    var groups = {}, order = [];
+    list.forEach(function(r){
+      var g = state.tab === 'mine' ? r.region : (STATE_NAMES[r.state] || r.state);
+      if (!groups[g]) { groups[g] = []; order.push(g); }
+      groups[g].push(r);
+    });
+    if (state.tab === 'mine') order.sort(function(a,b){ return MINE_ORDER.indexOf(a) - MINE_ORDER.indexOf(b); });
+    else order.sort();
+    $('main').innerHTML = order.length ? order.map(function(g){
+      return '<section class="group"><h2>'+esc(g)+' <small>'+groups[g].length+'</small></h2><div class="grid">'+groups[g].map(card).join('')+'</div></section>';
+    }).join('') : '<div class="empty">No races match.</div>';
+  }
+
+  function fillStates(){
+    var sel = $('state'), have = {};
+    state.races.forEach(function(r){ have[r.state] = 1; });
+    Object.keys(have).sort(function(a,b){ return (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b); }).forEach(function(s){
+      var o = document.createElement('option'); o.value = s; o.textContent = STATE_NAMES[s]||s; sel.appendChild(o);
+    });
+  }
+
+  function setLive(){
+    var live = Date.now() >= POLLS_CLOSE;
+    $('dot').className = 'live-dot' + (live ? ' on' : '');
+    if (live) $('liveText').textContent = 'Live';
+    else {
+      var ms = POLLS_CLOSE - Date.now(), d = Math.floor(ms/864e5), hr = Math.floor(ms%864e5/36e5);
+      $('liveText').textContent = 'First polls close in ' + (d ? d+'d ' : '') + hr + 'h';
+    }
+    $('updated').textContent = state.updatedAt ? 'Last change ' + fmtTime(state.updatedAt) : '';
+  }
+
+  function get(path){ return fetch(DATA + path + '?t=' + Date.now(), {cache:'no-store'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); }); }
+
+  function loadResults(){
+    return get('results.json').then(function(j){
+      state.results = j.results || {}; state.updatedAt = j.updatedAt; setLive(); render();
+    }).catch(function(){ setLive(); });
+  }
+
+  get('races.json').then(function(j){
+    state.races = j.races || []; fillStates(); render(); return loadResults();
+  }).catch(function(){ $('main').innerHTML = '<div class="empty">Couldn’t load races. Refresh to try again.</div>'; });
+
+  setInterval(loadResults, 60000);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) loadResults(); });
+
+  document.querySelector('.tabs').addEventListener('click', function(e){
+    var b = e.target.closest('.tab'); if (!b) return;
+    state.tab = b.getAttribute('data-tab');
+    try { localStorage.setItem('et-tab', state.tab); } catch(err){}
+    history.replaceState(null, '', '#' + state.tab);
+    render();
+  });
+  $('q').addEventListener('input', function(e){ state.q = e.target.value; render(); });
+  $('state').addEventListener('change', function(e){ state.st = e.target.value; render(); });
+})();
+</script>
+</body>
+</html>
