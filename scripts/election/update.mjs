@@ -40,9 +40,9 @@ const manual = await readJson(file('manual.json'), {});
 
 // Fetch each distinct source once per run, shared by both outputs.
 const cache = new Map();
-const fetchOnce = (src) => {
-  const key = JSON.stringify(src);
-  if (!cache.has(key)) cache.set(key, adapters[src.type](src));
+const fetchOnce = (src, race) => {
+  const key = JSON.stringify(src) + '|' + race.candidate;
+  if (!cache.has(key)) cache.set(key, adapters[src.type](src, race));
   return cache.get(key);
 };
 
@@ -57,7 +57,7 @@ async function build(outName, useFeeds, useManual) {
     let entry = null;
     if (useFeeds && adapters[src.type]) {
       try {
-        const r = await fetchOnce(src);
+        const r = await fetchOnce(src, race);
         if (r) { entry = { ...r, origin: 'feed' }; log.ok++; }
         else log.skipped++;
       } catch (e) {

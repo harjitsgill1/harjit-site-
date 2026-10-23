@@ -1,0 +1,69 @@
+name: Election feed probe (browser)
+
+# Manual helper: loads URLs in a real headless browser (for sites behind
+# bot-protection challenges) and saves page text + network JSON to the
+# election-probe-browser branch. Never touches main.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'URLs to load, separated by spaces'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Load pages
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p out && cd out
+          npm init -y >/dev/null && npm i -s playwright@1 >/dev/null && npx playwright install --with-deps chromium >/dev/null 2>&1
+          cat > probe.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import { writeFileSync, appendFileSync } from 'node:fs';
+          const urls = process.env.URLS.split(/\s+/).filter(Boolean);
+          const browser = await chromium.launch();
+          const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36', locale: 'en-US' });
+          let i = 0;
+          for (const u of urls) {
+            const f = String(++i).padStart(2, '0');
+            const page = await ctx.newPage();
+            const net = [];
+            page.on('response', async (r) => {
+              const ct = r.headers()['content-type'] || '';
+              if (/json|text\/plain|xml|csv/.test(ct)) net.push(`${r.status()} ${ct} ${r.url()}`);
+            });
+            let status = 'err';
+            try {
+              const resp = await page.goto(u, { waitUntil: 'domcontentloaded', timeout: 45000 });
+              status = resp ? resp.status() : 'none';
+              await page.waitForTimeout(12000); // let challenges resolve and data load
+            } catch (e) { status = 'error ' + e.message.split('\n')[0]; }
+            const title = await page.title().catch(() => '');
+            const text = await page.evaluate(() => document.body ? document.body.innerText : '').catch(() => '');
+            writeFileSync(`${f}.txt`, text.slice(0, 2000000));
+            writeFileSync(`${f}.net`, net.join('\n'));
+            appendFileSync('index.txt', `${f} ${u} -> ${status} | ${title} | final ${page.url()}\n`);
+            await page.close();
+          }
+          await browser.close();
+          EOF
+          node probe.mjs || true
+          rm -rf node_modules package*.json probe.mjs
+      - name: Save to election-probe-browser branch
+        run: |
+          cd out
+          git init -q -b election-probe-browser
+          git config user.name "election-bot"
+          git config user.email "election-bot@users.noreply.github.com"
+          git add -A && git commit -qm "browser probe $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" election-probe-browser
