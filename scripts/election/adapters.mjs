@@ -111,6 +111,9 @@ export const adapters = {
         const m = part.match(/^(.*?)\s*\(([A-Z]+)\)\s*-\s*([\d,]+)\s*\(([\d.]+)%\)/);
         return m && { name: m[1].replace(/\s+/g, ' ').trim(), party: m[2], votes: num(m[3]), pct: num(m[4]) };
       }).filter(Boolean);
+      // Before Ohio switches the feed to the general election it still shows the
+      // party primaries; a general-election contest has more than one party.
+      if (!src.allowPrimary && new Set(cands.map((x) => x.party)).size < 2) continue;
       if (cands.some((x) => sameName(race.candidate, x.name.split(' and ')[0]))) {
         return { contest, candidates: cands, reporting: null, reportedAt: null, sourceUrl: 'https://liveresults.ohiosos.gov/' };
       }
