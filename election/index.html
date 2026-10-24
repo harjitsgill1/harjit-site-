@@ -243,8 +243,10 @@
   function card(race){
     var res = state.results[race.id];
     var st = statusOf(race, res);
-    // Show which other lists also back this candidate (the current tab is implied).
-    var badges = race.lists.filter(function(l){ return l !== state.tab; }).map(function(l){ return '<span class="badge '+l+'">'+(l==='mine'?'MAI’S PICK':l.toUpperCase())+'</span>'; }).join('');
+    // Endorsement badges: shown for every list when a candidate has more than one
+    // (e.g. DSA + WFP), so dual endorsements are labeled on every tab.
+    var LABEL = {mine:'MAI\u2019S PICK', dsa:'DSA', wfp:'WFP'};
+    var badges = race.lists.length > 1 ? ['mine','dsa','wfp'].filter(function(l){ return race.lists.indexOf(l) > -1; }).map(function(l){ return '<span class="badge '+l+'">'+LABEL[l]+'</span>'; }).join('') : '';
     var body = '';
     if (res && res.candidates && res.candidates.length){
       var cands = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
