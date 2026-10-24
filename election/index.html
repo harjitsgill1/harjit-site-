@@ -211,7 +211,7 @@
   var STATE_NAMES = {AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',IL:'Illinois',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',NE:'Nebraska',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',WA:'Washington',WI:'Wisconsin',WY:'Wyoming'};
   var MINE_ORDER = ['California · Statewide','Central Valley','Bay Area','Southern California','National'];
 
-  var MAI = /[?&]mai\b/.test(location.search);
+  var MAI = /[?&](mai|aapiforce)\b/.test(location.search);
   var state = { tab:'all', q:'', st:'', races:[], results:{}, updatedAt:null };
   try { var saved = localStorage.getItem('et-tab'); if (saved) state.tab = saved; } catch(e){}
   var h = (location.hash||'').replace('#',''); if (['mine','all','dsa','wfp','watch'].indexOf(h) > -1) state.tab = h;
@@ -222,9 +222,9 @@
 
   var $ = function(id){ return document.getElementById(id); };
   if (MAI) {
-    document.title = 'Mai\u2019s Picks · Election Night 2026';
-    document.querySelector('h1').innerHTML = 'Mai\u2019s Picks <span>2026</span>';
-    document.querySelector('.switch').setAttribute('href', '/electionpolls/?mai');
+    document.title = 'AAPI FORCE · Election Night 2026';
+    document.querySelector('h1').innerHTML = 'AAPI FORCE <span>2026</span>';
+    document.querySelector('.switch').setAttribute('href', '/electionpolls/?aapiforce');
   }
   var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
   var norm = function(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim(); };

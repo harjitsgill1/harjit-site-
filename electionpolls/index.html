@@ -208,7 +208,7 @@
 <footer>Poll numbers are as published by each pollster and aggregator; follow the source links for full details and methodology. Most local races are never publicly polled.</footer>
 <script>
 (function(){
-  var MAI = /[?&]mai\b/.test(location.search);
+  var MAI = /[?&](mai|aapiforce)\b/.test(location.search);
   var tab = 'all';
   try { tab = localStorage.getItem('ep-tab') || tab; } catch(e){}
   var h = (location.hash||'').replace('#',''); if (['all','dsa','wfp','watch'].indexOf(h) > -1) tab = h;
@@ -219,9 +219,9 @@
   var races = [], polls = {}, updatedAt = null;
   var $ = function(id){ return document.getElementById(id); };
   if (MAI) {
-    document.title = 'Mai\u2019s Picks · Latest Polls';
-    document.querySelector('h1').innerHTML = 'Mai\u2019s Picks <span>Polls</span>';
-    document.querySelector('.switch').setAttribute('href', '/mai/');
+    document.title = 'AAPI FORCE · Latest Polls';
+    document.querySelector('h1').innerHTML = 'AAPI FORCE <span>Polls</span>';
+    document.querySelector('.switch').setAttribute('href', '/aapiforce/');
   }
   var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
   var fmt = function(n){ return (Math.round(n*10)/10).toString(); };
