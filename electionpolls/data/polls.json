@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-23T23:11:11Z",
+ "updatedAt": "2026-10-24T13:53:23Z",
  "races": [
   {
    "id": "tx-u-s-senate-texas-james-talarico",
@@ -9,13 +9,33 @@
    ],
    "average": {
     "source": "270toWin",
-    "dates": "7 most recent polls",
+    "dates": "Recent polls, one per pollster (through Oct 23)",
     "values": [
      49.3,
-     47.7
+     47.3
     ]
    },
    "polls": [
+    {
+     "pollster": "Verasight",
+     "dates": "Oct 23",
+     "sample": "601 LV",
+     "values": [
+      48,
+      45
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Texas Public Opinion Research",
+     "dates": "Oct 23",
+     "sample": "969 LV",
+     "values": [
+      51,
+      47
+     ],
+     "other": null
+    },
     {
      "pollster": "Emerson College",
      "dates": "Oct 22",
@@ -75,16 +95,6 @@
       49
      ],
      "other": null
-    },
-    {
-     "pollster": "InsiderAdvantage",
-     "dates": "Oct 16",
-     "sample": "1,200 LV",
-     "values": [
-      48,
-      49
-     ],
-     "other": null
     }
    ],
    "sources": [
@@ -102,13 +112,23 @@
    ],
    "average": {
     "source": "RealClearPolitics",
-    "dates": "Sep 24 – Oct 18",
+    "dates": "Sep 24 – Oct 22",
     "values": [
-     48.0,
+     47.9,
      46.0
     ]
    },
    "polls": [
+    {
+     "pollster": "InsiderAdvantage",
+     "dates": "Oct 21–22",
+     "sample": null,
+     "values": [
+      47,
+      46
+     ],
+     "other": null
+    },
     {
      "pollster": "Marist",
      "dates": "Oct 15–18",
@@ -185,13 +205,23 @@
    ],
    "average": {
     "source": "270toWin",
-    "dates": "6 most recent polls",
+    "dates": "7 polls, Oct 16–23",
     "values": [
-     49.2,
-     45.0
+     48.9,
+     44.9
     ]
    },
    "polls": [
+    {
+     "pollster": "InsiderAdvantage",
+     "dates": "Oct 23",
+     "sample": "1,200 LV",
+     "values": [
+      47,
+      44
+     ],
+     "other": null
+    },
     {
      "pollster": "Verasight",
      "dates": "Oct 22",
@@ -261,16 +291,6 @@
       43
      ],
      "other": null
-    },
-    {
-     "pollster": "co/efficient",
-     "dates": "Oct 8",
-     "sample": "925 LV",
-     "values": [
-      43,
-      44
-     ],
-     "other": null
     }
    ],
    "sources": [
@@ -287,14 +307,44 @@
     "Ramaswamy (R)"
    ],
    "average": {
-    "source": "RealClearPolitics",
-    "dates": "Sep 22 – Oct 19",
+    "source": "270toWin",
+    "dates": "6 polls within 7 days of latest (Oct 22)",
     "values": [
-     48.5,
-     44.9
+     49.0,
+     45.8
     ]
    },
    "polls": [
+    {
+     "pollster": "Verasight",
+     "dates": "Oct 22",
+     "sample": "531 LV",
+     "values": [
+      46,
+      45
+     ],
+     "other": null
+    },
+    {
+     "pollster": "New River / GSG",
+     "dates": "Oct 21",
+     "sample": "959 LV",
+     "values": [
+      49,
+      44
+     ],
+     "other": null
+    },
+    {
+     "pollster": "ActiVote",
+     "dates": "Oct 19",
+     "sample": "400 LV",
+     "values": [
+      49,
+      51
+     ],
+     "other": null
+    },
     {
      "pollster": "Fox News",
      "dates": "Oct 15–19",
@@ -344,22 +394,16 @@
       44
      ],
      "other": null
-    },
-    {
-     "pollster": "CNN",
-     "dates": "Sep 29 – Oct 5",
-     "sample": null,
-     "values": [
-      50,
-      42
-     ],
-     "other": null
     }
    ],
    "sources": [
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/governor/general/2026/ohio/ramaswamy-vs-acton"
+    ],
+    [
+     "270toWin",
+     "https://270towin.com/2026-governor-polls/ohio"
     ]
    ]
   },
@@ -395,6 +439,26 @@
      "values": [
       45,
       49
+     ],
+     "other": null
+    },
+    {
+     "pollster": "ActiVote",
+     "dates": "Oct 17",
+     "sample": "400 LV",
+     "values": [
+      47,
+      53
+     ],
+     "other": null
+    },
+    {
+     "pollster": "MDW Communications",
+     "dates": "Oct 14",
+     "sample": "2,351 LV",
+     "values": [
+      42,
+      48
      ],
      "other": null
     },
@@ -443,6 +507,10 @@
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/senate/general/2026/florida/moody-vs-nixon"
+    ],
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-senate-polls/florida"
     ]
    ]
   },
@@ -664,6 +732,606 @@
     [
      "CBS Los Angeles",
      "https://www.cbsnews.com/losangeles/news/raman-holding-double-digit-lead-over-bass-in-la-mayoral-race-new-poll-shows/"
+    ]
+   ]
+  },
+  {
+   "id": "ny-governor-kathy-hochul",
+   "names": [
+    "Hochul (D)",
+    "Blakeman (R)"
+   ],
+   "average": {
+    "source": "RealClearPolitics",
+    "dates": "Sep 11 – Oct 19",
+    "values": [
+     52.5,
+     41.0
+    ]
+   },
+   "polls": [
+    {
+     "pollster": "Quinnipiac",
+     "dates": "Oct 15–19",
+     "sample": "1,167 LV",
+     "values": [
+      55,
+      41
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Beacon Research",
+     "dates": "Oct 15",
+     "sample": "820 RV",
+     "values": [
+      53,
+      31
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Emerson",
+     "dates": "Oct 3–5",
+     "sample": "900 LV",
+     "values": [
+      52,
+      40
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Marist",
+     "dates": "Oct 1–4",
+     "sample": "1,361 RV",
+     "values": [
+      53,
+      42
+     ],
+     "other": null
+    },
+    {
+     "pollster": "co/efficient",
+     "dates": "Oct 6",
+     "sample": "1,046 LV",
+     "values": [
+      48,
+      41
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Quinnipiac",
+     "dates": "Sep 17–20",
+     "sample": "1,026 LV",
+     "values": [
+      58,
+      39
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Siena",
+     "dates": "Sep 11–17",
+     "sample": "1,144 LV",
+     "values": [
+      50,
+      41
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Siena",
+     "dates": "Aug 3–6",
+     "sample": "811 LV",
+     "values": [
+      49,
+      39
+     ],
+     "other": null
+    }
+   ],
+   "sources": [
+    [
+     "RealClearPolling",
+     "https://www.realclearpolling.com/polls/governor/general/2026/new-york/hochul-vs-blakeman"
+    ],
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-governor-polls/new-york"
+    ]
+   ]
+  },
+  {
+   "id": "wi-governor-david-crowley",
+   "names": [
+    "Crowley (D)",
+    "Tiffany (R)"
+   ],
+   "average": {
+    "source": "270toWin",
+    "dates": "3 most recent polls (through Oct 16)",
+    "values": [
+     48.0,
+     44.0
+    ]
+   },
+   "polls": [
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 16",
+     "sample": "1,715 RV",
+     "values": [
+      46,
+      42
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Z to A Research",
+     "dates": "Oct 9",
+     "sample": "662 LV",
+     "values": [
+      49,
+      44
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Marquette Law School",
+     "dates": "Sep 16–23",
+     "sample": "692 LV",
+     "values": [
+      49,
+      46
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Marquette Law School",
+     "dates": "Aug 12–20",
+     "sample": "738 LV",
+     "values": [
+      49,
+      44
+     ],
+     "other": null
+    },
+    {
+     "pollster": "TIPP",
+     "dates": "Aug 14–18",
+     "sample": "1,199 LV",
+     "values": [
+      47,
+      43
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Badger Battleground",
+     "dates": "Aug 16",
+     "sample": "500 LV",
+     "values": [
+      48,
+      44
+     ],
+     "other": null
+    },
+    {
+     "pollster": "RMG Research",
+     "dates": "Jul 20–24",
+     "sample": "800 RV",
+     "values": [
+      46,
+      43
+     ],
+     "other": null
+    }
+   ],
+   "sources": [
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-governor-polls/wisconsin"
+    ],
+    [
+     "RealClearPolling",
+     "https://www.realclearpolling.com/polls/governor/general/2026/wisconsin/crowley-vs-tiffany"
+    ]
+   ]
+  },
+  {
+   "id": "nm-governor-deb-haaland",
+   "names": [
+    "Haaland (D)",
+    "Hull (R)"
+   ],
+   "average": {
+    "source": "RealClearPolitics",
+    "dates": "Sep 25 – Oct 9",
+    "values": [
+     48.0,
+     41.5
+    ]
+   },
+   "polls": [
+    {
+     "pollster": "Albuquerque Journal / Research & Polling",
+     "dates": "Oct 1–9",
+     "sample": "1,125 LV",
+     "values": [
+      49,
+      42
+     ],
+     "other": null
+    },
+    {
+     "pollster": "KOB-TV / SurveyUSA",
+     "dates": "Sep 25–30",
+     "sample": "567 LV",
+     "values": [
+      47,
+      41
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Albuquerque Journal / Research & Polling",
+     "dates": "Aug 21–28",
+     "sample": "516 LV",
+     "values": [
+      49,
+      43
+     ],
+     "other": null
+    },
+    {
+     "pollster": "BSP Research",
+     "dates": "Aug 21",
+     "sample": "800 RV",
+     "values": [
+      41,
+      24
+     ],
+     "other": null
+    }
+   ],
+   "sources": [
+    [
+     "RealClearPolling",
+     "https://www.realclearpolling.com/polls/governor/general/2026/new-mexico/hull-vs-haaland"
+    ],
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-governor-polls/new-mexico"
+    ]
+   ]
+  },
+  {
+   "id": "or-governor-tina-kotek",
+   "names": [
+    "Kotek (D)",
+    "Drazan (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "DHM Research",
+     "dates": "Oct 8",
+     "sample": "549 LV",
+     "values": [
+      46,
+      44
+     ],
+     "other": "10% other"
+    },
+    {
+     "pollster": "DHM Research",
+     "dates": "Sep 30",
+     "sample": "915 LV",
+     "values": [
+      46,
+      47
+     ],
+     "other": "7% other"
+    },
+    {
+     "pollster": "DHM Research",
+     "dates": "Sep 15",
+     "sample": "600 LV",
+     "values": [
+      43,
+      45
+     ],
+     "other": "12% other"
+    },
+    {
+     "pollster": "FM3 Research",
+     "dates": "Feb 13",
+     "sample": "1,065 LV",
+     "values": [
+      45,
+      40
+     ],
+     "other": "15% other"
+    }
+   ],
+   "note": "Few public polls; dates are release dates as listed by 270toWin, and RealClearPolling lists the DHM surveys with slightly different dates and figures.",
+   "sources": [
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-governor-polls/oregon"
+    ],
+    [
+     "RealClearPolling",
+     "https://www.realclearpolling.com/polls/governor/general/2026/oregon/kotek-vs-drazan"
+    ]
+   ]
+  },
+  {
+   "id": "ct-governor-ned-lamont",
+   "names": [
+    "Lamont (D)",
+    "Fazio (R)"
+   ],
+   "average": {
+    "source": "270toWin",
+    "dates": "Recent polls, one per pollster (through Oct 19)",
+    "values": [
+     56.6,
+     36.4
+    ]
+   },
+   "polls": [
+    {
+     "pollster": "GreatBlue Research",
+     "dates": "Oct 19",
+     "sample": "LV",
+     "values": [
+      62,
+      34
+     ],
+     "other": null
+    },
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 16",
+     "sample": "LV",
+     "values": [
+      57,
+      34
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Emerson",
+     "dates": "Oct 15",
+     "sample": "800 LV",
+     "values": [
+      51,
+      38
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Quinnipiac",
+     "dates": "Oct 14",
+     "sample": "1,225 LV",
+     "values": [
+      58,
+      38
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Univ. of New Hampshire",
+     "dates": "Sep 24",
+     "sample": "540 LV",
+     "values": [
+      55,
+      38
+     ],
+     "other": null
+    },
+    {
+     "pollster": "co/efficient",
+     "dates": "Sep 22",
+     "sample": "979 LV",
+     "values": [
+      48,
+      41
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Quinnipiac",
+     "dates": "Sep 16",
+     "sample": "1,288 LV",
+     "values": [
+      55,
+      38
+     ],
+     "other": null
+    },
+    {
+     "pollster": "GreatBlue Research",
+     "dates": "Sep 11",
+     "sample": "1,000 RV",
+     "values": [
+      52,
+      37
+     ],
+     "other": null
+    }
+   ],
+   "sources": [
+    [
+     "270toWin",
+     "https://www.270towin.com/2026-governor-polls/connecticut"
+    ]
+   ]
+  },
+  {
+   "id": "ny-attorney-general-letitia-james",
+   "names": [
+    "James (D)",
+    "Komatireddy (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Siena",
+     "dates": "Sep 11–17",
+     "sample": "1,144 LV",
+     "values": [
+      52,
+      39
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Siena",
+     "dates": "Aug 3–6",
+     "sample": "811 LV",
+     "values": [
+      54,
+      36
+     ],
+     "other": "10% undecided"
+    }
+   ],
+   "sources": [
+    [
+     "Wikipedia (poll table)",
+     "https://en.wikipedia.org/wiki/2026_New_York_Attorney_General_election"
+    ],
+    [
+     "Telangana Today (Siena Sept.)",
+     "https://telanganatoday.com/saritha-komatireddy-narrows-letitia-jamess-lead-to-13-points-in-new-york-poll"
+    ]
+   ]
+  },
+  {
+   "id": "ny-comptroller-tom-dinapoli",
+   "names": [
+    "DiNapoli (D)",
+    "Hernandez (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Siena",
+     "dates": "Sep 11–17",
+     "sample": "1,144 LV",
+     "values": [
+      56,
+      33
+     ],
+     "other": "12% undecided"
+    },
+    {
+     "pollster": "Siena",
+     "dates": "Aug 3–6",
+     "sample": "811 LV",
+     "values": [
+      55,
+      32
+     ],
+     "other": "12% undecided"
+    }
+   ],
+   "sources": [
+    [
+     "Wikipedia (poll table)",
+     "https://en.wikipedia.org/wiki/2026_New_York_State_Comptroller_election"
+    ]
+   ]
+  },
+  {
+   "id": "pa-u-s-house-pa-7-bob-brooks",
+   "names": [
+    "Brooks (D)",
+    "Mackenzie (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Franklin & Marshall College",
+     "dates": "Sep 9–20",
+     "sample": "357 RV",
+     "values": [
+      45,
+      40
+     ],
+     "other": null
+    },
+    {
+     "pollster": "GBAO Strategies",
+     "dates": "Jun 29 – Jul 2",
+     "sample": "550 LV",
+     "values": [
+      47,
+      43
+     ],
+     "other": null
+    }
+   ],
+   "note": "Only two public general-election polls; the F&M sample is small.",
+   "sources": [
+    [
+     "US Polling Data",
+     "https://uspollingdata.com/races/house/pa-07/"
+    ]
+   ]
+  },
+  {
+   "id": "ca-u-s-house-ca-22-randy-villegas",
+   "names": [
+    "Villegas (D)",
+    "Valadao (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Tulchin Research",
+     "dates": "Jun 15–21",
+     "sample": "800 LV",
+     "values": [
+      48,
+      44
+     ],
+     "other": null
+    }
+   ],
+   "note": "Only one public poll, released by the Villegas campaign; no independent polling yet.",
+   "sources": [
+    [
+     "US Polling Data",
+     "https://uspollingdata.com/races/house/ca-22/"
+    ],
+    [
+     "Villegas campaign release",
+     "https://www.villegasforcongress.com/news/randy-villegas-leads-republican-david-valadao-in-ca-22-in-new-poll"
+    ]
+   ]
+  },
+  {
+   "id": "mi-secretary-of-state-garlin-gilchrist",
+   "names": [
+    "Gilchrist (D)",
+    "Forlini (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Mitchell Research",
+     "dates": "Early Oct (published by Oct 8)",
+     "sample": null,
+     "values": [
+      41,
+      36
+     ],
+     "other": "18% undecided"
+    }
+   ],
+   "note": "Single poll reported by Bridge Michigan; field dates and sample not given.",
+   "sources": [
+    [
+     "Bridge Michigan",
+     "https://bridgemi.com/?p=81112"
     ]
    ]
   }
