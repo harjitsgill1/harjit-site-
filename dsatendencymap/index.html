@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSA Tendency Map</title>
+<meta name="description" content="A sourced, clickable map of Democratic Socialists of America caucuses: what each says about the ballot line, and how the National Political Committee has actually voted.">
+<meta property="og:title" content="DSA Tendency Map">
+<meta property="og:description" content="Caucuses grouped by their stated stance on the ballot line, with NPC vote coalitions and a confidence mark on every claim.">
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b19;--mut:#6b655d;--card:#fff;--line:#ddd6cb;--acc:#b3261e;--ok:#2d6a4f;--no:#9a3412;--unk:#8a8478;--chip:#f1ece3}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#171513;--fg:#ece7de;--mut:#a39c90;--card:#211e1b;--line:#3a352f;--acc:#ef7b72;--ok:#6fcf97;--no:#f2a272;--unk:#8f887b;--chip:#2a2622}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,"Times New Roman",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:2rem;margin:0 0 .3rem;letter-spacing:-.01em}
+h2{font-size:1.15rem;margin:1.4rem 0 .4rem}
+.lede{color:var(--mut);max-width:70ch;margin:.2rem 0 1rem}
+.sans,button,select,label,.chip,.tag{font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.key{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.85rem;color:var(--mut);margin-bottom:1rem}
+[role=tablist]{display:flex;gap:.25rem;border-bottom:1px solid var(--line);margin:1rem 0}
+[role=tab]{background:none;border:0;border-bottom:3px solid transparent;padding:.6rem .9rem;font-size:.95rem;color:var(--mut);cursor:pointer}
+[role=tab][aria-selected=true]{color:var(--fg);border-color:var(--acc);font-weight:600}
+[role=tab]:focus-visible,.chip:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.layout{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.layout{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}}
+.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.col h3{font-size:.95rem;margin:0 0 .2rem}
+.col p{font-size:.8rem;color:var(--mut);margin:0 0 .6rem}
+.chip{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:.5rem .6rem;margin:.3rem 0;font-size:.9rem;color:var(--fg);cursor:pointer}
+.chip[aria-pressed=true]{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.chip.dim{opacity:.35}
+.seat{font-size:.75rem;color:var(--mut);white-space:nowrap;margin-left:.5rem}
+.detail{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;align-self:start}
+@media(min-width:900px){.detail{position:sticky;top:12px}}
+.detail h3{margin:0 0 .2rem;font-size:1.2rem}
+.tag{display:inline-block;font-size:.75rem;color:var(--mut);margin-bottom:.6rem}
+.say{border-left:3px solid var(--line);padding:.1rem 0 .1rem .7rem;margin:.7rem 0;font-size:.92rem}
+.say .meta{font-family:system-ui,sans-serif;font-size:.75rem;color:var(--mut)}
+.cav{font-size:.85rem;color:var(--mut);font-style:italic}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.6rem 0}
+button.b,select{font-size:.85rem;padding:.35rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--chip);color:var(--fg);cursor:pointer}
+.vote{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+.vote h3{margin:0;font-size:1.05rem}
+.vote .when{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--mut)}
+.blks{display:flex;flex-wrap:wrap;gap:4px;margin:.7rem 0}
+.blk{font-family:system-ui,sans-serif;font-size:.78rem;border-radius:6px;padding:.4rem .3rem;text-align:center;min-width:46px;border:2px solid;background:transparent;color:var(--fg);cursor:pointer}
+.blk.backed{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.blk.opposed{border-color:var(--no);background:color-mix(in srgb,var(--no) 15%,transparent)}
+.blk.unknown{border-color:var(--unk);border-style:dashed}
+.blk.hl{outline:3px solid var(--acc)}
+.note{font-size:.85rem;color:var(--mut)}
+ul.src{padding-left:1.1rem;font-size:.88rem}
+footer{margin-top:2.5rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.85rem;color:var(--mut)}
+a{color:var(--acc)}
+[hidden]{display:none!important}
+@media print{[role=tablist],.row,button{display:none}[role=tabpanel]{display:block!important}.detail{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>DSA Tendency Map</h1>
+<p class="lede">A map of the main caucuses in the Democratic Socialists of America, grouped by what each says about the ballot line, with how the National Political Committee (NPC) has actually voted on contested questions. It describes; it does not rate anyone's politics. Most DSA members belong to no caucus, though caucuses dominate internal politics.</p>
+<div class="key sans" aria-label="Confidence key">
+<span>● Confirmed: the caucus's own words, or consistent across reports</span>
+<span>◐ Single source</span>
+<span>○ Unverified or derived</span>
+<span>Last updated Oct 23, 2026</span>
+</div>
+
+<div role="tablist" aria-label="Views" class="sans">
+<button role="tab" id="t-map" aria-controls="panel-map" aria-selected="true">Caucus map</button>
+<button role="tab" id="t-votes" aria-controls="panel-votes" aria-selected="false" tabindex="-1">Vote coalitions</button>
+<button role="tab" id="t-about" aria-controls="panel-about" aria-selected="false" tabindex="-1">About &amp; sources</button>
+</div>
+
+<section id="panel-map" role="tabpanel" aria-labelledby="t-map">
+<div class="row sans">
+<label><input type="checkbox" id="seatOnly"> Only caucuses with NPC seats</label>
+</div>
+<div class="layout">
+<div id="columns" class="columns"></div>
+<aside class="detail" id="detail" aria-live="polite"><p class="note">Select a caucus to see what it says, with sources.</p></aside>
+</div>
+</section>
+
+<section id="panel-votes" role="tabpanel" aria-labelledby="t-votes" hidden>
+<div class="row sans">
+<label>Highlight caucus: <select id="hlSel"><option value="">None</option></select></label>
+<button class="b" id="hlClear">Clear</button>
+</div>
+<p class="note">Each block is a caucus, sized by its NPC seats (27 total: Groundwork 5, Bread &amp; Roses 5, SMC 4, SoR 4, MUG 3, Red Star 3, R&amp;R 2, LSC 1). Solid green = backed, solid orange = opposed, dashed grey = position not reported in the sources I found. Seat counts change; each vote used the NPC of its day.</p>
+<div id="votes"></div>
+</section>
+
+<section id="panel-about" role="tabpanel" aria-labelledby="t-about" hidden>
+<div id="about"></div>
+</section>
+
+<footer>
+This page was researched and drafted with AI assistance (Claude) from the public sources listed under About &amp; sources. Errors are possible; corrections are welcome. <!-- add a contact line here -->
+</footer>
+</div>
+
+<script>
+const S={
+gw:{l:"Groundwork DSA",t:"Class Alignment & Electoral Strategy",p:"groundworkdsa.com",u:"https://groundworkdsa.com/class-alignment-electoral-strategy",k:"own words"},
+smc:{l:"SMC points of unity",t:"Socialist Majority Caucus points of unity",p:"Socialist Majority Caucus",u:null,k:"own words"},
+mug:{l:"MUG founding statement",t:"Marxist Unity Group founding statement",p:"Marxist Unity Group",u:null,k:"own words"},
+rs:{l:"Red Star points of unity",t:"Red Star Caucus points of unity",p:"Red Star Caucus",u:null,k:"own words"},
+lsc:{l:"LSC points of unity",t:"Libertarian Socialist Caucus points of unity (Feb 16, 2024)",p:"Libertarian Socialist Caucus",u:null,k:"own words"},
+br:{l:"B&R 2025 convention page",t:"Bread & Roses 2025 convention materials; 2023 'Act Like an Independent Party' amendment",p:"Bread & Roses",u:null,k:"own words"},
+cs26:{l:"City & State, Sept 15 2026",t:"Report on the NPC vote against a special endorsement conference",p:"City & State",u:null,k:"outside reporting"},
+cs24:{l:"City & State, 2024",t:"Report on the NPC's 2024 AOC endorsement votes",p:"City & State",u:null,k:"outside reporting"},
+cs26j:{l:"City & State, Jan 2026",t:"Report on caucus strength on the NPC and in NYC-DSA",p:"City & State",u:null,k:"outside reporting"},
+jns:{l:"JNS, July 2026",t:"Report on the all-member poll vote",p:"JNS",u:null,k:"right-leaning outlet"},
+th:{l:"Townhall, July 2026",t:"Report on the all-member poll vote",p:"Townhall",u:null,k:"right-leaning outlet"},
+cj:{l:"City Journal",t:"Report on the 'Workers Deserve More' amendment vote",p:"City Journal",u:null,k:"right-leaning outlet"},
+nr:{l:"New Republic, July 2026",t:"Report on DSA membership",p:"The New Republic",u:null,k:"outside reporting"}
+};
+const COLS=[
+{id:"A",h:"Democratic line now; build a party-like force",d:"Say the Democratic ballot line is the practical route for the foreseeable future."},
+{id:"B",h:"Tactical Democratic line, toward independence",d:"Use the line now while building toward a workers' party."},
+{id:"C",h:"Break from the Democratic Party",d:"Want independent campaigns and a clean separation."},
+{id:"D",h:"Marxist-Leninist / vanguard party",d:"Describe themselves in Leninist terms; no stated ballot-line position found."},
+{id:"E",h:"Libertarian socialist",d:"Skeptical of the state as a vehicle."},
+{id:"F",h:"Not placed here",d:"Platform not re-verified for this page. Absence of a claim is not a claim."}
+];
+const C=[
+{id:"groundwork",n:"Groundwork",col:"A",seats:5,seatConf:"●",seatNote:"Listed on the NPC page.",
+ say:[{c:"●",t:"Describes a “ballot-line-agnostic party-surrogate” strategy.",s:"gw"},
+      {c:"●",t:"Argues the Democratic Party cannot be realigned and a third party cannot succeed now; the long-term end (a split, takeover of primaries, or neither) is left open.",s:"gw"}],
+ cav:"“Party-surrogate” means building a party-like organization of socialists inside the current electoral system."},
+{id:"smc",n:"Socialist Majority (SMC)",col:"A",seats:4,seatConf:"●",seatNote:"City & State, Jan 2026.",
+ say:[{c:"●",t:"Points of unity call for “a mass party that can contest for state power.”",s:"smc"},
+      {c:"●",t:"Says the Democratic ballot line is the only viable strategy now and a third party would be a strategic disaster.",s:"smc"}],
+ cav:"Not a Leninist caucus by its own description."},
+{id:"bread-roses",n:"Bread & Roses",col:"B",seats:5,seatConf:"◐",seatNote:"3 seats in Jan 2026, 5 by Sept 2026; the change is single-sourced.",
+ say:[{c:"●",t:"Its 2023 “Act Like an Independent Party” amendment backed using the Democratic line tactically while building independence.",s:"br"},
+      {c:"●",t:"Its 2025 convention page describes a coalition toward a workers' party and a national down-ballot slate for 2026/2028.",s:"br"},
+      {c:"◐",t:"City & State calls it the swing vote on the NPC.",s:"cs26"}],
+ cav:""},
+{id:"mug",n:"Marxist Unity Group (MUG)",col:"C",seats:3,seatConf:"●",seatNote:"City & State, Jan 2026.",
+ say:[{c:"●",t:"Founding statement: DSA should “free itself from the Democratic Party.”",s:"mug"},
+      {c:"●",t:"Favors independent campaigns where ballot access makes that readily achievable; Democratic-line electeds should vote as their own bloc.",s:"mug"}],
+ cav:""},
+{id:"red-star",n:"Red Star",col:"D",seats:3,seatConf:"◐",seatNote:"Reconciled to total 27.",
+ say:[{c:"●",t:"Points of unity: Marxist-Leninist; abolish capitalism and build communism; “seeks to cohere a vanguard party.”",s:"rs"}],
+ cav:"No ballot-line position stated in the points of unity I read."},
+{id:"lsc",n:"Libertarian Socialist (LSC)",col:"E",seats:1,seatConf:"◐",seatNote:"Reconciled to total 27.",
+ say:[{c:"●",t:"Points of unity (Feb 16, 2024): “The state is fundamentally incapable of solving crises of its own creation.”",s:"lsc"},
+      {c:"●",t:"Its letter lists anti-vanguardism, self-management and class independence.",s:"lsc"}],
+ cav:"A small caucus; its single seat limits its weight in NPC votes."},
+{id:"rr",n:"Reform & Revolution (R&R)",col:"F",seats:2,seatConf:"○",seatNote:"Derived: 27 minus the other seat counts.",
+ say:[],cav:"Seat count is derived. I did not re-verify its platform for this page."},
+{id:"sor",n:"SoR",col:"F",seats:4,seatConf:"◐",seatNote:"City & State, Jan 2026.",
+ say:[],cav:"Platform not re-verified for this page; its votes appear on the Vote coalitions tab."},
+{id:"north-star",n:"North Star",col:"F",seats:0,seatConf:"○",seatNote:"No NPC seat found in my count.",
+ say:[],cav:"Not described as Leninist here; not re-verified."},
+{id:"emerge",n:"Emerge",col:"F",seats:0,seatConf:"●",seatNote:"0 NPC seats; 8 of 71 NYC-DSA Citywide Leadership Committee seats (City & State, Jan 2026).",
+ say:[],cav:""},
+{id:"liberation",n:"Liberation",col:"F",seats:0,seatConf:"○",seatNote:"Not verified.",say:[],cav:"Not re-verified."},
+{id:"carnation",n:"Carnation Program",col:"F",seats:0,seatConf:"○",seatNote:"Not verified.",say:[],cav:"Platform not verified; omitted rather than guessed."}
+];
+const VOTES=[
+{id:"vSep",h:"Special endorsement conference (AOC)",when:"Sunday Sept 13, 2026",res:"Failed 15–12",
+ txt:"Proposal for a special conference on endorsing Alexandria Ocasio-Cortez was voted down. MUG and SoR (7 votes) proposed it; SMC and Groundwork (9) opposed; Bread & Roses' 5 broke the stalemate. The NPC may consider endorsing in early 2027; the convention is Aug 2027; AOC hasn't decided.",
+ src:["cs26"],single:false,
+ b:[["mug","backed"],["sor","backed"],["smc","opposed"],["groundwork","opposed"],["bread-roses","opposed"],["red-star","unknown"],["rr","unknown"],["lsc","unknown"]]},
+{id:"vJul",h:"All-member poll",when:"July 12, 2026",res:"Rejected 14–13",
+ txt:"A poll of all members was rejected. JNS says the vote hinged on Bread & Roses; Townhall says Groundwork and SMC backed the poll. Both outlets lean right; treat as single-direction reporting.",
+ src:["jns","th"],single:true,
+ b:[["groundwork","backed"],["smc","backed"],["bread-roses","opposed"],["mug","unknown"],["sor","unknown"],["red-star","unknown"],["rr","unknown"],["lsc","unknown"]]},
+{id:"v2024",h:"2024 AOC endorsement",when:"2024",res:"Endorsed with conditions debated",
+ txt:"Red Star opposed endorsing. SMC and Groundwork favored it. Bread & Roses voted to endorse and, with Red Star and Groundwork, for strict conditions; SMC abstained on conditions. Red Star's “must accept first” amendment lost. Seat counts then differed from today's.",
+ src:["cs24"],single:false,
+ b:[["red-star","opposed"],["smc","backed"],["groundwork","backed"],["bread-roses","backed"],["mug","unknown"],["sor","unknown"],["rr","unknown"],["lsc","unknown"]]},
+{id:"vWDM",h:"“Workers Deserve More” amendment",when:"Date not confirmed",res:"Passed 12–11 (per City Journal)",
+ txt:"City Journal reports MUG, Red Star, SoR, R&R and the lone LSC member in favor; Groundwork, SMC and mainly Bread & Roses against. Single, right-leaning source. Today's seats sum to 13 for, so the NPC then had different seat counts.",
+ src:["cj"],single:true,
+ b:[["mug","backed"],["red-star","backed"],["sor","backed"],["rr","backed"],["lsc","backed"],["groundwork","opposed"],["smc","opposed"],["bread-roses","opposed"]]}
+];
+const $=s=>document.querySelector(s);
+const byId=Object.fromEntries(C.map(c=>[c.id,c]));
+let sel=null;
+
+function el(tag,attrs={},kids=[]){const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k==="text")e.textContent=attrs[k];else e.setAttribute(k,attrs[k]);}
+ (Array.isArray(kids)?kids:[kids]).forEach(x=>e.append(x));return e;}
+function srcLine(id){const s=S[id];const t=s.l+" ("+s.k+")";
+ if(s.u){const a=el("a",{href:s.u,target:"_blank",rel:"noopener"});a.textContent=t;return a;}
+ return document.createTextNode(t);}
+
+function renderColumns(){
+ const only=$("#seatOnly").checked, box=$("#columns");box.replaceChildren();
+ COLS.forEach(col=>{
+  const items=C.filter(c=>c.col===col.id&&(!only||c.seats>0));
+  if(!items.length)return;
+  const d=el("div",{class:"col"});
+  d.append(el("h3",{text:col.h}),el("p",{text:col.d}));
+  items.forEach(c=>{
+   const b=el("button",{class:"chip","aria-pressed":String(sel===c.id),type:"button"});
+   b.append(el("span",{text:c.n}),el("span",{class:"seat",text:c.seats+" seat"+(c.seats===1?"":"s")+" "+c.seatConf}));
+   b.onclick=()=>select(c.id);d.append(b);
+  });
+  box.append(d);
+ });
+}
+function renderDetail(){
+ const d=$("#detail");d.replaceChildren();
+ if(!sel){d.append(el("p",{class:"note",text:"Select a caucus to see what it says, with sources."}));return;}
+ const c=byId[sel];
+ d.append(el("h3",{text:c.n}),el("div",{class:"tag",text:c.seats+" NPC seat"+(c.seats===1?"":"s")+" "+c.seatConf+" · "+c.seatNote}));
+ if(!c.say.length)d.append(el("p",{class:"note",text:"No sourced platform statement included for this caucus."}));
+ c.say.forEach(x=>{const p=el("div",{class:"say"});p.append(el("div",{text:x.c+" "+x.t}));
+  const m=el("div",{class:"meta"});m.append("Source: ",srcLine(x.s));p.append(m);d.append(p);});
+ if(c.cav)d.append(el("p",{class:"cav",text:c.cav}));
+ const r=el("div",{class:"row"});
+ const v=el("button",{class:"b",type:"button",text:"See across votes"});v.onclick=()=>{setTab("votes");$("#hlSel").value=c.id;syncHL();};
+ const cp=el("button",{class:"b",type:"button",text:"Copy link"});cp.onclick=()=>{const u=location.href.split("#")[0]+"#"+c.id;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>cp.textContent="Copied",()=>{prompt&&0;cp.textContent=u});};
+ const cl=el("button",{class:"b",type:"button",text:"Clear"});cl.onclick=()=>select(null);
+ r.append(v,cp,cl);d.append(r);
+}
+function select(id){sel=id;renderColumns();renderDetail();try{history.replaceState(null,"",id?"#"+id:location.pathname+location.search)}catch(e){}}
+
+function renderVotes(){
+ const box=$("#votes");box.replaceChildren();
+ VOTES.forEach(v=>{
+  const d=el("div",{class:"vote"});
+  d.append(el("h3",{text:v.h}),el("div",{class:"when",text:v.when+" · "+v.res+(v.single?" · ◐ single source":"")}));
+  const bl=el("div",{class:"blks"});
+  v.b.forEach(([id,st])=>{const c=byId[id];
+   const b=el("button",{class:"blk "+st,"data-c":id,type:"button",title:c.n+": "+(st==="unknown"?"not reported":st),
+    style:"flex:"+Math.max(c.seats,1)+" 1 "+(c.seats*18+46)+"px"});
+   b.textContent=c.n.split(" (")[0]+" · "+c.seats;
+   b.onclick=()=>{$("#hlSel").value=id;syncHL();};bl.append(b);});
+  d.append(bl,el("p",{class:"note",text:v.txt}));
+  const m=el("div",{class:"note"});m.append("Sources: ");v.src.forEach((s,i)=>{if(i)m.append("; ");m.append(srcLine(s));});d.append(m);
+  box.append(d);
+ });
+ const sl=$("#hlSel");C.filter(c=>c.seats>0).forEach(c=>sl.append(el("option",{value:c.id,text:c.n})));
+}
+function syncHL(){const v=$("#hlSel").value;
+ document.querySelectorAll(".blk").forEach(b=>b.classList.toggle("hl",!!v&&b.dataset.c===v));}
+
+function renderAbout(){
+ const a=$("#about");a.replaceChildren();
+ const add=(h,t)=>{a.append(el("h2",{text:h}),el("p",{text:t}))};
+ add("What this is","A reference built only from documented claims. Caucuses are placed by what they say about the ballot line, not by a numeric score. Earlier versions of this map used guessed coordinates; a DSA member rightly objected, so they were dropped.");
+ add("What it is not","It is not a rating, a prediction, or a voting record. Votes shown are the few I could find reported; blank (dashed) positions mean not reported, not abstained.");
+ add("Left out on purpose","Municipal Socialists and caucus vote-share percentages could not be re-verified. The Carnation Program's platform is unverified. Membership is reported at nearly 130,000 (New Republic, July 2026) or about 120,000 (JNS).");
+ add("Confidence marks","● confirmed from the caucus's own site or consistent across reports; ◐ single source; ○ unverified or derived (for example R&R's seats are 27 minus the others).");
+ a.append(el("h2",{text:"Sources"}));
+ const ul=el("ul",{class:"src"});
+ Object.values(S).forEach(s=>{const li=el("li");
+  if(s.u){const x=el("a",{href:s.u,target:"_blank",rel:"noopener",text:s.t});li.append(x);}else li.append(s.t);
+  li.append(" — "+s.p+" ("+s.k+")"+(s.u?"":" · link to be added"));ul.append(li);});
+ a.append(ul);
+}
+
+const tabs=["map","votes","about"];
+function setTab(n){tabs.forEach(t=>{const on=t===n;
+ $("#t-"+t).setAttribute("aria-selected",on);$("#t-"+t).tabIndex=on?0:-1;$("#panel-"+t).hidden=!on;});}
+function initTabs(){tabs.forEach((t,i)=>{const b=$("#t-"+t);b.onclick=()=>setTab(t);
+ b.onkeydown=e=>{let j=null;if(e.key==="ArrowRight")j=(i+1)%3;if(e.key==="ArrowLeft")j=(i+2)%3;
+  if(j!==null){setTab(tabs[j]);$("#t-"+tabs[j]).focus();}};});}
+function applyHash(){const h=location.hash.slice(1);if(byId[h]){sel=h;renderColumns();renderDetail();}}
+
+renderColumns();renderVotes();renderAbout();initTabs();
+$("#seatOnly").onchange=renderColumns;
+$("#hlSel").onchange=syncHL;
+$("#hlClear").onclick=()=>{$("#hlSel").value="";syncHL();};
+window.addEventListener("hashchange",applyHash);
+applyHash();
+</script>
+</body>
+</html>
