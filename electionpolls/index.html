@@ -26,13 +26,13 @@
     --ink:#2B1D17; --coral:#D9541E; --gold:#EFA02B; --cloud:#F9EBD6; --slate:#5A4034;
     --line:rgba(43,29,23,0.14); --page-bg:#F9EBD6; --heading:#2B1D17; --body-text:#5A4034;
     --card-bg:#FFF7EC; --muted:rgba(43,29,23,0.55); --track:rgba(43,29,23,0.08);
-    --dsa:#D7141C; --wfp:#6B2FA3; --mine:var(--coral);
+    --dsa:#D7141C; --wfp:#6B2FA3; --watch:#2F6F8F; --mine:var(--coral);
     --win:#17806A;
   }
   html[data-theme="dark"]{
     --page-bg:#1E1512; --heading:#F9EBD6; --body-text:#E3D3C4; --card-bg:#2A1E19;
     --line:rgba(249,235,214,0.14); --muted:rgba(249,235,214,0.55); --track:rgba(249,235,214,0.08);
-    --dsa:#FF5A5F; --wfp:#B794E8; --win:#5FD3B0;
+    --dsa:#FF5A5F; --wfp:#B794E8; --watch:#7FB8D6; --win:#5FD3B0;
   }
   html[data-season="spring"]{
     --ink:#0F1D36; --coral:#EE5A3C; --cloud:#F7F5EF; --slate:#38455E;
@@ -85,7 +85,17 @@
   .tab .n{font:700 11px 'JetBrains Mono',monospace;opacity:.7;}
   .tab[aria-selected="true"]{background:var(--c);color:#fff;}
   .tab[aria-selected="true"] .n{opacity:.9;}
-  .tab.dsa{--c:var(--dsa);} .tab.wfp{--c:var(--wfp);}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;}
+  .chips[hidden]{display:none;}
+  .chip{--c:var(--heading);font:600 13px 'Inter',sans-serif;border:1.5px solid var(--c);background:transparent;color:var(--heading);
+       padding:7px 13px;border-radius:999px;cursor:pointer;}
+  .chip[aria-pressed="true"]{background:var(--c);color:#fff;}
+  html[data-theme="dark"] .chip[aria-pressed="true"]{color:#1a1a1a;}
+  .chip.dsa{--c:var(--dsa);} .chip.wfp{--c:var(--wfp);} .chip.watch{--c:var(--watch);}
+  .pbadges{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;}
+  .pbadge{font:700 10px 'JetBrains Mono',monospace;padding:2px 6px;border-radius:4px;color:#fff;}
+  .pbadge.dsa{background:var(--dsa);} .pbadge.wfp{background:var(--wfp);} .pbadge.watch{background:var(--watch);}
+  html[data-theme="dark"] .pbadge{color:#1a1a1a;}
   .filters{display:flex;gap:8px;margin-left:auto;flex:1 1 260px;justify-content:flex-end;min-width:0;}
   .filters select{flex:0 1 auto;max-width:45%;}
   .filters input,.filters select{font:500 14px 'Inter',sans-serif;color:var(--heading);background:var(--card-bg);
@@ -149,7 +159,7 @@
   }
 
   .pcard{--c:var(--mine);background:var(--card-bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
-  .pcard.t-dsa{--c:var(--dsa);} .pcard.t-wfp{--c:var(--wfp);}
+  .pcard.t-dsa{--c:var(--dsa);} .pcard.t-wfp{--c:var(--wfp);} .pcard.t-watch{--c:var(--watch);}
   .avg{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
   .avg b{font:400 28px/1 'Archivo Black',sans-serif;color:var(--heading);}
   .avg b.down{color:var(--muted);}
@@ -186,10 +196,11 @@
 </header>
 <div class="bar">
   <div class="bar-inner">
-    <div class="tabs" role="tablist">
-      <button class="tab mine" role="tab" data-tab="mine" aria-selected="true">Mai’s Picks</button>
-      <button class="tab dsa" role="tab" data-tab="dsa" aria-selected="false">DSA</button>
-      <button class="tab wfp" role="tab" data-tab="wfp" aria-selected="false">WFP</button>
+    <div class="chips" id="chips">
+      <button class="chip" data-f="all">All</button>
+      <button class="chip dsa" data-f="dsa">DSA</button>
+      <button class="chip wfp" data-f="wfp">WFP</button>
+      <button class="chip watch" data-f="watch">Watching</button>
     </div>
   </div>
 </div>
@@ -197,11 +208,21 @@
 <footer>Poll numbers are as published by each pollster and aggregator; follow the source links for full details and methodology. Most local races are never publicly polled.</footer>
 <script>
 (function(){
-  var tab = 'mine';
+  var MAI = /[?&]mai\b/.test(location.search);
+  var tab = 'all';
   try { tab = localStorage.getItem('ep-tab') || tab; } catch(e){}
-  var h = (location.hash||'').replace('#',''); if (['mine','dsa','wfp'].indexOf(h) > -1) tab = h;
+  var h = (location.hash||'').replace('#',''); if (['all','dsa','wfp','watch'].indexOf(h) > -1) tab = h;
+  if (['all','dsa','wfp','watch'].indexOf(tab) === -1) tab = 'all';
+  if (MAI) tab = 'mine';
+  var GROUPS = ['dsa','wfp','watch'], LABEL = {dsa:'DSA', wfp:'WFP', watch:'WATCHING'};
+  var inView = function(r, v){ return v === 'all' ? GROUPS.some(function(l){ return r.lists.indexOf(l) > -1; }) : r.lists.indexOf(v) > -1; };
   var races = [], polls = {}, updatedAt = null;
   var $ = function(id){ return document.getElementById(id); };
+  if (MAI) {
+    document.title = 'Mai\u2019s Picks · Latest Polls';
+    document.querySelector('h1').innerHTML = 'Mai\u2019s Picks <span>Polls</span>';
+    document.querySelector('.switch').setAttribute('href', '/mai/');
+  }
   var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
   var fmt = function(n){ return (Math.round(n*10)/10).toString(); };
   var margin = function(v){ var d = v[0]-v[1]; return {d:d, txt: d===0 ? 'Tie' : (d>0?'+':'\u2212') + fmt(Math.abs(d))}; };
@@ -225,12 +246,16 @@
       }).join('') + '</tbody></table>';
     if (p.note) out += '<div class="note">'+esc(p.note)+'</div>';
     out += '<div class="src">Source: '+(p.sources||[]).map(function(s){ return '<a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a>'; }).join(', ')+'</div>';
-    return '<article class="pcard t-'+tab+'"><div><div class="office">'+esc(r.office)+'</div><div class="cand">'+esc(r.candidate)+'</div></div>'+out+'</article>';
+    var mine = GROUPS.filter(function(l){ return r.lists.indexOf(l) > -1; });
+    var cls = tab === 'all' ? (mine[0] || 'mine') : tab;
+    var badges = mine.length ? '<div class="pbadges">' + mine.map(function(l){ return '<span class="pbadge '+l+'">'+LABEL[l]+'</span>'; }).join('') + '</div>' : '';
+    return '<article class="pcard t-'+cls+'"><div><div class="office">'+esc(r.office)+'</div><div class="cand">'+esc(r.candidate)+'</div>'+badges+'</div>'+out+'</article>';
   }
 
   function render(){
-    document.querySelectorAll('.tab').forEach(function(b){ b.setAttribute('aria-selected', String(b.getAttribute('data-tab')===tab)); });
-    var list = races.filter(function(r){ return r.lists.indexOf(tab) > -1; });
+    $('chips').hidden = MAI;
+    document.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', String(c.getAttribute('data-f') === tab)); });
+    var list = races.filter(function(r){ return inView(r, tab); });
     var withPolls = list.filter(function(r){ return polls[r.id]; });
     var without = list.filter(function(r){ return !polls[r.id] && r.status !== 'won' && r.status !== 'lost'; });
     var html = withPolls.length ? '<section class="group"><h2>Polled races <small>'+withPolls.length+'</small></h2><div class="grid">'+withPolls.map(function(r){ return pcard(r, polls[r.id]); }).join('')+'</div></section>'
@@ -247,9 +272,9 @@
     render();
   }).catch(function(){ $('main').innerHTML = '<div class="empty">Couldn\u2019t load polls. Refresh to try again.</div>'; });
 
-  document.querySelector('.tabs').addEventListener('click', function(e){
-    var b = e.target.closest('.tab'); if (!b) return;
-    tab = b.getAttribute('data-tab');
+  $('chips').addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if (!b || MAI) return;
+    tab = b.getAttribute('data-f');
     try { localStorage.setItem('ep-tab', tab); } catch(err){}
     history.replaceState(null, '', '#' + tab); render();
   });
