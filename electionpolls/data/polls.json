@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-24T13:53:23Z",
+ "updatedAt": "2026-10-25T13:53:13Z",
  "races": [
   {
    "id": "tx-u-s-senate-texas-james-talarico",
@@ -16,6 +16,16 @@
     ]
    },
    "polls": [
+    {
+     "pollster": "Rasmussen Reports",
+     "dates": "Oct 20–21",
+     "sample": "965 LV",
+     "values": [
+      45,
+      45
+     ],
+     "other": null
+    },
     {
      "pollster": "Verasight",
      "dates": "Oct 23",
@@ -85,22 +95,16 @@
       46
      ],
      "other": null
-    },
-    {
-     "pollster": "YouGov",
-     "dates": "Oct 18",
-     "sample": "1,458 LV",
-     "values": [
-      51,
-      49
-     ],
-     "other": null
     }
    ],
    "sources": [
     [
      "270toWin",
      "https://www.270towin.com/2026-senate-polls/texas"
+    ],
+    [
+     "RealClearPolling",
+     "https://www.realclearpolling.com/polls/senate/general/2026/texas/paxton-vs-talarico"
     ]
    ]
   },
@@ -415,10 +419,10 @@
    ],
    "average": {
     "source": "RealClearPolitics",
-    "dates": "Sep 8 – Oct 20",
+    "dates": "Sep 28 – Oct 20",
     "values": [
-     42.4,
-     49.4
+     42.2,
+     49.5
     ]
    },
    "polls": [
@@ -708,13 +712,13 @@
    "polls": [
     {
      "pollster": "UC Berkeley IGS / LA Times",
-     "dates": "Mid-Sep",
-     "sample": "~2,100 LV",
+     "dates": "Sep 15–20",
+     "sample": "2,150 LV",
      "values": [
       39,
       28
      ],
-     "other": "~33% undecided"
+     "other": "33% undecided"
     },
     {
      "pollster": "UC Berkeley IGS / LA Times",
@@ -732,6 +736,10 @@
     [
      "CBS Los Angeles",
      "https://www.cbsnews.com/losangeles/news/raman-holding-double-digit-lead-over-bass-in-la-mayoral-race-new-poll-shows/"
+    ],
+    [
+     "FOX 11 Los Angeles",
+     "https://www.foxla.com/news/raman-leads-bass-la-mayor-poll"
     ]
    ]
   },
@@ -1332,6 +1340,110 @@
     [
      "Bridge Michigan",
      "https://bridgemi.com/?p=81112"
+    ]
+   ]
+  },
+  {
+   "id": "oh-u-s-house-oh-7-brian-poindexter",
+   "names": [
+    "Poindexter (D)",
+    "Miller (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Bedrock Polling (D)",
+     "dates": "Aug 10",
+     "sample": "866 LV",
+     "values": [
+      43,
+      35
+     ],
+     "other": null
+    },
+    {
+     "pollster": "co/efficient (R)",
+     "dates": "Aug 5–6",
+     "sample": "615 LV",
+     "values": [
+      47,
+      33
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Tavern Research (D)",
+     "dates": "Aug 4–5",
+     "sample": "635 LV",
+     "values": [
+      54,
+      46
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Unnamed (R)",
+     "dates": "Late Jul",
+     "sample": null,
+     "values": [
+      44,
+      39
+     ],
+     "other": null
+    },
+    {
+     "pollster": "GBAO (D)",
+     "dates": "Jun 20",
+     "sample": "500 LV",
+     "values": [
+      43,
+      44
+     ],
+     "other": null
+    }
+   ],
+   "note": "All public polls are partisan-sponsored and date from summer, mostly taken after abuse allegations against Miller became public; no independent fall polling found.",
+   "sources": [
+    [
+     "Pollsmax",
+     "https://www.pollsmax.com/2026-us-house/ohio-7/"
+    ],
+    [
+     "Newsweek (co/efficient)",
+     "https://www.newsweek.com/poll-shows-max-miller-down-double-digits-as-he-loans-campaign-1-million-12294903"
+    ],
+    [
+     "Newsweek (Tavern)",
+     "https://www.newsweek.com/max-miller-chances-losing-democrats-withdrawal-deadline-passed-ohio-12310050"
+    ]
+   ]
+  },
+  {
+   "id": "ny-u-s-house-ny-1-chris-gallant",
+   "names": [
+    "Gallant (D)",
+    "LaLota (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Public Policy Polling (D)",
+     "dates": "Dec 2025",
+     "sample": "579 V",
+     "values": [
+      38,
+      41
+     ],
+     "other": null
+    }
+   ],
+   "note": "Only public poll found, a Democratic-aligned survey taken before the primary when Gallant was little known.",
+   "sources": [
+    [
+     "Pollsmax",
+     "https://www.pollsmax.com/2026-us-house/new-york-1/"
+    ],
+    [
+     "East Hampton Star",
+     "https://www.easthamptonstar.com/government/2026115/dems-turn-to-new-face-cd-1"
     ]
    ]
   }
