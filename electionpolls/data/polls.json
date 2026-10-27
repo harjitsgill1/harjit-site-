@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-26T14:07:29Z",
+ "updatedAt": "2026-10-27T13:59:07Z",
  "races": [
   {
    "id": "tx-u-s-senate-texas-james-talarico",
@@ -128,6 +128,25 @@
    },
    "polls": [
     {
+     "pollster": "RedBox Research",
+     "dates": "Oct 23",
+     "sample": "2,696 LV",
+     "values": [
+      49,
+      44
+     ]
+    },
+    {
+     "pollster": "Glengariff Group (Detroit News/WDIV)",
+     "dates": "Oct 19–22",
+     "sample": "600 LV",
+     "values": [
+      51.4,
+      45.1
+     ],
+     "other": "3.6% undecided"
+    },
+    {
      "pollster": "InsiderAdvantage",
      "dates": "Oct 21–22",
      "sample": null,
@@ -186,22 +205,20 @@
       48
      ],
      "other": null
-    },
-    {
-     "pollster": "Mitchell Research",
-     "dates": "Oct 1",
-     "sample": null,
-     "values": [
-      46,
-      41
-     ],
-     "other": null
     }
    ],
    "sources": [
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/senate/general/2026/michigan/rogers-vs-el-sayed"
+    ],
+    [
+     "Detroit News (Glengariff poll, via Yahoo)",
+     "https://www.yahoo.com/news/politics/articles/el-sayed-leads-rogers-final-091436494.html"
+    ],
+    [
+     "Pollsmax",
+     "https://www.pollsmax.com/senate/michigan/"
     ]
    ]
   },
@@ -439,6 +456,15 @@
    },
    "polls": [
     {
+     "pollster": "RedBox Research",
+     "dates": "Oct 23",
+     "sample": "4,832 LV",
+     "values": [
+      43,
+      50
+     ]
+    },
+    {
      "pollster": "co/efficient",
      "dates": "Oct 18–20",
      "sample": null,
@@ -507,16 +533,6 @@
       47
      ],
      "other": null
-    },
-    {
-     "pollster": "YouGov",
-     "dates": "Sep 24 – Oct 3",
-     "sample": null,
-     "values": [
-      44,
-      49
-     ],
-     "other": null
     }
    ],
    "sources": [
@@ -527,6 +543,10 @@
     [
      "270toWin",
      "https://www.270towin.com/2026-senate-polls/florida"
+    ],
+    [
+     "Call the Map",
+     "https://www.callthemap.com/polls/SEN-FL"
     ]
    ]
   },
@@ -537,14 +557,23 @@
     "Collins (R)"
    ],
    "average": {
-    "source": "RealClearPolitics",
-    "dates": "Sep 23 – Oct 23",
+    "source": "FiftyPlusOne",
+    "dates": "As of Oct 26",
     "values": [
-     48.9,
-     47.5
+     49.0,
+     47.3
     ]
    },
    "polls": [
+    {
+     "pollster": "Marist",
+     "dates": "Oct 22–25",
+     "sample": "LV (±6.6)",
+     "values": [
+      49,
+      47
+     ]
+    },
     {
      "pollster": "Trafalgar Group",
      "dates": "Oct 21–23",
@@ -620,6 +649,14 @@
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/senate/general/2026/collins-vs-jackson"
+    ],
+    [
+     "WABI (Marist poll)",
+     "https://www.wabi.tv/2026/10/27/maine-senate-race-is-close-while-pingree-charles-are-tied-governors-race-poll-finds/"
+    ],
+    [
+     "FiftyPlusOne",
+     "https://fiftyplusone.news/polls/senate/general/maine"
     ]
    ]
   },
@@ -1054,6 +1091,16 @@
      "other": "10% other"
     },
     {
+     "pollster": "GBAO (Kotek campaign internal)",
+     "dates": "Oct 1–4",
+     "sample": "800 LV",
+     "values": [
+      46,
+      42
+     ],
+     "other": "6% Smith (Pacific Green), 6% undecided"
+    },
+    {
      "pollster": "DHM Research",
      "dates": "Sep 30",
      "sample": "915 LV",
@@ -1093,6 +1140,10 @@
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/governor/general/2026/oregon/kotek-vs-drazan"
+    ],
+    [
+     "OPB",
+     "https://www.opb.org/article/2026/10/08/new-polls-kotek-may-lead/"
     ]
    ]
   },
@@ -1296,6 +1347,15 @@
    ],
    "polls": [
     {
+     "pollster": "NYT / Philadelphia Inquirer / Siena",
+     "dates": "Oct 16–22",
+     "sample": "~400 LV",
+     "values": [
+      49,
+      44
+     ]
+    },
+    {
      "pollster": "Franklin & Marshall College",
      "dates": "Sep 9–20",
      "sample": "357 RV",
@@ -1316,11 +1376,19 @@
      "other": null
     }
    ],
-   "note": "Only two public general-election polls; the F&M sample is small.",
+   "note": "Siena's district sample is small (MoE about ±5.7).",
    "sources": [
     [
      "US Polling Data",
      "https://uspollingdata.com/races/house/pa-07/"
+    ],
+    [
+     "PoliticsPA (Siena poll)",
+     "https://www.politicspa.com/elections/news/poll-democrats-lead-in-three-of-four-key-pennsylvania-congressional-races"
+    ],
+    [
+     "Siena Research Institute",
+     "https://sri.siena.edu/2026/10/25/nytimes-philadelphia-inquirer-siena-poll-of-likely-pennsylvania-congressional-district-voters/"
     ]
    ]
   },
@@ -1496,6 +1564,16 @@
    ],
    "polls": [
     {
+     "pollster": "Carolina Journal Poll",
+     "dates": "Published Oct 22",
+     "sample": "LV",
+     "values": [
+      47.3,
+      39.7
+     ],
+     "other": "13% undecided"
+    },
+    {
      "pollster": "Change Research / Carolina Forward (D)",
      "dates": "Oct 1–7",
      "sample": "829 LV",
@@ -1564,16 +1642,6 @@
       39
      ],
      "other": "16% undecided"
-    },
-    {
-     "pollster": "Public Policy Polling (D)",
-     "dates": "Jul 10–11",
-     "sample": "759 LV",
-     "values": [
-      44,
-      42
-     ],
-     "other": "14% undecided"
     }
    ],
    "note": "Most of the polling is partisan-sponsored; Earls leads in every survey listed since the spring.",
@@ -1585,6 +1653,10 @@
     [
      "Carolina Forward October poll",
      "https://carolinaforward.org/news/the-october-2026-carolina-forward-poll/"
+    ],
+    [
+     "Carolina Journal October poll",
+     "https://www.carolinajournal.com/polls/october-2026-coopers-lead-over-whatley-narrows-to-10-points-in-nc-senate-race/"
     ]
    ]
   },
@@ -1783,6 +1855,57 @@
     [
      "Pollsmax",
      "https://www.pollsmax.com/2026-us-house/tennessee-9/"
+    ]
+   ]
+  },
+  {
+   "id": "mi-u-s-house-mi-7-william-lawrence",
+   "names": [
+    "Lawrence (D)",
+    "Barrett (R)"
+   ],
+   "polls": [
+    {
+     "pollster": "Emerson College",
+     "dates": "Oct 12–14",
+     "sample": "314 LV",
+     "values": [
+      53,
+      45
+     ]
+    },
+    {
+     "pollster": "Global Strategy Group (House Majority PAC)",
+     "dates": "Aug 11–13",
+     "sample": "500 LV",
+     "values": [
+      49,
+      47
+     ]
+    },
+    {
+     "pollster": "Data for Progress (D)",
+     "dates": "Jun 24–30",
+     "sample": "772 LV",
+     "values": [
+      48,
+      46
+     ]
+    }
+   ],
+   "note": "Only three public polls; the two summer surveys were Democratic-sponsored.",
+   "sources": [
+    [
+     "Poliwave",
+     "https://www.poliwave.com/us/fed/polls/house/mi-07"
+    ],
+    [
+     "PoliAgg",
+     "https://poliagg.com/race/us-house-2026-mi-7/"
+    ],
+    [
+     "House Majority PAC (GSG poll)",
+     "https://www.thehousemajoritypac.com/news/hmp-poll-william-lawrence-leads-tom-barrett-in-mi-07"
     ]
    ]
   }
