@@ -208,7 +208,7 @@
   var STALE_MS = 15 * 60 * 1000;
   var isLive = function(){ return REHEARSAL || Date.now() >= POLLS_CLOSE; };
   var POLLS_CLOSE = Date.parse('2026-11-03T22:00:00Z');
-  var STATE_NAMES = {AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',IL:'Illinois',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',NE:'Nebraska',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',WA:'Washington',WI:'Wisconsin',WY:'Wyoming'};
+  var STATE_NAMES = {AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',IL:'Illinois',IN:'Indiana',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',NE:'Nebraska',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',WA:'Washington',WI:'Wisconsin',WY:'Wyoming'};
   var MINE_ORDER = ['California · Statewide','Central Valley','Bay Area','Southern California','National'];
 
   var MAI = /[?&](mai|aapiforce)\b/.test(location.search);
