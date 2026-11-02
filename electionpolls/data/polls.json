@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-01T14:52:29Z",
+ "updatedAt": "2026-11-02T16:14:06Z",
  "races": [
   {
    "id": "tx-u-s-senate-texas-james-talarico",
@@ -8,14 +8,33 @@
     "Paxton (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "9 polls, one per pollster (through Oct 30)",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 1",
     "values": [
-     49.6,
-     46.2
+     48.5,
+     45.7
     ]
    },
    "polls": [
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Released Nov 1",
+     "sample": null,
+     "values": [
+      50,
+      43
+     ],
+     "other": "Margin of error ±3.4"
+    },
+    {
+     "pollster": "Kreate Strategies",
+     "dates": "Oct 27–30",
+     "sample": "900 LV",
+     "values": [
+      48,
+      45
+     ]
+    },
     {
      "pollster": "Data for Progress",
      "dates": "Oct 30",
@@ -23,16 +42,6 @@
      "values": [
       49,
       45
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Quantus Insights",
-     "dates": "Oct 30",
-     "sample": "1,221 LV",
-     "values": [
-      48,
-      49
      ],
      "other": null
     },
@@ -57,6 +66,25 @@
      "other": null
     },
     {
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "2,141 LV",
+     "values": [
+      51,
+      47
+     ]
+    },
+    {
+     "pollster": "Quantus Insights",
+     "dates": "Oct 26–28",
+     "sample": "1,221 LV",
+     "values": [
+      47.6,
+      48.7
+     ],
+     "other": null
+    },
+    {
      "pollster": "CNN / SSRS",
      "dates": "Oct 20–27",
      "sample": "923 LV",
@@ -65,39 +93,17 @@
       43
      ],
      "other": "Margin of error ±4.2"
-    },
-    {
-     "pollster": "254 Labs / YouGov Blue",
-     "dates": "Oct 21–26",
-     "sample": "1,000 RV",
-     "values": [
-      51,
-      43
-     ],
-     "other": "Weighted to likely voters; 5% undecided"
-    },
-    {
-     "pollster": "Texas Southern University",
-     "dates": "Oct 21–25",
-     "sample": "2,000 LV",
-     "values": [
-      49,
-      47
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Verasight",
-     "dates": "Oct 23",
-     "sample": "601 LV",
-     "values": [
-      48,
-      45
-     ],
-     "other": null
     }
    ],
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/senate/texas"
+    ],
     [
      "270toWin",
      "https://www.270towin.com/2026-senate-polls/texas"
@@ -139,14 +145,24 @@
     "Rogers (R)"
    ],
    "average": {
-    "source": "RealClearPolitics",
-    "dates": "Sep 28 – Oct 29",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 1",
     "values": [
-     49.1,
-     45.6
+     48.8,
+     44.7
     ]
    },
    "polls": [
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Released Nov 1",
+     "sample": null,
+     "values": [
+      53,
+      42
+     ],
+     "other": "Margin of error ±3.8"
+    },
     {
      "pollster": "Data for Progress",
      "dates": "Oct 30",
@@ -154,6 +170,16 @@
      "values": [
       50,
       46
+     ],
+     "other": null
+    },
+    {
+     "pollster": "Rasmussen Reports",
+     "dates": "Oct 28–29",
+     "sample": "745 LV",
+     "values": [
+      49,
+      44
      ],
      "other": null
     },
@@ -168,14 +194,22 @@
      "other": null
     },
     {
-     "pollster": "Rasmussen Reports",
-     "dates": "Oct 28–29",
-     "sample": "745 LV",
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "2,093 LV",
      "values": [
-      49,
-      44
-     ],
-     "other": null
+      51,
+      47
+     ]
+    },
+    {
+     "pollster": "Upswing Research",
+     "dates": "Oct 24–28",
+     "sample": "505 LV",
+     "values": [
+      50,
+      45
+     ]
     },
     {
      "pollster": "Mitchell Research",
@@ -196,39 +230,17 @@
       42
      ],
      "other": "Margin of error ±4.7"
-    },
-    {
-     "pollster": "RedBox Research",
-     "dates": "Oct 23",
-     "sample": "2,696 LV",
-     "values": [
-      49,
-      44
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Glengariff Group (Detroit News/WDIV)",
-     "dates": "Oct 19–22",
-     "sample": "600 LV",
-     "values": [
-      51.4,
-      45.1
-     ],
-     "other": "3.6% undecided"
-    },
-    {
-     "pollster": "InsiderAdvantage",
-     "dates": "Oct 21–22",
-     "sample": "1,200 LV",
-     "values": [
-      47,
-      46
-     ],
-     "other": null
     }
    ],
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/senate/michigan"
+    ],
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/senate/general/2026/michigan/rogers-vs-el-sayed"
@@ -262,14 +274,33 @@
     "Husted (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "6 polls, Oct 21–28",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 2",
     "values": [
-     48.3,
-     44.8
+     48.0,
+     45.2
     ]
    },
    "polls": [
+    {
+     "pollster": "Research Co.",
+     "dates": "Oct 30 – Nov 1",
+     "sample": "450 LV",
+     "values": [
+      45,
+      44
+     ]
+    },
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Oct 26 – Nov 1",
+     "sample": "717 LV",
+     "values": [
+      49,
+      44
+     ],
+     "other": "Margin of error ±4.4"
+    },
     {
      "pollster": "ActiVote",
      "dates": "Oct 18–31",
@@ -279,6 +310,24 @@
       49.8
      ],
      "other": null
+    },
+    {
+     "pollster": "InsiderAdvantage",
+     "dates": "Oct 29–30",
+     "sample": "1,200 LV",
+     "values": [
+      49,
+      47
+     ]
+    },
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "2,090 LV",
+     "values": [
+      50,
+      48
+     ]
     },
     {
      "pollster": "Suffolk University",
@@ -291,6 +340,15 @@
      "other": "3% other, 4% undecided"
     },
     {
+     "pollster": "Concord Public Opinion Partners (for Democrats for Education Reform)",
+     "dates": "Oct 22–24",
+     "sample": "496 LV",
+     "values": [
+      46,
+      42
+     ]
+    },
+    {
      "pollster": "Red Box Research (D)",
      "dates": "Oct 20–23",
      "sample": "2,998 LV",
@@ -299,59 +357,17 @@
       44.2
      ],
      "other": "Margin of error ±4.6%"
-    },
-    {
-     "pollster": "InsiderAdvantage",
-     "dates": "Oct 23",
-     "sample": "1,200 LV",
-     "values": [
-      47,
-      44
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Echelon Insights (for NetChoice)",
-     "dates": "Oct 16–23",
-     "sample": "508 LV",
-     "values": [
-      47,
-      47
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Verasight",
-     "dates": "Oct 22",
-     "sample": "531 LV",
-     "values": [
-      48,
-      44
-     ],
-     "other": null
-    },
-    {
-     "pollster": "New River / GSG",
-     "dates": "Oct 21",
-     "sample": "959 LV",
-     "values": [
-      49,
-      43
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Fox News",
-     "dates": "Oct 21",
-     "sample": "1,592 LV",
-     "values": [
-      52,
-      47
-     ],
-     "other": null
     }
    ],
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/senate/ohio-special"
+    ],
     [
      "270toWin",
      "https://www.270towin.com/2026-senate-polls/ohio"
@@ -381,14 +397,33 @@
     "Ramaswamy (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "5 polls, Oct 21–28",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 2",
     "values": [
-     47.6,
-     45.6
+     48.6,
+     44.9
     ]
    },
    "polls": [
+    {
+     "pollster": "Research Co.",
+     "dates": "Oct 30 – Nov 1",
+     "sample": "450 LV",
+     "values": [
+      48,
+      42
+     ]
+    },
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Oct 26 – Nov 1",
+     "sample": "717 LV",
+     "values": [
+      49,
+      43
+     ],
+     "other": "Margin of error ±4.4"
+    },
     {
      "pollster": "ActiVote",
      "dates": "Oct 16–31",
@@ -398,6 +433,24 @@
       49.2
      ],
      "other": null
+    },
+    {
+     "pollster": "InsiderAdvantage",
+     "dates": "Oct 29–30",
+     "sample": "1,200 LV",
+     "values": [
+      49,
+      46
+     ]
+    },
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "2,090 LV",
+     "values": [
+      52,
+      46
+     ]
     },
     {
      "pollster": "Suffolk University",
@@ -410,14 +463,13 @@
      "other": "4% Kissick (L), 3% undecided"
     },
     {
-     "pollster": "Echelon Insights (for NetChoice)",
-     "dates": "Oct 16–23",
-     "sample": "508 LV",
+     "pollster": "Concord Public Opinion Partners (for Democrats for Education Reform)",
+     "dates": "Oct 22–24",
+     "sample": "496 LV",
      "values": [
-      45,
-      47
-     ],
-     "other": "4% Kissick (L)"
+      49,
+      39
+     ]
     },
     {
      "pollster": "Red Box Research (D)",
@@ -428,49 +480,17 @@
       43.8
      ],
      "other": "Margin of error ±4.6%"
-    },
-    {
-     "pollster": "Verasight",
-     "dates": "Oct 22",
-     "sample": "531 LV",
-     "values": [
-      46,
-      45
-     ],
-     "other": null
-    },
-    {
-     "pollster": "New River / GSG",
-     "dates": "Oct 21",
-     "sample": "959 LV",
-     "values": [
-      49,
-      44
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Fox News",
-     "dates": "Oct 15–19",
-     "sample": null,
-     "values": [
-      50,
-      48
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Marist",
-     "dates": "Oct 15–18",
-     "sample": null,
-     "values": [
-      50,
-      43
-     ],
-     "other": null
     }
    ],
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/governor/ohio"
+    ],
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/governor/general/2026/ohio/ramaswamy-vs-acton"
@@ -509,7 +529,7 @@
    ],
    "average": {
     "source": "PollCheck",
-    "dates": "Updated Oct 31",
+    "dates": "Updated Nov 2",
     "values": [
      43.1,
      49.4
@@ -635,14 +655,42 @@
     "Collins (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "5 polls, Oct 22–29",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 1",
     "values": [
-     49.0,
-     46.4
+     49.1,
+     46.9
     ]
    },
    "polls": [
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Released Nov 1",
+     "sample": null,
+     "values": [
+      51,
+      45
+     ],
+     "other": "Margin of error ±4.7"
+    },
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "1,503 LV",
+     "values": [
+      52,
+      47
+     ]
+    },
+    {
+     "pollster": "Data for Progress",
+     "dates": "Oct 23–27",
+     "sample": "652 LV",
+     "values": [
+      50,
+      45
+     ]
+    },
     {
      "pollster": "CNN/SSRS",
      "dates": "Oct 20–26",
@@ -650,16 +698,6 @@
      "values": [
       49,
       45
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Echelon Insights",
-     "dates": "Oct 27",
-     "sample": "413 LV",
-     "values": [
-      51,
-      44
      ],
      "other": null
     },
@@ -673,9 +711,19 @@
      ]
     },
     {
+     "pollster": "Echelon Insights",
+     "dates": "Oct 16–23",
+     "sample": "413 LV",
+     "values": [
+      51,
+      44
+     ],
+     "other": null
+    },
+    {
      "pollster": "Trafalgar Group",
      "dates": "Oct 21–23",
-     "sample": null,
+     "sample": "1,077 LV",
      "values": [
       47,
       47
@@ -685,45 +733,23 @@
     {
      "pollster": "Fox News",
      "dates": "Oct 16–20",
-     "sample": null,
+     "sample": "1,514 LV",
      "values": [
       49,
       49
      ],
      "other": null
-    },
-    {
-     "pollster": "InsiderAdvantage",
-     "dates": "Oct 13–14",
-     "sample": null,
-     "values": [
-      49,
-      47
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Suffolk University",
-     "dates": "Oct 8–11",
-     "sample": null,
-     "values": [
-      49,
-      47
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Rasmussen Reports",
-     "dates": "Oct 5–8",
-     "sample": null,
-     "values": [
-      49,
-      47
-     ],
-     "other": null
     }
    ],
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/senate/maine"
+    ],
     [
      "RealClearPolling",
      "https://www.realclearpolling.com/polls/senate/general/2026/collins-vs-jackson"
@@ -967,14 +993,23 @@
     "Blakeman (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "Average of 5 polls (through Oct 28)",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 2",
     "values": [
-     53.4,
-     38.8
+     53.1,
+     41.2
     ]
    },
    "polls": [
+    {
+     "pollster": "Research Co.",
+     "dates": "Oct 30 – Nov 1",
+     "sample": "450 LV",
+     "values": [
+      52,
+      43
+     ]
+    },
     {
      "pollster": "Marist",
      "dates": "Oct 22–25",
@@ -1042,16 +1077,6 @@
      "values": [
       50,
       46
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Emerson",
-     "dates": "Oct 3–5",
-     "sample": "900 LV",
-     "values": [
-      52,
-      40
      ],
      "other": null
     }
@@ -1344,10 +1369,10 @@
    ],
    "average": {
     "source": "PollCheck",
-    "dates": "Polling average, updated Nov 1",
+    "dates": "Polling average, updated Nov 2",
     "values": [
-     45.7,
-     44.5
+     45.3,
+     44.3
     ]
    }
   },
@@ -2376,14 +2401,33 @@
     "Marshall (R)"
    ],
    "average": {
-    "source": "270toWin",
-    "dates": "Average of 4 polls (through Oct 16)",
+    "source": "PollCheck",
+    "dates": "Polling average, updated Nov 1",
     "values": [
-     46.0,
-     45.0
+     48.1,
+     45.9
     ]
    },
    "polls": [
+    {
+     "pollster": "NYT / Siena",
+     "dates": "Released Nov 1",
+     "sample": null,
+     "values": [
+      49,
+      44
+     ],
+     "other": "4% Graham (L); margin of error ±4.4"
+    },
+    {
+     "pollster": "YouGov",
+     "dates": "Oct 26–29",
+     "sample": "2,092 LV",
+     "values": [
+      50,
+      49
+     ]
+    },
     {
      "pollster": "Emerson College",
      "dates": "Oct 26–28",
@@ -2405,6 +2449,26 @@
      "other": "Margin of error ±4.5"
     },
     {
+     "pollster": "Washington Post / SSPG",
+     "dates": "Oct 22–26",
+     "sample": "801 LV",
+     "values": [
+      52,
+      43
+     ],
+     "other": "4% Graham (L)"
+    },
+    {
+     "pollster": "RedBox Research",
+     "dates": "Oct 20–23",
+     "sample": "1,301 LV",
+     "values": [
+      45,
+      46
+     ],
+     "other": "3% Graham (L)"
+    },
+    {
      "pollster": "InsiderAdvantage",
      "dates": "Oct 13–14",
      "sample": "1,200 LV",
@@ -2423,50 +2487,18 @@
       47
      ],
      "other": null
-    },
-    {
-     "pollster": "YouGov",
-     "dates": "Sep 24 – Oct 4",
-     "sample": "2,253 LV",
-     "values": [
-      48,
-      45
-     ],
-     "other": null
-    },
-    {
-     "pollster": "NYT / Siena",
-     "dates": "Sep 22 – Oct 1",
-     "sample": "605 LV",
-     "values": [
-      45,
-      45
-     ],
-     "other": "3% Graham (L)"
-    },
-    {
-     "pollster": "Trafalgar Group",
-     "dates": "Sep 29 – Oct 1",
-     "sample": "1,095 LV",
-     "values": [
-      44,
-      44
-     ],
-     "other": null
-    },
-    {
-     "pollster": "Emerson College",
-     "dates": "Sep 15–16",
-     "sample": "750 LV",
-     "values": [
-      45,
-      43
-     ],
-     "other": null
     }
    ],
    "note": "Toss-up in a state Republicans have held for decades; the two late-October polls both show Hamilton up 4.",
    "sources": [
+    [
+     "NYT/Siena (Nov 1)",
+     "https://sri.siena.edu/2026/11/01/nytimes-siena-poll-of-likely-voters-alaska-iowa-kansas-maine-michigan-ohio-and-texas/"
+    ],
+    [
+     "PollCheck",
+     "https://www.pollcheck.co.uk/us-midterms-2026/senate/kansas"
+    ],
     [
      "270toWin",
      "https://www.270towin.com/2026-senate-polls/kansas"
