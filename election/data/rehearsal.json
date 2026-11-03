@@ -1,32 +1,11 @@
 {
- "updatedAt": "2026-11-03T20:05:24.286Z",
- "checkedAt": "2026-11-03T20:05:24.286Z",
+ "updatedAt": "2026-11-03T20:20:24.151Z",
+ "checkedAt": "2026-11-03T20:20:24.151Z",
  "feeds": {
-  "ok": 147,
-  "failed": 0
+  "ok": 141,
+  "failed": 12
  },
  "results": {
-  "ca-insurance-commissioner-jane-kim": {
-   "candidates": [
-    {
-     "name": "Ben Allen",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Jane Kim",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 23,860) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-sacramento-county-supervisor-district-1-flo-cofer": {
    "contest": "Board of Supervisors District 1",
    "seats": 1,
@@ -50,6 +29,27 @@
    "origin": "feed",
    "changedAt": "2026-11-03T13:45:56.003Z"
   },
+  "ca-insurance-commissioner-jane-kim": {
+   "candidates": [
+    {
+     "name": "Ben Allen",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Jane Kim",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 23,860) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
   "ca-u-s-house-ca-7-mai-vang": {
    "candidates": [
     {
@@ -71,27 +71,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-20-liz-ortega": {
-   "candidates": [
-    {
-     "name": "Liz Ortega",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Patricia Muga",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 294) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-u-s-house-ca-11-connie-chan": {
    "candidates": [
     {
@@ -108,6 +87,27 @@
     }
    ],
    "reporting": "0% (0 of 453) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-20-liz-ortega": {
+   "candidates": [
+    {
+     "name": "Liz Ortega",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Patricia Muga",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 294) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -237,7 +237,8 @@
    "reportedAt": null,
    "sourceUrl": "https://floridaelectionwatch.gov/",
    "origin": "feed",
-   "changedAt": "2026-10-23T21:24:37.106Z"
+   "changedAt": "2026-10-23T21:24:37.106Z",
+   "stale": true
   },
   "ca-richmond-mayor-claudia-jimenez": {
    "contest": "CITY OF RICHMOND  MAYOR",
@@ -2728,22 +2729,22 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-u-s-house-ca-17-ro-khanna": {
+  "ca-state-senate-district-24-john-erickson": {
    "candidates": [
     {
-     "name": "Ro Khanna",
+     "name": "John M. Erickson",
      "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Ritesh Tandon",
-     "party": "Rep",
+     "name": "Brian Goldsmith",
+     "party": "Dem",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0% (0 of 241) precincts reporting",
+   "reporting": "0% (0 of 228) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -2765,6 +2766,48 @@
     }
    ],
    "reporting": "0% (0 of 575) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-u-s-house-ca-17-ro-khanna": {
+   "candidates": [
+    {
+     "name": "Ro Khanna",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Ritesh Tandon",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 241) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-20-caroline-menjivar": {
+   "candidates": [
+    {
+     "name": "Caroline Menjivar",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Tony Rodriguez",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 162) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -2812,167 +2855,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-senate-district-20-caroline-menjivar": {
-   "candidates": [
-    {
-     "name": "Caroline Menjivar",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Tony Rodriguez",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 162) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-24-john-erickson": {
-   "candidates": [
-    {
-     "name": "John M. Erickson",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Brian Goldsmith",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 228) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "nm-governor-deb-haaland": {
-   "contest": "Governor And Lieutenant Governor",
-   "candidates": [
-    {
-     "name": "Greggory D Hull And David M Gallegos",
-     "party": "Republican",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Deb Haaland And Stephanie Garcia Richard",
-     "party": "Democrat",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 2204 precincts fully reported",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.nm.gov/resultsSW.aspx?type=SW&map=CTY",
-   "origin": "feed",
-   "changedAt": "2026-11-03T13:45:56.003Z"
-  },
-  "nm-secretary-of-state-amanda-lopez-askin": {
-   "contest": "Secretary Of State",
-   "candidates": [
-    {
-     "name": "Amanda López Askin",
-     "party": "Democrat",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Ramona L Goolsby",
-     "party": "Republican",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 2204 precincts fully reported",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.nm.gov/resultsSW.aspx?type=SW&map=CTY",
-   "origin": "feed",
-   "changedAt": "2026-11-03T13:45:56.003Z"
-  },
-  "nm-commissioner-of-public-lands-juan-de-jesus-sanchez": {
-   "contest": "Commissioner Of Public Lands",
-   "candidates": [
-    {
-     "name": "Michael Jack Perry",
-     "party": "Republican",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Juan De Jesus Sanchez Iii",
-     "party": "Democrat",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 2204 precincts fully reported",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.nm.gov/resultsSW.aspx?type=SW&map=CTY",
-   "origin": "feed",
-   "changedAt": "2026-11-03T13:45:56.003Z"
-  },
-  "nm-state-house-district-13-patricia-roybal-caballero": {
-   "contest": "State Representative District 13",
-   "candidates": [
-    {
-     "name": "Patricia A Roybal Caballero",
-     "party": "Democrat",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 22 precincts fully reported",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.nm.gov/resultsSW.aspx?type=LGX&map=CTY",
-   "origin": "feed",
-   "changedAt": "2026-11-03T13:45:56.003Z"
-  },
-  "nm-state-house-district-16-yanira-gurrola": {
-   "contest": "State Representative District 16",
-   "candidates": [
-    {
-     "name": "Yanira Gurrola Valenzuela",
-     "party": "Democrat",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0 of 30 precincts fully reported",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.nm.gov/resultsSW.aspx?type=LGX&map=CTY",
-   "origin": "feed",
-   "changedAt": "2026-11-03T13:45:56.003Z"
-  },
-  "ca-state-senate-district-26-sarah-rasc-n": {
-   "candidates": [
-    {
-     "name": "Sara Hernandez",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Sarah Rascón",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 155) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-state-senate-district-28-lola-smallwood-cuevas": {
    "candidates": [
     {
@@ -3010,6 +2892,27 @@
     }
    ],
    "reporting": "0% (0 of 301) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-26-sarah-rasc-n": {
+   "candidates": [
+    {
+     "name": "Sara Hernandez",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Sarah Rascón",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 155) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -3078,48 +2981,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-55-isaac-bryan": {
-   "candidates": [
-    {
-     "name": "Ashley M. Brown",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Isaac G. Bryan",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 101) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-assembly-district-58-clarissa-cervantes": {
-   "candidates": [
-    {
-     "name": "Clarissa Cervantes",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Leticia Castillo",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 141) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-state-assembly-district-57-sade-elhawary": {
    "candidates": [
     {
@@ -3141,22 +3002,64 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-61-tina-mckinnor": {
+  "ca-state-assembly-district-55-isaac-bryan": {
    "candidates": [
     {
-     "name": "Tina Simone McKinnor",
+     "name": "Ashley M. Brown",
      "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Brian Lockwood",
+     "name": "Isaac G. Bryan",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 101) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-60-corey-jackson": {
+   "candidates": [
+    {
+     "name": "Corey A Jackson",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Ed Delgado",
      "party": "Rep",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0% (0 of 129) precincts reporting",
+   "reporting": "0% (0 of 187) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-58-clarissa-cervantes": {
+   "candidates": [
+    {
+     "name": "Clarissa Cervantes",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Leticia Castillo",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 141) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -4040,22 +3943,22 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-60-corey-jackson": {
+  "ca-state-assembly-district-61-tina-mckinnor": {
    "candidates": [
     {
-     "name": "Corey A Jackson",
+     "name": "Tina Simone McKinnor",
      "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Ed Delgado",
+     "name": "Brian Lockwood",
      "party": "Rep",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0% (0 of 187) precincts reporting",
+   "reporting": "0% (0 of 129) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
