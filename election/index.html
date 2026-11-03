@@ -207,7 +207,17 @@
   var RESULTS_FILE = REHEARSAL ? 'rehearsal.json' : 'results.json';
   var STALE_MS = 15 * 60 * 1000;
   var isLive = function(){ return REHEARSAL || Date.now() >= POLLS_CLOSE; };
-  var POLLS_CLOSE = Date.parse('2026-11-03T22:00:00Z');
+  var POLLS_CLOSE = Date.parse('2026-11-03T23:00:00Z');
+  // When this race's polls close (ms), from races.json; first close if unlisted.
+  function closeAt(race){
+    var pc = state.pollClose || {};
+    var t = Date.parse((pc.byRace && pc.byRace[race.id]) || (pc.byState && pc.byState[race.state]) || '');
+    return isNaN(t) ? POLLS_CLOSE : t;
+  }
+  function raceOpen(race){ return !REHEARSAL && Date.now() < closeAt(race); }
+  function closeLabel(race){
+    return 'Polls close ' + new Date(closeAt(race)).toLocaleTimeString([], {hour:'numeric', minute:'2-digit', timeZoneName:'short'});
+  }
   var STATE_NAMES = {AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',IL:'Illinois',IN:'Indiana',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',NE:'Nebraska',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',WA:'Washington',WI:'Wisconsin',WY:'Wyoming'};
   var MINE_ORDER = ['California · Statewide','Central Valley','Bay Area','Southern California','National'];
 
@@ -257,7 +267,7 @@
       if (idx === -1) return {k:'', t:'Counting'};
       return idx < seats ? {k:'leading', t:'Leading'} : {k:'trailing', t:'Trailing'};
     }
-    return {k:'', t: isLive() ? 'Awaiting' : 'Nov 3'};
+    return {k:'', t: raceOpen(race) ? 'Nov 3' : 'Awaiting'};
   }
 
   function card(race){
@@ -287,7 +297,7 @@
     if (res && res.called) meta.push('Called' + (res.calledBy ? ' by ' + esc(res.calledBy) : ''));
     if (res && res.origin === 'manual') meta.push('Entered by hand');
     if (res && res.stale) meta.push('<span class="warn">Source not responding</span>');
-    if (!res && race.status !== 'won' && race.status !== 'lost') meta.push(isLive() ? 'Awaiting first results' : 'Results after polls close');
+    if (!res && race.status !== 'won' && race.status !== 'lost') meta.push(raceOpen(race) ? closeLabel(race) : 'Awaiting first results');
     var tabCls = state.tab === 'all' ? (GROUPS.filter(function(l){ return race.lists.indexOf(l) > -1; })[0] || 'mine') : state.tab;
     return '<article class="card t-'+tabCls+'">' +
       '<div class="card-top"><div><div class="office">'+esc(race.office)+'</div>'+
@@ -374,7 +384,7 @@
     if (live) $('liveText').textContent = REHEARSAL ? 'Rehearsal' : 'Live';
     else {
       var ms = POLLS_CLOSE - Date.now(), d = Math.floor(ms/864e5), hr = Math.floor(ms%864e5/36e5);
-      $('liveText').textContent = 'First polls close in ' + (d ? d+'d ' : '') + hr + 'h';
+      $('liveText').textContent = 'First polls close in ' + (d ? d+'d ' : '') + (d || hr ? hr + 'h' : Math.max(1, Math.ceil(ms/6e4)) + 'm');
     }
     $('updated').textContent = state.updatedAt ? 'Last change ' + fmtTime(state.updatedAt) : '';
   }
@@ -388,7 +398,7 @@
   }
 
   get('races.json').then(function(j){
-    state.races = j.races || []; fillStates(); render(); return loadResults();
+    state.races = j.races || []; state.pollClose = j.pollClose || null; fillStates(); render(); return loadResults();
   }).catch(function(){ $('main').innerHTML = '<div class="empty">Couldn’t load races. Refresh to try again.</div>'; });
 
   setInterval(loadResults, 60000);

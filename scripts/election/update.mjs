@@ -20,8 +20,8 @@ import { closeBrowser } from './browser.mjs';
 const DATA = new URL('../../election/data/', import.meta.url);
 const file = (name) => new URL(name, DATA);
 
-// Earliest polls close: 6 PM Eastern on Nov 3 2026 = 22:00 UTC.
-const FIRST_POLLS_CLOSE = Date.parse('2026-11-03T22:00:00Z');
+// Earliest polls close: 6 PM Eastern (EST, after the Nov 1 clock change) on Nov 3 2026 = 23:00 UTC.
+const FIRST_POLLS_CLOSE = Date.parse('2026-11-03T23:00:00Z');
 const FORCE = process.env.FORCE === '1';
 const pollsClosed = Date.now() >= FIRST_POLLS_CLOSE;
 
@@ -36,7 +36,14 @@ async function runAll(tasks, limit = 6) {
   }));
 }
 
-const races = (await readJson(file('races.json'), { races: [] })).races;
+const racesFile = await readJson(file('races.json'), { races: [] });
+const races = racesFile.races;
+// Each race's feed stays out of the live results until its own polls have closed.
+const pollClose = racesFile.pollClose || {};
+const raceClosed = (race) => {
+  const at = Date.parse(pollClose.byRace?.[race.id] || pollClose.byState?.[race.state] || '');
+  return Number.isNaN(at) ? pollsClosed : Date.now() >= at;
+};
 const manual = await readJson(file('manual.json'), {});
 // Race calls (AP or official), kept separate so live feed numbers keep flowing:
 // { "<race id>": { "winner": "<full name>", "by": "AP", "at": "<ISO time>" } }
@@ -60,7 +67,7 @@ const fetchOnce = (src, race) => {
   return cache.get(key);
 };
 
-async function build(outName, useFeeds, useManual) {
+async function build(outName, useFeeds, useManual, gateByRace = false) {
   const prev = await readJson(file(outName), { results: {} });
   const next = {};
   const log = { ok: 0, failed: [], skipped: 0 };
@@ -69,7 +76,7 @@ async function build(outName, useFeeds, useManual) {
     const src = race.source || {};
     const old = prev.results?.[race.id];
     let entry = null;
-    if (useFeeds && adapters[src.type]) {
+    if (useFeeds && adapters[src.type] && (!gateByRace || raceClosed(race))) {
       try {
         const r = await fetchOnce(src, race);
         if (r) { entry = { ...r, origin: 'feed' }; log.ok++; }
@@ -112,7 +119,7 @@ async function build(outName, useFeeds, useManual) {
   return changed;
 }
 
-let changed = await build('results.json', pollsClosed || FORCE, true);
+let changed = await build('results.json', pollsClosed || FORCE, true, !FORCE);
 if (!pollsClosed) changed = (await build('rehearsal.json', true, false)) || changed;
 
 if (process.env.REPORT === '1') {
