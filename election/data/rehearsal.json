@@ -1,11 +1,34 @@
 {
- "updatedAt": "2026-11-03T05:00:47.283Z",
- "checkedAt": "2026-11-03T05:00:47.283Z",
+ "updatedAt": "2026-11-03T05:11:25.449Z",
+ "checkedAt": "2026-11-03T05:11:25.449Z",
  "feeds": {
-  "ok": 126,
-  "failed": 0
+  "ok": 124,
+  "failed": 2
  },
  "results": {
+  "ca-sacramento-county-supervisor-district-1-flo-cofer": {
+   "contest": "Board of Supervisors District 1",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Flo Cofer",
+     "party": null,
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Eric Guerra",
+     "party": null,
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0 of 143 precincts reporting",
+   "reportedAt": "Oct 30, 9:44 AM PT",
+   "sourceUrl": "https://results.saccounty.gov/results/public/sacramento-county-ca",
+   "origin": "feed",
+   "changedAt": "2026-11-03T00:33:13.237Z"
+  },
   "ca-insurance-commissioner-jane-kim": {
    "candidates": [
     {
@@ -48,27 +71,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-u-s-house-ca-11-connie-chan": {
-   "candidates": [
-    {
-     "name": "Connie Chan",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Scott Wiener",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 453) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-state-assembly-district-20-liz-ortega": {
    "candidates": [
     {
@@ -90,28 +92,26 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-sacramento-county-supervisor-district-1-flo-cofer": {
-   "contest": "Board of Supervisors District 1",
-   "seats": 1,
+  "ca-u-s-house-ca-11-connie-chan": {
    "candidates": [
     {
-     "name": "Flo Cofer",
-     "party": null,
+     "name": "Connie Chan",
+     "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Eric Guerra",
-     "party": null,
+     "name": "Scott Wiener",
+     "party": "Dem",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0 of 143 precincts reporting",
-   "reportedAt": "Oct 30, 9:44 AM PT",
-   "sourceUrl": "https://results.saccounty.gov/results/public/sacramento-county-ca",
+   "reporting": "0% (0 of 453) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-03T00:33:13.237Z"
+   "changedAt": "2026-11-03T02:32:37.996Z"
   },
   "ca-state-assembly-district-24-alex-lee": {
    "candidates": [
@@ -1104,7 +1104,8 @@
    "reportedAt": "Oct 29, 2026 22:13:17",
    "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
-   "changedAt": "2026-10-29T22:17:20.734Z"
+   "changedAt": "2026-10-29T22:17:20.734Z",
+   "stale": true
   },
   "ut-salt-lake-county-council-district-3-luke-maynes": {
    "contest": "COUNTY COUNCIL DISTRICT 3",
@@ -2171,7 +2172,8 @@
    "reportedAt": "Oct 29, 2026 22:13:17",
    "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
-   "changedAt": "2026-10-29T22:17:20.734Z"
+   "changedAt": "2026-10-29T22:17:20.734Z",
+   "stale": true
   },
   "ca-u-s-house-ca-12-lateefah-simon": {
    "candidates": [
@@ -2252,6 +2254,132 @@
     }
    ],
    "reporting": "0% (0 of 575) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-2-damon-connolly": {
+   "candidates": [
+    {
+     "name": "Damon Connolly",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Tief Gibbs",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 912) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-6-sean-frame": {
+   "candidates": [
+    {
+     "name": "Sean Frame",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Roger Niello",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 546) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-20-caroline-menjivar": {
+   "candidates": [
+    {
+     "name": "Caroline Menjivar",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Tony Rodriguez",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 162) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-24-john-erickson": {
+   "candidates": [
+    {
+     "name": "John M. Erickson",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Brian Goldsmith",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 228) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-26-sarah-rasc-n": {
+   "candidates": [
+    {
+     "name": "Sara Hernandez",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Sarah Rascón",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 155) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-senate-district-28-lola-smallwood-cuevas": {
+   "candidates": [
+    {
+     "name": "Lola Smallwood-Cuevas",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Joe Lisuzzo",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 187) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -2355,174 +2483,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T00:16:51.431Z"
   },
-  "ca-state-senate-district-2-damon-connolly": {
-   "candidates": [
-    {
-     "name": "Damon Connolly",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Tief Gibbs",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 912) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-24-john-erickson": {
-   "candidates": [
-    {
-     "name": "John M. Erickson",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Brian Goldsmith",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 228) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-20-caroline-menjivar": {
-   "candidates": [
-    {
-     "name": "Caroline Menjivar",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Tony Rodriguez",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 162) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-6-sean-frame": {
-   "candidates": [
-    {
-     "name": "Sean Frame",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Roger Niello",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 546) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-28-lola-smallwood-cuevas": {
-   "candidates": [
-    {
-     "name": "Lola Smallwood-Cuevas",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Joe Lisuzzo",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 187) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-senate-district-26-sarah-rasc-n": {
-   "candidates": [
-    {
-     "name": "Sara Hernandez",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Sarah Rascón",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 155) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-assembly-district-2-chris-rogers": {
-   "candidates": [
-    {
-     "name": "Chris Rogers",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Michael Greer",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 622) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-assembly-district-47-leila-namvar": {
-   "candidates": [
-    {
-     "name": "Leila Namvar",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Greg Wallis",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 574) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-state-assembly-district-12-jackie-elward": {
    "candidates": [
     {
@@ -2539,48 +2499,6 @@
     }
    ],
    "reporting": "0% (0 of 301) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-assembly-district-44-nick-schultz": {
-   "candidates": [
-    {
-     "name": "Nicholas \"Nick\" Schultz",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Carolyn Daniels",
-     "party": "Rep",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 100) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
-  "ca-state-assembly-district-55-isaac-bryan": {
-   "candidates": [
-    {
-     "name": "Ashley M. Brown",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Isaac G. Bryan",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 101) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -2607,6 +2525,90 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
+  "ca-state-assembly-district-55-isaac-bryan": {
+   "candidates": [
+    {
+     "name": "Ashley M. Brown",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Isaac G. Bryan",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 101) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-44-nick-schultz": {
+   "candidates": [
+    {
+     "name": "Nicholas \"Nick\" Schultz",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Carolyn Daniels",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 100) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-47-leila-namvar": {
+   "candidates": [
+    {
+     "name": "Leila Namvar",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Greg Wallis",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 574) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
+  "ca-state-assembly-district-2-chris-rogers": {
+   "candidates": [
+    {
+     "name": "Chris Rogers",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Michael Greer",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 622) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
   "ca-state-assembly-district-58-clarissa-cervantes": {
    "candidates": [
     {
@@ -2628,22 +2630,22 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-60-corey-jackson": {
+  "ca-state-assembly-district-72-chris-kluwe": {
    "candidates": [
     {
-     "name": "Corey A Jackson",
+     "name": "Chris Kluwe",
      "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Ed Delgado",
+     "name": "Gracey Van Der Mark",
      "party": "Rep",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0% (0 of 187) precincts reporting",
+   "reporting": "0% (0 of 413) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -3506,6 +3508,27 @@
    "origin": "feed",
    "changedAt": "2026-11-02T01:52:35.585Z"
   },
+  "ca-state-assembly-district-60-corey-jackson": {
+   "candidates": [
+    {
+     "name": "Corey A Jackson",
+     "party": "Dem",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Ed Delgado",
+     "party": "Rep",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0% (0 of 187) precincts reporting",
+   "reportedAt": "November 2, 2026, 6:28 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-03T02:32:37.996Z"
+  },
   "ca-state-assembly-district-61-tina-mckinnor": {
    "candidates": [
     {
@@ -3548,27 +3571,6 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-board-of-equalization-district-3-samuel-sukaton": {
-   "candidates": [
-    {
-     "name": "Mike Gipson",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Samuel P. Sukaton",
-     "party": "Dem",
-     "votes": 0,
-     "pct": 0
-    }
-   ],
-   "reporting": "0% (0 of 2,853) precincts reporting",
-   "reportedAt": "November 2, 2026, 6:28 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-03T02:32:37.996Z"
-  },
   "ca-board-of-equalization-district-2-sally-lieber": {
    "candidates": [
     {
@@ -3590,22 +3592,22 @@
    "origin": "feed",
    "changedAt": "2026-11-03T02:32:37.996Z"
   },
-  "ca-state-assembly-district-72-chris-kluwe": {
+  "ca-board-of-equalization-district-3-samuel-sukaton": {
    "candidates": [
     {
-     "name": "Chris Kluwe",
+     "name": "Mike Gipson",
      "party": "Dem",
      "votes": 0,
      "pct": 0
     },
     {
-     "name": "Gracey Van Der Mark",
-     "party": "Rep",
+     "name": "Samuel P. Sukaton",
+     "party": "Dem",
      "votes": 0,
      "pct": 0
     }
    ],
-   "reporting": "0% (0 of 413) precincts reporting",
+   "reporting": "0% (0 of 2,853) precincts reporting",
    "reportedAt": "November 2, 2026, 6:28 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
