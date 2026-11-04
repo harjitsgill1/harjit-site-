@@ -1,58 +1,109 @@
 {
- "updatedAt": "2026-11-04T01:51:26.759Z",
- "checkedAt": "2026-11-04T01:51:26.759Z",
+ "updatedAt": "2026-11-04T01:54:28.617Z",
+ "checkedAt": "2026-11-04T01:54:28.617Z",
  "feeds": {
-  "ok": 43,
-  "failed": 0
+  "ok": 42,
+  "failed": 4
  },
  "results": {
+  "mi-u-s-senate-michigan-abdul-el-sayed": {
+   "candidates": [
+    {
+     "name": "Abdul El-Sayed",
+     "party": "D",
+     "votes": 279755,
+     "pct": 54.99
+    },
+    {
+     "name": "Mike Rogers",
+     "party": "R",
+     "votes": 220992,
+     "pct": 43.44
+    },
+    {
+     "name": "Lydia Christensen",
+     "party": null,
+     "votes": 4383,
+     "pct": null
+    },
+    {
+     "name": "Tim Long",
+     "party": null,
+     "votes": 1797,
+     "pct": null
+    },
+    {
+     "name": "Douglas Marsh",
+     "party": null,
+     "votes": 1273,
+     "pct": null
+    },
+    {
+     "name": "Walter Kristy",
+     "party": null,
+     "votes": 535,
+     "pct": null
+    }
+   ],
+   "reporting": "10.31% in (AP via Fox News)",
+   "reportedAt": "8:50 PM ET Nov 3",
+   "fallback": true,
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
   "me-u-s-senate-maine-troy-jackson": {
    "candidates": [
     {
-     "name": "Susan Collins",
-     "party": "R",
-     "votes": 15,
-     "pct": 68
-    },
-    {
      "name": "Troy Jackson",
      "party": "D",
-     "votes": 7,
-     "pct": 32
+     "votes": 5894,
+     "pct": 62.41
+    },
+    {
+     "name": "Susan Collins",
+     "party": "R",
+     "votes": 3547,
+     "pct": 37.56
     }
    ],
-   "reporting": "0% of expected vote, first returns only (ABC News)",
-   "reportedAt": "8:11 PM ET Nov 3",
-   "enteredAt": "2026-11-04T01:34:20Z",
+   "reporting": "1.15% in (AP via Fox News)",
+   "reportedAt": "8:48 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
    "origin": "manual",
-   "changedAt": "2026-11-04T01:36:00.103Z"
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
+  "pa-u-s-house-pa-3-chris-rabb": {
+   "candidates": [],
+   "reporting": "Called by AP at 8:27 PM ET; counts not captured (via Fox News)",
+   "reportedAt": "8:27 PM ET Nov 3",
+   "called": "Chris Rabb",
+   "calledBy": "AP",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "fl-u-s-senate-florida-angie-nixon": {
    "candidates": [
     {
      "name": "Ashley Moody",
-     "party": "REP",
-     "votes": 0,
-     "pct": 0
+     "party": "R",
+     "votes": 4099036,
+     "pct": 50.83
     },
     {
      "name": "Angie Nixon",
-     "party": "DEM",
-     "votes": 0,
-     "pct": 0
-    },
-    {
-     "name": "Neil J. Gillespie",
-     "party": "NPA",
-     "votes": 0,
-     "pct": 0
+     "party": "D",
+     "votes": 3873566,
+     "pct": 48.03
     }
    ],
-   "reporting": "0 of 5,626 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://floridaelectionwatch.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T01:00:40.969Z"
+   "reporting": "96.88% in (AP via Fox News)",
+   "reportedAt": "8:48 PM ET Nov 3",
+   "fallback": true,
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "ga-state-house-district-42-gabriel-sanchez": {
    "contest": "State House of Representatives - District 42",
@@ -165,6 +216,27 @@
    "origin": "manual",
    "changedAt": "2026-11-04T01:36:00.103Z"
   },
+  "ct-governor-ned-lamont": {
+   "candidates": [
+    {
+     "name": "Ned Lamont",
+     "party": "D",
+     "votes": 28995,
+     "pct": 74.03
+    },
+    {
+     "name": "Ryan Fazio",
+     "party": "R",
+     "votes": 10169,
+     "pct": 25.97
+    }
+   ],
+   "reporting": "3.09% in (AP via Fox News)",
+   "reportedAt": "8:49 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
   "de-new-castle-county-council-district-3-kira-alejandro": {
    "contest": "New Castle County Council District 3",
    "candidates": [
@@ -259,7 +331,7 @@
     {
      "name": "Tyeisha \"tye\" Grier",
      "party": null,
-     "votes": 1784,
+     "votes": 1793,
      "pct": 100
     }
    ],
@@ -267,7 +339,7 @@
    "reportedAt": null,
    "sourceUrl": "https://elections.delaware.gov/results/enr/GE2026.html",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:32:55.133Z"
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "de-state-house-district-6-rae-krantz": {
    "contest": "State Representative District 6",
@@ -275,21 +347,21 @@
     {
      "name": "Rachel \"rae\" Krantz",
      "party": null,
-     "votes": 2669,
-     "pct": 81.32
+     "votes": 2840,
+     "pct": 80.93
     },
     {
      "name": "Tanya Hettler",
      "party": null,
-     "votes": 613,
-     "pct": 18.68
+     "votes": 669,
+     "pct": 19.07
     }
    ],
    "reporting": null,
    "reportedAt": null,
    "sourceUrl": "https://elections.delaware.gov/results/enr/GE2026.html",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:32:55.133Z"
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "de-state-house-district-16-pamela-salaam": {
    "contest": "State Representative District 16",
@@ -455,6 +527,27 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:51:26.759Z"
   },
+  "ky-u-s-senate-kentucky-charles-booker": {
+   "candidates": [
+    {
+     "name": "Andy Barr",
+     "party": "R",
+     "votes": 494943,
+     "pct": 53.69
+    },
+    {
+     "name": "Charles Booker",
+     "party": "D",
+     "votes": 407651,
+     "pct": 44.22
+    }
+   ],
+   "reporting": "56.51% in (AP via Fox News)",
+   "reportedAt": "8:48 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
   "ga-state-house-district-19-cynthia-starke-jones": {
    "contest": "State House of Representatives - District 19",
    "seats": 1,
@@ -564,27 +657,47 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:51:26.759Z"
   },
+  "nj-u-s-house-nj-10-lamonica-mciver": {
+   "candidates": [],
+   "reporting": "Called by AP at 8:22 PM ET; counts not captured (via Fox News)",
+   "reportedAt": "8:22 PM ET Nov 3",
+   "called": "LaMonica McIver",
+   "calledBy": "AP",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
+  "nj-u-s-house-nj-11-analilia-mejia": {
+   "candidates": [],
+   "reporting": "Called by AP at 8:18 PM ET; counts not captured (via Fox News)",
+   "reportedAt": "8:18 PM ET Nov 3",
+   "called": "Analilia Mejia",
+   "calledBy": "AP",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
   "nc-nc-supreme-court-anita-earls": {
    "contest": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 01 (VOTE FOR 1)",
    "candidates": [
     {
      "name": "Anita Earls",
      "party": "DEM",
-     "votes": 1708616,
-     "pct": 62.68526392795114
+     "votes": 1719700,
+     "pct": 62.47942723982407
     },
     {
      "name": "Sarah Stevens",
      "party": "REP",
-     "votes": 1017090,
-     "pct": 37.31473607204885
+     "votes": 1032726,
+     "pct": 37.52057276017593
     }
    ],
-   "reporting": "575 of 2626 precincts reporting",
+   "reporting": "620 of 2626 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:51:26.759Z"
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "nc-state-house-district-30-marcia-morey": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 030 (VOTE FOR 1)",
@@ -628,7 +741,9 @@
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
+   "called": "Alma Adams",
+   "calledBy": "AP",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "nc-state-house-district-50-ren-e-ann-price": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 050 (VOTE FOR 1)",
@@ -668,6 +783,21 @@
    "origin": "feed",
    "changedAt": "2026-11-04T00:30:15.947Z"
   },
+  "oh-u-s-house-oh-7-brian-poindexter": {
+   "candidates": [
+    {
+     "name": "Brian Poindexter",
+     "party": null,
+     "votes": null,
+     "pct": 62.37
+    }
+   ],
+   "reporting": "37.70% in; leading by 24.70 points; counts not shown (AP via Fox News)",
+   "reportedAt": "8:49 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
+  },
   "nc-state-house-district-106-rev-rodney-sadler": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 106 (VOTE FOR 1)",
    "candidates": [
@@ -683,6 +813,21 @@
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
    "changedAt": "2026-11-04T01:19:30.786Z"
+  },
+  "pa-u-s-house-pa-7-bob-brooks": {
+   "candidates": [
+    {
+     "name": "Bob Brooks",
+     "party": null,
+     "votes": null,
+     "pct": 73.18
+    }
+   ],
+   "reporting": "11.78% in; leading by 46.40 points; counts not shown (AP via Fox News)",
+   "reportedAt": "8:49 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "pa-u-s-house-pa-12-summer-lee": {
    "candidates": [
@@ -701,9 +846,11 @@
    ],
    "reporting": "20.5% of expected vote (NBC News Decision Desk via NBC10 Philadelphia)",
    "reportedAt": "~8:10 PM ET Nov 3",
-   "enteredAt": "2026-11-04T01:34:20Z",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "called": "Summer Lee",
+   "calledBy": "AP",
    "origin": "manual",
-   "changedAt": "2026-11-04T01:36:00.103Z"
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "pa-u-s-house-pa-17-chris-deluzio": {
    "candidates": [
@@ -1074,7 +1221,30 @@
    "reportedAt": "Nov 04, 2026 01:48:22",
    "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:49:47.834Z"
+   "changedAt": "2026-11-04T01:49:47.834Z",
+   "stale": true
+  },
+  "tx-u-s-senate-texas-james-talarico": {
+   "candidates": [
+    {
+     "name": "James Talarico",
+     "party": "D",
+     "votes": 2188002,
+     "pct": 59.71
+    },
+    {
+     "name": "Ken Paxton",
+     "party": "R",
+     "votes": 1421164,
+     "pct": 38.78
+    }
+   ],
+   "reporting": "35.15% in (AP via Fox News)",
+   "reportedAt": "8:48 PM ET Nov 3",
+   "fallback": true,
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "ky-louisville-mayor-shameka-parrish-wright": {
    "candidates": [
