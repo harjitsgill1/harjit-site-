@@ -419,6 +419,15 @@ export const adapters = {
         console.log(`fresno: no summary report found; sub-page ${subHtml.length} chars, PDF links: ${pdfs.join(' ') || 'none'}`);
         return null; // November report not posted yet
       }
+      // Each count gets its own file, e.g. ...-11.3.26-8.00.pdf; read the newest whatever the page order.
+      // Times have no AM/PM: after 12.xx on the same date, small hours are past midnight.
+      const rank = (h) => {
+        const m = h.match(/(\d{1,2})\.(\d{1,2})\.(\d{2,4})-(\d{1,2})\.(\d{2})\.pdf/i);
+        if (!m) return -1;
+        const hour = Number(m[4]) >= 8 ? Number(m[4]) : Number(m[4]) + 12;
+        return Number(m[1]) * 1e6 + Number(m[2]) * 1e4 + hour * 100 + Number(m[5]);
+      };
+      links = [...links].sort((x, y) => rank(y) - rank(x));
       console.log(`fresno: using ${links[0]}`);
       const path = links[0].replace(/^https?:\/\/[^/]+/, '');
       const pdf = await browserFetchBinary(entry, path);
