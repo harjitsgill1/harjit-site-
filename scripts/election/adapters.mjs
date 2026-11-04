@@ -400,13 +400,28 @@ export const adapters = {
   // results page (behind bot protection). src: { month: 11, year: 26, match? }
   async fresno(src, race) {
     const PAGE = 'https://www.fresnocountyca.gov/Departments/County-ClerkRegistrar-of-Voters/Elections/Election-Results';
+    // The county now gives each election its own sub-page; the reports may be there rather than on the main page.
+    const SUB = PAGE + '/2026/RESULTS-FOR-NOVEMBER-3-2026-CONSOLIDATED-STATEWIDE-GENERAL-ELECTION';
     const lines = await once('fresno', async () => {
-      const html = await pageHtml(PAGE, 8000);
-      const links = [...html.matchAll(/href="([^"]*electionsummaryreportrpt[^"]*\.pdf)"/gi)].map((m) => m[1])
-        .filter((h) => { const d = h.match(/(\d{1,2})[.\-_](\d{1,2})[.\-_](\d{2,4})/); return d && Number(d[1]) === (src.month || 11) && String(d[3]).endsWith(String(src.year || 26)); });
-      if (!links.length) return null; // November report not posted yet
+      const summary = /href="([^"]*election[-_ ]?summary[^"]*\.pdf[^"]*)"/gi;
+      const subHtml = await pageHtml(SUB, 8000).catch((e) => { console.log(`fresno: sub-page failed: ${e.message}`); return ''; });
+      // Everything on the November sub-page is this election's, so no date filter there.
+      let entry = SUB;
+      let links = [...subHtml.matchAll(summary)].map((m) => m[1]);
+      if (!links.length) {
+        entry = PAGE;
+        const html = await pageHtml(PAGE, 8000);
+        links = [...html.matchAll(summary)].map((m) => m[1])
+          .filter((h) => { const d = h.match(/(\d{1,2})[.\-_](\d{1,2})[.\-_](\d{2,4})/); return d && Number(d[1]) === (src.month || 11) && String(d[3]).endsWith(String(src.year || 26)); });
+      }
+      if (!links.length) {
+        const pdfs = [...subHtml.matchAll(/href="([^"]*\.pdf[^"]*)"/gi)].map((m) => m[1]).slice(0, 10);
+        console.log(`fresno: no summary report found; sub-page ${subHtml.length} chars, PDF links: ${pdfs.join(' ') || 'none'}`);
+        return null; // November report not posted yet
+      }
+      console.log(`fresno: using ${links[0]}`);
       const path = links[0].replace(/^https?:\/\/[^/]+/, '');
-      const pdf = await browserFetchBinary(PAGE, path);
+      const pdf = await browserFetchBinary(entry, path);
       const text = execFileSync('pdftotext', ['-layout', '-', '-'], { input: pdf, maxBuffer: 64 << 20 }).toString();
       return text.split(/\n/).map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
     });
