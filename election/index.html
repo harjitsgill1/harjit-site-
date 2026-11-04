@@ -162,6 +162,11 @@
   @keyframes cardpop{0%{transform:scale(1);box-shadow:0 0 0 0 var(--gold,#EFA02B);}10%{transform:scale(1.03);box-shadow:0 0 0 4px var(--gold,#EFA02B);}25%{transform:scale(1);}75%{box-shadow:0 0 0 4px var(--gold,#EFA02B);}100%{box-shadow:0 0 0 0 transparent;}}
   #poptoast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:20;max-width:calc(100vw - 32px);font:700 14px 'Inter',sans-serif;color:#2B1D17;background:var(--gold,#EFA02B);border:0;border-radius:999px;padding:10px 18px;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;}
   @media (prefers-reduced-motion:reduce){@keyframes cardpop{0%,75%{box-shadow:0 0 0 4px var(--gold,#EFA02B);}100%{box-shadow:0 0 0 0 transparent;}}}
+  .stats button.st{appearance:none;background:none;border:0;border-bottom:3px solid transparent;margin:0;padding:0 2px 3px;text-align:left;font:inherit;color:inherit;cursor:pointer;}
+  .stats button.st:focus-visible{outline:2px solid var(--heading);outline-offset:2px;}
+  .stats button.st.on{border-bottom-color:var(--heading);}
+  .stats button.st.on .lbl{color:var(--heading);}
+  .showall{appearance:none;background:none;border:0;padding:0;font:inherit;color:var(--heading);text-decoration:underline;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -228,7 +233,7 @@
   var MINE_ORDER = ['California · Statewide','Central Valley','Bay Area','Southern California','National'];
 
   var MAI = /[?&](mai|aapiforce)\b/.test(location.search);
-  var state = { tab:'all', q:'', st:'', races:[], results:{}, updatedAt:null, pop:{} };
+  var state = { tab:'all', q:'', st:'', races:[], results:{}, updatedAt:null, pop:{}, statusF:null };
   try { var saved = localStorage.getItem('et-tab'); if (saved) state.tab = saved; } catch(e){}
   var h = (location.hash||'').replace('#',''); if (['mine','all','dsa','wfp','watch'].indexOf(h) > -1) state.tab = h;
   if (['all','dsa','wfp','watch'].indexOf(state.tab) === -1) state.tab = 'all';
@@ -329,6 +334,12 @@
       if (q && norm(r.candidate+' '+r.office+' '+(STATE_NAMES[r.state]||r.state)).indexOf(q) === -1) return false;
       return true;
     });
+    // The scoreboard always counts the whole view; the status buttons only narrow the cards.
+    var all = list;
+    if (state.statusF) list = all.filter(function(r){
+      var k = statusOf(r, state.results[r.id]).k;
+      return state.statusF === 'waiting' ? ['won','lost','leading','trailing'].indexOf(k) === -1 : k === state.statusF;
+    });
     var groups = {}, order = [];
     list.forEach(function(r){
       var g = state.tab === 'mine' ? r.region : (STATE_NAMES[r.state] || r.state);
@@ -337,9 +348,9 @@
     });
     if (state.tab === 'mine') order.sort(function(a,b){ return MINE_ORDER.indexOf(a) - MINE_ORDER.indexOf(b); });
     else order.sort();
-    $('main').innerHTML = scoreboard(list) + (order.length ? order.map(function(g){
+    $('main').innerHTML = scoreboard(all) + (order.length ? order.map(function(g){
       return '<section class="group"><h2>'+esc(g)+' <small>'+groups[g].length+'</small></h2><div class="grid">'+groups[g].map(card).join('')+'</div></section>';
-    }).join('') : '<div class="empty">No races match.</div>');
+    }).join('') : '<div class="empty">No races match.'+(state.statusF ? ' <button type="button" class="showall" data-status="">Show all</button>' : '')+'</div>');
   }
 
   // Win/loss tally for the races on screen. Win rate counts decided races only;
@@ -359,11 +370,11 @@
     return '<section class="score t-'+state.tab+'">' +
       '<div class="big"><span class="lbl">Win rate</span><b>'+pct(n.won, decided)+'</b></div>' +
       '<div class="stats">' +
-        '<div class="st won"><span class="lbl">Won</span><b>'+n.won+'</b></div>' +
-        '<div class="st"><span class="lbl">Lost</span><b>'+n.lost+'</b></div>' +
-        '<div class="st"><span class="lbl">Leading</span><b>'+n.leading+'</b></div>' +
-        '<div class="st"><span class="lbl">Trailing</span><b>'+n.trailing+'</b></div>' +
-        '<div class="st"><span class="lbl">Not called</span><b>'+n.waiting+'</b></div>' +
+        '<button type="button" class="st won'+(state.statusF==='won'?' on':'')+'" data-status="won" aria-pressed="'+(state.statusF==='won')+'"><span class="lbl">Won</span><b>'+n.won+'</b></button>' +
+        '<button type="button" class="st'+(state.statusF==='lost'?' on':'')+'" data-status="lost" aria-pressed="'+(state.statusF==='lost')+'"><span class="lbl">Lost</span><b>'+n.lost+'</b></button>' +
+        '<button type="button" class="st'+(state.statusF==='leading'?' on':'')+'" data-status="leading" aria-pressed="'+(state.statusF==='leading')+'"><span class="lbl">Leading</span><b>'+n.leading+'</b></button>' +
+        '<button type="button" class="st'+(state.statusF==='trailing'?' on':'')+'" data-status="trailing" aria-pressed="'+(state.statusF==='trailing')+'"><span class="lbl">Trailing</span><b>'+n.trailing+'</b></button>' +
+        '<button type="button" class="st'+(state.statusF==='waiting'?' on':'')+'" data-status="waiting" aria-pressed="'+(state.statusF==='waiting')+'"><span class="lbl">Not called</span><b>'+n.waiting+'</b></button>' +
       '</div>' +
       '<div class="meter">'+seg(n.won,'var(--win)')+seg(n.leading,'color-mix(in srgb, var(--win) 45%, transparent)')+seg(n.trailing,'color-mix(in srgb, var(--c) 45%, transparent)')+seg(n.lost,'var(--c)')+'</div>' +
       (sub ? '<div class="sub">'+sub+'</div>' : '') +
@@ -443,6 +454,14 @@
   get('races.json').then(function(j){
     state.races = j.races || []; state.pollClose = j.pollClose || null; fillStates(); render(); return loadResults();
   }).catch(function(){ $('main').innerHTML = '<div class="empty">Couldn’t load races. Refresh to try again.</div>'; });
+
+  $('main').addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-status]');
+    if (!b) return;
+    var v = b.getAttribute('data-status');
+    state.statusF = (v && state.statusF !== v) ? v : null;
+    render();
+  });
 
   setInterval(loadResults, 60000);
   document.addEventListener('visibilitychange', function(){ if (!document.hidden) loadResults(); });
