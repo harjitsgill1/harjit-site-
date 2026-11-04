@@ -541,7 +541,7 @@ export const adapters = {
   // name, machine, absentee, early, total, pct. src: { file: "GE2026", match: heading }
   async de_doe(src, race) {
     const url = `https://elections.delaware.gov/results/enr/${src.file || 'GE2026'}.html`;
-    const html = await once('de:' + url, () => getText(url).catch(() => null));
+    const html = await once('de:' + url, () => pageHtml(url, 6000).catch(() => null));
     if (!html) return null; // November page not posted yet
     const lines = htmlLines(html);
     const want = String(src.match || '').toUpperCase();
