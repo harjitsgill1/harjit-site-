@@ -1,0 +1,33 @@
+name: Election debug (temporary)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: |
+          cd scripts/election
+          npm i --no-save --no-package-lock --silent playwright@1
+          which google-chrome || npx playwright install --with-deps chromium > /dev/null
+          cat > dbg.mjs <<'EOF'
+          import { browserFetch, closeBrowser } from './browser.mjs';
+          import { writeFileSync, mkdirSync } from 'node:fs';
+          mkdirSync('../../out', { recursive: true });
+          const E = 'https://liveresults.ohiosos.gov/';
+          for (const [n, p] of [['bundle', '/bundles/all?v=JSfGTK5eih47h7E_RG-no5xAjQ36nwsCUekRiVvoXZM1'], ['tabs', '/Api/v1/Contest/getTabs']]) {
+            try { writeFileSync(`../../out/${n}.txt`, await browserFetch(E, p)); } catch (e) { writeFileSync(`../../out/${n}.err`, e.message); }
+          }
+          await closeBrowser().catch(() => {});
+          process.exit(0);
+          EOF
+          node dbg.mjs
+      - run: |
+          cd out && git init -q -b election-debug && git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add -A && git commit -qm dbg && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" election-debug
