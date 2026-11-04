@@ -80,7 +80,13 @@ async function build(outName, useFeeds, useManual, gateByRace = false) {
       try {
         const r = await fetchOnce(src, race);
         if (r) { entry = { ...r, origin: 'feed' }; log.ok++; }
-        else log.skipped++;
+        else {
+          log.skipped++;
+          // A feed that had numbers and now comes back empty is almost always a page that
+          // didn't finish loading (lazy-loading SOE pages do this on some runs). Keep the
+          // last numbers, marked stale, rather than dropping the race.
+          if (old?.origin === 'feed' && (old.candidates || []).some((c) => c.votes || c.pct)) entry = { ...old, stale: true };
+        }
       } catch (e) {
         log.failed.push(`${race.id}: ${e.message}`);
         if (old) entry = { ...old, stale: true };
