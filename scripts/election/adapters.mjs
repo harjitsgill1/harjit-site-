@@ -39,6 +39,16 @@ export const parseFlPage = (html) => {
   return rows;
 };
 
+// Pennsylvania's API returns JSON encoded inside a string, sometimes wrapped in XML.
+export const parsePa = (body) => {
+  let t = String(body);
+  const m = t.match(/<string[^>]*>([\s\S]*)<\/string>/);
+  if (m) t = m[1].replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  let j = JSON.parse(t);
+  if (typeof j === 'string') j = JSON.parse(j);
+  return j;
+};
+
 export const cachedText = (url) => {
   if (!fileCache.has(url)) fileCache.set(url, getText(url, 60000));
   return fileCache.get(url);
@@ -545,6 +555,25 @@ export const adapters = {
     const cands = [...byName.values()].map((c) => ({ name: c.name, party: c.parties.join('/') || null, votes: c.votes, pct: total ? c.votes / total * 100 : 0 }));
     if (!cands.some((c) => c.name.split(/ and /i).some((n) => sameName(race.candidate, n)))) return null;
     return { contest: office.NM, candidates: cands, reporting: data.summary.PR ? `${data.summary.PR} polling places reporting` : null, reportedAt: null, sourceUrl: 'https://ctemspublic.tgstg.net/#/home' };
+  },
+
+  // Pennsylvania's results site serves JSON per office, behind bot protection,
+  // so it is read through the browser. src: { office: 11|13, district: "12th Congressional District" }
+  async pa_sos(src, race) {
+    const origin = 'https://www.electionreturns.pa.gov/';
+    const q = 'electionid=117&electiontype=G&isactive=1';
+    const data = await once('pa:' + src.office, async () => parsePa(await browserFetch(origin, `/api/ElectionReturn/GetOfficeData?officeId=${src.office}&methodName=GetOfficeDetails&${q}`)));
+    const msg = await once('pa:msg', async () => parsePa(await browserFetch(origin, `/api/ElectionReturn/GetDashboardMessage?countyName=&methodName=GetDashboardMessage&${q}`)).DistrictMessage || null);
+    const rows = Object.values(data.Election || {})[0] || [];
+    for (const d of rows) {
+      for (const [k, v] of Object.entries(d)) {
+        if (k.split('$$')[0] !== src.district) continue;
+        const cands = (v[0]?.Candidates || []).map((c) => ({ name: titleCase(c.CandidateName), party: c.PartyName || null, votes: num(c.Votes) || 0, pct: num(c.Percentage) || 0 }));
+        if (!cands.some((c) => sameName(race.candidate, c.name))) return null;
+        return { contest: src.district, candidates: cands, reporting: msg ? msg.trim() : null, reportedAt: null, sourceUrl: origin };
+      }
+    }
+    return null;
   },
 
   async nm_sos(src, race) {
