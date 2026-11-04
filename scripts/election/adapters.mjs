@@ -540,7 +540,7 @@ export const adapters = {
   // Each contest: heading, [party], "Candidate Name" + 5 column headers, then rows of
   // name, machine, absentee, early, total, pct. src: { file: "GE2026", match: heading }
   async de_doe(src, race) {
-    const url = `https://elections.delaware.gov/reports/${src.file || 'GE2026'}.html`;
+    const url = `https://elections.delaware.gov/results/enr/${src.file || 'GE2026'}.html`;
     const html = await once('de:' + url, () => getText(url).catch(() => null));
     if (!html) return null; // November page not posted yet
     const lines = htmlLines(html);
