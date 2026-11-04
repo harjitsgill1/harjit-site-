@@ -30,6 +30,15 @@ export const getJson = async (url) => JSON.parse(await getText(url));
 
 // Download each whole-state file once per run, however many races read it.
 const fileCache = new Map();
+const FL_PAGES = { USS: 'https://floridaelectionwatch.gov/FederalOffices/USSenator' };
+export const parseFlPage = (html) => {
+  const rows = new Map();
+  for (const m of html.matchAll(/<td class="pt-2 grid-cell">\s*([^<]+?)\s*<\/td>[\s\S]*?<span>\s*([\d,]+)\s*<\/span>/g)) {
+    rows.set(m[1].replace(/\s+/g, ' '), Number(m[2].replace(/,/g, '')));
+  }
+  return rows;
+};
+
 export const cachedText = (url) => {
   if (!fileCache.has(url)) fileCache.set(url, getText(url, 60000));
   return fileCache.get(url);
@@ -219,7 +228,19 @@ export const adapters = {
     }
     if (!cands.size) return null;
     const list = [...cands.values()];
-    const total = list.reduce((s, c) => s + c.votes, 0);
+    let total = list.reduce((s, c) => s + c.votes, 0);
+    // On election night 2026 the flat file stayed at zero while the state's own
+    // results page had the counts, so read that page when the file is empty.
+    const page = FL_PAGES[src.race];
+    if (!total && page) {
+      const rows = parseFlPage(await getText(page, 25000));
+      for (const c of list) { const v = rows.get(c.name.replace(/\s+/g, ' ')); if (v) c.votes = v; }
+      total = list.reduce((s, c) => s + c.votes, 0);
+      if (total) {
+        list.forEach((c) => { c.pct = c.votes / total * 100; });
+        return { candidates: list, reporting: null, reportedAt: null, sourceUrl: page };
+      }
+    }
     list.forEach((c) => { c.pct = total ? c.votes / total * 100 : 0; });
     let rep = 0, all = 0;
     for (const [r, a] of counties.values()) { rep += r; all += a; }
