@@ -720,6 +720,29 @@ export const adapters = {
     return null;
   },
 
+  // Fox News election feed (AP numbers). Unofficial; used where the state's own
+  // site blocks us or posts nothing. src: { office: "House"|"Senate"|"Governor", state: "PA", district?: 17 }
+  async fox(src, race) {
+    const url = `https://feeds-elections.foxnews.com/archive/politics/elections/2026/3/2026_Generals/${src.office}/${src.state}/state_level_results/file.json`;
+    const j = await once('fox:' + url, () => getJson(`${url}?cb=${Math.floor(Date.now() / 60000) * 60000}`));
+    const list = Array.isArray(j) ? j : j.races || [];
+    for (const r of list) {
+      if (src.district != null && Number(r.district?.districtNumber) !== Number(src.district)) continue;
+      const res = r.results || [];
+      const cands = res.map((x) => ({ name: `${x.candidate?.firstName || ''} ${x.candidate?.lastName || ''}`.trim(), party: x.partyCode || null, votes: num(x.votes?.count) || 0, pct: num(x.votes?.percentage) || 0 }));
+      if (!cands.some((c) => sameName(race.candidate, c.name))) continue;
+      const tot = r.districtTotals || r.stateTotals || {};
+      const w = res.findIndex((x) => x.isWinner);
+      const out = { contest: race.office, candidates: cands,
+        reporting: tot.expectedPercentage != null ? `${tot.expectedPercentage}% in (AP via Fox News)` : null,
+        reportedAt: r.last_updated || j.last_updated || null,
+        sourceUrl: `https://www.foxnews.com/elections/2026/midterm-results/state/${src.slug || ''}` };
+      if (w >= 0) { out.called = cands[w].name; out.calledBy = 'AP'; }
+      return out;
+    }
+    return null;
+  },
+
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
     const list = j.candidates || j.Candidates || [];
