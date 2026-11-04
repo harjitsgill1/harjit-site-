@@ -386,7 +386,7 @@ export const adapters = {
         if (v) {
           const raw = lines[k - 1];
           const pm = raw.match(/^(.*?)\s*\(([A-Z]+)\)$/);
-          cands.push({ name: titleCase(pm ? pm[1] : raw), party: pm ? pm[2] : null, votes: num(v[1]), pct: num(v[2]) });
+          cands.push({ name: titleCase((pm ? pm[1] : raw).replace(/^\*+\s*/, '')), party: pm ? pm[2] : null, votes: num(v[1]), pct: num(v[2]) });
         }
       }
       if (cands.some((c) => sameName(race.candidate, c.name))) {
