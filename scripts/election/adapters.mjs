@@ -512,6 +512,41 @@ export const adapters = {
   // New Mexico Secretary of State results pages (server-rendered). type: FED | SW | LGX.
   // Each contest: heading, "FOLLOW THIS CONTEST", "PRECINCTS FULLY: a / b", then
   // name / party / pct% / votes groups, then "TOTAL VOTES". src: { type, match: exact heading }
+  // Connecticut's Election Center publishes plain JSON for the whole state.
+  // src: { match: "<office name as listed>" }
+  async ct_ems(src, race) {
+    const base = 'https://ctemspublic.tgstg.net/ng-app/data/election';
+    const data = await once('ct:data', async () => {
+      const elections = await getJson('https://ctemspublic.tgstg.net/ng-app/data/Elections.json');
+      const id = (elections.find((e) => e.DefaultElection === 'Y') || {}).ID;
+      const { Version: v } = await getJson(`${base}/${id}/Version.json`);
+      const [lookup, votes, summary] = await Promise.all(['Lookupdata', 'stateVotes_Electiondata', 'election_Electiondata']
+        .map((f) => getJson(`${base}/${id}/${v}/${f}.json`)));
+      return { lookup, votes, summary };
+    });
+    if (!/11\/03\/2026/.test(data.lookup.election?.DT || '')) return null;
+    const want = String(src.match || '').toLowerCase();
+    const office = data.lookup.officeList.map((o) => Object.values(o)[0]).find((o) => o.NM.toLowerCase() === want);
+    if (!office) return null;
+    // Connecticut allows fusion voting: one person can hold several party lines,
+    // each listed separately, so add those lines together per candidate.
+    const byName = new Map();
+    for (const row of data.votes[office.ID] || []) {
+      const [cid, val] = Object.entries(row)[0];
+      const c = data.lookup.candidateIds[cid] || {};
+      const party = data.lookup.partyIds[c.P]?.CD || null;
+      const name = c.NM || cid;
+      const cur = byName.get(name) || { name, parties: [], votes: 0 };
+      if (party) cur.parties.push(party);
+      cur.votes += num(val.V) || 0;
+      byName.set(name, cur);
+    }
+    const total = [...byName.values()].reduce((a, c) => a + c.votes, 0);
+    const cands = [...byName.values()].map((c) => ({ name: c.name, party: c.parties.join('/') || null, votes: c.votes, pct: total ? c.votes / total * 100 : 0 }));
+    if (!cands.some((c) => c.name.split(/ and /i).some((n) => sameName(race.candidate, n)))) return null;
+    return { contest: office.NM, candidates: cands, reporting: data.summary.PR ? `${data.summary.PR} polling places reporting` : null, reportedAt: null, sourceUrl: 'https://ctemspublic.tgstg.net/#/home' };
+  },
+
   async nm_sos(src, race) {
     const url = `https://electionresults.sos.nm.gov/resultsSW.aspx?type=${src.page}&map=CTY`;
     const text = await once("nm:" + src.page, () => pageText(url, 6000, { scroll: true }));
