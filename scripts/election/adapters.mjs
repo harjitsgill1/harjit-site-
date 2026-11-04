@@ -550,11 +550,14 @@ export const adapters = {
       let h = i - 1;
       while (h > 0 && !/(District|Senator|Congress|General|Treasurer|Council|Executive|Sheriff|Recorder|Mayor|Auditor|Comptroller|Commissioner|Register|Clerk|President|Levy)/i.test(lines[h]) || (lines[h] || '').length > 90) h--;
       const contest = lines[h];
-      if (want && contest.toUpperCase() !== want) continue;
+      if (want && !contest.toUpperCase().includes(want)) continue;
+      // Column count comes from the header row (Delaware added an Early Voting column).
+      const cols = lines.indexOf('Percentage', i) - i + 1;
+      if (cols < 3) continue;
       const cands = [];
-      for (let k = i + 6; k + 5 < lines.length && !/^-->|^Candidate Name$/.test(lines[k]); k += 6) {
-        if (!/^[\d,]+$/.test(lines[k + 4]) || !/^[\d.]+$/.test(lines[k + 5])) break;
-        cands.push({ name: titleCase(lines[k]), party: null, votes: num(lines[k + 4]), pct: num(lines[k + 5]) });
+      for (let k = i + cols; k + cols - 1 < lines.length && !/^-->|^Candidate Name$/.test(lines[k]); k += cols) {
+        if (!/^[\d,]+$/.test(lines[k + cols - 2]) || !/^[\d.]+$/.test(lines[k + cols - 1])) break;
+        cands.push({ name: titleCase(lines[k]), party: null, votes: num(lines[k + cols - 2]), pct: num(lines[k + cols - 1]) });
       }
       if (cands.some((c) => sameName(race.candidate, c.name))) {
         return { contest, candidates: cands, reporting: null, reportedAt: null, sourceUrl: url };
