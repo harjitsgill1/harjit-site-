@@ -21,7 +21,7 @@ jobs:
           import { writeFileSync, mkdirSync } from 'node:fs';
           mkdirSync('../../out', { recursive: true });
           const E = 'https://liveresults.ohiosos.gov/';
-          for (const [n, p] of [['bundle', '/bundles/all?v=JSfGTK5eih47h7E_RG-no5xAjQ36nwsCUekRiVvoXZM1'], ['tabs', '/Api/v1/Contest/getTabs']]) {
+          for (const [n, p] of [['sen', '/Api/v1/Contest/GetContestDetailsObject?contestName=U.S.%20Senator&contestObjectId=&resultsLevel=&countyId='], ['gov', '/Api/v1/Contest/GetContestDetailsObject?contestName=Governor%20and%20Lieutenant%20Governor&contestObjectId=&resultsLevel=&countyId='], ['aud', '/Api/v1/Contest/GetContestDetailsObject?contestName=Auditor%20of%20State&contestObjectId=&resultsLevel=&countyId=']]) {
             try { writeFileSync(`../../out/${n}.txt`, await browserFetch(E, p)); } catch (e) { writeFileSync(`../../out/${n}.err`, e.message); }
           }
           await closeBrowser().catch(() => {});
