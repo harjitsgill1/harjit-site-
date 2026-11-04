@@ -1,11 +1,32 @@
 {
- "updatedAt": "2026-11-04T01:34:38.996Z",
- "checkedAt": "2026-11-04T01:34:38.996Z",
+ "updatedAt": "2026-11-04T01:36:00.103Z",
+ "checkedAt": "2026-11-04T01:36:00.103Z",
  "feeds": {
-  "ok": 42,
+  "ok": 43,
   "failed": 0
  },
  "results": {
+  "me-u-s-senate-maine-troy-jackson": {
+   "candidates": [
+    {
+     "name": "Susan Collins",
+     "party": "R",
+     "votes": 15,
+     "pct": 68
+    },
+    {
+     "name": "Troy Jackson",
+     "party": "D",
+     "votes": 7,
+     "pct": 32
+    }
+   ],
+   "reporting": "0% of expected vote, first returns only (ABC News)",
+   "reportedAt": "8:11 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
   "fl-u-s-senate-florida-angie-nixon": {
    "candidates": [
     {
@@ -79,6 +100,21 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:32:55.133Z"
   },
+  "ky-state-house-district-43-robert-levertis-bell": {
+   "candidates": [
+    {
+     "name": "Robert LeVertis Bell",
+     "party": "D",
+     "votes": 2480,
+     "pct": 100
+    }
+   ],
+   "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
+   "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
   "ri-state-house-district-5-brittany-kubicek": {
    "contest": "Representative in General Assembly District 5",
    "seats": 1,
@@ -103,10 +139,31 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "ky-louisville-metro-council-district-9-andrea-parr": {
+   "candidates": [
+    {
+     "name": "Alison Brotzge-Elder",
+     "party": null,
+     "votes": 1781,
+     "pct": 65
+    },
+    {
+     "name": "Andrea R. Parr",
+     "party": null,
+     "votes": 978,
+     "pct": 35
+    }
+   ],
+   "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
+   "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "de-new-castle-county-council-district-3-kira-alejandro": {
    "contest": "New Castle County Council District 3",
@@ -255,6 +312,56 @@
    "sourceUrl": "https://elections.delaware.gov/results/enr/GE2026.html",
    "origin": "feed",
    "changedAt": "2026-11-04T01:32:55.133Z"
+  },
+  "oh-u-s-senate-ohio-sherrod-brown": {
+   "candidates": [
+    {
+     "name": "Sherrod Brown",
+     "party": "D",
+     "votes": 861760,
+     "pct": 59
+    },
+    {
+     "name": "Jon Husted",
+     "party": "R",
+     "votes": 541619,
+     "pct": 37
+    }
+   ],
+   "reporting": "30% of expected vote (ABC News)",
+   "reportedAt": "8:11 PM ET Nov 3",
+   "fallback": true,
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "oh-governor-ohio-amy-acton": {
+   "candidates": [
+    {
+     "name": "Amy Acton",
+     "party": "D",
+     "votes": 684920,
+     "pct": 66.58
+    },
+    {
+     "name": "Vivek Ramaswamy",
+     "party": "R",
+     "votes": 321919,
+     "pct": 31.29
+    },
+    {
+     "name": "Don Kissick",
+     "party": "L",
+     "votes": 21827,
+     "pct": 2.12
+    }
+   ],
+   "reporting": "Early vote only, about 1.03M counted (Ohio SOS table via Libnanews); Dayton Daily News had Acton 64.4%-33.4% at about 1.2M by 8 PM ET",
+   "reportedAt": "7:52 PM ET Nov 3",
+   "fallback": true,
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ga-u-s-house-ga-1-amanda-hollowell": {
    "contest": "US House of Representatives - District 1",
@@ -463,21 +570,21 @@
     {
      "name": "Anita Earls",
      "party": "DEM",
-     "votes": 1584663,
-     "pct": 65.34299378264237
+     "votes": 1608157,
+     "pct": 64.80028109616221
     },
     {
      "name": "Sarah Stevens",
      "party": "REP",
-     "votes": 840483,
-     "pct": 34.65700621735763
+     "votes": 873556,
+     "pct": 35.19971890383779
     }
    ],
-   "reporting": "196 of 2626 precincts reporting",
+   "reporting": "282 of 2626 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:34:38.996Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "nc-state-house-district-30-marcia-morey": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 030 (VOTE FOR 1)",
@@ -577,6 +684,48 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:19:30.786Z"
   },
+  "pa-u-s-house-pa-12-summer-lee": {
+   "candidates": [
+    {
+     "name": "Summer Lee",
+     "party": "D",
+     "votes": 51247,
+     "pct": 81.2
+    },
+    {
+     "name": "James Hayes",
+     "party": null,
+     "votes": 11842,
+     "pct": 18.8
+    }
+   ],
+   "reporting": "20.5% of expected vote (NBC News Decision Desk via NBC10 Philadelphia)",
+   "reportedAt": "~8:10 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "pa-u-s-house-pa-17-chris-deluzio": {
+   "candidates": [
+    {
+     "name": "Chris Deluzio",
+     "party": "D",
+     "votes": 59393,
+     "pct": 81.2
+    },
+    {
+     "name": "Tony Guy",
+     "party": null,
+     "votes": 13711,
+     "pct": 18.8
+    }
+   ],
+   "reporting": "21.3% of expected vote (NBC News Decision Desk via NBC10 Philadelphia)",
+   "reportedAt": "~8:10 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
   "ri-state-house-district-7-amy-santiago": {
    "contest": "Representative in General Assembly District 7",
    "seats": 1,
@@ -601,10 +750,10 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-state-house-district-22-zakary-pereira": {
    "contest": "Representative in General Assembly District 22",
@@ -630,10 +779,10 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-state-house-district-49-veronicka-vega": {
    "contest": "Representative in General Assembly District 49",
@@ -659,10 +808,10 @@
     }
    ],
    "reporting": "2 of 2 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-state-senate-district-17-nelly-burdette": {
    "contest": "Senator in General Assembly District 17",
@@ -700,10 +849,10 @@
     }
    ],
    "reporting": "3 of 3 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-providence-mayor-david-morales": {
    "contest": "Providence: Mayor",
@@ -729,10 +878,10 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-providence-city-council-ward-1-miguel-martinez-youngs": {
    "contest": "Providence: City Council Ward 1",
@@ -752,10 +901,10 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-providence-city-council-ward-3-yulyana-torres": {
    "contest": "Providence: City Council Ward 3",
@@ -775,10 +924,10 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "ri-providence-city-council-ward-4-justin-roias": {
    "contest": "Providence: City Council Ward 4",
@@ -798,10 +947,26 @@
     }
    ],
    "reporting": "1 of 1 precincts reporting",
-   "reportedAt": "Nov 3, 5:28 PM PT",
+   "reportedAt": "Nov 3, 5:30 PM PT",
    "sourceUrl": "https://electionresults.ri.gov/results/public/rhodeisland",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:31:28.494Z"
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "nc-durham-county-district-attorney-satana-deberry": {
+   "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
+   "candidates": [
+    {
+     "name": "Satana Deberry",
+     "party": "DEM",
+     "votes": 101512,
+     "pct": 100
+    }
+   ],
+   "reporting": "0 of 58 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://er.ncsbe.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:19:30.786Z"
   },
   "nc-alamance-county-sheriff-shannon-long": {
    "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
@@ -825,22 +990,6 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:19:30.786Z"
   },
-  "nc-durham-county-district-attorney-satana-deberry": {
-   "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
-   "candidates": [
-    {
-     "name": "Satana Deberry",
-     "party": "DEM",
-     "votes": 101512,
-     "pct": 100
-    }
-   ],
-   "reporting": "0 of 58 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://er.ncsbe.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
-  },
   "nc-mecklenburg-county-sheriff-garry-mcfadden": {
    "contest": "MECKLENBURG COUNTY SHERIFF (VOTE FOR 1)",
    "candidates": [
@@ -856,6 +1005,54 @@
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
    "changedAt": "2026-11-04T01:19:30.786Z"
+  },
+  "tn-u-s-house-tn-9-justin-j-pearson": {
+   "candidates": [
+    {
+     "name": "Brent Taylor",
+     "party": "R",
+     "votes": 20690,
+     "pct": 65.1
+    },
+    {
+     "name": "Justin J. Pearson",
+     "party": "D",
+     "votes": 10410,
+     "pct": 32.8
+    },
+    {
+     "name": "Dennis Clark",
+     "party": "I",
+     "votes": 378,
+     "pct": 1.2
+    }
+   ],
+   "reporting": "Partial; share not shown (TN SOS returns via Tennessee Firefly); one minor candidate not listed by source",
+   "reportedAt": "~8:30 PM ET Nov 3 (retrieval time; page updates about every 30 sec)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "tn-state-house-district-75-allie-phillips": {
+   "candidates": [
+    {
+     "name": "Allie Phillips",
+     "party": null,
+     "votes": 4672,
+     "pct": 60.4
+    },
+    {
+     "name": "Michael Lankford",
+     "party": null,
+     "votes": 3065,
+     "pct": 39.6
+    }
+   ],
+   "reporting": "Partial; share not shown (TN SOS returns via Tennessee Firefly)",
+   "reportedAt": "~8:30 PM ET Nov 3 (retrieval time; page updates about every 30 sec)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "tx-state-house-district-49-montserrat-garibay": {
    "contest": "State Representative District 49",
@@ -878,6 +1075,62 @@
    "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
    "changedAt": "2026-11-04T01:29:46.650Z"
+  },
+  "ky-louisville-mayor-shameka-parrish-wright": {
+   "candidates": [
+    {
+     "name": "Craig Greenberg",
+     "party": null,
+     "votes": 36646,
+     "pct": 59
+    },
+    {
+     "name": "Shameka L. Parrish-Wright",
+     "party": null,
+     "votes": 25282,
+     "pct": 41
+    }
+   ],
+   "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
+   "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "sc-u-s-house-sc-4-courtney-mcclain": {
+   "contest": "U.S.  House of Representatives, District  4",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "REP William Timmons",
+     "party": "REP",
+     "votes": 38274,
+     "pct": 40.6305732484076
+    },
+    {
+     "name": "LIB Jessica Ethridge",
+     "party": "LIB",
+     "votes": 1904,
+     "pct": 2.02123142250531
+    },
+    {
+     "name": "DEM Courtney McClain",
+     "party": "DEM",
+     "votes": 53949,
+     "pct": 57.2707006369427
+    },
+    {
+     "name": "Write-In",
+     "party": "NON",
+     "votes": 73,
+     "pct": 0.0774946921443737
+    }
+   ],
+   "reporting": "0 of 2 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://www.enr-scvotes.org/SC/127300/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:36:00.103Z"
   },
   "sc-state-house-district-12-jumelle-brooks": {
    "contest": "State  House of Representatives, District  12",
