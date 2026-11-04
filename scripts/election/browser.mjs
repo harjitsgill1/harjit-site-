@@ -61,11 +61,14 @@ export async function pageText(url, waitMs = 10000, opts = {}) {
   const page = await sitePage(url, waitMs);
   if (opts.scroll) {
     // Pages that load more contests as you scroll: scroll until the height stops growing.
-    let last = 0;
-    for (let i = 0; i < 40; i++) {
+    // The next batch can take over a second to arrive, so stop only after the height
+    // has held still for three checks in a row (one 700 ms check stopped NM and OR
+    // House pages partway down, around District 25 / 27).
+    let last = 0, still = 0;
+    for (let i = 0; i < 80 && still < 3; i++) {
       const h = await page.evaluate(() => { window.scrollTo(0, document.body.scrollHeight); return document.body.scrollHeight; });
-      if (h === last) break;
-      last = h; await page.waitForTimeout(700);
+      still = h === last ? still + 1 : 0;
+      last = h; await page.waitForTimeout(still ? 1200 : 700);
     }
   }
   return page.evaluate(() => document.body ? document.body.innerText : '');

@@ -119,19 +119,19 @@
       {
         "name": "Alison Brotzge-Elder",
         "party": null,
-        "votes": 1781,
-        "pct": 65
+        "votes": null,
+        "pct": 61.1
       },
       {
         "name": "Andrea R. Parr",
         "party": null,
-        "votes": 978,
-        "pct": 35
+        "votes": null,
+        "pct": 38.9
       }
     ],
-    "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
-    "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
-    "enteredAt": "2026-11-04T01:34:20Z"
+    "reporting": "Election-night count (WDRB/WAVE); vote counts not captured",
+    "reportedAt": "10:37 PM ET Nov 3",
+    "enteredAt": "2026-11-04T20:00:00Z"
   },
   "ky-state-house-district-43-robert-levertis-bell": {
     "candidates": [
@@ -511,13 +511,26 @@
     "fallback": true
   },
   "ny-u-s-house-ny-7-claire-valdez": {
-    "candidates": [],
-    "reporting": "Called by AP at 9:08 PM ET; counts not captured (via Fox News)",
-    "reportedAt": "9:08 PM ET Nov 3",
-    "enteredAt": "2026-11-04T03:31:00Z",
-    "fallback": true,
+    "candidates": [
+      {
+        "name": "Claire Valdez",
+        "party": "D",
+        "votes": 135179,
+        "pct": 83
+      },
+      {
+        "name": "Melvin Rivera",
+        "party": "R",
+        "votes": null,
+        "pct": 15
+      }
+    ],
+    "reporting": "Unofficial, ~95% of scanners (NYS BOE via ABC7/amNY)",
+    "reportedAt": "~12 AM ET Nov 4",
     "called": "Claire Valdez",
-    "calledBy": "AP"
+    "calledBy": "AP",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
   },
   "ny-u-s-house-ny-10-brad-lander": {
     "candidates": [],
@@ -529,31 +542,76 @@
     "calledBy": "AP"
   },
   "ny-u-s-house-ny-13-darializa-avila-chevalier": {
-    "candidates": [],
-    "reporting": "Called by AP at 9:07 PM ET; counts not captured (via Fox News)",
-    "reportedAt": "9:07 PM ET Nov 3",
-    "enteredAt": "2026-11-04T03:31:00Z",
-    "fallback": true,
+    "candidates": [
+      {
+        "name": "Darializa Avila Chevalier",
+        "party": "D",
+        "votes": 141014,
+        "pct": 87.52
+      },
+      {
+        "name": "Jomo M. Williams",
+        "party": "R",
+        "votes": null,
+        "pct": 11.4
+      }
+    ],
+    "reporting": "Unofficial, 98.96% of scanners (NYS BOE via amNY)",
+    "reportedAt": "~12 AM ET Nov 4",
     "called": "Darializa Avila Chevalier",
-    "calledBy": "AP"
+    "calledBy": "AP",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
   },
   "ny-u-s-house-ny-14-alexandria-ocasio-cortez": {
-    "candidates": [],
-    "reporting": "Called by AP at 9:06 PM ET; counts not captured (via Fox News)",
-    "reportedAt": "9:06 PM ET Nov 3",
-    "enteredAt": "2026-11-04T03:31:00Z",
-    "fallback": true,
+    "candidates": [
+      {
+        "name": "Alexandria Ocasio-Cortez",
+        "party": "D",
+        "votes": 107129,
+        "pct": 78
+      },
+      {
+        "name": "Diamant Hysenaj",
+        "party": "R",
+        "votes": null,
+        "pct": 21.5
+      }
+    ],
+    "reporting": "Unofficial, ~97% of scanners (NYS BOE via ABC7)",
+    "reportedAt": "11:26 PM ET Nov 3",
     "called": "Alexandria Ocasio-Cortez",
-    "calledBy": "AP"
+    "calledBy": "AP",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
   },
   "mi-u-s-house-mi-13-donavan-mckinney": {
-    "candidates": [],
-    "reporting": "Called by AP at 10:33 PM ET; counts not captured (via Fox News)",
-    "reportedAt": "10:33 PM ET Nov 3",
-    "enteredAt": "2026-11-04T04:29:37Z",
-    "fallback": true,
+    "candidates": [
+      {
+        "name": "Donavan McKinney",
+        "party": "D",
+        "votes": null,
+        "pct": 76.5
+      },
+      {
+        "name": "T.P. Nykoriak",
+        "party": "R",
+        "votes": null,
+        "pct": 19.9
+      },
+      {
+        "name": "Simone Coleman",
+        "party": null,
+        "votes": null,
+        "pct": 2.1
+      }
+    ],
+    "reporting": "68% of expected vote (NBC News); vote counts not captured",
+    "reportedAt": "Nov 4 AM",
     "called": "Donavan McKinney",
-    "calledBy": "AP"
+    "calledBy": "AP",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
   },
   "az-arizona-corporation-commission-clara-pratte": {
     "candidates": [
@@ -731,5 +789,563 @@
     "reportedAt": "~1:25 AM ET Nov 4 (page: updated 4 min before retrieval)",
     "enteredAt": "2026-11-04T06:25:33Z",
     "fallback": true
+  },
+  "vt-state-senate-chittenden-central-tanya-vyhovsky": {
+    "candidates": [
+      {
+        "name": "Martine Larocque Gulick",
+        "party": "D",
+        "votes": 18258,
+        "pct": 32.6
+      },
+      {
+        "name": "Nikhil Goyal",
+        "party": "D/P",
+        "votes": 16849,
+        "pct": 30.1
+      },
+      {
+        "name": "Tanya Vyhovsky",
+        "party": "P/D",
+        "votes": 14776,
+        "pct": 26.4
+      },
+      {
+        "name": "Louis \"Louie\" Manno",
+        "party": "R",
+        "votes": 5725,
+        "pct": 10.2
+      }
+    ],
+    "reporting": "Unofficial, 247 of 247 towns (VT SOS via FYIVT); top 3 elected",
+    "reportedAt": "2:31 PM ET Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z",
+    "fallback": true
+  },
+  "vt-state-house-chittenden-16-jeffrey-peterson": {
+    "candidates": [
+      {
+        "name": "Trang Do",
+        "party": "P/D",
+        "votes": 2200,
+        "pct": 46.2
+      },
+      {
+        "name": "Jeffrey Peterson",
+        "party": "P/D",
+        "votes": 1929,
+        "pct": 40.5
+      },
+      {
+        "name": "Christopher Haessly",
+        "party": "I",
+        "votes": 598,
+        "pct": 12.6
+      }
+    ],
+    "reporting": "Unofficial, all towns (VT SOS via FYIVT); top 2 elected",
+    "reportedAt": "Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z",
+    "fallback": true
+  },
+  "vt-state-house-chittenden-21-matt-gile": {
+    "candidates": [
+      {
+        "name": "Daisy Berbeco",
+        "party": "D",
+        "votes": 2347,
+        "pct": 52.1
+      },
+      {
+        "name": "Matt Gile",
+        "party": "P/D",
+        "votes": 2095,
+        "pct": 46.5
+      }
+    ],
+    "reporting": "Unofficial, all towns (VT SOS via FYIVT); 2 candidates for 2 seats",
+    "reportedAt": "Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z",
+    "fallback": true
+  },
+  "tx-austin-city-council-district-1-misael-ramos": {
+    "candidates": [],
+    "reporting": "Headed to a Dec 12 runoff with Amber Goodwin; both just over 34%, 73 votes apart (KUT, Community Impact)",
+    "reportedAt": "Nov 4",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "az-state-house-ld-21-miranda-lopez": {
+    "candidates": [
+      {
+        "name": "Miranda Lopez",
+        "party": "D",
+        "votes": 24772,
+        "pct": null
+      },
+      {
+        "name": "Consuelo Hernandez",
+        "party": "D",
+        "votes": 23570,
+        "pct": null
+      }
+    ],
+    "reporting": "Partial: Pima + Cochise counties only (Enhanced Voting); Santa Cruz and the Republican total not included; top 2 elected",
+    "reportedAt": "Nov 4 AM",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "pa-state-house-district-22-ce-ce-gerlach": {
+    "candidates": [
+      {
+        "name": "Ce-Ce Gerlach",
+        "party": "D",
+        "votes": 3657,
+        "pct": 75.1
+      },
+      {
+        "name": "Robert E. Smith Jr.",
+        "party": "R",
+        "votes": 1210,
+        "pct": 24.9
+      }
+    ],
+    "reporting": "Unofficial (Lehigh County, via Movement Voter Project / Morning Call)",
+    "reportedAt": "Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "me-portland-city-council-district-5-todd-chretien": {
+    "candidates": [
+      {
+        "name": "Ilma Lopez",
+        "party": null,
+        "votes": null,
+        "pct": 59.1
+      },
+      {
+        "name": "Michael Todd Chretien",
+        "party": null,
+        "votes": null,
+        "pct": 40.9
+      }
+    ],
+    "reporting": "Final ranked-choice round (City of Portland tabulation via Sun Journal); Chretien was 2nd in round 1 with 29.5%",
+    "reportedAt": "~11 AM ET Nov 4",
+    "called": "Ilma Lopez",
+    "calledBy": "City of Portland RCV tabulation",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-vista-mayor-kenneth-zuniga": {
+    "candidates": [
+      {
+        "name": "Joe Green",
+        "party": null,
+        "votes": 9674,
+        "pct": 51.24
+      },
+      {
+        "name": "Kenneth Zuniga",
+        "party": null,
+        "votes": 9204,
+        "pct": 48.76
+      }
+    ],
+    "reporting": "Unofficial, ~38% of county ballots counted; next update Nov 5 by 6 PM (SD ROV)",
+    "reportedAt": "Election night",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-el-cajon-mayor-alexander-kraft": {
+    "candidates": [
+      {
+        "name": "Bill Wells",
+        "party": null,
+        "votes": 9578,
+        "pct": 60.94
+      },
+      {
+        "name": "Alexander Kraft",
+        "party": null,
+        "votes": 6139,
+        "pct": 39.06
+      }
+    ],
+    "reporting": "Unofficial, ~38% of county ballots counted; next update Nov 5 by 6 PM (SD ROV)",
+    "reportedAt": "Election night",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-sonoma-county-supervisor-district-2-joanna-paun": {
+    "candidates": [
+      {
+        "name": "Joanna Paun",
+        "party": null,
+        "votes": 10699,
+        "pct": 61.5
+      },
+      {
+        "name": "Sylvia Lemus",
+        "party": null,
+        "votes": 6684,
+        "pct": 38.4
+      }
+    ],
+    "reporting": "Unofficial (Sonoma ROV via KQED); many mail ballots still to count",
+    "reportedAt": "1:15 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-sonoma-county-board-of-education-trustee-area-2-caitlin-quinn": {
+    "candidates": [
+      {
+        "name": "Jonathan Lenz",
+        "party": null,
+        "votes": 8231,
+        "pct": 51.8
+      },
+      {
+        "name": "Caitlin Quinn",
+        "party": null,
+        "votes": 7631,
+        "pct": 48.1
+      }
+    ],
+    "reporting": "Unofficial (Sonoma ROV via KQED); many mail ballots still to count",
+    "reportedAt": "1:15 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-petaluma-juhsd-trustee-area-5-sarah-seitchik-sebastian": {
+    "candidates": [
+      {
+        "name": "Sarah Seitchik Sebastian",
+        "party": null,
+        "votes": 1268,
+        "pct": 50.8
+      },
+      {
+        "name": "John La Bare",
+        "party": null,
+        "votes": 1225,
+        "pct": 49.1
+      }
+    ],
+    "reporting": "Unofficial (Sonoma ROV via KQED); many mail ballots still to count",
+    "reportedAt": "1:15 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "or-portland-city-council-district-3-angelita-morillo": {
+    "candidates": [
+      {
+        "name": "Steve Novick",
+        "party": null,
+        "votes": 15718,
+        "pct": 28.82
+      },
+      {
+        "name": "Tiffany Koyama Lane",
+        "party": null,
+        "votes": 12908,
+        "pct": 23.67
+      },
+      {
+        "name": "Angelita Morillo",
+        "party": null,
+        "votes": 12883,
+        "pct": 23.62
+      },
+      {
+        "name": "Kellie Torres",
+        "party": null,
+        "votes": 5706,
+        "pct": 10.46
+      },
+      {
+        "name": "Esther León",
+        "party": null,
+        "votes": 871,
+        "pct": 1.6
+      },
+      {
+        "name": "Joel Corcoran",
+        "party": null,
+        "votes": 860,
+        "pct": 1.58
+      }
+    ],
+    "reporting": "First-choice votes after 2nd count (Multnomah via OPB); 3 seats by ranked choice, threshold 25%+1",
+    "reportedAt": "~12 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "or-portland-city-council-district-4-mitch-green": {
+    "candidates": [
+      {
+        "name": "Olivia Clark",
+        "party": null,
+        "votes": 15732,
+        "pct": 30.96
+      },
+      {
+        "name": "Mitch Green",
+        "party": null,
+        "votes": 12061,
+        "pct": 23.74
+      },
+      {
+        "name": "Eric Zimmerman",
+        "party": null,
+        "votes": 10045,
+        "pct": 19.77
+      },
+      {
+        "name": "Eli Arnold",
+        "party": null,
+        "votes": 5161,
+        "pct": 10.16
+      },
+      {
+        "name": "Jamey Evenstar",
+        "party": null,
+        "votes": 2160,
+        "pct": 4.25
+      },
+      {
+        "name": "Jeremy Smith",
+        "party": null,
+        "votes": 2103,
+        "pct": 4.14
+      }
+    ],
+    "reporting": "First-choice votes after 2nd count (Multnomah via OPB); 3 seats by ranked choice, threshold 25%+1",
+    "reportedAt": "~12 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "or-multnomah-county-commission-district-2-nathan-ong-norris": {
+    "candidates": [
+      {
+        "name": "Serena Cruz",
+        "party": null,
+        "votes": 20117,
+        "pct": 32.46
+      },
+      {
+        "name": "Bri Williams",
+        "party": null,
+        "votes": 18653,
+        "pct": 30.1
+      },
+      {
+        "name": "Nathan Ong Norris",
+        "party": null,
+        "votes": 10369,
+        "pct": 16.73
+      },
+      {
+        "name": "Nabil Zaghloul",
+        "party": null,
+        "votes": 4312,
+        "pct": 6.96
+      },
+      {
+        "name": "Bruce Broussard",
+        "party": null,
+        "votes": 3532,
+        "pct": 5.7
+      },
+      {
+        "name": "Herman Greene",
+        "party": null,
+        "votes": 2906,
+        "pct": 4.69
+      },
+      {
+        "name": "Tony Robertson",
+        "party": null,
+        "votes": 2086,
+        "pct": 3.37
+      }
+    ],
+    "reporting": "First-choice votes (Multnomah via OPB); ranked-choice rounds at rcvresults.multco.us",
+    "reportedAt": "~12 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-east-palo-alto-city-council-ofelia-bello": {
+    "candidates": [
+      {
+        "name": "Ofelia Bello",
+        "party": null,
+        "votes": 1031,
+        "pct": 22.3
+      },
+      {
+        "name": "Ruben Abrica",
+        "party": null,
+        "votes": 986,
+        "pct": 21.33
+      },
+      {
+        "name": "Sam Jimenez",
+        "party": null,
+        "votes": 726,
+        "pct": 15.7
+      },
+      {
+        "name": "Michael Mashack",
+        "party": null,
+        "votes": 629,
+        "pct": 13.61
+      }
+    ],
+    "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED); top 2 elected",
+    "reportedAt": "8:08 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-foster-city-council-district-1-phoebe-shin-venkat": {
+    "candidates": [
+      {
+        "name": "Art Kiesel",
+        "party": null,
+        "votes": 756,
+        "pct": 65.17
+      },
+      {
+        "name": "Phoebe Shin Venkat",
+        "party": null,
+        "votes": 404,
+        "pct": 34.83
+      }
+    ],
+    "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED)",
+    "reportedAt": "8:08 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ca-south-san-francisco-city-council-district-3-melanie-olson": {
+    "candidates": [
+      {
+        "name": "Buenaflor Nicolas",
+        "party": null,
+        "votes": 961,
+        "pct": 51.47
+      },
+      {
+        "name": "Melanie Olson",
+        "party": null,
+        "votes": 671,
+        "pct": 35.94
+      },
+      {
+        "name": "Sophia Cyris",
+        "party": null,
+        "votes": 235,
+        "pct": 12.59
+      }
+    ],
+    "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED)",
+    "reportedAt": "8:08 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "il-state-senate-district-24-ben-mcadams": {
+    "candidates": [
+      {
+        "name": "Ben McAdams",
+        "party": "D",
+        "votes": 44066,
+        "pct": 54.6
+      },
+      {
+        "name": "Seth Lewis",
+        "party": "R",
+        "votes": 36710,
+        "pct": 45.4
+      }
+    ],
+    "reporting": "Unofficial, full district (via Positively Naperville)",
+    "reportedAt": "Nov 4 AM",
+    "called": "Ben McAdams",
+    "calledBy": "AP",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "ks-state-house-district-3-isaiah-harris": {
+    "candidates": [
+      {
+        "name": "D.J. Perry",
+        "party": "R",
+        "votes": 3485,
+        "pct": 51.6
+      },
+      {
+        "name": "Isaiah Harris",
+        "party": "D",
+        "votes": 3267,
+        "pct": 48.4
+      }
+    ],
+    "reporting": "Unofficial (via Poliwave); not called",
+    "reportedAt": "Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "or-portland-city-council-district-3-tiffany-koyama-lane": {
+    "candidates": [
+      {
+        "name": "Steve Novick",
+        "party": null,
+        "votes": 15718,
+        "pct": 28.82
+      },
+      {
+        "name": "Tiffany Koyama Lane",
+        "party": null,
+        "votes": 12908,
+        "pct": 23.67
+      },
+      {
+        "name": "Angelita Morillo",
+        "party": null,
+        "votes": 12883,
+        "pct": 23.62
+      },
+      {
+        "name": "Kellie Torres",
+        "party": null,
+        "votes": 5706,
+        "pct": 10.46
+      },
+      {
+        "name": "Esther León",
+        "party": null,
+        "votes": 871,
+        "pct": 1.6
+      },
+      {
+        "name": "Joel Corcoran",
+        "party": null,
+        "votes": 860,
+        "pct": 1.58
+      }
+    ],
+    "reporting": "First-choice votes after 2nd count (Multnomah via OPB); 3 seats by ranked choice, threshold 25%+1",
+    "reportedAt": "~12 AM PT Nov 4",
+    "enteredAt": "2026-11-04T20:00:00Z"
+  },
+  "in-state-house-district-13-ben-davis": {
+    "candidates": [
+      {
+        "name": "Matt Commons",
+        "party": "R",
+        "votes": 10562,
+        "pct": 59.58
+      },
+      {
+        "name": "Brenna Geswein",
+        "party": "D",
+        "votes": 6736,
+        "pct": 38.0
+      },
+      {
+        "name": "Ben Davis",
+        "party": "Socialist",
+        "votes": 429,
+        "pct": 2.42
+      }
+    ],
+    "reporting": "Unofficial (Indiana Election Division)",
+    "reportedAt": "11:33 AM PT Nov 4",
+    "fallback": true,
+    "enteredAt": "2026-11-04T20:00:00Z"
   }
 }
