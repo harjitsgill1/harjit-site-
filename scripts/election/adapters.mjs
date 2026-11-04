@@ -70,7 +70,7 @@ const miName = (s) => {
 };
 
 // "JEFFREY PRANG" -> "Jeffrey Prang" (leaves mixed-case names alone)
-const titleCase = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
+const titleCase = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s'"(-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : s);
 
 // Visible text lines from raw HTML (keeps collapsed sections).
 const htmlLines = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '')
@@ -462,7 +462,9 @@ export const adapters = {
     const lines = text.split(/\n/);
     const want = String(src.match || '').toLowerCase();
     for (let i = 0; i < lines.length; i++) {
-      const h = lines[i].match(/^\s*(.*?) > All Counties\s+Election Districts Reporting:\s*([\d,]+) of ([\d,]+)/);
+      // Headings read "X > All Counties (Active Registered Voters: N)	Election Districts Reporting: a of b"
+      // (the voter-count part was added for 2026; keep it optional).
+      const h = lines[i].match(/^\s*(.*?) > All Counties(?:\s*\([^)]*\))?\s+Election Districts Reporting:\s*([\d,]+) of ([\d,]+)/);
       if (!h) continue;
       if (want && !h[1].toLowerCase().startsWith(want)) continue;
       const cands = [];
@@ -740,6 +742,65 @@ export const adapters = {
       if (cands.some((c) => sameName(race.candidate, c.name))) {
         return { contest: titleCase(contest), candidates: cands, reporting: null, reportedAt: null, sourceUrl: url };
       }
+    }
+    return null;
+  },
+
+  // Vermont Secretary of State election-night results (electionresults.vermont.gov).
+  // The page reads static JSON: elections.json lists elections; <guid>.json points to a
+  // per-office file (senate / house / ...) whose districts each have a "District Wide" row.
+  // src: { office: "senate" | "house", match: "CHITTENDEN-CENTRAL" | "CHITTENDEN-16" }
+  async vt_sos(src, race) {
+    const base = 'https://static.electionresults.vermont.gov/';
+    const list = await once('vt:list', () => getJson(base + 'elections/elections.json'));
+    const el = (list || []).find((e) => String(e.electionDate).startsWith(src.date || '2026-11-03') && e.isGeneralElection && e.isStateWideElection);
+    if (!el) return null;
+    const idx = await once('vt:' + el.electionGuid, () => getJson(`${base}elections/${el.electionGuid}.json`));
+    const path = idx?.[src.office]?.path;
+    if (!path) return null;
+    const data = await once('vt:' + path, () => getJson(base + path.replace(/\\/g, '/')));
+    const norm = (s) => String(s || '').toUpperCase().replace(/_+$/, '').trim();
+    for (const o of data?.d?.[0]?.o || []) {
+      if (norm(o.dn) !== norm(src.match)) continue;
+      const row = (o.cs || []).find((r) => /district wide/i.test(r.tn)) || (o.cs || [])[0];
+      const cands = (row?.rc || []).filter((c) => c.cid && !c.isWriteIn);
+      if (!cands.some((c) => sameName(race.candidate, c.cn))) continue;
+      const total = cands.reduce((a, c) => a + (c.vc || 0), 0);
+      return {
+        contest: `${titleCase(o.on)}, ${titleCase(norm(o.dn))}`,
+        seats: num(o.vf) || 1,
+        candidates: cands.sort((a, b) => b.vc - a.vc).map((c) => ({ name: titleCase(c.cn), party: c.pn || null, votes: c.vc, pct: total ? c.vc / total * 100 : 0 })),
+        reporting: row?.townsReported ? `${row.townsReported.replace('/', ' of ')} towns reporting` : null,
+        reportedAt: idx.lastUpdatedDate ? idx.lastUpdatedDate + ' ET' : null,
+        sourceUrl: 'https://electionresults.vermont.gov/',
+      };
+    }
+    return null;
+  },
+
+  // Indiana Election Division results (enr.indianavoters.in.gov, Cloudflare). One JSON
+  // file per office category; OffCatC_1040_A.json = State Representative.
+  // src: { file: "OffCatC_1040_A.json", match: "State Representative, District 013" }
+  async in_enr(src, race) {
+    const entry = 'https://enr.indianavoters.in.gov/site/index.html';
+    const settings = JSON.parse(await once('in:settings', () => browserFetch(entry, '/site/data/settings.json')));
+    if (settings?.Root?.CurrentElection !== (src.date || ELECTION.mdY)) return null; // another election showing
+    const j = JSON.parse(await once('in:' + src.file, () => browserFetch(entry, '/site/data/' + src.file)));
+    const list = [].concat(j?.Root?.StatewideSummary?.Race || []);
+    const want = String(src.match || '').toUpperCase();
+    for (const r of list) {
+      if (want && String(r.OFFICE_TITLE).toUpperCase() !== want) continue;
+      const cs = [].concat(r.Candidates?.Candidate || []);
+      if (!cs.some((c) => sameName(race.candidate, c.NAME_ON_BALLOT))) continue;
+      const total = cs.reduce((a, c) => a + (num(c.TOTAL) || 0), 0);
+      return {
+        contest: r.OFFICE_TITLE.replace(/District 0+/, 'District '),
+        seats: num(r.NumofSeats) || 1,
+        candidates: cs.map((c) => ({ name: c.NAME_ON_BALLOT, party: c.PARTY || null, votes: num(c.TOTAL), pct: total ? num(c.TOTAL) / total * 100 : 0 })),
+        reporting: null,
+        reportedAt: j.Root.WriteTime ? new Date(j.Root.WriteTime + '-05:00').toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT' : null,
+        sourceUrl: entry,
+      };
     }
     return null;
   },

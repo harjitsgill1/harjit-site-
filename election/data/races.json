@@ -540,8 +540,11 @@
    "office": "State Senate, Chittenden Central",
    "candidate": "Tanya Vyhovsky",
    "source": {
-    "type": "manual"
-   }
+    "type": "vt_sos",
+    "office": "senate",
+    "match": "CHITTENDEN-CENTRAL"
+   },
+   "seats": 3
   },
   {
    "id": "ga-state-house-district-42-gabriel-sanchez",
@@ -693,8 +696,11 @@
    "office": "State House, Chittenden 16",
    "candidate": "Jeffrey Peterson",
    "source": {
-    "type": "manual"
-   }
+    "type": "vt_sos",
+    "office": "house",
+    "match": "CHITTENDEN-16"
+   },
+   "seats": 2
   },
   {
    "id": "vt-state-house-chittenden-21-matt-gile",
@@ -706,8 +712,11 @@
    "office": "State House, Chittenden 21",
    "candidate": "Matt Gile",
    "source": {
-    "type": "manual"
-   }
+    "type": "vt_sos",
+    "office": "house",
+    "match": "CHITTENDEN-21"
+   },
+   "seats": 2
   },
   {
    "id": "mi-ann-arbor-city-council-ward-4-dave-zeglen",
@@ -720,7 +729,9 @@
    "candidate": "Dave Zeglen",
    "source": {
     "type": "manual"
-   }
+   },
+   "status": "lost",
+   "note": "Lost the Aug 4 Democratic primary to Aidan Sova (57%–43%); not on the November ballot"
   },
   {
    "id": "tx-austin-city-council-district-1-misael-ramos",
@@ -732,7 +743,10 @@
    "office": "Austin City Council, District 1",
    "candidate": "Misael Ramos",
    "source": {
-    "type": "manual"
+    "type": "clarity",
+    "site": "https://results.enr.clarityelections.com",
+    "path": "TX/Travis",
+    "byDate": "11/3/2026"
    }
   },
   {
@@ -885,7 +899,8 @@
    "candidate": "Miranda Lopez",
    "source": {
     "type": "manual"
-   }
+   },
+   "seats": 2
   },
   {
    "id": "az-state-house-ld-23-mariana-sandoval",
@@ -4322,7 +4337,7 @@
    "region": "California",
    "office": "Centinela Valley UHSD, Trustee Area 5",
    "candidate": "Estefany Castañeda",
-   "note": "DSA-LA endorsement",
+   "note": "DSA-LA endorsement. Unopposed, so the race is not on the county results page",
    "source": {
     "type": "lavote",
     "ids": [
@@ -4351,7 +4366,8 @@
     ],
     "date": "2026-11-03",
     "match": "CENTINELA"
-   }
+   },
+   "status": "won"
   },
   {
    "id": "ca-inglewood-usd-trustee-area-3-yaritza-gonz-lez",
@@ -4616,7 +4632,8 @@
    "note": "DSA San Diego endorsement (unopposed)",
    "source": {
     "type": "manual"
-   }
+   },
+   "status": "won"
   },
   {
    "id": "ca-sonoma-county-supervisor-district-2-joanna-paun",
@@ -4673,7 +4690,8 @@
    "note": "Portland DSA endorsement",
    "source": {
     "type": "manual"
-   }
+   },
+   "seats": 3
   },
   {
    "id": "or-portland-city-council-district-3-tiffany-koyama-lane",
@@ -4687,7 +4705,8 @@
    "note": "Portland DSA endorsement",
    "source": {
     "type": "manual"
-   }
+   },
+   "seats": 3
   },
   {
    "id": "or-portland-city-council-district-4-mitch-green",
@@ -4701,7 +4720,8 @@
    "note": "Portland DSA endorsement",
    "source": {
     "type": "manual"
-   }
+   },
+   "seats": 3
   },
   {
    "id": "or-multnomah-county-commission-district-2-nathan-ong-norris",
@@ -5887,7 +5907,8 @@
    "candidate": "Ofelia Bello",
    "source": {
     "type": "manual"
-   }
+   },
+   "seats": 2
   },
   {
    "id": "ca-east-palo-alto-city-council-ruben-abrica",
@@ -7019,7 +7040,9 @@
    "office": "State House, District 13",
    "candidate": "Ben Davis",
    "source": {
-    "type": "manual"
+    "type": "in_enr",
+    "file": "OffCatC_1040_A.json",
+    "match": "State Representative, District 013"
    },
    "party": "Socialist"
   }
