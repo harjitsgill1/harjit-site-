@@ -91,7 +91,9 @@ async function build(outName, useFeeds, useManual, gateByRace = false) {
     // Hand-entered numbers always win; delete the entry to hand back to the feed.
     // Hand-entered numbers win, except "fallback" entries (written because a feed
     // was silent): those give way as soon as the feed has numbers of its own.
-    if (useManual && manual[race.id] && !(manual[race.id].fallback && entry?.origin === 'feed')) entry = { ...manual[race.id], origin: 'manual' };
+    // A feed showing all zeros (ballot posted, no counts yet) does not count as numbers.
+    const feedHasVotes = entry?.origin === 'feed' && (entry.candidates || []).some((c) => c.votes || c.pct);
+    if (useManual && manual[race.id] && !(manual[race.id].fallback && feedHasVotes)) entry = { ...manual[race.id], origin: 'manual' };
     if (useManual && entry && calls[race.id]?.winner && !entry.called) entry = { ...entry, called: calls[race.id].winner, calledBy: calls[race.id].by || null };
     if (entry) next[race.id] = entry;
   }));

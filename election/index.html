@@ -271,8 +271,10 @@
     if (res && res.called){ return isOurs(race, res.called) ? {k:'won', t:'Won'} : {k:'lost', t:'Lost'}; }
     if (res && res.candidates && res.candidates.length){
       var total = res.candidates.reduce(function(s,c){return s+(c.votes||0);},0);
-      if (!total) return {k:'', t:'No votes yet'};
-      var sorted = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
+      var totalPct = res.candidates.reduce(function(s,c){return s+(c.pct||0);},0);
+      if (!total && !totalPct) return {k:'', t:'No votes yet'};
+      // Some hand-entered reports give percentages only, with no raw vote counts.
+      var sorted = res.candidates.slice().sort(function(x,y){return total ? (y.votes||0)-(x.votes||0) : (y.pct||0)-(x.pct||0);});
       var seats = (res && res.seats) || race.seats || 1;
       var idx = sorted.findIndex(function(c){return isOurs(race, c.name);});
       if (idx === -1) return {k:'', t:'Counting'};
@@ -290,8 +292,8 @@
     var badges = GROUPS.filter(function(l){ return race.lists.indexOf(l) > -1; }).map(function(l){ return '<span class="badge '+l+'">'+LABEL[l]+'</span>'; }).join('');
     var body = '';
     if (res && res.candidates && res.candidates.length){
-      var cands = res.candidates.slice().sort(function(x,y){return (y.votes||0)-(x.votes||0);});
-      var total = cands.reduce(function(s,c){return s+(c.votes||0);},0);
+      var total = res.candidates.reduce(function(s,c){return s+(c.votes||0);},0);
+      var cands = res.candidates.slice().sort(function(x,y){return total ? (y.votes||0)-(x.votes||0) : (y.pct||0)-(x.pct||0);});
       body = '<div class="rows">' + cands.map(function(c){
         var pct = c.pct!=null ? c.pct : (total ? (c.votes||0)/total*100 : 0);
         var ours = isOurs(race, c.name);
