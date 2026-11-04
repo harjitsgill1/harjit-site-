@@ -1,8 +1,8 @@
 {
- "updatedAt": "2026-11-04T01:26:33.085Z",
- "checkedAt": "2026-11-04T01:26:33.085Z",
+ "updatedAt": "2026-11-04T01:29:46.650Z",
+ "checkedAt": "2026-11-04T01:29:46.650Z",
  "feeds": {
-  "ok": 31,
+  "ok": 35,
   "failed": 0
  },
  "results": {
@@ -309,27 +309,49 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:25:20.586Z"
   },
+  "nc-alamance-county-sheriff-shannon-long": {
+   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
+   "candidates": [
+    {
+     "name": "Shannon Long",
+     "party": "UNA",
+     "votes": 25280,
+     "pct": 56.92411619004729
+    },
+    {
+     "name": "Terry S. Johnson",
+     "party": "REP",
+     "votes": 19130,
+     "pct": 43.075883809952714
+    }
+   ],
+   "reporting": "0 of 39 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://er.ncsbe.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:19:30.786Z"
+  },
   "nc-nc-supreme-court-anita-earls": {
    "contest": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 01 (VOTE FOR 1)",
    "candidates": [
     {
      "name": "Anita Earls",
      "party": "DEM",
-     "votes": 1496268,
-     "pct": 66.94861182576791
+     "votes": 1526777,
+     "pct": 66.56210776789058
     },
     {
      "name": "Sarah Stevens",
      "party": "REP",
-     "votes": 738682,
-     "pct": 33.05138817423209
+     "votes": 766986,
+     "pct": 33.43789223210942
     }
    ],
-   "reporting": "66 of 2626 precincts reporting",
+   "reporting": "71 of 2626 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:22:23.049Z"
+   "changedAt": "2026-11-04T01:29:46.650Z"
   },
   "nc-state-house-district-30-marcia-morey": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 030 (VOTE FOR 1)",
@@ -649,44 +671,6 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:26:33.085Z"
   },
-  "nc-durham-county-district-attorney-satana-deberry": {
-   "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
-   "candidates": [
-    {
-     "name": "Satana Deberry",
-     "party": "DEM",
-     "votes": 101512,
-     "pct": 100
-    }
-   ],
-   "reporting": "0 of 58 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://er.ncsbe.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
-  },
-  "nc-alamance-county-sheriff-shannon-long": {
-   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
-   "candidates": [
-    {
-     "name": "Shannon Long",
-     "party": "UNA",
-     "votes": 25280,
-     "pct": 56.92411619004729
-    },
-    {
-     "name": "Terry S. Johnson",
-     "party": "REP",
-     "votes": 19130,
-     "pct": 43.075883809952714
-    }
-   ],
-   "reporting": "0 of 39 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://er.ncsbe.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
-  },
   "nc-mecklenburg-county-sheriff-garry-mcfadden": {
    "contest": "MECKLENBURG COUNTY SHERIFF (VOTE FOR 1)",
    "candidates": [
@@ -698,6 +682,22 @@
     }
    ],
    "reporting": "0 of 195 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://er.ncsbe.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:19:30.786Z"
+  },
+  "nc-durham-county-district-attorney-satana-deberry": {
+   "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
+   "candidates": [
+    {
+     "name": "Satana Deberry",
+     "party": "DEM",
+     "votes": 101512,
+     "pct": 100
+    }
+   ],
+   "reporting": "0 of 58 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
@@ -719,11 +719,127 @@
      "pct": 0
     }
    ],
-   "reporting": "13 of 254 counties reporting",
-   "reportedAt": "Nov 04, 2026 01:18:31",
+   "reporting": "31 of 254 counties reporting",
+   "reportedAt": "Nov 04, 2026 01:28:46",
    "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
+   "changedAt": "2026-11-04T01:29:46.650Z"
+  },
+  "sc-state-house-district-12-jumelle-brooks": {
+   "contest": "State  House of Representatives, District  12",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "REP Daniel Gibson",
+     "party": "REP",
+     "votes": 2932,
+     "pct": 38.5029546946815
+    },
+    {
+     "name": "DEM Jumelle Brooks",
+     "party": "DEM",
+     "votes": 4679,
+     "pct": 61.4445173998687
+    },
+    {
+     "name": "Write-In",
+     "party": "NON",
+     "votes": 4,
+     "pct": 0.0525279054497702
+    }
+   ],
+   "reporting": "0 of 2 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://www.enr-scvotes.org/SC/127300/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:29:46.650Z"
+  },
+  "sc-state-house-district-50-keishan-scott": {
+   "contest": "State  House of Representatives, District  50",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "REP William Oden",
+     "party": "REP",
+     "votes": 3711,
+     "pct": 32.3878512829464
+    },
+    {
+     "name": "DEM Keishan M Scott",
+     "party": "DEM",
+     "votes": 7740,
+     "pct": 67.5510560307209
+    },
+    {
+     "name": "Write-In",
+     "party": "NON",
+     "votes": 7,
+     "pct": 0.0610926863326933
+    }
+   ],
+   "reporting": "1 of 3 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://www.enr-scvotes.org/SC/127300/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:29:46.650Z"
+  },
+  "sc-state-house-district-71-julie-zimmerman": {
+   "contest": "State  House of Representatives, District  71",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "REP Nathan Ballentine",
+     "party": "REP",
+     "votes": 8,
+     "pct": 57.1428571428571
+    },
+    {
+     "name": "DEM Julie Zimmerman",
+     "party": "DEM",
+     "votes": 6,
+     "pct": 42.8571428571429
+    },
+    {
+     "name": "Write-In",
+     "party": "NON",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0 of 2 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://www.enr-scvotes.org/SC/127300/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:29:46.650Z"
+  },
+  "sc-state-house-district-98-sonja-ogletree-satani": {
+   "contest": "State  House of Representatives, District  98",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "REP Greg Ford",
+     "party": "REP",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "DEM Sonja Ogletree Satani",
+     "party": "DEM",
+     "votes": 0,
+     "pct": 0
+    },
+    {
+     "name": "Write-In",
+     "party": "NON",
+     "votes": 0,
+     "pct": 0
+    }
+   ],
+   "reporting": "0 of 1 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://www.enr-scvotes.org/SC/127300/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:29:46.650Z"
   }
  }
 }
