@@ -623,6 +623,103 @@ export const adapters = {
   },
 
   // California Secretary of State results API. Paths look like "us-rep/district/7".
+  // SOE Software "resultsSW.aspx" state results sites (Oregon, Montana).
+  // src: { host: "https://results.oregonvotes.gov", page: "FED", map?: "CTY", match?: phrase in contest name }
+  async soe(src, race) {
+    const url = `${src.host}/resultsSW.aspx?type=${src.page}&map=${src.map || 'CTY'}`;
+    const parse = (lines) => {
+      const isVal = (l) => /^[\d,]+$/.test(l) || /^[\d.]+\s?%$/.test(l);
+      const skip = /^(export:?|share on|\||partially:.*|follow this contest|<img.*|src=.*)$/i;
+      const want = String(src.match || '').toUpperCase();
+      for (let i = 1; i < lines.length; i++) {
+        if (!/^follow this contest$/i.test(lines[i])) continue;
+        const contest = lines[i - 1];
+        if (want && !contest.toUpperCase().includes(want)) continue;
+        let rep = null; const cands = [];
+        let k = i + 1;
+        for (; k < lines.length && !/^follow this contest$/i.test(lines[k]) && !/^total votes$/i.test(lines[k]); k++) {
+          const l = lines[k];
+          const m = l.match(/^([\d,]+) out of ([\d,]+) Precincts Reported$/i) || l.match(/^Precincts Fully:\s*([\d,]+)\s*\/\s*([\d,]+)/i);
+          if (m) { rep = `${m[1]} of ${m[2]} precincts reported`; continue; }
+          if (skip.test(l) || isVal(l)) continue;
+          let j = k + 1, party = null;
+          if (j < lines.length && !isVal(lines[j]) && !skip.test(lines[j])) { party = lines[j]; j++; }
+          const vals = [];
+          while (j < lines.length && isVal(lines[j])) vals.push(lines[j++]);
+          if (!vals.length) continue;
+          const v = vals.find((x) => !x.includes('%')); const pc = vals.find((x) => x.includes('%'));
+          if (!/^write-?in/i.test(l)) cands.push({ name: titleCase(l), party, votes: num(v), pct: pc != null ? num(pc) : null });
+          k = j - 1;
+        }
+        if (!cands.some((c) => sameName(race.candidate, c.name))) continue;
+        const tot = cands.reduce((a, c) => a + (c.votes || 0), 0);
+        for (const c of cands) if (c.pct == null) c.pct = tot ? c.votes / tot * 100 : 0;
+        return { contest: titleCase(contest), candidates: cands, reporting: rep, reportedAt: null, sourceUrl: url };
+      }
+      return null;
+    };
+    const html = await once('soe:' + url, () => getText(url).catch(() => ''));
+    const r = parse(htmlLines(html));
+    if (r || !src.scroll) return r;
+    // Long pages load more contests as you scroll.
+    const text = await once('soeb:' + url, () => pageText(url, 6000, { scroll: true }).catch(() => ''));
+    return parse(text.split(/\n/).map((l) => l.trim()).filter(Boolean));
+  },
+
+  // Maryland State Board of Elections results pages (plain HTML tables).
+  // src: { page: "gen_results_2026_by_county_17.html" }; the candidate's name picks the contest.
+  async md_sbe(src, race) {
+    const url = `https://elections.maryland.gov/elections/2026/general_results/${src.page}`;
+    const lines = htmlLines(await once('md:' + url, () => getText(url)));
+    const isVal = (l) => /^(NR|[\d,]+|[\d.]+%)$/.test(l);
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i] !== 'Percentage') continue;
+      let rep = null;
+      for (let b = i; b > i - 12 && b >= 0; b--) { const m = lines[b].match(/\(([\d,]+) of ([\d,]+) election day precincts reported\)/i); if (m) { rep = `${m[1]} of ${m[2]} election day precincts reported`; break; } }
+      const cands = [];
+      for (let k = i + 1; k + 1 < lines.length && lines[k] !== 'Percentage'; k++) {
+        if (isVal(lines[k]) || isVal(lines[k + 1])) continue;
+        let j = k + 2; const vals = [];
+        while (j < lines.length && isVal(lines[j])) vals.push(lines[j++]);
+        if (!vals.length) continue;
+        cands.push({ name: lines[k], party: lines[k + 1], votes: vals.length >= 6 ? num(vals[4]) || 0 : 0, pct: vals.length >= 6 ? num(vals[5]) || 0 : 0 });
+        k = j - 1;
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest: race.office, candidates: cands, reporting: rep, reportedAt: null, sourceUrl: url };
+      }
+    }
+    return null;
+  },
+
+  // San Francisco Department of Elections summary page. Ranked-choice contests
+  // report Round 1 here. src: { match?: phrase in contest name }
+  async sf_doe(src, race) {
+    const url = 'https://www.sfelections.org/results/20261103/';
+    const lines = htmlLines(await once('sf:' + url, () => getText(url)));
+    const want = String(src.match || '').toUpperCase();
+    const isVal = (l) => /^[\d,]+$/.test(l) || /^[\d.]+%$/.test(l);
+    for (let i = 1; i < lines.length; i++) {
+      if (lines[i] !== 'Ballots Counted') continue;
+      let h = i - 1;
+      while (h > 0 && !/^[A-Z][A-Z0-9 ,.'’()-]+$/.test(lines[h].replace(/\s*\(Ranked-Choice Voting Contest\)/, ''))) h--;
+      const contest = lines[h].replace(/\s*\(Ranked-Choice Voting Contest\)/, '').trim();
+      if (want && !contest.toUpperCase().includes(want)) continue;
+      const cands = [];
+      for (let k = i + 2; k + 2 < lines.length; k++) {
+        if (lines[k] === 'Ballots Counted') break;
+        if (/^(write-?in|total)$/i.test(lines[k])) { k += 2; continue; }
+        if (!isVal(lines[k]) && /^[\d,]+$/.test(lines[k + 1]) && /%$/.test(lines[k + 2])) {
+          cands.push({ name: titleCase(lines[k]), party: null, votes: num(lines[k + 1]), pct: num(lines[k + 2]) }); k += 2;
+        } else if (cands.length && !isVal(lines[k])) break;
+      }
+      if (cands.some((c) => sameName(race.candidate, c.name))) {
+        return { contest: titleCase(contest), candidates: cands, reporting: null, reportedAt: null, sourceUrl: url };
+      }
+    }
+    return null;
+  },
+
   async ca_sos(src) {
     const j = await getJson(`https://api.sos.ca.gov/returns/${src.path}`);
     const list = j.candidates || j.Candidates || [];

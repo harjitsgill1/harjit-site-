@@ -449,7 +449,9 @@
     "Nick Sheedy (L)"
    ],
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://electionresults.mt.gov",
+    "page": "FED"
    }
   },
   {
@@ -597,7 +599,9 @@
    "office": "State House, District 60",
    "candidate": "Luke Jungmann",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 60",
+    "page": "LGX"
    }
   },
   {
@@ -624,7 +628,11 @@
    "office": "State House, District 22",
    "candidate": "Lesly Muñoz",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "HOUSE",
+    "map": "DIST",
+    "scroll": true
    }
   },
   {
@@ -637,7 +645,11 @@
    "office": "State House, District 27",
    "candidate": "Tammy Carpenter",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "HOUSE",
+    "map": "DIST",
+    "scroll": true
    }
   },
   {
@@ -1822,7 +1834,8 @@
    "office": "Baltimore County State's Attorney",
    "candidate": "Sarah David",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_4.html"
    }
   },
   {
@@ -1835,7 +1848,8 @@
    "office": "Frederick County Sheriff",
    "candidate": "Karl Bickel",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_11.html"
    }
   },
   {
@@ -1848,7 +1862,8 @@
    "office": "Howard County Council, District 4",
    "candidate": "Janssen Evelyn",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_14.html"
    }
   },
   {
@@ -1861,7 +1876,8 @@
    "office": "House of Delegates, District 33B",
    "candidate": "Chuck Cook",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_6_46.html"
    }
   },
   {
@@ -1874,7 +1890,8 @@
    "office": "Montgomery County Executive",
    "candidate": "Will Jawando",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_16.html"
    }
   },
   {
@@ -1887,7 +1904,8 @@
    "office": "Prince George's County Council, District 1",
    "candidate": "Michelle García",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_17.html"
    }
   },
   {
@@ -1900,7 +1918,8 @@
    "office": "Prince George's County Council, District 2",
    "candidate": "Victor Ramirez",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_17.html"
    }
   },
   {
@@ -1914,7 +1933,8 @@
    "office": "Prince George's County Council, District 5",
    "candidate": "Shayla Adams-Stafford",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_17.html"
    }
   },
   {
@@ -1927,7 +1947,8 @@
    "office": "Prince George's County Council, District 9",
    "candidate": "Tamara Davis Brown",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_by_county_17.html"
    }
   },
   {
@@ -2251,7 +2272,11 @@
    "office": "Newark Mayor",
    "candidate": "Ras Baraka",
    "source": {
-    "type": "manual"
+    "type": "clarity",
+    "site": "https://results.enr.clarityelections.com",
+    "path": "NJ/Essex",
+    "byDate": "11/3/2026",
+    "match": "MAYOR"
    },
    "status": "won",
    "note": "Won re-election May 12, 2026"
@@ -2406,7 +2431,9 @@
    "office": "State House, District 27",
    "candidate": "Abby Foster",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 27",
+    "page": "LGX"
    }
   },
   {
@@ -2419,7 +2446,9 @@
    "office": "State House, District 33",
    "candidate": "Micaela Lara Cadena",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 33",
+    "page": "LGX"
    }
   },
   {
@@ -2432,7 +2461,9 @@
    "office": "State House, District 37",
    "candidate": "Lori Martinez",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 37",
+    "page": "LGX"
    }
   },
   {
@@ -2445,7 +2476,9 @@
    "office": "State House, District 41",
    "candidate": "Yolanda Jaramillo",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 41",
+    "page": "LGX"
    }
   },
   {
@@ -2458,7 +2491,9 @@
    "office": "State House, District 69",
    "candidate": "Michelle 'Paulene' Abeyta",
    "source": {
-    "type": "manual"
+    "type": "nm_sos",
+    "match": "STATE REPRESENTATIVE DISTRICT 69",
+    "page": "LGX"
    }
   },
   {
@@ -2880,7 +2915,9 @@
    "office": "Governor",
    "candidate": "Tina Kotek",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "SWPAR"
    }
   },
   {
@@ -2893,7 +2930,9 @@
    "office": "U.S. Senate, Oregon",
    "candidate": "Jeff Merkley",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "FED"
    }
   },
   {
@@ -2906,7 +2945,9 @@
    "office": "U.S. House, OR-1",
    "candidate": "Suzanne Bonamici",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "FED"
    }
   },
   {
@@ -2919,7 +2960,9 @@
    "office": "U.S. House, OR-4",
    "candidate": "Val Hoyle",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "FED"
    }
   },
   {
@@ -3451,7 +3494,11 @@
    "office": "Dallas County District Attorney",
    "candidate": "John Creuzot",
    "source": {
-    "type": "manual"
+    "type": "clarity",
+    "site": "https://results.enr.clarityelections.com",
+    "path": "TX/Dallas",
+    "byDate": "11/3/2026",
+    "match": "DISTRICT ATTORNEY"
    },
    "status": "lost",
    "note": "Lost the March 2026 Democratic primary to Amber Givens"
@@ -3546,7 +3593,9 @@
    "office": "State House, District 50",
    "candidate": "Jeremy B. Hendrinks",
    "source": {
-    "type": "manual"
+    "type": "tx_civix",
+    "id": 53815,
+    "match": "STATE REPRESENTATIVE"
    }
   },
   {
@@ -3559,7 +3608,9 @@
    "office": "Land Commissioner",
    "candidate": "Jose Loya",
    "source": {
-    "type": "manual"
+    "type": "tx_civix",
+    "id": 53815,
+    "match": "LAND"
    }
   },
   {
@@ -4611,7 +4662,11 @@
    "candidate": "Farrah Chaichi",
    "note": "Portland DSA endorsement",
    "source": {
-    "type": "manual"
+    "type": "soe",
+    "host": "https://results.oregonvotes.gov",
+    "page": "HOUSE",
+    "map": "DIST",
+    "scroll": true
    }
   },
   {
@@ -4730,7 +4785,8 @@
    "candidate": "Gabriel Acevero",
    "note": "Metro DC DSA endorsement",
    "source": {
-    "type": "manual"
+    "type": "md_sbe",
+    "page": "gen_results_2026_6_58.html"
    }
   },
   {
@@ -5402,7 +5458,8 @@
    "office": "SF Board of Supervisors, District 8",
    "candidate": "Gary McCoy",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "DISTRICT 8"
    }
   },
   {
@@ -5415,7 +5472,8 @@
    "office": "SF Board of Supervisors, District 8",
    "candidate": "Michael Nguyen",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "DISTRICT 8"
    }
   },
   {
@@ -5428,7 +5486,8 @@
    "office": "SF Board of Supervisors, District 10",
    "candidate": "Dionjay Brookter",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "DISTRICT 10"
    }
   },
   {
@@ -6411,7 +6470,8 @@
    "office": "SF Community College Board",
    "candidate": "Bunny McFadden",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "COMMUNITY COLLEGE"
    }
   },
   {
@@ -6424,7 +6484,8 @@
    "office": "SF Community College Board",
    "candidate": "Jeremy Lee",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "COMMUNITY COLLEGE"
    }
   },
   {
@@ -6437,7 +6498,8 @@
    "office": "SF Community College Board",
    "candidate": "Leah LaCroix",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "COMMUNITY COLLEGE"
    }
   },
   {
@@ -6451,7 +6513,8 @@
    "office": "SF Board of Education",
    "candidate": "Reina Tello",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "BOARD OF EDUCATION"
    }
   },
   {
@@ -6464,7 +6527,8 @@
    "office": "SF Board of Education",
    "candidate": "Ryan Hazelton",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "BOARD OF EDUCATION"
    }
   },
   {
@@ -6477,7 +6541,8 @@
    "office": "SF Board of Education",
    "candidate": "Virginia Cheung",
    "source": {
-    "type": "manual"
+    "type": "sf_doe",
+    "match": "BOARD OF EDUCATION"
    }
   },
   {
