@@ -1,9 +1,9 @@
 {
- "updatedAt": "2026-11-04T01:55:57.315Z",
- "checkedAt": "2026-11-04T01:55:57.315Z",
+ "updatedAt": "2026-11-04T01:57:37.093Z",
+ "checkedAt": "2026-11-04T01:57:37.093Z",
  "feeds": {
   "ok": 43,
-  "failed": 3
+  "failed": 0
  },
  "results": {
   "mi-u-s-senate-michigan-abdul-el-sayed": {
@@ -390,50 +390,62 @@
     {
      "name": "Sherrod Brown",
      "party": "D",
-     "votes": 861760,
-     "pct": 59
+     "votes": 1050409,
+     "pct": 54.68
     },
     {
      "name": "Jon Husted",
      "party": "R",
-     "votes": 541619,
-     "pct": 37
+     "votes": 797636,
+     "pct": 41.52
+    },
+    {
+     "name": "William Redpath",
+     "party": "L",
+     "votes": 40849,
+     "pct": 2.13
+    },
+    {
+     "name": "Greg Levy",
+     "party": "I",
+     "votes": 32084,
+     "pct": 1.67
     }
    ],
-   "reporting": "30% of expected vote (ABC News)",
-   "reportedAt": "8:11 PM ET Nov 3",
+   "reporting": "39.42% in (AP via Fox News)",
+   "reportedAt": "8:50 PM ET Nov 3",
    "fallback": true,
-   "enteredAt": "2026-11-04T01:34:20Z",
+   "enteredAt": "2026-11-04T01:56:16Z",
    "origin": "manual",
-   "changedAt": "2026-11-04T01:36:00.103Z"
+   "changedAt": "2026-11-04T01:57:37.093Z"
   },
   "oh-governor-ohio-amy-acton": {
    "candidates": [
     {
      "name": "Amy Acton",
      "party": "D",
-     "votes": 684920,
-     "pct": 66.58
+     "votes": 1082505,
+     "pct": 56.49
     },
     {
      "name": "Vivek Ramaswamy",
      "party": "R",
-     "votes": 321919,
-     "pct": 31.29
+     "votes": 782045,
+     "pct": 40.81
     },
     {
      "name": "Don Kissick",
      "party": "L",
-     "votes": 21827,
-     "pct": 2.12
+     "votes": 51894,
+     "pct": 2.71
     }
    ],
-   "reporting": "Early vote only, about 1.03M counted (Ohio SOS table via Libnanews); Dayton Daily News had Acton 64.4%-33.4% at about 1.2M by 8 PM ET",
-   "reportedAt": "7:52 PM ET Nov 3",
+   "reporting": "39.32% in (AP via Fox News)",
+   "reportedAt": "8:50 PM ET Nov 3",
    "fallback": true,
-   "enteredAt": "2026-11-04T01:34:20Z",
+   "enteredAt": "2026-11-04T01:56:16Z",
    "origin": "manual",
-   "changedAt": "2026-11-04T01:36:00.103Z"
+   "changedAt": "2026-11-04T01:57:37.093Z"
   },
   "ga-u-s-house-ga-1-amanda-hollowell": {
    "contest": "US House of Representatives - District 1",
@@ -677,6 +689,28 @@
    "origin": "manual",
    "changedAt": "2026-11-04T01:54:28.617Z"
   },
+  "nc-alamance-county-sheriff-shannon-long": {
+   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
+   "candidates": [
+    {
+     "name": "Shannon Long",
+     "party": "UNA",
+     "votes": 28129,
+     "pct": 52.91284964541675
+    },
+    {
+     "name": "Terry S. Johnson",
+     "party": "REP",
+     "votes": 25032,
+     "pct": 47.087150354583244
+    }
+   ],
+   "reporting": "14 of 39 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://er.ncsbe.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T01:51:26.759Z"
+  },
   "nc-nc-supreme-court-anita-earls": {
    "contest": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 01 (VOTE FOR 1)",
    "candidates": [
@@ -783,21 +817,6 @@
    "origin": "feed",
    "changedAt": "2026-11-04T00:30:15.947Z"
   },
-  "oh-u-s-house-oh-7-brian-poindexter": {
-   "candidates": [
-    {
-     "name": "Brian Poindexter",
-     "party": null,
-     "votes": null,
-     "pct": 62.37
-    }
-   ],
-   "reporting": "37.70% in; leading by 24.70 points; counts not shown (AP via Fox News)",
-   "reportedAt": "8:49 PM ET Nov 3",
-   "enteredAt": "2026-11-04T01:52:40Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T01:54:28.617Z"
-  },
   "nc-state-house-district-106-rev-rodney-sadler": {
    "contest": "NC HOUSE OF REPRESENTATIVES DISTRICT 106 (VOTE FOR 1)",
    "candidates": [
@@ -813,6 +832,21 @@
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
    "changedAt": "2026-11-04T01:19:30.786Z"
+  },
+  "oh-u-s-house-oh-7-brian-poindexter": {
+   "candidates": [
+    {
+     "name": "Brian Poindexter",
+     "party": null,
+     "votes": null,
+     "pct": 62.37
+    }
+   ],
+   "reporting": "37.70% in; leading by 24.70 points; counts not shown (AP via Fox News)",
+   "reportedAt": "8:49 PM ET Nov 3",
+   "enteredAt": "2026-11-04T01:52:40Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:54:28.617Z"
   },
   "pa-u-s-house-pa-7-bob-brooks": {
    "candidates": [
@@ -1099,27 +1133,21 @@
    "origin": "feed",
    "changedAt": "2026-11-04T01:55:57.315Z"
   },
-  "nc-alamance-county-sheriff-shannon-long": {
-   "contest": "ALAMANCE COUNTY SHERIFF (VOTE FOR 1)",
+  "nc-mecklenburg-county-sheriff-garry-mcfadden": {
+   "contest": "MECKLENBURG COUNTY SHERIFF (VOTE FOR 1)",
    "candidates": [
     {
-     "name": "Shannon Long",
-     "party": "UNA",
-     "votes": 28129,
-     "pct": 52.91284964541675
-    },
-    {
-     "name": "Terry S. Johnson",
-     "party": "REP",
-     "votes": 25032,
-     "pct": 47.087150354583244
+     "name": "Garry L. McFadden",
+     "party": "DEM",
+     "votes": 245346,
+     "pct": 100
     }
    ],
-   "reporting": "14 of 39 precincts reporting",
+   "reporting": "0 of 195 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-04T01:51:26.759Z"
+   "changedAt": "2026-11-04T01:19:30.786Z"
   },
   "nc-durham-county-district-attorney-satana-deberry": {
    "contest": "DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
@@ -1132,22 +1160,6 @@
     }
    ],
    "reporting": "0 of 58 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://er.ncsbe.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T01:19:30.786Z"
-  },
-  "nc-mecklenburg-county-sheriff-garry-mcfadden": {
-   "contest": "MECKLENBURG COUNTY SHERIFF (VOTE FOR 1)",
-   "candidates": [
-    {
-     "name": "Garry L. McFadden",
-     "party": "DEM",
-     "votes": 245346,
-     "pct": 100
-    }
-   ],
-   "reporting": "0 of 195 precincts reporting",
    "reportedAt": null,
    "sourceUrl": "https://er.ncsbe.gov/",
    "origin": "feed",
