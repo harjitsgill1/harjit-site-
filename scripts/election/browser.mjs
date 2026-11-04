@@ -64,12 +64,19 @@ export async function pageText(url, waitMs = 10000, opts = {}) {
     // The next batch can take over a second to arrive, so stop only after the height
     // has held still for three checks in a row (one 700 ms check stopped NM and OR
     // House pages partway down, around District 25 / 27).
+    // Some of these pages also drop contests that have scrolled out of view, so keep
+    // the text seen at every step, not just the final screen.
+    const seen = [];
     let last = 0, still = 0;
     for (let i = 0; i < 80 && still < 3; i++) {
       const h = await page.evaluate(() => { window.scrollTo(0, document.body.scrollHeight); return document.body.scrollHeight; });
+      seen.push(await page.evaluate(() => document.body ? document.body.innerText : ''));
       still = h === last ? still + 1 : 0;
       last = h; await page.waitForTimeout(still ? 1200 : 700);
     }
+    seen.push(await page.evaluate(() => document.body ? document.body.innerText : ''));
+    // "TOTAL VOTES" ends a contest for the parsers, so one never runs into the next snapshot.
+    return seen.join('\nTOTAL VOTES\n');
   }
   return page.evaluate(() => document.body ? document.body.innerText : '');
 }
