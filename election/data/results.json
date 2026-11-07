@@ -1,34 +1,11 @@
 {
- "updatedAt": "2026-11-07T05:30:58.011Z",
- "checkedAt": "2026-11-07T05:30:58.011Z",
+ "updatedAt": "2026-11-07T05:37:56.592Z",
+ "checkedAt": "2026-11-07T05:37:56.592Z",
  "feeds": {
   "ok": 260,
   "failed": 3
  },
  "results": {
-  "ca-sacramento-county-supervisor-district-1-flo-cofer": {
-   "contest": "Board of Supervisors District 1",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Flo Cofer",
-     "party": null,
-     "votes": 32350,
-     "pct": 54.530130636325325
-    },
-    {
-     "name": "Eric Guerra",
-     "party": null,
-     "votes": 26975,
-     "pct": 45.469869363674675
-    }
-   ],
-   "reporting": "143 of 143 precincts reporting",
-   "reportedAt": "Nov 6, 4:13 PM PT",
-   "sourceUrl": "https://results.saccounty.gov/results/public/sacramento-county-ca",
-   "origin": "feed",
-   "changedAt": "2026-11-07T00:16:50.832Z"
-  },
   "ca-u-s-house-ca-7-mai-vang": {
    "candidates": [
     {
@@ -70,6 +47,29 @@
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
    "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-sacramento-county-supervisor-district-1-flo-cofer": {
+   "contest": "Board of Supervisors District 1",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Flo Cofer",
+     "party": null,
+     "votes": 32350,
+     "pct": 54.530130636325325
+    },
+    {
+     "name": "Eric Guerra",
+     "party": null,
+     "votes": 26975,
+     "pct": 45.469869363674675
+    }
+   ],
+   "reporting": "143 of 143 precincts reporting",
+   "reportedAt": "Nov 6, 4:13 PM PT",
+   "sourceUrl": "https://results.saccounty.gov/results/public/sacramento-county-ca",
+   "origin": "feed",
+   "changedAt": "2026-11-07T00:16:50.832Z"
   },
   "ca-u-s-house-ca-11-connie-chan": {
    "candidates": [
@@ -262,6 +262,66 @@
    "origin": "feed",
    "changedAt": "2026-11-07T05:28:50.030Z"
   },
+  "me-u-s-senate-maine-troy-jackson": {
+   "contest": "U.S. Senate, Maine",
+   "candidates": [
+    {
+     "name": "Troy Jackson",
+     "party": "D",
+     "votes": 375516,
+     "pct": 53.11
+    },
+    {
+     "name": "Susan Collins",
+     "party": "R",
+     "votes": 330994,
+     "pct": 46.82
+    },
+    {
+     "name": "Brent Andrews (write-in)",
+     "party": "UN",
+     "votes": 221,
+     "pct": 0.03
+    },
+    {
+     "name": "Ashley Webb (write-in)",
+     "party": "D",
+     "votes": 82,
+     "pct": 0.01
+    },
+    {
+     "name": "Gina Oswald (write-in)",
+     "party": "I",
+     "votes": 67,
+     "pct": 0.01
+    },
+    {
+     "name": "Sigrid Olson (write-in)",
+     "party": "D",
+     "votes": 50,
+     "pct": 0.01
+    },
+    {
+     "name": "Michael Turcotte (write-in)",
+     "party": "U",
+     "votes": 43,
+     "pct": 0.01
+    },
+    {
+     "name": "Joseph Steinberger (write-in)",
+     "party": "AO",
+     "votes": 27,
+     "pct": 0
+    }
+   ],
+   "reporting": "93.58% in (AP via Fox News)",
+   "reportedAt": "2026-11-06T20:45:00.759000Z",
+   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/maine",
+   "called": "Troy Jackson",
+   "calledBy": "AP",
+   "origin": "feed",
+   "changedAt": "2026-11-06T20:46:58.198Z"
+  },
   "oh-u-s-senate-ohio-sherrod-brown": {
    "contest": "U.S. Senate, Ohio",
    "candidates": [
@@ -327,66 +387,6 @@
    "calledBy": "AP",
    "origin": "feed",
    "changedAt": "2026-11-06T21:34:57.678Z"
-  },
-  "me-u-s-senate-maine-troy-jackson": {
-   "contest": "U.S. Senate, Maine",
-   "candidates": [
-    {
-     "name": "Troy Jackson",
-     "party": "D",
-     "votes": 375516,
-     "pct": 53.11
-    },
-    {
-     "name": "Susan Collins",
-     "party": "R",
-     "votes": 330994,
-     "pct": 46.82
-    },
-    {
-     "name": "Brent Andrews (write-in)",
-     "party": "UN",
-     "votes": 221,
-     "pct": 0.03
-    },
-    {
-     "name": "Ashley Webb (write-in)",
-     "party": "D",
-     "votes": 82,
-     "pct": 0.01
-    },
-    {
-     "name": "Gina Oswald (write-in)",
-     "party": "I",
-     "votes": 67,
-     "pct": 0.01
-    },
-    {
-     "name": "Sigrid Olson (write-in)",
-     "party": "D",
-     "votes": 50,
-     "pct": 0.01
-    },
-    {
-     "name": "Michael Turcotte (write-in)",
-     "party": "U",
-     "votes": 43,
-     "pct": 0.01
-    },
-    {
-     "name": "Joseph Steinberger (write-in)",
-     "party": "AO",
-     "votes": 27,
-     "pct": 0
-    }
-   ],
-   "reporting": "93.58% in (AP via Fox News)",
-   "reportedAt": "2026-11-06T20:45:00.759000Z",
-   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/maine",
-   "called": "Troy Jackson",
-   "calledBy": "AP",
-   "origin": "feed",
-   "changedAt": "2026-11-06T20:46:58.198Z"
   },
   "mt-u-s-house-mt-1-sam-forstag": {
    "contest": "United States Representative 1st Congressional",
@@ -462,6 +462,41 @@
    "origin": "feed",
    "changedAt": "2026-11-06T02:55:02.026Z"
   },
+  "ca-garden-grove-city-council-district-4-hieu-nguyen": {
+   "contest": "CITY OF GARDEN GROVE Member, City Council District 4",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Hieu Nguyen",
+     "party": null,
+     "votes": 2356,
+     "pct": 36.9
+    },
+    {
+     "name": "Patrick Phat Bui",
+     "party": null,
+     "votes": 1768,
+     "pct": 27.69
+    },
+    {
+     "name": "Joe Dovinh",
+     "party": null,
+     "votes": 1592,
+     "pct": 24.93
+    },
+    {
+     "name": "Amanda Mohr",
+     "party": null,
+     "votes": 669,
+     "pct": 10.48
+    }
+   ],
+   "reporting": null,
+   "reportedAt": null,
+   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T01:02:14.700Z"
+  },
   "pa-u-s-house-pa-3-chris-rabb": {
    "contest": "U.S. House, PA-3",
    "candidates": [
@@ -485,41 +520,6 @@
    "calledBy": "AP",
    "origin": "feed",
    "changedAt": "2026-11-07T00:09:35.400Z"
-  },
-  "vt-state-senate-chittenden-central-tanya-vyhovsky": {
-   "contest": "State Senator, Chittenden-Central",
-   "seats": 3,
-   "candidates": [
-    {
-     "name": "Martine Larocque Gulick",
-     "party": "DEMOCRATIC",
-     "votes": 18258,
-     "pct": 32.833405265429434
-    },
-    {
-     "name": "Nikhil Goyal",
-     "party": "DEM/PROG",
-     "votes": 16849,
-     "pct": 30.299597180261834
-    },
-    {
-     "name": "Tanya Vyhovsky",
-     "party": "PROG/DEM",
-     "votes": 14776,
-     "pct": 26.571716299812977
-    },
-    {
-     "name": "Louis \"Louie\" Manno",
-     "party": "REPUBLICAN",
-     "votes": 5725,
-     "pct": 10.295281254495755
-    }
-   ],
-   "reporting": "5 of 5 towns reporting",
-   "reportedAt": "11/07/2026 12:28 AM ET",
-   "sourceUrl": "https://electionresults.vermont.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T05:30:58.011Z"
   },
   "ga-state-house-district-42-gabriel-sanchez": {
    "contest": "State House of Representatives - District 42",
@@ -582,40 +582,40 @@
    "origin": "manual",
    "changedAt": "2026-11-04T01:36:00.103Z"
   },
-  "ca-garden-grove-city-council-district-4-hieu-nguyen": {
-   "contest": "CITY OF GARDEN GROVE Member, City Council District 4",
-   "seats": 1,
+  "vt-state-senate-chittenden-central-tanya-vyhovsky": {
+   "contest": "State Senator, Chittenden-Central",
+   "seats": 3,
    "candidates": [
     {
-     "name": "Hieu Nguyen",
-     "party": null,
-     "votes": 2356,
-     "pct": 36.9
+     "name": "Martine Larocque Gulick",
+     "party": "DEMOCRATIC",
+     "votes": 18258,
+     "pct": 32.833405265429434
     },
     {
-     "name": "Patrick Phat Bui",
-     "party": null,
-     "votes": 1768,
-     "pct": 27.69
+     "name": "Nikhil Goyal",
+     "party": "DEM/PROG",
+     "votes": 16849,
+     "pct": 30.299597180261834
     },
     {
-     "name": "Joe Dovinh",
-     "party": null,
-     "votes": 1592,
-     "pct": 24.93
+     "name": "Tanya Vyhovsky",
+     "party": "PROG/DEM",
+     "votes": 14776,
+     "pct": 26.571716299812977
     },
     {
-     "name": "Amanda Mohr",
-     "party": null,
-     "votes": 669,
-     "pct": 10.48
+     "name": "Louis \"Louie\" Manno",
+     "party": "REPUBLICAN",
+     "votes": 5725,
+     "pct": 10.295281254495755
     }
    ],
-   "reporting": null,
-   "reportedAt": null,
-   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
+   "reporting": "5 of 5 towns reporting",
+   "reportedAt": "11/07/2026 12:33 AM ET",
+   "sourceUrl": "https://electionresults.vermont.gov/",
    "origin": "feed",
-   "changedAt": "2026-11-07T01:02:14.700Z"
+   "changedAt": "2026-11-07T05:37:56.592Z"
   },
   "mi-u-s-senate-michigan-abdul-el-sayed": {
    "contest": "UNITED STATES SENATOR 6 YEAR TERM (1) POSITION",
@@ -854,6 +854,58 @@
    "origin": "feed",
    "changedAt": "2026-11-06T20:49:19.032Z"
   },
+  "vt-state-house-chittenden-16-jeffrey-peterson": {
+   "contest": "State Representative, Chittenden-16",
+   "seats": 2,
+   "candidates": [
+    {
+     "name": "Trang Do",
+     "party": "PROG/DEM",
+     "votes": 2200,
+     "pct": 46.541146604611804
+    },
+    {
+     "name": "Jeffrey Peterson",
+     "party": "PROG/DEM",
+     "votes": 1929,
+     "pct": 40.80812354558917
+    },
+    {
+     "name": "Christopher Haessly",
+     "party": "INDEPENDENT",
+     "votes": 598,
+     "pct": 12.650729849799028
+    }
+   ],
+   "reporting": "1 of 1 towns reporting",
+   "reportedAt": "11/07/2026 12:33 AM ET",
+   "sourceUrl": "https://electionresults.vermont.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T05:37:56.592Z"
+  },
+  "vt-state-house-chittenden-21-matt-gile": {
+   "contest": "State Representative, Chittenden-21",
+   "seats": 2,
+   "candidates": [
+    {
+     "name": "Daisy Berbeco",
+     "party": "DEMOCRATIC",
+     "votes": 2347,
+     "pct": 52.83656010805943
+    },
+    {
+     "name": "Matt Gile",
+     "party": "PROG/DEM",
+     "votes": 2095,
+     "pct": 47.16343989194057
+    }
+   ],
+   "reporting": "1 of 1 towns reporting",
+   "reportedAt": "11/07/2026 12:33 AM ET",
+   "sourceUrl": "https://electionresults.vermont.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T05:37:56.592Z"
+  },
   "or-state-house-district-22-lesly-mu-oz": {
    "contest": "State Representative, 22nd District",
    "candidates": [
@@ -897,58 +949,6 @@
    "sourceUrl": "https://results.oregonvotes.gov/resultsSW.aspx?type=HOUSE&map=DIST",
    "origin": "feed",
    "changedAt": "2026-11-07T00:02:40.777Z"
-  },
-  "vt-state-house-chittenden-16-jeffrey-peterson": {
-   "contest": "State Representative, Chittenden-16",
-   "seats": 2,
-   "candidates": [
-    {
-     "name": "Trang Do",
-     "party": "PROG/DEM",
-     "votes": 2200,
-     "pct": 46.541146604611804
-    },
-    {
-     "name": "Jeffrey Peterson",
-     "party": "PROG/DEM",
-     "votes": 1929,
-     "pct": 40.80812354558917
-    },
-    {
-     "name": "Christopher Haessly",
-     "party": "INDEPENDENT",
-     "votes": 598,
-     "pct": 12.650729849799028
-    }
-   ],
-   "reporting": "1 of 1 towns reporting",
-   "reportedAt": "11/07/2026 12:28 AM ET",
-   "sourceUrl": "https://electionresults.vermont.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T05:30:58.011Z"
-  },
-  "vt-state-house-chittenden-21-matt-gile": {
-   "contest": "State Representative, Chittenden-21",
-   "seats": 2,
-   "candidates": [
-    {
-     "name": "Daisy Berbeco",
-     "party": "DEMOCRATIC",
-     "votes": 2347,
-     "pct": 52.83656010805943
-    },
-    {
-     "name": "Matt Gile",
-     "party": "PROG/DEM",
-     "votes": 2095,
-     "pct": 47.16343989194057
-    }
-   ],
-   "reporting": "1 of 1 towns reporting",
-   "reportedAt": "11/07/2026 12:28 AM ET",
-   "sourceUrl": "https://electionresults.vermont.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T05:30:58.011Z"
   },
   "ky-louisville-metro-council-district-9-andrea-parr": {
    "candidates": [
@@ -2655,16 +2655,27 @@
    "origin": "feed",
    "changedAt": "2026-11-07T01:13:32.396Z"
   },
-  "il-u-s-house-il-2-robert-peters": {
-   "candidates": [],
-   "reporting": "Called by AP at 8:55 PM ET for Donna Miller; counts not captured (via Fox News)",
-   "reportedAt": "8:55 PM ET Nov 3",
-   "called": "Donna Miller",
-   "calledBy": "AP",
-   "enteredAt": "2026-11-04T02:37:47Z",
-   "fallback": true,
-   "origin": "manual",
-   "changedAt": "2026-11-04T03:19:36.582Z"
+  "md-house-of-delegates-district-33b-chuck-cook": {
+   "contest": "House of Delegates, District 33B",
+   "candidates": [
+    {
+     "name": "Chuck Cook",
+     "party": "Democratic",
+     "votes": 10185,
+     "pct": 53.34
+    },
+    {
+     "name": "Stuart M. Schmidt, Jr.",
+     "party": "Republican",
+     "votes": 8887,
+     "pct": 46.54
+    }
+   ],
+   "reporting": "18 of 18 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_6_46.html",
+   "origin": "feed",
+   "changedAt": "2026-11-06T02:55:02.026Z"
   },
   "ky-u-s-senate-kentucky-charles-booker": {
    "contest": "U.S. Senate, Kentucky",
@@ -2696,6 +2707,17 @@
    "origin": "feed",
    "changedAt": "2026-11-06T15:58:10.137Z"
   },
+  "il-u-s-house-il-2-robert-peters": {
+   "candidates": [],
+   "reporting": "Called by AP at 8:55 PM ET for Donna Miller; counts not captured (via Fox News)",
+   "reportedAt": "8:55 PM ET Nov 3",
+   "called": "Donna Miller",
+   "calledBy": "AP",
+   "enteredAt": "2026-11-04T02:37:47Z",
+   "fallback": true,
+   "origin": "manual",
+   "changedAt": "2026-11-04T03:19:36.582Z"
+  },
   "md-frederick-county-sheriff-karl-bickel": {
    "contest": "Frederick County Sheriff",
    "candidates": [
@@ -2718,28 +2740,6 @@
    "origin": "feed",
    "changedAt": "2026-11-07T01:45:40.286Z"
   },
-  "md-house-of-delegates-district-33b-chuck-cook": {
-   "contest": "House of Delegates, District 33B",
-   "candidates": [
-    {
-     "name": "Chuck Cook",
-     "party": "Democratic",
-     "votes": 10185,
-     "pct": 53.34
-    },
-    {
-     "name": "Stuart M. Schmidt, Jr.",
-     "party": "Republican",
-     "votes": 8887,
-     "pct": 46.54
-    }
-   ],
-   "reporting": "18 of 18 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_6_46.html",
-   "origin": "feed",
-   "changedAt": "2026-11-06T02:55:02.026Z"
-  },
   "md-howard-county-council-district-4-janssen-evelyn": {
    "contest": "Howard County Council, District 4",
    "candidates": [
@@ -2756,73 +2756,19 @@
    "origin": "feed",
    "changedAt": "2026-11-06T02:55:02.026Z"
   },
-  "md-prince-george-s-county-council-district-1-michelle-garc-a": {
-   "contest": "Prince George's County Council, District 1",
+  "md-baltimore-county-state-s-attorney-sarah-david": {
+   "contest": "Baltimore County State's Attorney",
    "candidates": [
     {
-     "name": "Michelle García",
+     "name": "Sarah R. David",
      "party": "Democratic",
-     "votes": 23344,
-     "pct": 98.75
+     "votes": 192340,
+     "pct": 96.3
     }
    ],
-   "reporting": "27 of 27 election day precincts reported",
+   "reporting": "258 of 258 election day precincts reported",
    "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:35:00.581Z"
-  },
-  "md-prince-george-s-county-council-district-2-victor-ramirez": {
-   "contest": "Prince George's County Council, District 2",
-   "candidates": [
-    {
-     "name": "Victor Ramirez",
-     "party": "Democratic",
-     "votes": 13725,
-     "pct": 98.49
-    }
-   ],
-   "reporting": "24 of 24 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:35:00.581Z"
-  },
-  "md-prince-george-s-county-council-district-5-shayla-adams-stafford": {
-   "contest": "Prince George's County Council, District 5",
-   "candidates": [
-    {
-     "name": "Shayla D. Adams-Stafford",
-     "party": "Democratic",
-     "votes": 23247,
-     "pct": 98.95
-    }
-   ],
-   "reporting": "49 of 49 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:35:00.581Z"
-  },
-  "md-prince-george-s-county-council-district-9-tamara-davis-brown": {
-   "contest": "Prince George's County Council, District 9",
-   "candidates": [
-    {
-     "name": "Tamara Davis Brown",
-     "party": "Democratic",
-     "votes": 39274,
-     "pct": 93.24
-    },
-    {
-     "name": "Jesse A. Peed",
-     "party": "Republican",
-     "votes": 2752,
-     "pct": 6.53
-    }
-   ],
-   "reporting": "41 of 41 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_4.html",
    "origin": "feed",
    "changedAt": "2026-11-07T04:35:00.581Z"
   },
@@ -3012,6 +2958,98 @@
    "origin": "feed",
    "changedAt": "2026-11-06T12:55:20.685Z"
   },
+  "md-prince-george-s-county-council-district-1-michelle-garc-a": {
+   "contest": "Prince George's County Council, District 1",
+   "candidates": [
+    {
+     "name": "Michelle García",
+     "party": "Democratic",
+     "votes": 23344,
+     "pct": 98.75
+    }
+   ],
+   "reporting": "27 of 27 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:35:00.581Z"
+  },
+  "md-prince-george-s-county-council-district-2-victor-ramirez": {
+   "contest": "Prince George's County Council, District 2",
+   "candidates": [
+    {
+     "name": "Victor Ramirez",
+     "party": "Democratic",
+     "votes": 13725,
+     "pct": 98.49
+    }
+   ],
+   "reporting": "24 of 24 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:35:00.581Z"
+  },
+  "md-prince-george-s-county-council-district-5-shayla-adams-stafford": {
+   "contest": "Prince George's County Council, District 5",
+   "candidates": [
+    {
+     "name": "Shayla D. Adams-Stafford",
+     "party": "Democratic",
+     "votes": 23247,
+     "pct": 98.95
+    }
+   ],
+   "reporting": "49 of 49 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:35:00.581Z"
+  },
+  "md-prince-george-s-county-council-district-9-tamara-davis-brown": {
+   "contest": "Prince George's County Council, District 9",
+   "candidates": [
+    {
+     "name": "Tamara Davis Brown",
+     "party": "Democratic",
+     "votes": 39274,
+     "pct": 93.24
+    },
+    {
+     "name": "Jesse A. Peed",
+     "party": "Republican",
+     "votes": 2752,
+     "pct": 6.53
+    }
+   ],
+   "reporting": "41 of 41 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_17.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:35:00.581Z"
+  },
+  "md-montgomery-county-executive-will-jawando": {
+   "contest": "Montgomery County Executive",
+   "candidates": [
+    {
+     "name": "Will Jawando",
+     "party": "Democratic",
+     "votes": 252267,
+     "pct": 78.12
+    },
+    {
+     "name": "Esther Wells",
+     "party": "Republican",
+     "votes": 69419,
+     "pct": 21.5
+    }
+   ],
+   "reporting": "257 of 257 election day precincts reported",
+   "reportedAt": null,
+   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_16.html",
+   "origin": "feed",
+   "changedAt": "2026-11-06T03:02:52.369Z"
+  },
   "nj-u-s-house-nj-10-lamonica-mciver": {
    "contest": "U.S. House, NJ-10",
    "candidates": [
@@ -3065,44 +3103,6 @@
    "calledBy": "AP",
    "origin": "feed",
    "changedAt": "2026-11-06T22:34:58.419Z"
-  },
-  "md-baltimore-county-state-s-attorney-sarah-david": {
-   "contest": "Baltimore County State's Attorney",
-   "candidates": [
-    {
-     "name": "Sarah R. David",
-     "party": "Democratic",
-     "votes": 192340,
-     "pct": 96.3
-    }
-   ],
-   "reporting": "258 of 258 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_4.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:35:00.581Z"
-  },
-  "md-montgomery-county-executive-will-jawando": {
-   "contest": "Montgomery County Executive",
-   "candidates": [
-    {
-     "name": "Will Jawando",
-     "party": "Democratic",
-     "votes": 252267,
-     "pct": 78.12
-    },
-    {
-     "name": "Esther Wells",
-     "party": "Republican",
-     "votes": 69419,
-     "pct": 21.5
-    }
-   ],
-   "reporting": "257 of 257 election day precincts reported",
-   "reportedAt": null,
-   "sourceUrl": "https://elections.maryland.gov/elections/2026/general_results/gen_results_2026_by_county_16.html",
-   "origin": "feed",
-   "changedAt": "2026-11-06T03:02:52.369Z"
   },
   "mn-dakota-county-attorney-jeffrey-sheridan": {
    "contest": "County Attorney",
@@ -4407,51 +4407,49 @@
    "origin": "feed",
    "changedAt": "2026-11-06T19:45:37.170Z"
   },
-  "ut-salt-lake-county-council-district-3-luke-maynes": {
-   "contest": "COUNTY COUNCIL DISTRICT 3",
-   "seats": 1,
+  "tx-state-house-district-49-montserrat-garibay": {
+   "contest": "State Representative District 49",
    "candidates": [
     {
-     "name": "Luke Maynes",
+     "name": "Montserrat Garibay",
      "party": "DEM",
-     "votes": 29351,
-     "pct": 58.64921570586472
+     "votes": 78685,
+     "pct": 90
     },
     {
-     "name": "Mike Bird",
-     "party": "REP",
-     "votes": 20694,
-     "pct": 41.35078429413528
+     "name": "Arshia Papari",
+     "party": "G",
+     "votes": 8802,
+     "pct": 10
     }
    ],
-   "reporting": null,
-   "reportedAt": "Nov 6, 6:27 PM PT",
-   "sourceUrl": "https://electionresults.utah.gov/results/public/salt-lake-county-ut",
+   "reporting": "254 of 254 counties reporting",
+   "reportedAt": "Nov 04, 2026 22:48:37",
+   "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
    "origin": "feed",
-   "changedAt": "2026-11-07T02:29:21.542Z"
+   "changedAt": "2026-11-04T22:50:12.516Z"
   },
-  "ut-salt-lake-county-sheriff-rosie-rivera": {
-   "contest": "COUNTY SHERIFF",
-   "seats": 1,
+  "tx-land-commissioner-jose-loya": {
    "candidates": [
     {
-     "name": "Rosie Rivera",
-     "party": "DEM",
-     "votes": 238061,
-     "pct": 68.38239518343617
+     "name": "Dawn Buckingham",
+     "party": "R",
+     "votes": 5655760,
+     "pct": 55
     },
     {
-     "name": "Shane Manwaring",
-     "party": "REP",
-     "votes": 110071,
-     "pct": 31.617604816563833
+     "name": "Benjamin Flores",
+     "party": "D",
+     "votes": 4383940,
+     "pct": 43
     }
    ],
-   "reporting": null,
-   "reportedAt": "Nov 6, 6:27 PM PT",
-   "sourceUrl": "https://electionresults.utah.gov/results/public/salt-lake-county-ut",
-   "origin": "feed",
-   "changedAt": "2026-11-07T02:29:21.542Z"
+   "reporting": "95% of expected vote in (ABC13; only these two shown). Jose Loya lost the March Democratic primary to Flores and is not on the ballot",
+   "reportedAt": "~1:25 AM ET Nov 4 (page: updated 4 min before retrieval)",
+   "enteredAt": "2026-11-04T06:25:33Z",
+   "fallback": true,
+   "origin": "manual",
+   "changedAt": "2026-11-04T06:28:05.183Z"
   },
   "ut-state-house-district-21-stephen-otterstrom": {
    "contest": "State House District 21",
@@ -4568,86 +4566,51 @@
    "origin": "feed",
    "changedAt": "2026-11-07T03:32:08.142Z"
   },
-  "wa-king-county-council-district-4-jorge-baron": {
-   "contest": "Metropolitan King County - Council District No. 4",
+  "ut-salt-lake-county-council-district-3-luke-maynes": {
+   "contest": "COUNTY COUNCIL DISTRICT 3",
    "seats": 1,
    "candidates": [
     {
-     "name": "Jorge L. Barón",
-     "party": null,
-     "votes": 79104,
-     "pct": 98.76271927086584
+     "name": "Luke Maynes",
+     "party": "DEM",
+     "votes": 29351,
+     "pct": 58.64921570586472
     },
     {
-     "name": "Write-in",
-     "party": null,
-     "votes": 991,
-     "pct": 1.2372807291341532
+     "name": "Mike Bird",
+     "party": "REP",
+     "votes": 20694,
+     "pct": 41.35078429413528
     }
    ],
-   "reporting": "364 of 364 precincts reporting",
-   "reportedAt": "Nov 6, 3:53 PM PT",
-   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
+   "reporting": null,
+   "reportedAt": "Nov 6, 6:27 PM PT",
+   "sourceUrl": "https://electionresults.utah.gov/results/public/salt-lake-county-ut",
    "origin": "feed",
-   "changedAt": "2026-11-06T23:54:50.582Z"
+   "changedAt": "2026-11-07T02:29:21.542Z"
   },
-  "wa-king-county-council-district-8-teresa-mosqueda": {
-   "contest": "Metropolitan King County - Council District No. 8",
+  "ut-salt-lake-county-sheriff-rosie-rivera": {
+   "contest": "COUNTY SHERIFF",
    "seats": 1,
    "candidates": [
     {
-     "name": "Teresa Mosqueda",
-     "party": null,
-     "votes": 58492,
-     "pct": 69.81951871657755
+     "name": "Rosie Rivera",
+     "party": "DEM",
+     "votes": 238061,
+     "pct": 68.38239518343617
     },
     {
-     "name": "Nick Duda",
-     "party": null,
-     "votes": 24756,
-     "pct": 29.55022918258212
-    },
-    {
-     "name": "Write-in",
-     "party": null,
-     "votes": 528,
-     "pct": 0.6302521008403361
+     "name": "Shane Manwaring",
+     "party": "REP",
+     "votes": 110071,
+     "pct": 31.617604816563833
     }
    ],
-   "reporting": "429 of 429 precincts reporting",
-   "reportedAt": "Nov 6, 3:53 PM PT",
-   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
+   "reporting": null,
+   "reportedAt": "Nov 6, 6:27 PM PT",
+   "sourceUrl": "https://electionresults.utah.gov/results/public/salt-lake-county-ut",
    "origin": "feed",
-   "changedAt": "2026-11-06T23:54:50.582Z"
-  },
-  "wa-seattle-city-council-district-5-nilu-jenks": {
-   "contest": "City of Seattle - Council District No. 5",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Nilu Jenks",
-     "party": null,
-     "votes": 25165,
-     "pct": 58.807721069358756
-    },
-    {
-     "name": "Julie Kang",
-     "party": null,
-     "votes": 17443,
-     "pct": 40.76229201719948
-    },
-    {
-     "name": "Write-in",
-     "party": null,
-     "votes": 184,
-     "pct": 0.4299869134417649
-    }
-   ],
-   "reporting": "139 of 139 precincts reporting",
-   "reportedAt": "Nov 6, 3:53 PM PT",
-   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
-   "origin": "feed",
-   "changedAt": "2026-11-06T23:54:50.582Z"
+   "changedAt": "2026-11-07T02:29:21.542Z"
   },
   "wa-state-house-ld-37-pos-1-kelabe-tewolde": {
    "contest": "Legislative District 37 - State Representative Pos. 1",
@@ -4794,29 +4757,34 @@
    "origin": "feed",
    "changedAt": "2026-11-07T03:32:08.142Z"
   },
-  "wi-governor-david-crowley": {
-   "contest": "Governor",
+  "wa-spokane-county-prosecutor-danny-tarkenton": {
+   "contest": "Prosecuting Attorney",
+   "seats": 1,
    "candidates": [
     {
-     "name": "David Crowley",
-     "party": "D",
-     "votes": 1440989,
-     "pct": 54
+     "name": "Preston McCollam",
+     "party": "REP",
+     "votes": 106501,
+     "pct": 54.41637074317247
     },
     {
-     "name": "Tom Tiffany",
-     "party": "R",
-     "votes": 1227675,
-     "pct": 46
+     "name": "Danny Tarkenton",
+     "party": "NO",
+     "votes": 88465,
+     "pct": 45.20092992361342
+    },
+    {
+     "name": "Write-in",
+     "party": null,
+     "votes": 749,
+     "pct": 0.38269933321411237
     }
    ],
-   "reporting": "98.85% in (AP via Fox News)",
-   "reportedAt": "2026-11-06T21:21:34.692000Z",
-   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/wisconsin",
-   "called": "David Crowley",
-   "calledBy": "AP",
+   "reporting": "453 of 453 precincts reporting",
+   "reportedAt": "Nov 6, 5:17 PM PT",
+   "sourceUrl": "https://results.votewa.gov/results/public/spokane-county-wa",
    "origin": "feed",
-   "changedAt": "2026-11-06T21:23:23.344Z"
+   "changedAt": "2026-11-07T01:20:51.351Z"
   },
   "wi-secretary-of-state-jocasta-zamarripa": {
    "candidates": [
@@ -4870,78 +4838,110 @@
    "origin": "manual",
    "changedAt": "2026-11-04T19:56:02.863Z"
   },
-  "wa-spokane-county-prosecutor-danny-tarkenton": {
-   "contest": "Prosecuting Attorney",
+  "wi-governor-david-crowley": {
+   "contest": "Governor",
+   "candidates": [
+    {
+     "name": "David Crowley",
+     "party": "D",
+     "votes": 1440989,
+     "pct": 54
+    },
+    {
+     "name": "Tom Tiffany",
+     "party": "R",
+     "votes": 1227675,
+     "pct": 46
+    }
+   ],
+   "reporting": "98.85% in (AP via Fox News)",
+   "reportedAt": "2026-11-06T21:21:34.692000Z",
+   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/wisconsin",
+   "called": "David Crowley",
+   "calledBy": "AP",
+   "origin": "feed",
+   "changedAt": "2026-11-06T21:23:23.344Z"
+  },
+  "wa-king-county-council-district-4-jorge-baron": {
+   "contest": "Metropolitan King County - Council District No. 4",
    "seats": 1,
    "candidates": [
     {
-     "name": "Preston McCollam",
-     "party": "REP",
-     "votes": 106501,
-     "pct": 54.41637074317247
-    },
-    {
-     "name": "Danny Tarkenton",
-     "party": "NO",
-     "votes": 88465,
-     "pct": 45.20092992361342
+     "name": "Jorge L. Barón",
+     "party": null,
+     "votes": 79104,
+     "pct": 98.76271927086584
     },
     {
      "name": "Write-in",
      "party": null,
-     "votes": 749,
-     "pct": 0.38269933321411237
+     "votes": 991,
+     "pct": 1.2372807291341532
     }
    ],
-   "reporting": "453 of 453 precincts reporting",
-   "reportedAt": "Nov 6, 5:17 PM PT",
-   "sourceUrl": "https://results.votewa.gov/results/public/spokane-county-wa",
+   "reporting": "364 of 364 precincts reporting",
+   "reportedAt": "Nov 6, 3:53 PM PT",
+   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
    "origin": "feed",
-   "changedAt": "2026-11-07T01:20:51.351Z"
+   "changedAt": "2026-11-06T23:54:50.582Z"
   },
-  "tx-state-house-district-49-montserrat-garibay": {
-   "contest": "State Representative District 49",
+  "wa-king-county-council-district-8-teresa-mosqueda": {
+   "contest": "Metropolitan King County - Council District No. 8",
+   "seats": 1,
    "candidates": [
     {
-     "name": "Montserrat Garibay",
-     "party": "DEM",
-     "votes": 78685,
-     "pct": 90
+     "name": "Teresa Mosqueda",
+     "party": null,
+     "votes": 58492,
+     "pct": 69.81951871657755
     },
     {
-     "name": "Arshia Papari",
-     "party": "G",
-     "votes": 8802,
-     "pct": 10
+     "name": "Nick Duda",
+     "party": null,
+     "votes": 24756,
+     "pct": 29.55022918258212
+    },
+    {
+     "name": "Write-in",
+     "party": null,
+     "votes": 528,
+     "pct": 0.6302521008403361
     }
    ],
-   "reporting": "254 of 254 counties reporting",
-   "reportedAt": "Nov 04, 2026 22:48:37",
-   "sourceUrl": "https://goelect.txelections.civixapps.com/ivis-enr-ui/races",
+   "reporting": "429 of 429 precincts reporting",
+   "reportedAt": "Nov 6, 3:53 PM PT",
+   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
    "origin": "feed",
-   "changedAt": "2026-11-04T22:50:12.516Z"
+   "changedAt": "2026-11-06T23:54:50.582Z"
   },
-  "tx-land-commissioner-jose-loya": {
+  "wa-seattle-city-council-district-5-nilu-jenks": {
+   "contest": "City of Seattle - Council District No. 5",
+   "seats": 1,
    "candidates": [
     {
-     "name": "Dawn Buckingham",
-     "party": "R",
-     "votes": 5655760,
-     "pct": 55
+     "name": "Nilu Jenks",
+     "party": null,
+     "votes": 25165,
+     "pct": 58.807721069358756
     },
     {
-     "name": "Benjamin Flores",
-     "party": "D",
-     "votes": 4383940,
-     "pct": 43
+     "name": "Julie Kang",
+     "party": null,
+     "votes": 17443,
+     "pct": 40.76229201719948
+    },
+    {
+     "name": "Write-in",
+     "party": null,
+     "votes": 184,
+     "pct": 0.4299869134417649
     }
    ],
-   "reporting": "95% of expected vote in (ABC13; only these two shown). Jose Loya lost the March Democratic primary to Flores and is not on the ballot",
-   "reportedAt": "~1:25 AM ET Nov 4 (page: updated 4 min before retrieval)",
-   "enteredAt": "2026-11-04T06:25:33Z",
-   "fallback": true,
-   "origin": "manual",
-   "changedAt": "2026-11-04T06:28:05.183Z"
+   "reporting": "139 of 139 precincts reporting",
+   "reportedAt": "Nov 6, 3:53 PM PT",
+   "sourceUrl": "https://results.votewa.gov/results/public/king-county-wa",
+   "origin": "feed",
+   "changedAt": "2026-11-06T23:54:50.582Z"
   },
   "ca-los-angeles-mayor-nithya-raman": {
    "contest": "LOS ANGELES CITY GENERAL MUNICIPAL ELECTION Mayor",
@@ -5880,40 +5880,6 @@
    "origin": "feed",
    "changedAt": "2026-11-06T03:02:52.369Z"
   },
-  "mn-state-senate-district-62-omar-fateh": {
-   "contest": "State Senator District 62",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Omar Fateh",
-     "party": "DFL",
-     "votes": 29733,
-     "pct": 97.3
-    }
-   ],
-   "reporting": "26 of 26 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.mn.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T06:21:08.768Z"
-  },
-  "mn-ramsey-county-commissioner-district-6-mai-chong-xiong": {
-   "contest": "County Commissioner District 6",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Mai Chong Xiong",
-     "party": "NP",
-     "votes": 15203,
-     "pct": 97.9
-    }
-   ],
-   "reporting": "21 of 21 precincts reporting",
-   "reportedAt": null,
-   "sourceUrl": "https://electionresults.sos.mn.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-04T06:10:40.172Z"
-  },
   "mn-state-house-district-63a-samantha-sencer-mura": {
    "contest": "State Representative District 63A",
    "seats": 1,
@@ -5959,6 +5925,40 @@
    "sourceUrl": "https://electionresults.sos.mn.gov/",
    "origin": "feed",
    "changedAt": "2026-11-04T06:10:40.172Z"
+  },
+  "mn-ramsey-county-commissioner-district-6-mai-chong-xiong": {
+   "contest": "County Commissioner District 6",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Mai Chong Xiong",
+     "party": "NP",
+     "votes": 15203,
+     "pct": 97.9
+    }
+   ],
+   "reporting": "21 of 21 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://electionresults.sos.mn.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T06:10:40.172Z"
+  },
+  "mn-state-senate-district-62-omar-fateh": {
+   "contest": "State Senator District 62",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Omar Fateh",
+     "party": "DFL",
+     "votes": 29733,
+     "pct": 97.3
+    }
+   ],
+   "reporting": "26 of 26 precincts reporting",
+   "reportedAt": null,
+   "sourceUrl": "https://electionresults.sos.mn.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-04T06:21:08.768Z"
   },
   "tx-u-s-senate-texas-james-talarico": {
    "contest": "U. S. Senator ",
@@ -6014,36 +6014,6 @@
    "calledBy": "AP",
    "changedAt": "2026-11-05T01:47:13.176Z"
   },
-  "ks-u-s-senate-kansas-adam-hamilton": {
-   "contest": "U.S. Senate, Kansas",
-   "candidates": [
-    {
-     "name": "Adam Hamilton",
-     "party": "D",
-     "votes": 561143,
-     "pct": 51.02
-    },
-    {
-     "name": "Roger Marshall",
-     "party": "R",
-     "votes": 505558,
-     "pct": 45.96
-    },
-    {
-     "name": "David Graham",
-     "party": "LB",
-     "votes": 33195,
-     "pct": 3.02
-    }
-   ],
-   "reporting": "98.88% in (AP via Fox News)",
-   "reportedAt": "2026-11-07T00:31:58.791000Z",
-   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/kansas",
-   "called": "Adam Hamilton",
-   "calledBy": "AP",
-   "origin": "feed",
-   "changedAt": "2026-11-07T00:34:21.661Z"
-  },
   "mn-minneapolis-school-board-at-large-christin-crabtree": {
    "contest": "School Board Member At Large (SSD #1) (Elect 2)",
    "seats": 2,
@@ -6078,6 +6048,82 @@
    "sourceUrl": "https://electionresults.sos.mn.gov/",
    "origin": "feed",
    "changedAt": "2026-11-04T06:21:08.768Z"
+  },
+  "ca-u-s-house-ca-34-angela-gonzales-torres": {
+   "candidates": [
+    {
+     "name": "Jimmy Gomez",
+     "party": "Dem",
+     "votes": 58114,
+     "pct": 39
+    },
+    {
+     "name": "Angela Gonzales-Torres",
+     "party": "Dem",
+     "votes": 90919,
+     "pct": 61
+    }
+   ],
+   "reporting": "100% (116 of 116) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "called": "Angela Gonzales-Torres",
+   "calledBy": "AP",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ks-u-s-senate-kansas-adam-hamilton": {
+   "contest": "U.S. Senate, Kansas",
+   "candidates": [
+    {
+     "name": "Adam Hamilton",
+     "party": "D",
+     "votes": 561143,
+     "pct": 51.02
+    },
+    {
+     "name": "Roger Marshall",
+     "party": "R",
+     "votes": 505558,
+     "pct": 45.96
+    },
+    {
+     "name": "David Graham",
+     "party": "LB",
+     "votes": 33195,
+     "pct": 3.02
+    }
+   ],
+   "reporting": "98.88% in (AP via Fox News)",
+   "reportedAt": "2026-11-07T00:31:58.791000Z",
+   "sourceUrl": "https://www.foxnews.com/elections/2026/midterm-results/state/kansas",
+   "called": "Adam Hamilton",
+   "calledBy": "AP",
+   "origin": "feed",
+   "changedAt": "2026-11-07T00:34:21.661Z"
+  },
+  "ca-u-s-house-ca-12-lateefah-simon": {
+   "candidates": [
+    {
+     "name": "Jamie Joyce",
+     "party": "Dem",
+     "votes": 38227,
+     "pct": 19.4
+    },
+    {
+     "name": "Lateefah Simon",
+     "party": "Dem",
+     "votes": 158425,
+     "pct": 80.6
+    }
+   ],
+   "reporting": "100% (190 of 190) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "called": "Lateefah Simon",
+   "calledBy": "AP",
+   "changedAt": "2026-11-07T04:46:36.224Z"
   },
   "mn-hastings-city-council-at-large-mitchel-kulage": {
    "contest": "Council Member At Large (Hastings) (Elect 2)",
@@ -6114,27 +6160,25 @@
    "origin": "feed",
    "changedAt": "2026-11-04T05:01:08.157Z"
   },
-  "ca-u-s-house-ca-12-lateefah-simon": {
+  "ca-u-s-house-ca-14-aisha-wahab": {
    "candidates": [
     {
-     "name": "Jamie Joyce",
+     "name": "Melissa Hernandez",
      "party": "Dem",
-     "votes": 38227,
-     "pct": 19.4
+     "votes": 67836,
+     "pct": 42.5
     },
     {
-     "name": "Lateefah Simon",
+     "name": "Aisha Wahab",
      "party": "Dem",
-     "votes": 158425,
-     "pct": 80.6
+     "votes": 91892,
+     "pct": 57.5
     }
    ],
-   "reporting": "100% (190 of 190) precincts reporting",
+   "reporting": "100% (351 of 351) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
-   "called": "Lateefah Simon",
-   "calledBy": "AP",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
   "ca-u-s-house-ca-17-ro-khanna": {
@@ -6160,50 +6204,6 @@
    "calledBy": "AP",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
-  "ca-u-s-house-ca-34-angela-gonzales-torres": {
-   "candidates": [
-    {
-     "name": "Jimmy Gomez",
-     "party": "Dem",
-     "votes": 58114,
-     "pct": 39
-    },
-    {
-     "name": "Angela Gonzales-Torres",
-     "party": "Dem",
-     "votes": 90919,
-     "pct": 61
-    }
-   ],
-   "reporting": "100% (116 of 116) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "called": "Angela Gonzales-Torres",
-   "calledBy": "AP",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
-  "ca-u-s-house-ca-14-aisha-wahab": {
-   "candidates": [
-    {
-     "name": "Melissa Hernandez",
-     "party": "Dem",
-     "votes": 67836,
-     "pct": 42.5
-    },
-    {
-     "name": "Aisha Wahab",
-     "party": "Dem",
-     "votes": 91892,
-     "pct": 57.5
-    }
-   ],
-   "reporting": "100% (351 of 351) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
   "ca-u-s-house-ca-22-randy-villegas": {
    "candidates": [
     {
@@ -6227,27 +6227,6 @@
    "calledBy": "AP",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
-  "ca-state-senate-district-6-sean-frame": {
-   "candidates": [
-    {
-     "name": "Sean Frame",
-     "party": "Dem",
-     "votes": 132599,
-     "pct": 49
-    },
-    {
-     "name": "Roger Niello",
-     "party": "Rep",
-     "votes": 137770,
-     "pct": 51
-    }
-   ],
-   "reporting": "100% (546 of 546) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
   "ca-state-senate-district-2-damon-connolly": {
    "candidates": [
     {
@@ -6264,27 +6243,6 @@
     }
    ],
    "reporting": "100% (912 of 912) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
-  "ca-state-senate-district-20-caroline-menjivar": {
-   "candidates": [
-    {
-     "name": "Caroline Menjivar",
-     "party": "Dem",
-     "votes": 158112,
-     "pct": 75.6
-    },
-    {
-     "name": "Tony Rodriguez",
-     "party": "Rep",
-     "votes": 50978,
-     "pct": 24.4
-    }
-   ],
-   "reporting": "100% (162 of 162) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6311,6 +6269,27 @@
    "origin": "feed",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
+  "ca-state-senate-district-20-caroline-menjivar": {
+   "candidates": [
+    {
+     "name": "Caroline Menjivar",
+     "party": "Dem",
+     "votes": 158112,
+     "pct": 75.6
+    },
+    {
+     "name": "Tony Rodriguez",
+     "party": "Rep",
+     "votes": 50978,
+     "pct": 24.4
+    }
+   ],
+   "reporting": "100% (162 of 162) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
   "ca-state-senate-district-26-sarah-rasc-n": {
    "candidates": [
     {
@@ -6327,27 +6306,6 @@
     }
    ],
    "reporting": "100% (155 of 155) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
-  "ca-state-senate-district-28-lola-smallwood-cuevas": {
-   "candidates": [
-    {
-     "name": "Lola Smallwood-Cuevas",
-     "party": "Dem",
-     "votes": 200908,
-     "pct": 84.9
-    },
-    {
-     "name": "Joe Lisuzzo",
-     "party": "Rep",
-     "votes": 35811,
-     "pct": 15.1
-    }
-   ],
-   "reporting": "100% (187 of 187) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6374,6 +6332,27 @@
    "origin": "feed",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
+  "ca-state-senate-district-28-lola-smallwood-cuevas": {
+   "candidates": [
+    {
+     "name": "Lola Smallwood-Cuevas",
+     "party": "Dem",
+     "votes": 200908,
+     "pct": 84.9
+    },
+    {
+     "name": "Joe Lisuzzo",
+     "party": "Rep",
+     "votes": 35811,
+     "pct": 15.1
+    }
+   ],
+   "reporting": "100% (187 of 187) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
   "ca-state-assembly-district-2-chris-rogers": {
    "candidates": [
     {
@@ -6390,6 +6369,27 @@
     }
    ],
    "reporting": "100% (622 of 622) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-state-assembly-district-47-leila-namvar": {
+   "candidates": [
+    {
+     "name": "Leila Namvar",
+     "party": "Dem",
+     "votes": 76929,
+     "pct": 55.2
+    },
+    {
+     "name": "Greg Wallis",
+     "party": "Rep",
+     "votes": 62364,
+     "pct": 44.8
+    }
+   ],
+   "reporting": "100% (574 of 574) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6437,27 +6437,6 @@
    "origin": "feed",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
-  "ca-state-assembly-district-47-leila-namvar": {
-   "candidates": [
-    {
-     "name": "Leila Namvar",
-     "party": "Dem",
-     "votes": 76929,
-     "pct": 55.2
-    },
-    {
-     "name": "Greg Wallis",
-     "party": "Rep",
-     "votes": 62364,
-     "pct": 44.8
-    }
-   ],
-   "reporting": "100% (574 of 574) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
   "ca-state-assembly-district-57-sade-elhawary": {
    "candidates": [
     {
@@ -6474,27 +6453,6 @@
     }
    ],
    "reporting": "100% (82 of 82) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
-  "ca-state-assembly-district-60-corey-jackson": {
-   "candidates": [
-    {
-     "name": "Corey A Jackson",
-     "party": "Dem",
-     "votes": 40024,
-     "pct": 66.7
-    },
-    {
-     "name": "Ed Delgado",
-     "party": "Rep",
-     "votes": 19980,
-     "pct": 33.3
-    }
-   ],
-   "reporting": "100% (187 of 187) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6521,22 +6479,22 @@
    "origin": "feed",
    "changedAt": "2026-11-07T04:46:36.224Z"
   },
-  "ca-state-assembly-district-61-tina-mckinnor": {
+  "ca-state-assembly-district-60-corey-jackson": {
    "candidates": [
     {
-     "name": "Tina Simone McKinnor",
+     "name": "Corey A Jackson",
      "party": "Dem",
-     "votes": 103689,
-     "pct": 84
+     "votes": 40024,
+     "pct": 66.7
     },
     {
-     "name": "Brian Lockwood",
+     "name": "Ed Delgado",
      "party": "Rep",
-     "votes": 19715,
-     "pct": 16
+     "votes": 19980,
+     "pct": 33.3
     }
    ],
-   "reporting": "100% (129 of 129) precincts reporting",
+   "reporting": "100% (187 of 187) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6558,6 +6516,48 @@
     }
    ],
    "reporting": "100% (413 of 413) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-state-assembly-district-61-tina-mckinnor": {
+   "candidates": [
+    {
+     "name": "Tina Simone McKinnor",
+     "party": "Dem",
+     "votes": 103689,
+     "pct": 84
+    },
+    {
+     "name": "Brian Lockwood",
+     "party": "Rep",
+     "votes": 19715,
+     "pct": 16
+    }
+   ],
+   "reporting": "100% (129 of 129) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-state-assembly-district-79-lashae-sharp-collins": {
+   "candidates": [
+    {
+     "name": "LaShae Sharp-Collins",
+     "party": "Dem",
+     "votes": 66254,
+     "pct": 67.7
+    },
+    {
+     "name": "Andrew Lawson",
+     "party": "Rep",
+     "votes": 31584,
+     "pct": 32.3
+    }
+   ],
+   "reporting": "100% (365 of 365) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
@@ -6629,48 +6629,6 @@
    "sourceUrl": "https://www.fresnocountyca.gov/Departments/County-ClerkRegistrar-of-Voters/Elections/Election-Results",
    "origin": "feed",
    "changedAt": "2026-11-06T02:55:02.026Z"
-  },
-  "ca-board-of-equalization-district-2-sally-lieber": {
-   "candidates": [
-    {
-     "name": "Sally J. Lieber",
-     "party": "Dem",
-     "votes": 1273849,
-     "pct": 59.9
-    },
-    {
-     "name": "John Pimentel",
-     "party": "Dem",
-     "votes": 851857,
-     "pct": 40.1
-    }
-   ],
-   "reporting": "100% (6,558 of 6,558) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
-  },
-  "ca-board-of-equalization-district-3-samuel-sukaton": {
-   "candidates": [
-    {
-     "name": "Mike Gipson",
-     "party": "Dem",
-     "votes": 1294595,
-     "pct": 57.7
-    },
-    {
-     "name": "Samuel P. Sukaton",
-     "party": "Dem",
-     "votes": 948590,
-     "pct": 42.3
-    }
-   ],
-   "reporting": "100% (2,853 of 2,853) precincts reporting",
-   "reportedAt": "November 6, 2026, 7:34 p.m.",
-   "sourceUrl": "https://electionresults.sos.ca.gov/",
-   "origin": "feed",
-   "changedAt": "2026-11-07T04:46:36.224Z"
   },
   "ca-irvine-city-council-district-1-sukhee-kang": {
    "contest": "CITY OF IRVINE Member, City Council District 1",
@@ -6928,60 +6886,6 @@
    "origin": "feed",
    "changedAt": "2026-11-07T01:35:28.344Z"
   },
-  "ca-east-palo-alto-city-council-ofelia-bello": {
-   "candidates": [
-    {
-     "name": "Ofelia Bello",
-     "party": null,
-     "votes": 1031,
-     "pct": 22.3
-    },
-    {
-     "name": "Ruben Abrica",
-     "party": null,
-     "votes": 986,
-     "pct": 21.33
-    },
-    {
-     "name": "Sam Jimenez",
-     "party": null,
-     "votes": 726,
-     "pct": 15.7
-    },
-    {
-     "name": "Michael Mashack",
-     "party": null,
-     "votes": 629,
-     "pct": 13.61
-    }
-   ],
-   "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED); top 2 elected",
-   "reportedAt": "8:08 AM PT Nov 4",
-   "enteredAt": "2026-11-04T20:00:00Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T19:56:02.863Z"
-  },
-  "ca-foster-city-council-district-1-phoebe-shin-venkat": {
-   "candidates": [
-    {
-     "name": "Art Kiesel",
-     "party": null,
-     "votes": 756,
-     "pct": 65.17
-    },
-    {
-     "name": "Phoebe Shin Venkat",
-     "party": null,
-     "votes": 404,
-     "pct": 34.83
-    }
-   ],
-   "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED)",
-   "reportedAt": "8:08 AM PT Nov 4",
-   "enteredAt": "2026-11-04T20:00:00Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T19:56:02.863Z"
-  },
   "ca-pinole-city-council-truc-lam-julian": {
    "contest": "CITY OF PINOLE  MEMBER  CITY COUNCIL",
    "seats": 3,
@@ -7045,6 +6949,60 @@
    "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
    "origin": "feed",
    "changedAt": "2026-11-07T01:02:14.700Z"
+  },
+  "ca-east-palo-alto-city-council-ofelia-bello": {
+   "candidates": [
+    {
+     "name": "Ofelia Bello",
+     "party": null,
+     "votes": 1031,
+     "pct": 22.3
+    },
+    {
+     "name": "Ruben Abrica",
+     "party": null,
+     "votes": 986,
+     "pct": 21.33
+    },
+    {
+     "name": "Sam Jimenez",
+     "party": null,
+     "votes": 726,
+     "pct": 15.7
+    },
+    {
+     "name": "Michael Mashack",
+     "party": null,
+     "votes": 629,
+     "pct": 13.61
+    }
+   ],
+   "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED); top 2 elected",
+   "reportedAt": "8:08 AM PT Nov 4",
+   "enteredAt": "2026-11-04T20:00:00Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T19:56:02.863Z"
+  },
+  "ca-foster-city-council-district-1-phoebe-shin-venkat": {
+   "candidates": [
+    {
+     "name": "Art Kiesel",
+     "party": null,
+     "votes": 756,
+     "pct": 65.17
+    },
+    {
+     "name": "Phoebe Shin Venkat",
+     "party": null,
+     "votes": 404,
+     "pct": 34.83
+    }
+   ],
+   "reporting": "Unofficial (San Mateo ACRE via NBC Bay Area/KQED)",
+   "reportedAt": "8:08 AM PT Nov 4",
+   "enteredAt": "2026-11-04T20:00:00Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T19:56:02.863Z"
   },
   "ca-south-san-francisco-city-council-district-3-melanie-olson": {
    "candidates": [
@@ -7511,6 +7469,29 @@
    "origin": "feed",
    "changedAt": "2026-11-07T02:01:00.089Z"
   },
+  "ca-anaheim-elementary-sd-trustee-area-2-juan-gabriel-alvarez": {
+   "contest": "ANAHEIM ELEMENTARY SCHOOL DISTRICT Governing Board Member, Trustee Area 2",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Juan Gabriel Alvarez",
+     "party": null,
+     "votes": 3562,
+     "pct": 59.99
+    },
+    {
+     "name": "Jeff Cole",
+     "party": null,
+     "votes": 2376,
+     "pct": 40.01
+    }
+   ],
+   "reporting": null,
+   "reportedAt": null,
+   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T01:02:14.700Z"
+  },
   "ca-sf-community-college-board-bunny-mcfadden": {
    "contest": "Trustee, Community College Board Full Term",
    "candidates": [
@@ -7626,29 +7607,6 @@
    "sourceUrl": "https://www.sfelections.org/results/20261103/",
    "origin": "feed",
    "changedAt": "2026-11-07T00:09:35.400Z"
-  },
-  "ca-anaheim-elementary-sd-trustee-area-2-juan-gabriel-alvarez": {
-   "contest": "ANAHEIM ELEMENTARY SCHOOL DISTRICT Governing Board Member, Trustee Area 2",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Juan Gabriel Alvarez",
-     "party": null,
-     "votes": 3562,
-     "pct": 59.99
-    },
-    {
-     "name": "Jeff Cole",
-     "party": null,
-     "votes": 2376,
-     "pct": 40.01
-    }
-   ],
-   "reporting": null,
-   "reportedAt": null,
-   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T01:02:14.700Z"
   },
   "ca-sf-community-college-board-leah-lacroix": {
    "contest": "Trustee, Community College Board Full Term",
@@ -7911,41 +7869,6 @@
    "origin": "feed",
    "changedAt": "2026-11-06T02:55:02.026Z"
   },
-  "ca-anaheim-union-hsd-trustee-area-1-jessica-guerrero": {
-   "contest": "ANAHEIM UNION HIGH SCHOOL DISTRICT Governing Board Member, Trustee Area 1",
-   "seats": 1,
-   "candidates": [
-    {
-     "name": "Jessica Guerrero",
-     "party": null,
-     "votes": 6876,
-     "pct": 58.76
-    },
-    {
-     "name": "Germaine Neumann",
-     "party": null,
-     "votes": 2179,
-     "pct": 18.62
-    },
-    {
-     "name": "Alfonso Rodriguez",
-     "party": null,
-     "votes": 2053,
-     "pct": 17.54
-    },
-    {
-     "name": "Linda Martinez Quijano",
-     "party": null,
-     "votes": 594,
-     "pct": 5.08
-    }
-   ],
-   "reporting": null,
-   "reportedAt": null,
-   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
-   "origin": "feed",
-   "changedAt": "2026-11-07T01:02:14.700Z"
-  },
   "ca-la-community-college-board-seat-4-darryn-harris": {
    "contest": "LOS ANGELES COMMUNITY COLLEGE DISTRICT Member of the Board of Trustees, Seat 4",
    "candidates": [
@@ -7997,6 +7920,41 @@
    "sourceUrl": "https://results.lavote.gov/",
    "origin": "feed",
    "changedAt": "2026-11-07T02:01:00.089Z"
+  },
+  "ca-anaheim-union-hsd-trustee-area-1-jessica-guerrero": {
+   "contest": "ANAHEIM UNION HIGH SCHOOL DISTRICT Governing Board Member, Trustee Area 1",
+   "seats": 1,
+   "candidates": [
+    {
+     "name": "Jessica Guerrero",
+     "party": null,
+     "votes": 6876,
+     "pct": 58.76
+    },
+    {
+     "name": "Germaine Neumann",
+     "party": null,
+     "votes": 2179,
+     "pct": 18.62
+    },
+    {
+     "name": "Alfonso Rodriguez",
+     "party": null,
+     "votes": 2053,
+     "pct": 17.54
+    },
+    {
+     "name": "Linda Martinez Quijano",
+     "party": null,
+     "votes": 594,
+     "pct": 5.08
+    }
+   ],
+   "reporting": null,
+   "reportedAt": null,
+   "sourceUrl": "https://www.livevoterturnout.com/ENR/orangecaenr/24/en/phkv4sV_Index_24.html",
+   "origin": "feed",
+   "changedAt": "2026-11-07T01:02:14.700Z"
   },
   "ca-santa-ana-usd-trustee-area-4-katelyn-brazer-aceves": {
    "contest": "SANTA ANA UNIFIED SCHOOL DISTRICT Governing Board Member, Trustee Area 4",
@@ -8112,71 +8070,6 @@
    "origin": "feed",
    "changedAt": "2026-11-07T02:01:00.089Z"
   },
-  "ky-louisville-mayor-shameka-parrish-wright": {
-   "candidates": [
-    {
-     "name": "Craig Greenberg",
-     "party": null,
-     "votes": 36646,
-     "pct": 59
-    },
-    {
-     "name": "Shameka L. Parrish-Wright",
-     "party": null,
-     "votes": 25282,
-     "pct": 41
-    }
-   ],
-   "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
-   "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
-   "enteredAt": "2026-11-04T01:34:20Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T01:36:00.103Z"
-  },
-  "il-state-senate-district-24-ben-mcadams": {
-   "candidates": [
-    {
-     "name": "Ben McAdams",
-     "party": "D",
-     "votes": 44066,
-     "pct": 54.6
-    },
-    {
-     "name": "Seth Lewis",
-     "party": "R",
-     "votes": 36710,
-     "pct": 45.4
-    }
-   ],
-   "reporting": "Unofficial, full district (via Positively Naperville)",
-   "reportedAt": "Nov 4 AM",
-   "called": "Ben McAdams",
-   "calledBy": "AP",
-   "enteredAt": "2026-11-04T20:00:00Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T19:56:02.863Z"
-  },
-  "ks-state-house-district-3-isaiah-harris": {
-   "candidates": [
-    {
-     "name": "D.J. Perry",
-     "party": "R",
-     "votes": 3485,
-     "pct": 51.6
-    },
-    {
-     "name": "Isaiah Harris",
-     "party": "D",
-     "votes": 3267,
-     "pct": 48.4
-    }
-   ],
-   "reporting": "Unofficial (via Poliwave); not called",
-   "reportedAt": "Nov 4",
-   "enteredAt": "2026-11-04T20:00:00Z",
-   "origin": "manual",
-   "changedAt": "2026-11-04T19:56:02.863Z"
-  },
   "ca-rowland-usd-trustee-area-3-brandon-m-macias": {
    "contest": "ROWLAND UNIFIED SCHOOL DISTRICT Governing Board Member, Trustee Area No. 3",
    "candidates": [
@@ -8251,22 +8144,129 @@
    "origin": "feed",
    "changedAt": "2026-11-07T02:01:00.089Z"
   },
-  "ca-state-assembly-district-79-lashae-sharp-collins": {
+  "ky-louisville-mayor-shameka-parrish-wright": {
    "candidates": [
     {
-     "name": "LaShae Sharp-Collins",
-     "party": "Dem",
-     "votes": 66254,
-     "pct": 67.7
+     "name": "Craig Greenberg",
+     "party": null,
+     "votes": 36646,
+     "pct": 59
     },
     {
-     "name": "Andrew Lawson",
-     "party": "Rep",
-     "votes": 31584,
-     "pct": 32.3
+     "name": "Shameka L. Parrish-Wright",
+     "party": null,
+     "votes": 25282,
+     "pct": 41
     }
    ],
-   "reporting": "100% (365 of 365) precincts reporting",
+   "reporting": "Partial: Jefferson County unofficial returns (KY SOS); precincts not shown",
+   "reportedAt": "~8:25 PM ET Nov 3 (retrieval time; KY SOS page shows no timestamp)",
+   "enteredAt": "2026-11-04T01:34:20Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T01:36:00.103Z"
+  },
+  "il-state-senate-district-24-ben-mcadams": {
+   "candidates": [
+    {
+     "name": "Ben McAdams",
+     "party": "D",
+     "votes": 44066,
+     "pct": 54.6
+    },
+    {
+     "name": "Seth Lewis",
+     "party": "R",
+     "votes": 36710,
+     "pct": 45.4
+    }
+   ],
+   "reporting": "Unofficial, full district (via Positively Naperville)",
+   "reportedAt": "Nov 4 AM",
+   "called": "Ben McAdams",
+   "calledBy": "AP",
+   "enteredAt": "2026-11-04T20:00:00Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T19:56:02.863Z"
+  },
+  "ks-state-house-district-3-isaiah-harris": {
+   "candidates": [
+    {
+     "name": "D.J. Perry",
+     "party": "R",
+     "votes": 3485,
+     "pct": 51.6
+    },
+    {
+     "name": "Isaiah Harris",
+     "party": "D",
+     "votes": 3267,
+     "pct": 48.4
+    }
+   ],
+   "reporting": "Unofficial (via Poliwave); not called",
+   "reportedAt": "Nov 4",
+   "enteredAt": "2026-11-04T20:00:00Z",
+   "origin": "manual",
+   "changedAt": "2026-11-04T19:56:02.863Z"
+  },
+  "ca-board-of-equalization-district-2-sally-lieber": {
+   "candidates": [
+    {
+     "name": "Sally J. Lieber",
+     "party": "Dem",
+     "votes": 1273849,
+     "pct": 59.9
+    },
+    {
+     "name": "John Pimentel",
+     "party": "Dem",
+     "votes": 851857,
+     "pct": 40.1
+    }
+   ],
+   "reporting": "100% (6,558 of 6,558) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-board-of-equalization-district-3-samuel-sukaton": {
+   "candidates": [
+    {
+     "name": "Mike Gipson",
+     "party": "Dem",
+     "votes": 1294595,
+     "pct": 57.7
+    },
+    {
+     "name": "Samuel P. Sukaton",
+     "party": "Dem",
+     "votes": 948590,
+     "pct": 42.3
+    }
+   ],
+   "reporting": "100% (2,853 of 2,853) precincts reporting",
+   "reportedAt": "November 6, 2026, 7:34 p.m.",
+   "sourceUrl": "https://electionresults.sos.ca.gov/",
+   "origin": "feed",
+   "changedAt": "2026-11-07T04:46:36.224Z"
+  },
+  "ca-state-senate-district-6-sean-frame": {
+   "candidates": [
+    {
+     "name": "Sean Frame",
+     "party": "Dem",
+     "votes": 132599,
+     "pct": 49
+    },
+    {
+     "name": "Roger Niello",
+     "party": "Rep",
+     "votes": 137770,
+     "pct": 51
+    }
+   ],
+   "reporting": "100% (546 of 546) precincts reporting",
    "reportedAt": "November 6, 2026, 7:34 p.m.",
    "sourceUrl": "https://electionresults.sos.ca.gov/",
    "origin": "feed",
