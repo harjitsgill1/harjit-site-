@@ -8,11 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script>
   (function(){
-    var SEASON_OVERRIDE = null; /* set to 'spring', 'autumn' or 'winter' to pin a season */
-    var q = (location.search.match(/[?&]season=(spring|autumn|winter)/)||[])[1];
+    var SEASON_OVERRIDE = null; /* set to 'spring', 'summer', 'autumn' or 'winter' to pin a season */
+    var q = (location.search.match(/[?&]season=(spring|summer|autumn|winter)/)||[])[1];
     var d = new Date(), m = d.getMonth()+1, day = d.getDate(), auto;
     if ((m===9 && day>=22) || m===10 || m===11 || (m===12 && day<=20)) auto='autumn';
     else if ((m===12 && day>=21) || m<=2 || (m===3 && day<=19)) auto='winter';
+    else if ((m===6 && day>=21) || m===7 || m===8 || (m===9 && day<=21)) auto='summer';
     else auto='spring';
     document.documentElement.setAttribute('data-season', q || SEASON_OVERRIDE || auto);
   })();
@@ -43,16 +44,30 @@
     --card-bg:#2A1E19;
     --line: rgba(var(--cloud-rgb),0.14);
   }
-  /* Spring (also used through summer): navy, coral, gold */
+  /* Spring: blossom rose, fresh green, deep forest */
   html[data-season="spring"]{
-    --ink:#0F1D36; --coral:#EE5A3C; --gold:#F4BC1C; --field:#17806A;
-    --cloud:#F7F5EF; --cloud-rgb:247,245,239; --slate:#38455E; --mint:#7CD9BC;
-    --line: rgba(15,29,54,0.14);
-    --page-bg:#F7F5EF; --heading:#0F1D36; --body-text:#38455E; --card-bg:#F7F5EF;
+    --ink:#1F3A2E; --coral:#D94E74; --gold:#F6C2D2; --field:#4E9A3F;
+    --cloud:#FBF6F4; --cloud-rgb:251,246,244; --slate:#46594E; --mint:#B6E3A1;
+    --line: rgba(31,58,46,0.14);
+    --page-bg:#FBF6F4; --heading:#1F3A2E; --body-text:#46594E; --card-bg:#FBF6F4;
+    --flake:#F2A7BE;
   }
   html[data-season="spring"][data-theme="dark"]{
-    --page-bg:#121D33; --heading:#F7F5EF; --body-text:#C5CEE0; --card-bg:#1A2742;
-    --line: rgba(247,245,239,0.14);
+    --page-bg:#14221B; --heading:#FBF6F4; --body-text:#CFDDD3; --card-bg:#1C2E25;
+    --line: rgba(251,246,244,0.14);
+  }
+  /* Summer: sunshine, sunset orange, deep sea teal */
+  html[data-season="summer"]{
+    --ink:#0C3B4A; --coral:#E8582A; --gold:#FFC93C; --field:#1A9C8C;
+    --cloud:#FFF8EC; --cloud-rgb:255,248,236; --slate:#3D5A63; --mint:#8EE3D3;
+    --line: rgba(12,59,74,0.14);
+    --page-bg:#FFF8EC; --heading:#0C3B4A; --body-text:#3D5A63; --card-bg:#FFF8EC;
+    --flake:#F5B82E;
+  }
+  html[data-season="summer"][data-theme="dark"]{
+    --page-bg:#0A2530; --heading:#FFF8EC; --body-text:#CFE3E6; --card-bg:#103341;
+    --line: rgba(255,248,236,0.14);
+    --flake:#FFD866;
   }
   /* Winter: midnight, icy blue, evergreen */
   html[data-season="winter"]{
@@ -663,7 +678,9 @@
   @keyframes leafSway{ from{transform:translateX(-28px) rotate(-35deg);} to{transform:translateX(28px) rotate(40deg);} }
   #leaves .flake{display:block; border-radius:50%; background:var(--flake); animation:snowSway ease-in-out infinite alternate;}
   @keyframes snowSway{ from{transform:translateX(-14px);} to{transform:translateX(14px);} }
-  html[data-season="spring"] #leaves{display:none;}
+  #leaves .mote{position:absolute; bottom:-20px; top:auto; animation:moteRise linear infinite;}
+  #leaves .mote span{display:block; border-radius:50%; background:var(--flake); box-shadow:0 0 8px 2px var(--flake); animation:snowSway ease-in-out infinite alternate;}
+  @keyframes moteRise{ 0%{transform:translateY(0); opacity:0;} 15%{opacity:1;} 85%{opacity:1;} 100%{transform:translateY(-75vh); opacity:0;} }
   @media (prefers-reduced-motion: reduce){ #leaves{display:none;} }
 </style>
 </head>
@@ -1297,13 +1314,33 @@
 
 
 
-  /* Seasonal effect: autumn leaves, winter snow, nothing in spring */
+  /* Seasonal effect: spring petals, summer sun motes, autumn leaves, winter snow */
   try{
     var season=document.documentElement.getAttribute('data-season');
-    if(season==='autumn' || season==='winter'){
+    if(season==='autumn' || season==='winter' || season==='spring' || season==='summer'){
       var box=document.createElement('div'); box.id='leaves'; box.setAttribute('aria-hidden','true');
       var small=window.innerWidth<700;
-      if(season==='autumn'){
+      if(season==='spring'){
+        var pcols=['#F2A7BE','#F7C6D4','#E987A6','#FBE0E8','#D96E92'];
+        for(var p=0;p<(small?10:18);p++){
+          var ps=8+Math.random()*8, pe=document.createElement('div'); pe.className='leaf';
+          pe.style.left=(Math.random()*100)+'vw';
+          pe.style.opacity=(0.45+Math.random()*0.4).toFixed(2);
+          pe.style.animationDuration=(16+Math.random()*14)+'s';
+          pe.style.animationDelay=(-Math.random()*30)+'s';
+          pe.innerHTML='<svg width="'+ps+'" height="'+ps+'" viewBox="0 0 24 24" style="animation-duration:'+(3+Math.random()*3).toFixed(1)+'s"><path d="M12 3 C17 7 18 15 12 21 C6 15 7 7 12 3 Z" fill="'+pcols[p%pcols.length]+'"/></svg>';
+          box.appendChild(pe);
+        }
+      }else if(season==='summer'){
+        for(var k=0;k<(small?8:14);k++){
+          var ms=3+Math.random()*4, mo=document.createElement('div'); mo.className='mote';
+          mo.style.left=(Math.random()*100)+'vw';
+          mo.style.animationDuration=(14+Math.random()*12)+'s';
+          mo.style.animationDelay=(-Math.random()*26)+'s';
+          mo.innerHTML='<span style="opacity:'+(0.35+Math.random()*0.35).toFixed(2)+';width:'+ms.toFixed(1)+'px;height:'+ms.toFixed(1)+'px;animation-duration:'+(3+Math.random()*3).toFixed(1)+'s"></span>';
+          box.appendChild(mo);
+        }
+      }else if(season==='autumn'){
         var shapes=[
           'M12 2 L14 8 L20 6 L17 12 L22 14 L15 15 L16 21 L12 18 L8 21 L9 15 L2 14 L7 12 L4 6 L10 8 Z',
           'M12 2 C18 8 20 14 12 22 C4 14 6 8 12 2 Z M12 5 L12 20'
