@@ -1,7 +1,6 @@
 name: Publish site
 
-# Publishes the site whenever main changes (needed once Pages is set to
-# "GitHub Actions" as its source). The election workflow also publishes every run.
+# Publishes the site whenever main changes (Pages source is set to "GitHub Actions").
 on:
   push:
     branches: [main]
@@ -28,8 +27,7 @@ jobs:
           path: .
       - name: Publish
         id: first
-        # The 5-minute results job also publishes; if it's mid-publish, wait and retry
-        # instead of failing (and emailing) on the collision.
+        # If another publish is in progress, wait and retry instead of failing.
         continue-on-error: true
         uses: actions/deploy-pages@v4
       - name: Wait for the other publish to finish
