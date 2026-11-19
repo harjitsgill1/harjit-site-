@@ -641,6 +641,17 @@
     font-family:'Inter',sans-serif;
     font-weight:500;
   }
+  /* Previously: dated history of the Now / Watching / Listening lines */
+  .status-prev{grid-column:1/-1; border-top:1px solid rgba(var(--cloud-rgb),0.14); padding-top:18px;}
+  .status-prev summary{cursor:pointer; list-style:none; font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:var(--gold); font-weight:700;}
+  .status-prev summary::-webkit-details-marker{display:none;}
+  .status-prev summary::after{content:" +"; color:var(--coral);}
+  .status-prev[open] summary::after{content:" \2212";}
+  .status-prev ul{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:14px;}
+  .status-prev li{display:grid; grid-template-columns:90px 1fr; gap:16px; font-family:'Inter',sans-serif; font-size:.82rem; line-height:1.55; color:rgba(var(--cloud-rgb),0.75);}
+  .status-prev .when{font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(var(--cloud-rgb),0.5); padding-top:2px;}
+  .status-prev b{color:var(--cloud); font-weight:600;}
+  @media (max-width:560px){ .status-prev li{grid-template-columns:1fr; gap:4px;} }
   .status-value.status-text a{color:inherit; text-decoration:underline;}
   .status-sub{
     display:flex;
@@ -778,6 +789,13 @@
     <span class="status-label">Listening</span>
     <div class="status-value status-text" data-i18n="listeningLine">A lot of Land of Talk (new album!), Feist, and a lot of Christmas music (Sufjan).</div>
   </div>
+  <details class="status-prev">
+    <summary data-i18n="prevLabel">Previously</summary>
+    <ul>
+      <li><span class="when">Oct 15</span><span><b>Now:</b> Settling in at WellSpace Health, training for the next race, and adjusting to fall. <b>Watching:</b> Slow Horses, Season 6. <b>Listening:</b> A lot of MJ Lenderman, Broken Social Scene, and Feist.</span></li>
+      <li><span class="when">Sept</span><span><b>Now:</b> Finishing up at BACS, taking some time off, then heading to WellSpace. <b>Listening:</b> <a href="https://therestisclassified.com/" target="_blank" rel="noopener">The Rest Is Classified</a>'s series on Kim Philby.</span></li>
+    </ul>
+  </details>
 </section>
 
 <section class="mile" id="m0">
@@ -793,7 +811,7 @@
 
   <div class="job">
     <div class="when">2026–Present</div>
-    <div><h3 data-i18n="job0Title">Vice President, Co-occurring Continuum Services</h3><p data-i18n="job0Desc">WellSpace Health: joined 2026.</p></div>
+    <div><h3 data-i18n="job0Title">Vice President, Co-occurring Continuum Services</h3><p data-i18n="job0Desc">WellSpace Health: joined 2026. Learning the primary care behavioral health (PCBH) model, a team-based approach that puts behavioral health clinicians inside primary care.</p></div>
   </div>
   <div class="job">
     <div class="when">2024–2026</div>
@@ -1119,6 +1137,7 @@
       nowLine: "Settling in at WellSpace Health, training for the next race, and adjusting to fall: sweaters, gloves, coats.",
       listeningLine: "A lot of Land of Talk (new album!), Feist, and a lot of Christmas music (Sufjan).",
       watchingLine: "Best Medicine and Black Dove.",
+      prevLabel: "Previously",
       statStaff: "Staff Led",
       statMarathon: "Marathon Finisher",
       statKids: "Kids, Ages 10 &amp; 8",
@@ -1132,7 +1151,7 @@
       mile1Label: "The Career",
       mile1Heading: "The road so far.",
       job0Title: "Vice President, Co-occurring Continuum Services",
-      job0Desc: "WellSpace Health: joined 2026.",
+      job0Desc: "WellSpace Health: joined 2026. Learning the primary care behavioral health (PCBH) model, a team-based approach that puts behavioral health clinicians inside primary care.",
       job1Title: "Regional Vice President",
       job1Desc: "Bay Area Community Services: drove regional growth, contract strategy, and multi-county expansion.",
       job2Title: "Regional Director of Programs",
@@ -1172,6 +1191,7 @@
       nowLine: "Instalándome en WellSpace Health, entrenando para la próxima carrera y recibiendo el otoño con suéteres, guantes y abrigos.",
       listeningLine: "Mucho Land of Talk (¡nuevo álbum!), Feist y mucha música navideña (Sufjan).",
       watchingLine: "Best Medicine y Black Dove.",
+      prevLabel: "Antes",
       statStaff: "Personal a Cargo",
       statMarathon: "Maratones Completados",
       statKids: "Hijos, de 10 y 8 años",
@@ -1185,7 +1205,7 @@
       mile1Label: "La Carrera Profesional",
       mile1Heading: "El camino hasta ahora.",
       job0Title: "Vicepresidente de Servicios de Continuidad Concurrente",
-      job0Desc: "WellSpace Health: desde 2026.",
+      job0Desc: "WellSpace Health: desde 2026. Aprendiendo el modelo de salud conductual en atención primaria (PCBH), un enfoque de equipo que integra a clínicos de salud conductual en la atención primaria.",
       job1Title: "Vicepresidente Regional",
       job1Desc: "Bay Area Community Services: impulsó el crecimiento regional, la estrategia de contratos y la expansión en varios condados.",
       job2Title: "Director Regional de Programas",
@@ -1225,6 +1245,7 @@
       nowLine: "ਵੈੱਲਸਪੇਸ ਹੈਲਥ ਵਿੱਚ ਰਚ ਰਿਹਾ ਹਾਂ, ਅਗਲੀ ਦੌੜ ਦੀ ਤਿਆਰੀ ਕਰ ਰਿਹਾ ਹਾਂ, ਅਤੇ ਪਤਝੜ ਮੁਤਾਬਕ ਢਲ ਰਿਹਾ ਹਾਂ: ਸਵੈਟਰ, ਦਸਤਾਨੇ, ਕੋਟ।",
       listeningLine: "ਬਹੁਤ ਸਾਰਾ Land of Talk (ਨਵੀਂ ਐਲਬਮ!), Feist, ਅਤੇ ਬਹੁਤ ਸਾਰਾ ਕ੍ਰਿਸਮਸ ਸੰਗੀਤ (Sufjan)।",
       watchingLine: "Best Medicine ਅਤੇ Black Dove।",
+      prevLabel: "ਪਹਿਲਾਂ",
       statStaff: "ਸਟਾਫ਼ ਦੀ ਅਗਵਾਈ",
       statMarathon: "ਮੈਰਾਥਨ ਪੂਰੀਆਂ",
       statKids: "ਬੱਚੇ, ਉਮਰ 10 ਅਤੇ 8",
@@ -1238,7 +1259,7 @@
       mile1Label: "ਕਰੀਅਰ",
       mile1Heading: "ਹੁਣ ਤੱਕ ਦਾ ਸਫ਼ਰ।",
       job0Title: "ਵਾਈਸ ਪ੍ਰੈਜ਼ੀਡੈਂਟ, ਕੋ-ਆਕਰਿੰਗ ਕੰਟੀਨਿਊਮ ਸਰਵਿਸਿਜ਼",
-      job0Desc: "ਵੈੱਲਸਪੇਸ ਹੈਲਥ: 2026 ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਇਆ।",
+      job0Desc: "ਵੈੱਲਸਪੇਸ ਹੈਲਥ: 2026 ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਇਆ। ਪ੍ਰਾਇਮਰੀ ਕੇਅਰ ਬਿਹੇਵੀਅਰਲ ਹੈਲਥ (PCBH) ਮਾਡਲ ਸਿੱਖ ਰਿਹਾ ਹਾਂ, ਇੱਕ ਟੀਮ-ਆਧਾਰਿਤ ਤਰੀਕਾ ਜੋ ਵਿਹਾਰਕ ਸਿਹਤ ਕਲੀਨੀਸ਼ੀਅਨਾਂ ਨੂੰ ਪ੍ਰਾਇਮਰੀ ਕੇਅਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ।",
       job1Title: "ਰੀਜਨਲ ਵਾਈਸ ਪ੍ਰੈਜ਼ੀਡੈਂਟ",
       job1Desc: "ਬੇ ਏਰੀਆ ਕਮਿਊਨਿਟੀ ਸਰਵਿਸਿਜ਼: ਖੇਤਰੀ ਵਿਕਾਸ, ਕੰਟਰੈਕਟ ਰਣਨੀਤੀ, ਅਤੇ ਕਈ ਕਾਊਂਟੀਆਂ ਵਿੱਚ ਵਿਸਥਾਰ ਦੀ ਅਗਵਾਈ ਕੀਤੀ।",
       job2Title: "ਰੀਜਨਲ ਡਾਇਰੈਕਟਰ ਆਫ਼ ਪ੍ਰੋਗਰਾਮਸ",
